@@ -18,6 +18,3 @@ address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 html { box-sizing:border-box }
 *, *:before, *:after { box-sizing:inherit }
 
-/* skip navigation */
-.gt-skip-navigation .gt-skip-link { position:absolute; top:-10000px; left:0; z-index:10000; background:#333; text-align:center; color:#fff; padding:10px; font-size:12px }
-.gt-skip-navigation .gt-skip-link:focus { top:0 }

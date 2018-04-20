@@ -1,6 +1,10 @@
 /* Helper */
 
-//Accessibility
+//skip navigation
+.gt-skip-navigation .gt-skip-link { position:absolute; top:-10000px; left:0; z-index:10000; background:#333; text-align:center; color:#fff; padding:10px; font-size:12px }
+.gt-skip-navigation .gt-skip-link:focus { top:0 }
+
+//accessibility
 .gt-screen-out { overflow:hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px }
 
 //float

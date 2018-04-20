@@ -1,5 +1,8 @@
 /* Helper */
 
+//Accessibility
+.gt-screen-out { overflow:hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px }
+
 //float
 .gt-float-left, .gt-f-l { float:left!important }
 .gt-float-right, .gt-f-r { float:right!important }

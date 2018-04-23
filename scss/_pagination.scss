@@ -1,0 +1,34 @@
+@import 'helper';
+@import 'color';
+@import 'clearfix';
+
+/* pagination */
+.gt-pagination {
+
+	display: inline-block;
+
+	.gt-pagination-nav, .gt-pagination-num {
+		float: left;
+		padding: .5em 1em;
+		color: $gray;
+		text-decoration: none;
+		transition-duration: .1s;
+
+		&:hover {
+			background: $gray-ccc;
+			color: $white;
+		}
+
+		&.gt-active {
+			background: $primary;
+			color: $white;
+			pointer-events: none;
+		}
+
+		&.gt-disabled {
+			pointer-events: none;
+			opacity: .5;
+		}
+	}
+	@include clearfix();
+}

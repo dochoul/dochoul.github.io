@@ -1,0 +1,52 @@
+@import 'helper';
+@import 'color';
+
+/* table */
+.gt-table, .gt-table-all {
+	display: table;
+	width: 100%;
+	border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+	
+	th, td {
+		display: table-cell;
+		text-align: left;
+	}
+
+	th {
+		padding: 1em 1em;
+	}
+
+	td {
+		padding: 0.8em 1em;
+	}
+
+	&.gt-table-center tr th, &.gt-table-center tr td {
+		text-align: center;
+	}
+	
+	&.gt-table-border tr {
+		border-bottom: 1px solid $gray-ddd;
+	}
+	
+	&.gt-table-stripe tbody tr:nth-child(odd) {
+		background-color: $gray-eee;
+	}
+	
+	&.gt-table-hoverable tbody tr:hover {
+        background-color: $gray-ddd;
+        transition-duration: .3s;
+    }
+}
+
+.gt-table-all {
+    thead tr, tbody tr {
+        border-bottom: 1px solid $gray-ddd;
+    }
+    tbody tr {
+		&:nth-child(odd) {
+			background-color: $gray-eee;
+		}
+	}
+}

@@ -58,8 +58,8 @@
         </div>
         <div class="gt-panel-body gt-center">
             <div class="gt-row">
-                <div class="gt-col gt-small-12 gt-middle-2 gt-large-6" style="background:beige">1</div>
-                <div class="gt-col gt-small-12 gt-middle-10 gt-large-6" style="background:khaki">2</div>
+                <div class="gt-col gt-small-6" style="background:beige">1</div>
+                <div class="gt-col gt-small-6" style="background:khaki">2</div>
             </div>
         </div>
     </div>
@@ -176,6 +176,24 @@
         </div>
     </div>
 
+    <h2 class="anchor">반응형 그리드</h2>
+    <div class="gt-panel">
+        <div class="gt-panel-header">
+            <div class="circles">
+                <span class="circle circle-red"></span>
+                <span class="circle circle-yellow"></span>
+                <span class="circle circle-green"></span>
+            </div>
+        </div>
+        <div class="gt-panel-body gt-center">
+            <div class="gt-row">
+                <div class="gt-col gt-small-12 gt-middle-6 gt-large-3" style="background:beige">큰 화면 4단, 중간 화면 2단, 작은 화면 1단</div>
+                <div class="gt-col gt-small-12 gt-middle-6 gt-large-3" style="background:orange">큰 화면 4단, 중간 화면 2단, 작은 화면 1단</div>
+                <div class="gt-col gt-small-12 gt-middle-6 gt-large-3" style="background:khaki">큰 화면 4단, 중간 화면 2단, 작은 화면 1단</div>
+                <div class="gt-col gt-small-12 gt-middle-6 gt-large-3" style="background:skyblue">큰 화면 4단, 중간 화면 2단, 작은 화면 1단</div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -191,7 +209,7 @@
         if(ww < 768) {
             document.getElementById('ww').innerHTML = ww + ' - small';
         }
-        if(ww > 768 && ww < 1024) {
+        if(ww > 768 && ww <= 1024) {
             document.getElementById('ww').innerHTML = ww + ' - middle';
         }
         if(ww > 1024) {

@@ -2,7 +2,7 @@
 @import 'color';
 
 /* table */
-.gt-table, .gt-table-all {
+.gt-table {
 	display: table;
 	width: 100%;
 	border-spacing: 0;
@@ -26,27 +26,21 @@
 		text-align: center;
 	}
 	
-	&.gt-table-border tr {
-		border-bottom: 1px solid $gray-ddd;
+	&.gt-table-border {
+		th, tr, td {
+			border-bottom: 1px solid $gray-ddd;
+			border-left: 1px solid $gray-ddd;
+		}
+	}
+
+	&.gt-table-horizontal {
+		th, tr, td {
+			border-bottom: 1px solid $gray-ddd;
+			border-left: none;
+		}
 	}
 	
 	&.gt-table-stripe tbody tr:nth-child(odd) {
 		background-color: $gray-eee;
-	}
-	
-	&.gt-table-hoverable tbody tr:hover {
-        background-color: $gray-ddd;
-        transition-duration: .3s;
-    }
-}
-
-.gt-table-all {
-    thead tr, tbody tr {
-        border-bottom: 1px solid $gray-ddd;
-    }
-    tbody tr {
-		&:nth-child(odd) {
-			background-color: $gray-eee;
-		}
 	}
 }

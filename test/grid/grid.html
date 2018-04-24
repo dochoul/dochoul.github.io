@@ -10,7 +10,7 @@
 <title>grid</title>
 <style>
 #box {width:100%;height:100px;background:#efefef}
-#ww {font-size:2em;line-height:100px;text-align:center}
+#ww {font-size:2em;line-height:100px;text-align:center;color:#fff}
 </style>
 </head>
 <body>
@@ -208,12 +208,15 @@
 
         if(ww < 768) {
             document.getElementById('ww').innerHTML = ww + ' - small';
+            document.getElementById('box').style.background = 'red';
         }
         if(ww > 768 && ww <= 1024) {
             document.getElementById('ww').innerHTML = ww + ' - middle';
+            document.getElementById('box').style.background = 'blue';
         }
         if(ww > 1024) {
             document.getElementById('ww').innerHTML = ww + ' - large';
+            document.getElementById('box').style.background = 'brown';
         }
     });
     $( window ).resize();

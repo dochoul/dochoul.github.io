@@ -1,10 +1,7 @@
-@import 'color';
-@import 'clearfix';
-
+/* grid */
 $middle: 768px;
 $large: 1025px;
 
-/* grid */
 .gt-row {
 	.gt-col,
 	.gt-half,
@@ -57,5 +54,10 @@ $large: 1025px;
 		.gt-large-12 { width: 99.99999% }
 	}
     
-    @include clearfix();
+    &:before,
+	&:after {
+		display: block;
+		content: " ";
+		clear: both;
+	}
 }

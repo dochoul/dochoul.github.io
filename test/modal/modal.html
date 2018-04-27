@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta Name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="modal.css">
+<link rel="stylesheet" href="../document.css">
+<link rel="stylesheet" href="https://dochoul.github.io/css/helper/helper.css">
+<title>modal</title>
+</head>
+<body class="gt-p-50">
+    <h2 class="anchor">기본 예제</h2>
+    <div class="gt-panel">
+        <div class="gt-panel-header">
+            <div class="circles">
+                <span class="circle circle-red"></span>
+                <span class="circle circle-yellow"></span>
+                <span class="circle circle-green"></span>
+            </div>
+        </div>
+        <div class="gt-panel-body gt-center">
+            <button onclick="openModal('#modal')">modal</button>
+        </div>
+    </div>
+    <script src="https://gist.github.com/gabia-frontend-dev/98017e8ac565b05cbc92b41e1eb8b163.js"></script>
+    <script src="https://gist.github.com/gabia-frontend-dev/df1148c073020be83dd8f2777510dd6f.js"></script>
+
+    <h2 class="anchor">AJAX Modal</h2>
+    <div class="gt-panel">
+        <div class="gt-panel-header">
+            <div class="circles">
+                <span class="circle circle-red"></span>
+                <span class="circle circle-yellow"></span>
+                <span class="circle circle-green"></span>
+            </div>
+        </div>
+        <div class="gt-panel-body gt-center">
+            <button onclick="openModal('https://static.gabia.com/gtris/1.2.0/assets/ajax-modal.html')">ajax modal</button>
+        </div>
+    </div>
+    
+    <div id="modal" class="gt-modal">
+        <div class="gt-modal-content gt-animate-scale">
+            <div class="gt-modal-header">Modal Header</div>
+            <div class="gt-modal-body">
+                하여도 트고, 튼튼하며, 이상의 것이다. 살았으며, 이것이야말로 수 그러므로 하는 품으며, 봄바람이다. 노년에게서 밥을 우리의 소담스러운 우리의 듣기만 따뜻한 바이며, 물방아 아니다.
+                소담스러운 우는 그러므로 때문이다. 위하여 있는 피고, 미인을 약동하다. 그와 얼음이 실로 공자는 가치를 인간의 사막이다.
+                이상이 희망의 많이 끝까지 인류의 따뜻한 자신과 있으랴? 온갖 보배를 타오르고 하여도 구하지 심장의 그들의 자신과 칼이다. 거선의 든 무엇을 피다.
+            </div>
+            <div data-modal="hide" class="gt-modal-close">
+                <a href="javascript:void(0);"><img src="http://static.gabia.com/gtris/1.1.0/assets/images/delete.svg" alt="닫기"></a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="modal.js"></script>
+    <script>
+        function openModal(_target) {
+            gtris.ui.modal.open({
+                target: _target,
+                completed: function() {
+                    console.log('completed')
+                },
+                closed: function() {
+                    console.log('closed')
+                }
+            });
+        };
+    </script>
+    </body>
+    </html>

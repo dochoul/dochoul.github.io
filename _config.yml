@@ -1,0 +1,22 @@
+#theme: jekyll-theme-cayman
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+
+# Setup
+title:          gabia.FE
+paginate:       5
+baseurl:        ""
+url:            "https://gabia-frontend-dev.github.io"
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        :compressed
+
+# Build settings
+markdown:       kramdown
+
+# Gems
+gems:
+  - jekyll-paginate

@@ -8,22 +8,25 @@
     animation: loading 500ms infinite linear;
     display: block;
     content: "";
-    width: 1em;
-    height: 1em;
-    margin-left: -.5em;
-    margin-top: -.5em;
-    border: .1em solid $primary;
+    width: 1.6em;
+    height: 1.6em;
+    margin-left: -0.8em;
+    margin-top: -0.8em;
+    border: 2px solid $primary;
     border-right-color: transparent;
     border-top-color: transparent;
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 1;
   }
 }
 
 @keyframes loading {
-  0% { transform:rotate(0) }
-  100% { transform:rotate(360deg) }
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
 }

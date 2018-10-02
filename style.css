@@ -174,11 +174,11 @@
     animation: loading 500ms infinite linear;
     display: block;
     content: "";
-    width: 1.6em;
-    height: 1.6em;
-    margin-left: -0.8em;
-    margin-top: -0.8em;
-    border: 2px solid #2985db;
+    width: 2em;
+    height: 2em;
+    margin-left: -1em;
+    margin-top: -1em;
+    border: 3px solid #2985db;
     border-right-color: transparent;
     border-top-color: transparent;
     border-radius: 50%;

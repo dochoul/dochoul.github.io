@@ -15,11 +15,17 @@
 .bg-orange {
   background-color: #f66b06 !important; }
 
+.bg-white {
+  background-color: #fff !important; }
+
 .text-primary {
   color: #2985db !important; }
 
 .text-orange {
   color: #f66b06 !important; }
+
+.text-white {
+  color: #fff !important; }
 
 .d-none {
   display: none !important; }
@@ -94,19 +100,19 @@
 .embed-responsive-1by1::before {
   padding-top: 100%; }
 
-w-25 {
+.w-25 {
   width: 25% !important; }
 
-w-50 {
+.w-50 {
   width: 50% !important; }
 
-w-75 {
+.w-75 {
   width: 75% !important; }
 
-w-100 {
+.w-100 {
   width: 100% !important; }
 
-w-auto {
+.w-auto {
   width: auto !important; }
 
 .text-justify {
@@ -133,8 +139,13 @@ w-auto {
 .text-capitalize {
   text-transform: capitalize !important; }
 
+.truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important; }
+
 .c-hand {
-  cursor: pinter !important; }
+  cursor: pointer !important; }
 
 .c-move {
   cursor: move !important; }
@@ -147,6 +158,9 @@ w-auto {
 
 .c-not-allowed {
   cursor: not-allowed !important; }
+
+.c-col-resize {
+  cursor: col-resize !important; }
 
 .c-auto {
   cursor: auto !important; }
@@ -203,6 +217,10 @@ w-auto {
 .px-10 {
   padding-top: 10px !important;
   padding-bottom: 10px !important; }
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important; }
 
 .truncate-200 {
   max-width: 200px;

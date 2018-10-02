@@ -2,89 +2,240 @@
 <html>
 <head>
 <title></title>
+<meta charset="utf-8">
+<style type="text/css">
+/* reset */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, button { margin: 0; padding: 0; }
+
+fieldset, img { border: 0 none; }
+
+dl, ul, ol, menu, li { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+input, select, textarea, button { vertical-align: middle; }
+
+input::-ms-clear { display: none; }
+
+button { border: 0 none; background-color: transparent; cursor: pointer; }
+
+body { direction: ltr; -webkit-text-size-adjust: none; }
+
+body, button, input, select, table, textarea { font-size: 1em; }
+
+a { text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+a:active { background-color: transparent; }
+
+address, caption, cite, code, dfn, em, var { font-style: normal; font-weight: normal; }
+
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+  @import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
+
+/* reset */
+body {font-size:14px; font-family:'Noto Sans Korean', sans-serif}
+a {color:#666}
+
+/* h2 */
+h2.anchor {position: relative;font-size: 24px;margin-top: 65px;margin-bottom: 30px;font-weight: 300;padding-bottom: 10px;line-height: 44px;border-bottom: 1px solid #ddd}
+h2.anchor:first-child{margin-top:0}
+h2.anchor:after {position: absolute;left:0;right: 0;content: '';bottom: -1px;height: 1px;width: 100px;background-color: #aaa}
+
+/* panel */
+.gt-panel {margin: 30px 0 20px;border: 0;border-radius: 3px;border: 1px solid #e7e7e7;box-shadow: 0 2px 8px rgba(0,0,0,.07);}
+.gt-panel .gt-panel-header {height: 38px;padding: 0;border-bottom: 1px solid #eee;background: #f8f9fa;}
+.gt-panel .gt-panel-body {padding: 20px 16px;border: 0;}
+
+/* layout */
+#wrap {width:100%; height:100%; overflow:hidden}
+#sidebar {position:fixed; padding:1em 0; width:240px; height:100%; overflow:auto; z-index:1020; background:#f8f9fa}
+#contents {margin-left:240px; padding: 20px 36px}
+
+
+</style>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-  <div>
-    <span class="p-10 bg-primary">bg-primary</span>
-    <span class="p-10 bg-orange">bg-orange</span>
+  <div id="wrap">
 
-    <span class="text-primary">text-primary</span>
-    <span class="text-orange">text-orange</span>
-  </div>
+    <div id="container">
+
+      <div id="sidebar" class="gt-sidebar"></div>
+
+      <div id="contents" class="contents">
+        <h2 class="anchor">Clearfix</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <span class="float-left">floated left</span>
+              <span class="float-right">floated right</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Color</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <p class="text-primary">text-primary</p>
+              <p class="text-orange">text-orange</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Background color</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <p class="bg-primary text-white">bg-primary</p>
+              <p class="bg-orange text-white">bg-orange</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Display property</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <div class="d-inline bg-primary text-white">d-inline</div>
+              <div class="d-inline bg-orange text-white">d-inline</div>
+              <span class="d-block bg-primary text-white">d-block</span>
+              <span class="d-block bg-orange text-white">d-block</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Flex</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              ...developing
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Float</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <div class="float-left">Float left</div>
+              <div class="float-right">Float right</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Sizing</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <div class="w-25 bg-primary">Width 25%</div>
+              <div class="w-50 bg-primary">Width 50%</div>
+              <div class="w-75 bg-primary">Width 75%</div>
+              <div class="w-100 bg-primary">Width 100%</div>
+              <div class="w-auto bg-primary">Width auto</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Spacing</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <div class="p-10 bg-primary text-white">p - for classes that set padding</div>
+              <div class="m-10 bg-orange text-white">m - for classes that set margin</div>
+              <div class="mx-auto bg-primary text-white" style="width:200px;">Centered element</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Text</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <p class="text-justify">
+              Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+              <br>
+              <p class="text-left">Left aligned</p>
+              <p class="text-center">Center aligned</p>
+              <p class="text-right">Right aligned</p>
+              <br>
+              <div class="text-nowrap bg-primary" style="width: 8rem;">This text should overflow the parent.</div>
+              <br>
+              <p class="truncate w-25">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+              <br>
+              <p class="text-lowercase">Lowercased text.</p>
+              <p class="text-uppercase">Uppercased text.</p>
+              <p class="text-capitalize">CapiTaliZed text.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Vertical alignment</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <div class="d-table-row" style="height:100px">
+                <span class="d-table-cell align-top">top</span>
+                <span class="d-table-cell align-middle">middle</span>
+                <span class="d-table-cell align-bottom">bottom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Cursor</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <span class="c-hand p-10 bg-primary text-white">c-hand</span>
+              <span class="c-move p-10 bg-primary text-white">c-move</span>
+              <span class="c-zoom-in p-10 bg-primary text-white">c-zoom-in</span>
+              <span class="c-zoom-out p-10 bg-primary text-white">c-zoom-out</span>
+              <span class="c-not-allowed p-10 bg-primary text-white">c-not-allowed</span>
+              <span class="c-col-resize p-10 bg-primary text-white">c-col-resize</span>
+              <span class="c-auto p-10 bg-primary text-white">c-auto</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anchor">Embeds</h2>
+        <div class="gt-panel">
+          <div class="gt-panel-header"></div>
+          <div class="gt-panel-body">
+            <div class="clearfix">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://www.youtube.com/embed/qeMFqkcPYcg" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- //contents -->
+    </div> <!-- //container -->
+  </div> <!-- //wrap -->
+
 
   <div class="loading"></div>
 
   
-
-  <p class="text-justify truncate-200">
-    Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
-  </p>
-
-  <p class="text-left">Left aligned text on all viewport sizes.</p>
-<p class="text-center">Center aligned text on all viewport sizes.</p>
-<p class="text-right">Right aligned text on all viewport sizes.</p>
-
-<div class="text-nowrap" style="width: 8rem; background: gray">
-  This text should overflow the parent.
-</div>
-
-<p class="text-lowercase">Lowercased text.</p>
-<p class="text-uppercase">Uppercased text.</p>
-<p class="text-capitalize">CapiTaliZed text.</p>
-
-<!-- cursor: hand; -->
-<div class="c-hand">1</div>
-<!-- cursor: move; -->
-<div class="c-move">2</div>
-<!-- cursor: zoom-in; -->
-<div class="c-zoom-in">3</div>
-<!-- cursor: zoom-out; -->
-<div class="c-zoom-out">4</div>
-<!-- cursor: not-allowed; -->
-<div class="c-not-allowed">5</div>
-<!-- cursor: auto; -->
-<div class="c-auto">6</div>
-
-<table style="height: 100px;background: orange;">
-  <tbody>
-    <tr>
-      <td class="align-top">top</td>
-      <td class="align-middle">middle</td>
-      <td class="align-bottom">bottom</td>
-    </tr>
-  </tbody>
-</table>
-
-  <div class="pseudo">
-    <input type="" name="" placeholder="하이웍스 그룹웨어를 구축하고, 전자결재">
-  </div>
-
-
-<div class="bg-primary clearfix">
-  <div type="button" class="float-left">Example Button floated left</div>
-  <div type="button" class="float-right">Example Button floated right</div>
-</div>
-
-<br>
-<div>
-  <div class="d-table-row">
-    <div class="d-table-cell align-middle bg-primary" style="height:400px">
-      <label class="gt-margin-bottom-0">Email address</label>
-    </div>
-    <div class="d-table-cell align-middle" style="height:400px">
-      <input type="email" class="gt-input" placeholder="Enter email">
-    </div>
-  </div>
-</div>
-
-
-<div style="width:50%; margin:0 auto;" class="bg-primary">
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-  </div>
-</div>
 
 </body>
 </html>

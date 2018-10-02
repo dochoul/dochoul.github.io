@@ -18,6 +18,9 @@
 .bg-white {
   background-color: #fff !important; }
 
+.bg-black {
+  background-color: #000 !important; }
+
 .text-primary {
   color: #2985db !important; }
 
@@ -26,6 +29,9 @@
 
 .text-white {
   color: #fff !important; }
+
+.text-black {
+  color: #000 !important; }
 
 .d-none {
   display: none !important; }

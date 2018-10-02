@@ -1,9 +1,11 @@
-//background-color
+//Background-color
 .bg-primary { background-color:$primary !important; }
 .bg-orange { background-color:$orange !important; }
-.bg-white { background-color:#fff !important; }
+.bg-white { background-color:$white !important; }
+.bg-black { background-color:$black !important; }
 
-//color
+//Color
 .text-primary { color:$primary !important; }
 .text-orange { color:$orange !important; }
-.text-white { color:#fff !important; }
+.text-white { color:$white !important; }
+.text-black { color:$black !important; }

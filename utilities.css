@@ -227,10 +227,4 @@
   margin-left: auto !important;
   margin-right: auto !important; }
 
-.truncate-200 {
-  max-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=utilities.css.map */

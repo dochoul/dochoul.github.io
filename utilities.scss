@@ -16,9 +16,3 @@
 @import "utilities/cursor";
 @import "utilities/loading";
 @import "utilities/space";
-
-
-
-.truncate-200 {
-	@include truncate(200px);
-}

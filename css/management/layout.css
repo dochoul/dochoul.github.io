@@ -1,0 +1,85 @@
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	background: #fff;
+}
+#wrap {
+	position: absolute;
+	width: auto;
+	height: auto;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+#header {
+	position: absolute;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 15px 20px;
+    background: #fff;
+}
+#header .logo .link_logo {
+	float: left;
+	margin-right: 10px;
+}
+#header .logo .link_service {
+	float: left;
+	font-size: 20px;
+	color: #2364a7;
+	margin-top: 3px;
+	letter-spacing: -2px;
+	font-weight: 500;
+}
+#container {
+	position: absolute;
+	top: 70px;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: 0;
+	min-height: 0;
+}
+#sidebar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 237px;
+	background: #1d7abd;
+    overflow: auto;
+}
+#content {
+	position: absolute;
+	top: 0;
+	left: 237px;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
+	background: #f9fafe;
+	box-shadow: inset 0px 5px 10px #e8e8e8;
+}
+#content #content_scroll {
+	min-width: 780px;
+}
+#footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-top: 1px solid #e8e8e8;
+	height: 60px;
+	padding: 20px;
+	background: white;
+}
+#footer address {
+	font-size: 12px;
+	color: #999;
+}

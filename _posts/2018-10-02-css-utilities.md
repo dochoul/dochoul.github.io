@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How I organize CSS in large projects using UFOCSS - Part 1"
+title: "프로젝트 모든 요소에 사용할 수있는 CSS 유틸리티 속성 집합"
 author: "kimdy"
 categories: "gtris"
 tags: "css, utilities"

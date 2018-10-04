@@ -13,3 +13,29 @@
 @import 'catalogue';
 
 @import 'gfe';
+
+
+
+@import url('https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css');
+
+/* reset */
+body {font-family:'Noto Sans Korean', sans-serif}
+
+h2 {
+  // position: relative;
+  //   font-size: 1.5em;
+  //   font-weight: 400;
+  //   padding-bottom: 10px;
+  //   margin-top: 1.5em;
+  //   border-bottom: 1px solid #ddd;
+  //   &::after {
+  //     position: absolute;
+  //     left: 0;
+  //     right: 0;
+  //     content: '';
+  //     bottom: -1px;
+  //     height: 1px;
+  //     width: 100px;
+  //     background-color: #aaa;
+  //   }
+}

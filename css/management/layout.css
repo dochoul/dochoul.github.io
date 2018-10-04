@@ -68,6 +68,7 @@ body {
 }
 #content #content_scroll {
 	min-width: 780px;
+	padding: 30px 25px;
 }
 #footer {
 	position: absolute;

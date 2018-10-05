@@ -147,7 +147,7 @@ Quickly and responsively toggle the display value of components and more with ou
 
 ## Loading
 
-Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.
+Loading indicator is used for loading or updating. You can add the loading class to a container for loading status.
 
 ```html
 <div class="loading"></div>

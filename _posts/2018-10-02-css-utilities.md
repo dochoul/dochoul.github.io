@@ -6,6 +6,13 @@ categories: "gtris"
 tags: "css, utilities"
 ---
 
+## Get started
+
+Copy-paste the stylesheet <link> into your <head> before all other stylesheets to load our CSS.
+
+```html
+<link rel="stylesheet" href="https://dochoul.github.io/utilities.css">
+```
 ## Float
 
 Toggle floats on any element, across any breakpoint, using our responsive float utilities.

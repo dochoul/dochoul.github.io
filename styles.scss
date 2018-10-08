@@ -41,3 +41,10 @@ h2 {
   margin-top: 2em;
   margin-bottom: 0.2em;
 }
+
+::-moz-selection {
+  background: #fe0;
+}
+::selection {
+  background: #fe0;
+}

@@ -53,8 +53,8 @@ Convey meaning through color with a handful of color utility classes. Includes s
 ```html
 <p class="text-primary">text-primary</p>
 <p class="text-orange">text-orange</p>
-<p class="bg-white">bg-white</p>
-<p class="bg-black">bg-black</p>
+<p class="text-white">text-white</p>
+<p class="text-black">text-black</p>
 ```
 
 ## Background Colors
@@ -74,9 +74,12 @@ Quickly and responsively toggle the display value of components and more with ou
 
 ```html
 <div class="d-inline">d-inline</div>
-<div class="d-inline">d-inline</div>
 <span class="d-block">d-block</span>
-<span class="d-block">d-block</span>
+<span class="d-inline-block">d-inline-block</span>
+<span class="d-none">d-none</span>
+<span class="d-table">d-table</span>
+<span class="d-table-row">d-table-row</span>
+<span class="d-table-cell">d-table-cell</span>
 ```
 
 ## Sizing

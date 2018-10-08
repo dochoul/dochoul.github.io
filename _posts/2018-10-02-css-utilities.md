@@ -24,7 +24,7 @@ Toggle floats on any element, across any breakpoint, using our responsive float 
 
 ## Clearfix
 
-Quickly and easily clear floated content within a container by adding a clearfix utility.
+clearfix 클래스를 추가하여 floated content를 쉽게 clear할 수 있습니다.
 
 ```html
 <div class="clearfix">...</div>

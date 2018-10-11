@@ -48,7 +48,8 @@ clearfix 클래스를 추가하여 floated content를 쉽게 clear할 수 있습
 
 ## Colors
 
-Convey meaning through color with a handful of color utility classes. Includes support for styling links with hover states, too.
+Color 유틸리티 클래스를 사용하여 엘리먼트의 색상을 지정할 수 있습니다.
+SCSS을 사용하는 경우 색상 값을 직접 변경할 수 있습니다.
 
 ```html
 <p class="text-primary">text-primary</p>

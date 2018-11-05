@@ -46,29 +46,6 @@ clearfix 클래스를 추가하여 floated content를 쉽게 clear할 수 있습
 }
 ```
 
-## Colors
-
-Color 클래스를 사용하여 엘리먼트의 색상을 지정할 수 있습니다.
-SCSS을 사용하는 경우 색상 값을 직접 변경할 수 있습니다.
-
-```html
-<p class="text-primary">text-primary</p>
-<p class="text-orange">text-orange</p>
-<p class="text-white">text-white</p>
-<p class="text-black">text-black</p>
-```
-
-## Background Colors
-
-Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes. Background utilities do not set color, so in some cases you’ll want to use .text-* utilities.
-
-```html
-<div class="bg-primary">bg-primary</div>
-<div class="bg-orange">bg-orange</div>
-<div class="bg-white">bg-white</div>
-<div class="bg-black">bg-black</div>
-```
-
 ## Display Property
 
 Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.
@@ -88,10 +65,14 @@ Quickly and responsively toggle the display value of components and more with ou
 Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.
 
 ```html
-<div class="w-25">Width 25%</div>
-<div class="w-50">Width 50%</div>
-<div class="w-75">Width 75%</div>
-<div class="w-100">Width 100%</div>
+<div class="w-5">width 5%</div>
+<div class="w-10">width 10%</div>
+<div class="w-15">width 15%</div>
+<div class="w-20">width 20%</div>
+		...
+<div class="w-90">width 90%</div>
+<div class="w-95">width 95%</div>
+<div class="w-100">width 100%</div>
 <div class="w-auto">Width auto</div>
 ```
 
@@ -100,8 +81,22 @@ Quickly and responsively toggle the display value of components and more with ou
 Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.
 
 ```html
-<div class="p-10">p - for classes that set padding</div>
-<div class="m-10">m - for classes that set margin</div>
+<div class="m-10">m - for classes that set margin</div>  //margin: 10px;
+<div class="ml-10">p - for classes that set margin</div> //margin-left: 10px;
+<div class="mr-10">p - for classes that set margin</div> //margin-right: 10px;
+<div class="mt-10">p - for classes that set margin</div> //margin-top: 10px;
+<div class="mb-10">p - for classes that set margin</div> //margin-bottom: 10px;
+<div class="mv-10">p - for classes that set margin</div> //margin: 10px 0;
+<div class="mh-10">p - for classes that set margin</div> //margin: 0 10px;
+
+<div class="p-10">p - for classes that set padding</div>  //padding: 10px;
+<div class="pl-10">p - for classes that set padding</div> //padding-left: 10px 0;
+<div class="pr-10">p - for classes that set padding</div> //padding-right: 10px 0;
+<div class="pt-10">p - for classes that set padding</div> //padding-top: 10px 0;
+<div class="pb-10">p - for classes that set padding</div> //padding-bottom: 10px 0;
+<div class="pv-10">p - for classes that set padding</div> //padding: 10px 0;
+<div class="ph-10">p - for classes that set padding</div> //padding: 0 10px;
+
 <div class="mx-auto" style="width:200px">Centered element</div>
 ```
 
@@ -115,25 +110,28 @@ Quickly and responsively toggle the display value of components and more with ou
 <p class="text-left">왼쪽으로 정렬됩니다</p>
 <p class="text-center">가운데로 정렬됩니다</p>
 <p class="text-right">오른쪽으로 정렬됩니다</p>
-<div class="text-nowrap bg-primary" style="width:100px">모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다.</div>
+<div class="text-nowrap" style="width:200px; background:khaki">모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다.</div>
 <p class="truncate" style="width:200px">국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 정부는 예산에 변경을 가할 필요가 있을 때에는 추가경정예산안을 편성하여 국회에 제출할 수 있다.
 </p>
-<p class="text-lowercase">소문자로 변환됩니다</p>
-<p class="text-uppercase">대문자로 변환됩니다</p>
-<p class="text-capitalize">대문자로 시작합니다</p>
+<p class="text-lowercase">APPLE(소문자로 변환됩니다)</p>
+<p class="text-uppercase">apple(대문자로 변환됩니다)</p>
+<p class="text-capitalize">apple banana orange(단어의 첫글자만 대문자로 변환됩니다)</p>
 ```
+[Example](https://codepen.io/dochoul/pen/mQyMQM)
 
 ## Vertical alignment
 
-Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.
+display table 속성을 이용하여 높이를 알 수 없는 division의 수직 정렬을 구현합니다.
 
 ```html
-<div class="d-table-row" style="height:100px">
+<div class="d-table" style="height:100px">
   <span class="d-table-cell align-top">top</span>
   <span class="d-table-cell align-middle">middle</span>
   <span class="d-table-cell align-bottom">bottom</span>
 </div>
 ```
+[Example](https://codepen.io/dochoul/pen/oQgeEx)
+
 
 ## Cursor Property
 
@@ -147,14 +145,6 @@ Quickly and responsively toggle the display value of components and more with ou
 <span class="c-not-allowed">c-not-allowed</span>
 <span class="c-col-resize">c-col-resize</span>
 <span class="c-auto">c-auto</span>
-```
-
-## Loading
-
-Loading indicator is used for loading or updating. You can add the loading class to a container for loading status.
-
-```html
-<div class="loading"></div>
 ```
 
 ## Embeds

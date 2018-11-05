@@ -1,5 +1,3 @@
-@import "variables";
-
 //mixins
 @import "mixins/clearfix";
 @import "mixins/truncate";
@@ -7,12 +5,10 @@
 //utilities
 @import "utilities/clearfix";
 @import "utilities/float";
-@import "utilities/color";
 @import "utilities/display";
 @import "utilities/align";
-@import "utilities/embed";
-@import "utilities/sizing";
 @import "utilities/text";
-@import "utilities/cursor";
-@import "utilities/loading";
 @import "utilities/space";
+@import "utilities/sizing";
+@import "utilities/cursor";
+@import "utilities/embed";

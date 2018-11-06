@@ -76,6 +76,8 @@ Quickly and responsively toggle the display value of components and more with ou
 <div class="w-auto">Width auto</div>
 ```
 
+[Example](https://codepen.io/dochoul/pen/XybqZO)
+
 ## Spacing
 
 Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.

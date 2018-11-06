@@ -156,3 +156,5 @@ Quickly and responsively toggle the display value of components and more with ou
   <iframe src="https://www.youtube.com/embed/qeMFqkcPYcg" allowfullscreen></iframe>
 </div>
 ```
+
+[Example](https://codepen.io/dochoul/pen/ZmGoYx)

@@ -111,7 +111,7 @@ Quickly and responsively toggle the display value of components and more with ou
 <p class="text-center">가운데로 정렬됩니다</p>
 <p class="text-right">오른쪽으로 정렬됩니다</p>
 <div class="text-nowrap" style="width:200px; background:khaki">모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다.</div>
-<p class="truncate" style="width:200px">국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 정부는 예산에 변경을 가할 필요가 있을 때에는 추가경정예산안을 편성하여 국회에 제출할 수 있다.
+<p class="text-truncate" style="width:200px">국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 정부는 예산에 변경을 가할 필요가 있을 때에는 추가경정예산안을 편성하여 국회에 제출할 수 있다.
 </p>
 <p class="text-lowercase">APPLE(소문자로 변환됩니다)</p>
 <p class="text-uppercase">apple(대문자로 변환됩니다)</p>

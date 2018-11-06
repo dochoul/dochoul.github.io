@@ -74,6 +74,18 @@ Quickly and responsively toggle the display value of components and more with ou
 <div class="w-95">width 95%</div>
 <div class="w-100">width 100%</div>
 <div class="w-auto">Width auto</div>
+
+<div class="h-5">height 5%</div>
+<div class="h-10">height 10%</div>
+<div class="h-15">height 15%</div>
+<div class="h-20">height 20%</div>
+		...
+<div class="h-90">height 90%</div>
+<div class="h-95">height 95%</div>
+<div class="h-100">height 100%</div>
+
+<div class="mw-100">max-width 100%</div>
+<div class="mh-100">max-height 100%</div>
 ```
 
 [Example](https://codepen.io/dochoul/pen/XybqZO)

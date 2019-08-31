@@ -1,0 +1,36 @@
+//helper
+@import 'helper/clearfix';
+
+//media
+@import 'media/breakpoints';
+@import 'media/respondAbove';
+@import 'media/respondBelow';
+@import 'media/respondBetween';
+@import 'media/grid';
+
+
+* {margin: 0; padding: 0}
+
+.rwd-container {
+	position: relative;
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+@include respond-below(lg) {
+  .rwd-container {
+    max-width: 100%;
+  }
+}
+
+@include respond-below(md) {
+  .rwd-container {
+    max-width: 100%;
+  }
+}
+
+@include respond-below(sm) {
+  .rwd-container {
+    max-width: 100%;
+  }
+}

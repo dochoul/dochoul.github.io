@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Owl Stylesheets -->
+<link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header">
+    <div class="rwd-container" style="background: green; height: 64px;">header</div>
+  </div>
+  <div class="section1">
+    <div class="rwd-container">
+      <div class="rwd-row">
+        <div class="rwd-col rwd-sm-6 rwd-md-4 rwd-lg-2">
+          <div class="box" style="height:100px; background: red"></div>
+        </div>
+        <div class="rwd-col rwd-sm-6 rwd-md-4 rwd-lg-2">
+          <div class="box" style="height:100px; background: orange"></div>
+        </div>
+        <div class="rwd-col rwd-sm-6 rwd-md-4 rwd-lg-2">
+          <div class="box" style="height:100px; background: blue"></div>
+        </div>
+        <div class="rwd-col rwd-sm-6 rwd-md-4 rwd-lg-2">
+          <div class="box" style="height:100px; background: brown"></div>
+        </div>
+        <div class="rwd-col rwd-sm-6 rwd-md-4 rwd-lg-2">
+          <div class="box" style="height:100px; background: purple"></div>
+        </div>
+        <div class="rwd-col rwd-sm-6 rwd-md-4 rwd-lg-2">
+          <div class="box" style="height:100px; background: black"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section2">
+    <div class="rwd-container">
+      <div class="owl-carousel owl-theme">
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+        <div class="item" style="height:100px; background: red"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- javascript -->
+<script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js"></script>
+<script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+
+<script>
+$('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  responsive:{
+    0: {
+      items: 2
+    },
+    768: {
+      items: 3
+    },
+    1024: {
+      items: 6
+    }
+  }
+})
+</script>
+	
+
+</body>
+</html>

@@ -1,6 +1,68 @@
+/* reset */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button {
+  margin: 0;
+  padding: 0; }
+
+fieldset, img {
+  border: 0 none; }
+
+dl, ul, ol, menu, li {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+input, select, textarea, button {
+  vertical-align: middle; }
+
+input[type='text'], input[type='password'] {
+  -webkit-appearance: none;
+  border-radius: 0; }
+
+button {
+  border: 0 none;
+  background-color: transparent;
+  cursor: pointer; }
+
+body {
+  background: #fff; }
+
+body, th, td, input, select, textarea, button {
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: Apple Gothic,"Malgun Gothic",dotum,"Arial", sans-serif;
+  color: #333; }
+
+a {
+  color: #333;
+  text-decoration: none; }
+
+a:active, a:hover {
+  text-decoration: none; }
+
+caption {
+  visibility: hidden;
+  overflow: hidden;
+  width: 1px;
+  height: 0;
+  font-size: 0;
+  line-height: 0; }
+
+address, cite, code, dfn, em, var {
+  font-style: normal;
+  font-weight: normal; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 .rwd-row:before, .rwd-row:after {
   display: block;
-  content: " ";
+  content: "";
   clear: both; }
 
 .rwd-row .rwd-col {
@@ -85,6 +147,49 @@
   .rwd-row .rwd-lg-12 {
     width: 99.99999%; } }
 
+header {
+  height: 64px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc; }
+  header .rwd-container {
+    height: 64px;
+    text-align: center; }
+  header .logo {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    margin: 7px 0; }
+    header .logo .logo-img {
+      display: block; }
+  header .gnb {
+    display: inline-block; }
+    header .gnb .gnb-list {
+      height: 64px;
+      overflow: hidden; }
+      header .gnb .gnb-list .item {
+        float: left; }
+        header .gnb .gnb-list .item .link {
+          display: block;
+          padding: 0 20px;
+          line-height: 64px; }
+          header .gnb .gnb-list .item .link:hover {
+            color: red; }
+      header .gnb .gnb-list:before, header .gnb .gnb-list:after {
+        display: block;
+        content: "";
+        clear: both; }
+  header .open-drawer-nav {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 10px; }
+    header .open-drawer-nav .hamburger {
+      display: block; }
+
+@media (max-width: 1023px) {
+  header .gnb {
+    display: none; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -92,6 +197,7 @@
 .rwd-container {
   position: relative;
   max-width: 1440px;
+  padding: 0 20px;
   margin: 0 auto; }
 
 @media (max-width: 1199px) {

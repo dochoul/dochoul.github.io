@@ -1,3 +1,6 @@
+//base
+@import 'base/reset';
+
 //helper
 @import 'helper/clearfix';
 
@@ -8,12 +11,17 @@
 @import 'media/respondBetween';
 @import 'media/grid';
 
+//layout
+@import 'layout/header';
+@import 'layout/footer';
+
 
 * {margin: 0; padding: 0}
 
 .rwd-container {
 	position: relative;
 	max-width: 1440px;
+  padding: 0 20px;
 	margin: 0 auto;
 }
 

@@ -1,0 +1,19 @@
+header {
+  height: 64px;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden; }
+  header .rwd-container {
+    height: 64px; }
+  header .logo {
+    display: inline-block;
+    padding: 10px;
+    margin: 7px 0; }
+    header .logo .logo-img {
+      display: block; }
+  header .open-drawer-nav {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    padding: 10px; }
+    header .open-drawer-nav .hamburger {
+      display: block; }

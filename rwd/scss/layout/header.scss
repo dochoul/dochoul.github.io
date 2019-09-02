@@ -1,0 +1,62 @@
+header {
+  height: 64px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  .rwd-container {
+    height: 64px;
+    text-align: center;
+  }
+  .logo {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    margin: 7px 0;
+    .logo-img {
+      display: block;
+    }
+  }
+  .gnb {
+    display: inline-block;
+    .gnb-list {
+      height: 64px;
+      overflow: hidden;
+      .item {
+        float: left;
+        .link {
+          display: block;
+          padding: 0 20px;
+          line-height: 64px;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+      @include clearfix();
+    }
+  }
+  .open-drawer-nav {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 10px;
+    .hamburger {
+      display: block;
+    }
+  }
+}
+
+@include respond-below(lg) {
+
+}
+
+@include respond-below(md) {
+  header {
+    .gnb {
+      display: none;
+    }
+  }
+}
+
+@include respond-below(sm) {
+
+}

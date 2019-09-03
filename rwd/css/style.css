@@ -148,9 +148,14 @@ table {
     width: 99.99999%; } }
 
 header {
+  position: fixed;
+  left: 0;
+  right: 0;
   height: 64px;
   overflow: hidden;
-  border-bottom: 1px solid #ccc; }
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  z-index: 2000; }
   header .rwd-container {
     height: 64px;
     text-align: center; }
@@ -194,20 +199,64 @@ header {
   margin: 0;
   padding: 0; }
 
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+
 .rwd-container {
   position: relative;
   max-width: 1440px;
   padding: 0 20px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  background: rgba(240, 230, 140, 0.5); }
 
 @media (max-width: 1199px) {
   .rwd-container {
-    max-width: 100%; } }
+    max-width: 100%;
+    background: rgba(255, 0, 0, 0.5); } }
 
 @media (max-width: 1023px) {
   .rwd-container {
-    max-width: 100%; } }
+    max-width: 100%;
+    background: rgba(0, 255, 0, 0.5); } }
 
 @media (max-width: 767px) {
   .rwd-container {
-    max-width: 100%; } }
+    max-width: 100%;
+    background: rgba(0, 0, 255, 0.5); } }
+
+.section1 .box {
+  height: 100px;
+  margin: 0 5px; }
+
+.section2 .box {
+  height: 100px;
+  margin: 0 10px; }
+
+.section3 .box {
+  height: 100px;
+  margin: 0 15px; }
+
+.section4 .box {
+  height: 100px;
+  margin: 0 20px; }
+
+.visual {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: url(http://www.dkgholdings.co.kr/images/contents/sub2_visual.png) center center/cover no-repeat; }
+  .visual .slogan {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff; }
+    .visual .slogan .main-slogan {
+      font-size: 50px;
+      word-break: keep-all; }
+    .visual .slogan .sub-slogan {
+      margin-top: 10px;
+      word-break: keep-all; }

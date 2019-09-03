@@ -18,27 +18,117 @@
 
 * {margin: 0; padding: 0}
 
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .rwd-container {
 	position: relative;
 	max-width: 1440px;
   padding: 0 20px;
 	margin: 0 auto;
+  background: rgba(240, 230, 140, 0.5);
 }
 
 @include respond-below(lg) {
   .rwd-container {
     max-width: 100%;
+    background: rgba(255, 0, 0, 0.5);
   }
 }
 
 @include respond-below(md) {
   .rwd-container {
     max-width: 100%;
+    background: rgba(0, 255, 0, 0.5);
   }
 }
 
 @include respond-below(sm) {
   .rwd-container {
     max-width: 100%;
+    background: rgba(0, 0, 255, 0.5);
   }
 }
+
+.section1 {
+  .box {
+    height: 100px;
+    margin: 0 5px;
+  }
+}
+
+.section2 {
+  .box {
+    height: 100px;
+    margin: 0 10px;
+  }
+}
+
+.section3 {
+  .box {
+    height: 100px;
+    margin: 0 15px;
+  }
+}
+
+.section4 {
+  .box {
+    height: 100px;
+    margin: 0 20px;
+  }
+}
+
+.visual {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: url(http://www.dkgholdings.co.kr/images/contents/sub2_visual.png) center center/cover no-repeat;
+  .slogan {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    .main-slogan {
+      font-size: 50px;
+      word-break: keep-all;
+    }
+    .sub-slogan {
+      margin-top: 10px;
+      word-break: keep-all;
+    }
+  }
+}
+
+
+// .owl-dots {
+//   text-align: center;
+//   .owl-dot {
+//     display: inline-block;
+//     span {
+//       display: block;
+//       width: 15px;
+//       height: 15px;
+//       background: #ccc;
+//       border-radius: 50%;
+//       margin: 5px 7px;
+//     }
+//     &.active span,
+//     &:hover span {
+//       background: #2985db;
+//     }
+//   }
+// }
+
+// .owl-theme .owl-dots .owl-dot span {
+//   width: 15px !important;
+//   height: 15px !important;
+// }
+// .owl-theme .owl-dots .owl-dot.active span,
+// .owl-theme .owl-dots .owl-dot:hover span {
+//   background: #2985db !important;
+// }

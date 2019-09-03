@@ -1,7 +1,12 @@
 header {
+  position: fixed;
+  left: 0;
+  right: 0;
   height: 64px;
   overflow: hidden;
+  background: #fff;
   border-bottom: 1px solid #ccc;
+  z-index: 2000;
   .rwd-container {
     height: 64px;
     text-align: center;

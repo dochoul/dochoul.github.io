@@ -209,22 +209,27 @@ header {
   max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
-  background: rgba(240, 230, 140, 0.5); }
+  background: red; }
+
+@media (max-width: 1479px) {
+  .rwd-container {
+    max-width: 100%;
+    background: purple; } }
 
 @media (max-width: 1199px) {
   .rwd-container {
     max-width: 100%;
-    background: rgba(255, 0, 0, 0.5); } }
+    background: brown; } }
 
 @media (max-width: 1023px) {
   .rwd-container {
     max-width: 100%;
-    background: rgba(0, 255, 0, 0.5); } }
+    background: blue; } }
 
 @media (max-width: 767px) {
   .rwd-container {
     max-width: 100%;
-    background: rgba(0, 0, 255, 0.5); } }
+    background: skyblue; } }
 
 .section1 .box {
   height: 100px;

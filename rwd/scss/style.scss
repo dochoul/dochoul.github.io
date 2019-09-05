@@ -24,34 +24,53 @@
   overflow: hidden;
 }
 
+
+// //! 1480 ~ 
 .rwd-container {
 	position: relative;
 	max-width: 1440px;
   padding: 0 20px;
 	margin: 0 auto;
-  background: rgba(240, 230, 140, 0.5);
+  background: red;
 }
 
+//! 1200 ~ 1479
+@include respond-below(xl) {
+  .rwd-container {
+    max-width: 100%;
+    background: purple;
+  }
+}
+
+//! 1024 ~ 1199
 @include respond-below(lg) {
   .rwd-container {
     max-width: 100%;
-    background: rgba(255, 0, 0, 0.5);
+    background: brown;
   }
 }
 
+//! 768 ~ 1023
 @include respond-below(md) {
   .rwd-container {
     max-width: 100%;
-    background: rgba(0, 255, 0, 0.5);
+    background: blue;
   }
 }
 
+//! 0 ! 767
 @include respond-below(sm) {
   .rwd-container {
     max-width: 100%;
-    background: rgba(0, 0, 255, 0.5);
+    background: skyblue;
   }
 }
+
+
+
+
+
+
 
 .section1 {
   .box {

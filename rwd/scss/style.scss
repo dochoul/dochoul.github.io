@@ -24,29 +24,79 @@
   overflow: hidden;
 }
 
+.mail-groupware {
+  padding: 50px 0; 
+  background: green;
+  @include clearfix();
+  .rwd-container {
+    max-width: 1245px;
+    .box {
+      height: 450px;
+      border-radius: 8px;
+      background: rgba(255,255,255, 0.8);
+      &.mail {
+        margin-right: 37.5px;
+      }
+      &.groupware {
+        margin-left: 37.5px;
+      }
+    }
+    .title {
+      font-size: 42px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+}
 
-// //! 1480 ~ 
+.retina-test {
+  .img {
+    width: 423px;
+    height: 464px;
+    background: url(../images/market.png) 50% 50% no-repeat;
+  }
+}
+
+@media 
+  only screen and (min-device-pixel-ratio: 2), 
+  only screen and (min-resolution: 192dpi) {
+    .retina-test {
+      .img {
+        background: url(../images/market_2x.png) 50% 50% no-repeat;
+        background-size: 423px 464px;
+      }
+    }
+}
+
+
+//! 1200 ~ 1920
 .rwd-container {
 	position: relative;
 	max-width: 1440px;
   padding: 0 20px;
 	margin: 0 auto;
-  background: red;
-}
-
-//! 1200 ~ 1479
-@include respond-below(xl) {
-  .rwd-container {
-    max-width: 100%;
-    background: purple;
-  }
 }
 
 //! 1024 ~ 1199
 @include respond-below(lg) {
   .rwd-container {
     max-width: 100%;
-    background: brown;
+  }
+  .mail-groupware {
+    .rwd-container {
+      .box {
+        &.mail {
+          margin-right: 10px;
+        }
+        &.groupware {
+          margin-left: 10px;
+        }
+      }
+      .title {
+        font-size: 35px;
+      }
+    }
   }
 }
 
@@ -54,7 +104,23 @@
 @include respond-below(md) {
   .rwd-container {
     max-width: 100%;
-    background: blue;
+  }
+  .mail-groupware {
+    .rwd-container {
+      .box {
+        height: 200px;
+        &.mail {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+        &.groupware {
+          margin-left: 0;
+        }
+      }
+      .title {
+        font-size: 30px;
+      }
+    }
   }
 }
 
@@ -62,9 +128,18 @@
 @include respond-below(sm) {
   .rwd-container {
     max-width: 100%;
-    background: skyblue;
+  }
+  .mail-groupware {
+    .rwd-container {
+      .title {
+        font-size: 24px;
+      }
+    }
   }
 }
+
+
+
 
 
 

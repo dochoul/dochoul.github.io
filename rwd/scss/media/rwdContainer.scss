@@ -1,0 +1,32 @@
+//! 1200 ~ 1920
+.rwd-container {
+	position: relative;
+	max-width: 1440px;
+  padding: 0 20px;
+	margin: 0 auto;
+  background: khaki;
+}
+
+//! 1024 ~ 1199(landscape)
+@include respond-below(lg) {
+  .rwd-container {
+    max-width: 100%;
+    background: skyblue;
+  }
+}
+
+//! 768 ~ 1023(portrait)
+@include respond-below(md) {
+  .rwd-container {
+    max-width: 100%;
+    background: brown;
+  }
+}
+
+//! 0 ~ 767(mobile)
+@include respond-below(sm) {
+  .rwd-container {
+    max-width: 100%;
+    background: red;
+  }
+}

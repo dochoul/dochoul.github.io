@@ -232,6 +232,12 @@ header {
   height: 464px;
   background: url(../images/market.png) 50% 50% no-repeat; }
 
+.retina-test .retina-img {
+  width: 423px;
+  height: 464px;
+  background: url(../images/market.png) 50% 50% no-repeat;
+  background-size: 423px 464px; }
+
 @media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
   .retina-test .img {
     background: url(../images/market_2x.png) 50% 50% no-repeat;

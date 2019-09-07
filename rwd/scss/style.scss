@@ -56,6 +56,12 @@
     height: 464px;
     background: url(../images/market.png) 50% 50% no-repeat;
   }
+  .retina-img {
+    width: 423px;
+    height: 464px;
+    background: url(../images/market.png) 50% 50% no-repeat;
+    background-size: 423px 464px;
+  }
 }
 
 @media 

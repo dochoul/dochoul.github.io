@@ -60,6 +60,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.rwd-container {
+  position: relative;
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+  background: khaki; }
+
+@media (max-width: 1199px) {
+  .rwd-container {
+    max-width: 100%;
+    background: skyblue; } }
+
+@media (max-width: 1023px) {
+  .rwd-container {
+    max-width: 100%;
+    background: brown; } }
+
+@media (max-width: 767px) {
+  .rwd-container {
+    max-width: 100%;
+    background: red; } }
+
 .rwd-row:before, .rwd-row:after {
   display: block;
   content: "";
@@ -243,15 +265,7 @@ header {
     background: url(../images/market_2x.png) 50% 50% no-repeat;
     background-size: 423px 464px; } }
 
-.rwd-container {
-  position: relative;
-  max-width: 1440px;
-  padding: 0 20px;
-  margin: 0 auto; }
-
 @media (max-width: 1199px) {
-  .rwd-container {
-    max-width: 100%; }
   .mail-groupware .rwd-container .box.mail {
     margin-right: 10px; }
   .mail-groupware .rwd-container .box.groupware {
@@ -260,8 +274,6 @@ header {
     font-size: 35px; } }
 
 @media (max-width: 1023px) {
-  .rwd-container {
-    max-width: 100%; }
   .mail-groupware .rwd-container .box {
     height: 200px; }
     .mail-groupware .rwd-container .box.mail {
@@ -273,8 +285,6 @@ header {
     font-size: 30px; } }
 
 @media (max-width: 767px) {
-  .rwd-container {
-    max-width: 100%; }
   .mail-groupware .rwd-container .title {
     font-size: 24px; } }
 

@@ -27,7 +27,7 @@
 
 .mail-groupware {
   padding: 50px 0; 
-  background: green;
+  background: url(https://www.hiworks.com/static/images/img-wide-ft12.jpg) 50% 50%/cover no-repeat;
   @include clearfix();
   .rwd-container {
     max-width: 1245px;
@@ -42,11 +42,33 @@
         margin-left: 37.5px;
       }
     }
-    .title {
+    .section-title {
       font-size: 42px;
       margin-bottom: 30px;
       text-align: center;
       color: #fff;
+    }
+  }
+}
+
+.carousel-contents {
+  .rwd-container {
+    text-align: center;
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+    .item {
+      .thumbnail {
+        display: inline-block;
+        .svg {
+          width: 60px !important;
+        }
+      }
+      .title {
+        display: block;
+      }
     }
   }
 }
@@ -89,7 +111,14 @@
           margin-left: 10px;
         }
       }
-      .title {
+      .section-title {
+        font-size: 35px;
+      }
+    }
+  }
+  .carousel-contents {
+    .rwd-container {
+      .section-title {
         font-size: 35px;
       }
     }
@@ -115,6 +144,13 @@
       }
     }
   }
+  .carousel-contents {
+    .rwd-container {
+      .section-title {
+        font-size: 30px;
+      }
+    }
+  }
 }
 
 //! 0 ~ 767(mobile)
@@ -122,6 +158,13 @@
   .mail-groupware {
     .rwd-container {
       .title {
+        font-size: 24px;
+      }
+    }
+  }
+  .carousel-contents {
+    .rwd-container {
+      .section-title {
         font-size: 24px;
       }
     }

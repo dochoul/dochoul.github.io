@@ -3498,7 +3498,10 @@ footer {
   .mail-groupware .rwd-container .title {
     font-size: 30px; }
   .carousel-contents .section-title {
-    font-size: 30px; } }
+    font-size: 30px; }
+  .messenger .bg_x2 {
+    width: 418px;
+    height: 275px; } }
 
 @media (max-width: 767px) {
   .mail-groupware .rwd-container .section-title {

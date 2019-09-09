@@ -3478,7 +3478,7 @@ header {
     font-size: 30px; } }
 
 @media (max-width: 767px) {
-  .mail-groupware .rwd-container .title {
+  .mail-groupware .rwd-container .section-title {
     font-size: 24px; }
   .carousel-contents .section-title {
     font-size: 24px; } }

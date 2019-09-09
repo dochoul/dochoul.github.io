@@ -1,5 +1,6 @@
 //base
-@import 'base/reset';
+@import "base/reset";
+@import "base/variables";
 
 //mixins
 @import "mixins/clearfix";
@@ -218,8 +219,28 @@ footer {
 
 
 
-
-
+.owl-dots {
+  margin-top: 10px;
+  .owl-dot {
+    display: inline-block;
+    outline: 0;
+    span {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: #ccc;
+      border-radius: 50%;
+      margin: 5px 7px;
+    }
+    &.active,
+    &:focus,
+    &:hover {
+      span {
+        background: $primary-color;
+      }
+    }
+  }
+}
 
 
 
@@ -277,24 +298,7 @@ footer {
 }
 
 
-// .owl-dots {
-//   text-align: center;
-//   .owl-dot {
-//     display: inline-block;
-//     span {
-//       display: block;
-//       width: 15px;
-//       height: 15px;
-//       background: #ccc;
-//       border-radius: 50%;
-//       margin: 5px 7px;
-//     }
-//     &.active span,
-//     &:hover span {
-//       background: #2985db;
-//     }
-//   }
-// }
+
 
 // .owl-theme .owl-dots .owl-dot span {
 //   width: 15px !important;

@@ -90,6 +90,7 @@
 
 .messenger {
   padding: 50px 0;
+  background: #F6F6F6;
   .section-title {
     font-size: 42px;
     margin-bottom: 30px;
@@ -97,9 +98,9 @@
   }
   .bg_x2 {
     display: inline-block;
-    width: 542px;
+    width: 829px;
     height: 550px;
-    margin-left: 150px;
+    filter: drop-shadow(10px 10px 10px #ccc);
     background: url(../images/mobile_connect.png) 50% 50%/contain no-repeat;
   }
 }

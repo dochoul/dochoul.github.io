@@ -1,5 +1,6 @@
-/* reset */
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button {
+@charset "UTF-8";
+/*reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, button {
   margin: 0;
   padding: 0; }
 
@@ -19,9 +20,8 @@ blockquote:before, blockquote:after, q:before, q:after {
 input, select, textarea, button {
   vertical-align: middle; }
 
-input[type='text'], input[type='password'] {
-  -webkit-appearance: none;
-  border-radius: 0; }
+input::-ms-clear {
+  display: none; }
 
 button {
   border: 0 none;
@@ -29,36 +29,34 @@ button {
   cursor: pointer; }
 
 body {
-  background: #fff; }
+  direction: ltr;
+  -webkit-text-size-adjust: none; }
 
-body, th, td, input, select, textarea, button {
-  font-size: 18px;
+body, h1, h2, h3, h4, th, td, input, select, textarea, button, a {
+  color: #333;
+  font-size: 1em;
   line-height: 1.5;
-  font-family: Apple Gothic,"Malgun Gothic",dotum,"Arial", sans-serif;
-  color: #333; }
+  font-weight: 400;
+  font-family: 'Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif; }
 
 a {
-  color: #333;
   text-decoration: none; }
 
-a:active, a:hover {
+a:hover {
   text-decoration: none; }
 
-caption {
-  visibility: hidden;
-  overflow: hidden;
-  width: 1px;
-  height: 0;
-  font-size: 0;
-  line-height: 0; }
-
-address, cite, code, dfn, em, var {
+address, caption, cite, code, dfn, em, var {
   font-style: normal;
   font-weight: normal; }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+label {
+  margin-bottom: 0 !important; }
 
 .float-left {
   float: left !important; }
@@ -3422,21 +3420,36 @@ header {
     .mail-groupware .rwd-container .section-title {
       font-size: 42px;
       margin-bottom: 30px;
-      text-align: center;
-      color: #fff; }
+      color: #fff;
+      font-weight: 500; }
 
 .carousel-contents {
-  padding: 50px 0; }
+  padding: 50px 0;
+  background: #efefef; }
   .carousel-contents .section-title {
     font-size: 42px;
     margin-bottom: 30px;
-    color: #333; }
+    color: #333;
+    font-weight: 500; }
   .carousel-contents .item .thumbnail {
     display: inline-block; }
     .carousel-contents .item .thumbnail .svg {
       width: 60px !important; }
   .carousel-contents .item .title {
     display: block; }
+
+.messenger {
+  padding: 50px 0; }
+  .messenger .section-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+    font-weight: 500; }
+  .messenger .bg_x2 {
+    display: inline-block;
+    width: 542px;
+    height: 550px;
+    margin-left: 150px;
+    background: url(../images/mobile_connect.png) 50% 50%/contain no-repeat; }
 
 .retina-test .img {
   width: 423px;
@@ -3449,10 +3462,19 @@ header {
   background: url(../images/market_2x.png) 50% 50% no-repeat;
   background-size: contain; }
 
-@media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-  .retina-test .img {
-    background: url(../images/market_2x.png) 50% 50% no-repeat;
-    background-size: 423px 464px; } }
+footer {
+  background: #373737; }
+  footer .rwd-container {
+    padding: 50px 20px; }
+    footer .rwd-container .policy .link {
+      display: inline-block;
+      margin-right: 20px;
+      color: #999; }
+      footer .rwd-container .policy .link strong {
+        color: #fff;
+        font-weight: 500; }
+    footer .rwd-container .copyright {
+      color: #999; }
 
 @media (max-width: 1199px) {
   .mail-groupware .rwd-container .box.mail {

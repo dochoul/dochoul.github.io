@@ -60,18 +60,20 @@
     .section-title {
       font-size: 42px;
       margin-bottom: 30px;
-      text-align: center;
       color: #fff;
+      font-weight: 500;
     }
   }
 }
 
 .carousel-contents {
   padding: 50px 0;
+  background: #efefef;
   .section-title {
     font-size: 42px;
     margin-bottom: 30px;
     color: #333;
+    font-weight: 500;
   }
   .item {
     .thumbnail {
@@ -83,6 +85,22 @@
     .title {
       display: block;
     }
+  }
+}
+
+.messenger {
+  padding: 50px 0;
+  .section-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+  .bg_x2 {
+    display: inline-block;
+    width: 542px;
+    height: 550px;
+    margin-left: 150px;
+    background: url(../images/mobile_connect.png) 50% 50%/contain no-repeat;
   }
 }
 
@@ -100,15 +118,27 @@
   }
 }
 
-@media 
-  only screen and (min-device-pixel-ratio: 2), 
-  only screen and (min-resolution: 192dpi) {
-    .retina-test {
-      .img {
-        background: url(../images/market_2x.png) 50% 50% no-repeat;
-        background-size: 423px 464px;
+
+
+footer {
+  background: #373737;
+  .rwd-container {
+    padding: 50px 20px;
+    .policy {
+      .link {
+        display: inline-block;
+        margin-right: 20px;
+        color: #999;
+        strong {
+          color: #fff;
+          font-weight: 500;
+        }
       }
     }
+    .copyright {
+      color: #999;
+    }
+  }
 }
 
 

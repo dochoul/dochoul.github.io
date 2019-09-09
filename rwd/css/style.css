@@ -3452,17 +3452,6 @@ header {
     filter: drop-shadow(10px 10px 10px #ccc);
     background: url(../images/mobile_connect.png) 50% 50%/contain no-repeat; }
 
-.retina-test .img {
-  width: 423px;
-  height: 464px;
-  background: url(../images/market.png) 50% 50% no-repeat; }
-
-.retina-test .retina-img {
-  width: 423px;
-  height: 464px;
-  background: url(../images/market_2x.png) 50% 50% no-repeat;
-  background-size: contain; }
-
 footer {
   background: #373737; }
   footer .rwd-container {
@@ -3485,6 +3474,8 @@ footer {
   .mail-groupware .rwd-container .section-title {
     font-size: 35px; }
   .carousel-contents .section-title {
+    font-size: 35px; }
+  .messenger .section-title {
     font-size: 35px; } }
 
 @media (max-width: 1023px) {
@@ -3499,6 +3490,8 @@ footer {
     font-size: 30px; }
   .carousel-contents .section-title {
     font-size: 30px; }
+  .messenger .section-title {
+    font-size: 30px; }
   .messenger .bg_x2 {
     width: 561px;
     height: 366px; } }
@@ -3507,6 +3500,8 @@ footer {
   .mail-groupware .rwd-container .section-title {
     font-size: 24px; }
   .carousel-contents .section-title {
+    font-size: 24px; }
+  .messenger .section-title {
     font-size: 24px; }
   .messenger .bg_x2 {
     width: 100%;

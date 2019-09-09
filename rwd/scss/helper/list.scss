@@ -1,0 +1,12 @@
+.list-dot {
+  > li {
+    display: table;
+    width: 100%;
+    text-align: left;
+    &:before {
+      display: table-cell;
+      width: 15px;
+      content: '\2022';
+    }
+  }
+}

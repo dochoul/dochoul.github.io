@@ -4,14 +4,12 @@
 	max-width: 1440px;
   padding: 0 20px;
 	margin: 0 auto;
-  background: khaki;
 }
 
 //! 1024 ~ 1199(landscape)
 @include respond-below(lg) {
   .rwd-container {
     max-width: 100%;
-    background: skyblue;
   }
 }
 
@@ -19,7 +17,6 @@
 @include respond-below(md) {
   .rwd-container {
     max-width: 100%;
-    background: brown;
   }
 }
 
@@ -27,6 +24,5 @@
 @include respond-below(sm) {
   .rwd-container {
     max-width: 100%;
-    background: red;
   }
 }

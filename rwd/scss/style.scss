@@ -1,8 +1,23 @@
 //base
 @import 'base/reset';
 
+//mixins
+@import "mixins/clearfix";
+
 //helper
-@import 'helper/clearfix';
+@import "helper/float";
+@import "helper/clearfix";
+@import "helper/display";
+@import "helper/align";
+@import "helper/sizing";
+@import "helper/text";
+@import "helper/spaceGenerator";
+@import "helper/space";
+@import "helper/cursor";
+@import "helper/position";
+@import "helper/list";
+@import "helper/print";
+@import "helper/flex";
 
 //media
 @import 'media/breakpoints';
@@ -27,7 +42,7 @@
 
 .mail-groupware {
   padding: 50px 0; 
-  background: url(https://www.hiworks.com/static/images/img-wide-ft12.jpg) 50% 50%/cover no-repeat;
+  background: url(https://company.gabia.com/assets/images/180906/gabiaNumBg.png) 50% 50%/cover no-repeat;
   @include clearfix();
   .rwd-container {
     max-width: 1245px;
@@ -52,23 +67,21 @@
 }
 
 .carousel-contents {
-  .rwd-container {
-    text-align: center;
-    .section-title {
-      font-size: 42px;
-      margin-bottom: 30px;
-      color: #fff;
+  padding: 50px 0;
+  .section-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  .item {
+    .thumbnail {
+      display: inline-block;
+      .svg {
+        width: 60px !important;
+      }
     }
-    .item {
-      .thumbnail {
-        display: inline-block;
-        .svg {
-          width: 60px !important;
-        }
-      }
-      .title {
-        display: block;
-      }
+    .title {
+      display: block;
     }
   }
 }
@@ -117,10 +130,8 @@
     }
   }
   .carousel-contents {
-    .rwd-container {
-      .section-title {
-        font-size: 35px;
-      }
+    .section-title {
+      font-size: 35px;
     }
   }
 }
@@ -145,10 +156,8 @@
     }
   }
   .carousel-contents {
-    .rwd-container {
-      .section-title {
-        font-size: 30px;
-      }
+    .section-title {
+      font-size: 30px;
     }
   }
 }
@@ -163,10 +172,8 @@
     }
   }
   .carousel-contents {
-    .rwd-container {
-      .section-title {
-        font-size: 24px;
-      }
+    .section-title {
+      font-size: 24px;
     }
   }
 }

@@ -1,0 +1,24 @@
+<svg id="FAQ" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="합치기_479" data-name="합치기 479" d="M-7587-1529v-38h38v19h-19v19Z" transform="translate(8191 1731)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <rect id="사각형_2510" data-name="사각형 2510" width="48" height="48" fill="none"/>
+  <g id="그룹_3880" data-name="그룹 3880" transform="translate(-669 -158)">
+    <g id="그룹_3877" data-name="그룹 3877" transform="translate(70 -1)">
+      <g id="마스크_그룹_122" data-name="마스크 그룹 122" transform="translate(0)" clip-path="url(#clip-path)">
+        <g id="타원_1000" data-name="타원 1000" transform="translate(604 164)" fill="none" stroke="#002057" stroke-width="3">
+          <circle cx="19" cy="19" r="19" stroke="none"/>
+          <circle cx="19" cy="19" r="17.5" fill="none"/>
+        </g>
+      </g>
+      <rect id="사각형_3782" data-name="사각형 3782" width="13" height="3" transform="translate(623 199)" fill="#002057"/>
+      <rect id="사각형_3783" data-name="사각형 3783" width="19.5" height="3" transform="translate(642 182.5) rotate(90)" fill="#002057"/>
+    </g>
+    <g id="그룹_3881" data-name="그룹 3881" transform="translate(-296 -344)">
+      <rect id="사각형_3786" data-name="사각형 3786" width="3" height="3" transform="translate(988 530.92)" fill="#2f58b8"/>
+      <path id="패스_3001" data-name="패스 3001" d="M991,520h-6v5h3v-2h3v.879l-3,3h0v3h3v-1.757l3-3V520Z" fill="#2f58b8"/>
+    </g>
+  </g>
+</svg>

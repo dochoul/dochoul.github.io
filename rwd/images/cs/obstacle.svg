@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5492fe"/>
+      <stop offset="1" stop-color="#2e72e8"/>
+    </linearGradient>
+  </defs>
+  <g id="그룹_4169" data-name="그룹 4169" transform="translate(-1326 -1288)">
+    <rect id="사각형_2886" data-name="사각형 2886" width="40" height="40" transform="translate(1326 1288)" fill="none"/>
+    <path id="합치기_493" data-name="합치기 493" d="M0,16V4H24V16c0,6.075-5.372,11-12,11S0,22.075,0,16Z" transform="translate(1357.999 1327.5) rotate(180)" fill="#b2b2b2"/>
+    <path id="합치기_500" data-name="합치기 500" d="M2769.414-1313.025a2,2,0,0,1,0-2.828l2.121-2.121a2,2,0,0,1,2.829,0,2,2,0,0,1,0,2.828l-2.122,2.121a1.994,1.994,0,0,1-1.414.586A1.992,1.992,0,0,1,2769.414-1313.025Zm-17.878,0-2.122-2.121a2,2,0,0,1,0-2.828,2,2,0,0,1,2.829,0l2.121,2.121a2,2,0,0,1,0,2.828,1.992,1.992,0,0,1-1.414.586A1.994,1.994,0,0,1,2751.536-1313.025Zm8.353-4.974v-3a2,2,0,0,1,2-2,2,2,0,0,1,2,2v3a2,2,0,0,1-2,2A2,2,0,0,1,2759.889-1318Z" transform="translate(-1415.89 2612)" fill="url(#linear-gradient)"/>
+    <path id="패스_3271" data-name="패스 3271" d="M-2,0H28V4H-2Z" transform="translate(1333 1323.5)" fill="#b2b2b2"/>
+    <path id="패스_3273" data-name="패스 3273" d="M-1529.187,2872.938s5.33.375,5.33,6.777v4.786" transform="translate(2877 -1567)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+  </g>
+</svg>

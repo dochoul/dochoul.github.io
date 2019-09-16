@@ -1,0 +1,12 @@
+<svg id="구성_요소_1" data-name="구성 요소 1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <rect id="사각형_2513" data-name="사각형 2513" width="48" height="48" fill="none"/>
+  <g id="그룹_3884" data-name="그룹 3884" transform="translate(-1048 -1045)">
+    <g id="사각형_3798" data-name="사각형 3798" transform="translate(1055 1056)" fill="#fff" stroke="#002057" stroke-width="3">
+      <rect width="34" height="26" stroke="none"/>
+      <rect x="1.5" y="1.5" width="31" height="23" fill="none"/>
+    </g>
+    <rect id="사각형_3799" data-name="사각형 3799" width="38" height="3" transform="translate(1053 1050)" fill="#002057"/>
+    <rect id="사각형_3800" data-name="사각형 3800" width="38" height="3" transform="translate(1053 1085)" fill="#002057"/>
+    <path id="다각형_13" data-name="다각형 13" d="M5,0l5,8H0Z" transform="translate(1077 1064) rotate(90)" fill="#2f58b8"/>
+  </g>
+</svg>

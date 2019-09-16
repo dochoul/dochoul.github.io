@@ -1,0 +1,27 @@
+<svg id="메일문의" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_2349" data-name="사각형 2349" width="23" height="12" transform="translate(0 0.5)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <rect id="사각형_2513" data-name="사각형 2513" width="48" height="48" fill="none"/>
+  <g id="그룹_3862" data-name="그룹 3862" transform="translate(-146 -98)">
+    <g id="그룹_2153" data-name="그룹 2153" transform="translate(-422 -4056)">
+      <g id="타원_738" data-name="타원 738" transform="translate(595 4171)" fill="none" stroke="#002057" stroke-width="3">
+        <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+        <circle cx="5.5" cy="5.5" r="4" fill="none"/>
+      </g>
+      <g id="마스크_그룹_69" data-name="마스크 그룹 69" transform="translate(589 4183.5)" clip-path="url(#clip-path)">
+        <g id="타원_739" data-name="타원 739" transform="translate(0 0.5)" fill="none" stroke="#002057" stroke-width="3">
+          <circle cx="11.5" cy="11.5" r="11.5" stroke="none"/>
+          <circle cx="11.5" cy="11.5" r="10" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <path id="패스_1732" data-name="패스 1732" d="M-1696,4303l10.5,6,10.5-6" transform="translate(1852.001 -4193)" fill="none" stroke="#2f58b8" stroke-width="3"/>
+    <rect id="사각형_2544" data-name="사각형 2544" width="15" height="3" transform="translate(150 128)" fill="#002057"/>
+    <rect id="사각형_2546" data-name="사각형 2546" width="21" height="3" transform="translate(153 107) rotate(90)" fill="#002057"/>
+    <rect id="사각형_2547" data-name="사각형 2547" width="5" height="3" transform="translate(183 107) rotate(90)" fill="#002057"/>
+    <rect id="사각형_2545" data-name="사각형 2545" width="33" height="3" transform="translate(150 104)" fill="#002057"/>
+  </g>
+</svg>

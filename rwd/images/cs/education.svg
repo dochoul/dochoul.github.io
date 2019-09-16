@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="사각형_2349" data-name="사각형 2349" width="14" height="7" transform="translate(824 3789)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="교육" clip-path="url(#clip-path)">
+    <g id="그룹_2764" data-name="그룹 2764" transform="translate(-213 -153)">
+      <rect id="사각형_2510" data-name="사각형 2510" width="48" height="48" transform="translate(213 153)" fill="none"/>
+      <g id="그룹_2155" data-name="그룹 2155">
+        <g id="그룹_2154" data-name="그룹 2154">
+          <g id="그룹_1857" data-name="그룹 1857" transform="translate(-370 -3993)">
+            <circle id="타원_738" data-name="타원 738" cx="3" cy="3" r="3" transform="translate(593 4173)" fill="#2f58b8"/>
+            <g id="마스크_그룹_69" data-name="마스크 그룹 69" transform="translate(-235 391)" clip-path="url(#clip-path-2)">
+              <g id="타원_739" data-name="타원 739" transform="translate(824 3789)" fill="none" stroke="#2f58b8" stroke-width="3">
+                <circle cx="7" cy="7" r="7" stroke="none"/>
+                <circle cx="7" cy="7" r="5.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+          <g id="그룹_2152" data-name="그룹 2152" transform="translate(-359 -3993)">
+            <circle id="타원_738-2" data-name="타원 738" cx="3" cy="3" r="3" transform="translate(593 4173)" fill="#2f58b8"/>
+            <g id="마스크_그룹_69-2" data-name="마스크 그룹 69" transform="translate(-235 391)" clip-path="url(#clip-path-2)">
+              <g id="타원_739-2" data-name="타원 739" transform="translate(824 3789)" fill="none" stroke="#2f58b8" stroke-width="3">
+                <circle cx="7" cy="7" r="7" stroke="none"/>
+                <circle cx="7" cy="7" r="5.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+          <g id="그룹_2153" data-name="그룹 2153" transform="translate(-348 -3993)">
+            <circle id="타원_738-3" data-name="타원 738" cx="3" cy="3" r="3" transform="translate(593 4173)" fill="#2f58b8"/>
+            <g id="마스크_그룹_69-3" data-name="마스크 그룹 69" transform="translate(-235 391)" clip-path="url(#clip-path-2)">
+              <g id="타원_739-3" data-name="타원 739" transform="translate(824 3789)" fill="none" stroke="#2f58b8" stroke-width="3">
+                <circle cx="7" cy="7" r="7" stroke="none"/>
+                <circle cx="7" cy="7" r="5.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <rect id="사각형_2528" data-name="사각형 2528" width="3" height="18" transform="translate(219 159)" fill="#002057"/>
+        <rect id="사각형_2529" data-name="사각형 2529" width="3" height="18" transform="translate(252 159)" fill="#002057"/>
+        <rect id="사각형_2530" data-name="사각형 2530" width="3" height="30" transform="translate(222 162) rotate(-90)" fill="#002057"/>
+      </g>
+    </g>
+  </g>
+</svg>

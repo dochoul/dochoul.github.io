@@ -1,0 +1,14 @@
+<svg id="구성_요소_1" data-name="구성 요소 1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <rect id="사각형_2509" data-name="사각형 2509" width="48" height="48" fill="none"/>
+  <g id="그룹_3886" data-name="그룹 3886" transform="translate(-813 -1040)">
+    <path id="합치기_480" data-name="합치기 480" d="M5158,760v-5h-3l4.5-9,4.5,9h-3v5Z" transform="translate(-3345.269 4183.866) rotate(-45)" fill="#2f58b8"/>
+    <rect id="사각형_3803" data-name="사각형 3803" width="3" height="36" transform="translate(815 1046)" fill="#002057"/>
+    <rect id="사각형_3804" data-name="사각형 3804" width="3" height="21" transform="translate(848 1046)" fill="#002057"/>
+    <rect id="사각형_3805" data-name="사각형 3805" width="3" height="36" transform="translate(815 1049) rotate(-90)" fill="#002057"/>
+    <rect id="사각형_3806" data-name="사각형 3806" width="3" height="36" transform="translate(815 1082) rotate(-90)" fill="#002057"/>
+    <rect id="사각형_3807" data-name="사각형 3807" width="3" height="3" transform="translate(845 1073)" fill="#2f58b8"/>
+    <rect id="사각형_3808" data-name="사각형 3808" width="3" height="3" transform="translate(851 1070)" fill="#2f58b8"/>
+    <rect id="사각형_3809" data-name="사각형 3809" width="3" height="3" transform="translate(857 1073)" fill="#2f58b8"/>
+    <rect id="사각형_3810" data-name="사각형 3810" width="36" height="3" transform="translate(815 1052)" fill="#002057"/>
+  </g>
+</svg>

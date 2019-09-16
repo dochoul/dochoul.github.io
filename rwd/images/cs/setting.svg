@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="서버관리" clip-path="url(#clip-path)">
+    <rect id="사각형_2512" data-name="사각형 2512" width="48" height="48" fill="none"/>
+    <g id="그룹_2798" data-name="그룹 2798" transform="translate(-333 -379)">
+      <rect id="사각형_2551" data-name="사각형 2551" width="8" height="3" transform="translate(345 393)" fill="#2f58b8"/>
+      <rect id="사각형_2553" data-name="사각형 2553" width="8" height="3" transform="translate(345 411)" fill="#2f58b8"/>
+      <rect id="사각형_2554" data-name="사각형 2554" width="3" height="3" transform="translate(342 402)" fill="#002057"/>
+      <rect id="사각형_2555" data-name="사각형 2555" width="3" height="3" transform="translate(369 402)" fill="#002057"/>
+      <rect id="사각형_2696" data-name="사각형 2696" width="3" height="15" transform="translate(339 405)" fill="#002057"/>
+      <rect id="사각형_2703" data-name="사각형 2703" width="3" height="15" transform="translate(339 387)" fill="#002057"/>
+      <rect id="사각형_2697" data-name="사각형 2697" width="3" height="9" transform="translate(372 405)" fill="#002057"/>
+      <rect id="사각형_2702" data-name="사각형 2702" width="3" height="9" transform="translate(372 387)" fill="#002057"/>
+      <rect id="사각형_2698" data-name="사각형 2698" width="3" height="36" transform="translate(339 408) rotate(-90)" fill="#002057"/>
+      <rect id="사각형_2700" data-name="사각형 2700" width="3" height="36" transform="translate(339 390) rotate(-90)" fill="#002057"/>
+      <rect id="사각형_2699" data-name="사각형 2699" width="3" height="30" transform="translate(339 420) rotate(-90)" fill="#002057"/>
+      <rect id="사각형_2701" data-name="사각형 2701" width="3" height="33" transform="translate(339 402) rotate(-90)" fill="#002057"/>
+    </g>
+  </g>
+</svg>

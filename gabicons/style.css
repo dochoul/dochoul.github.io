@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'gtris_font_icon';
-  src:  url('fonts/gtris_font_icon.eot?f9htoz');
-  src:  url('fonts/gtris_font_icon.eot?f9htoz#iefix') format('embedded-opentype'),
-    url('fonts/gtris_font_icon.ttf?f9htoz') format('truetype'),
-    url('fonts/gtris_font_icon.woff?f9htoz') format('woff'),
-    url('fonts/gtris_font_icon.svg?f9htoz#gtris_font_icon') format('svg');
+  src:  url('https://dochoul.github.io/gabicons/fonts/gtris_font_icon.eot?f9htoz');
+  src:  url('https://dochoul.github.io/gabicons/fonts/gtris_font_icon.eot?f9htoz#iefix') format('embedded-opentype'),
+    url('https://dochoul.github.io/gabicons/fonts/gtris_font_icon.ttf?f9htoz') format('truetype'),
+    url('https://dochoul.github.io/gabicons/fonts/gtris_font_icon.woff?f9htoz') format('woff'),
+    url('https://dochoul.github.io/gabicons/fonts/gtris_font_icon.svg?f9htoz#gtris_font_icon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

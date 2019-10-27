@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+</head>
+<body>
+</body>
+
+
+<script>
+const capitals = `Prague, Czech Republic
+Copenhagen, Denmark
+Paris, France
+Madrid, Spain
+Rome, Italy`
+
+capitals.split('\n').forEach(s => {
+  const capital = s.split(',')[0];
+  const country = s.split(',')[1];
+  console.log( capital + ' is in' + country );
+})
+
+</script>
+
+</html>

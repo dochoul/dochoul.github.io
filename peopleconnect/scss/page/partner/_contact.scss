@@ -1,0 +1,96 @@
+.partner-apply {
+  
+  padding-top: $headerHeight;
+  color: #676767;
+
+  // 본문 기준 폰트 지정
+  @include respond-above(sm) {
+    font-size: 16px; 
+  }
+  @include respond-below(sm) {
+    font-size: 14px; 
+  }
+
+  // slogan
+  .slogan-section {
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    color: #333;
+
+    .notice-title {
+      margin: 2em 0;
+    }
+
+    .history {
+      margin-bottom: 20px;
+      @include respond-below(sm) {
+        display: none;
+      }
+    }
+
+    .list-dot > li:before {
+      color: #676767;
+    }
+    .list-dot + p {
+      color: #676767;
+    }
+  }
+
+  // form
+  .apply-section {
+    // captcha
+    .auth-image-wrap {
+      margin-top: 20px;
+      width: 290px;
+      height: 69px;
+      img {
+        width: 100%;
+      }
+    }
+
+    .content-submit-div {
+      margin-top: 5em;
+
+      .hw-pill-button {
+        margin-top: 5em;
+      }
+    }
+  }
+}
+
+
+.layer-partner-contact {
+  @include respond-above(md) {
+    width: 800px;
+    top: $headerHeight;
+    left: 50%;
+    margin-top: 0 !important;
+    margin-left: -400px !important;
+  }
+  .gray-rwd-box {
+    background: #f6f6f6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    > * {
+      max-width: 100%;
+    }
+    title {
+      font-size: 1.125em;
+    }
+    @include respond-above(sm) {
+      padding: 50px 80px;
+    }
+    @include respond-below(sm) {
+      padding: 2em;
+      flex-direction: column;
+    }
+  }
+}

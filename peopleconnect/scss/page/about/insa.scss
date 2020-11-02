@@ -1,0 +1,186 @@
+.about {
+  .img-contents {
+    .service-slogan {
+      .img-wrap {
+        .insa_service {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/insa_service_lg.png') 50% 50%/contain no-repeat;
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/ad_200416/about/insa_service_lg.png') 50% 50%/contain no-repeat;
+          width: 1083px;
+          height: 541px;
+          margin: 0 auto;
+        }
+        .insa_vacation {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/insa_vacation_lg.png') 50% 50%/contain no-repeat;
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/ad_200416/about/insa_vacation_lg.png') 50% 50%/contain no-repeat;
+          width: 1204px;
+          height: 591px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .section-feature {
+    padding: 100px 0;
+    .left {
+      float: left;
+      width: 25%;
+      .title {
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+    .right {
+      float: left;
+      width: 75%;
+      .box {
+        width: 90%;
+        .tit {
+          font-size: 18px;
+          font-weight: bold;
+          padding: 20px 0 30px;
+        }
+        .desc {
+          word-break: keep-all;
+          color: #676767;
+        }
+      }
+    }
+  }
+  .library-section {
+    background: #E8F2F8;
+    padding: 100px 0;
+    .title {
+       font-size: 28px;
+       font-weight: bold;
+       text-align: center;
+       margin-bottom: 60px;
+    }
+    .box {
+      background: #fff;
+      height: 230px;
+      @include clearfix();
+      .photo {
+        float: left;
+        width: 50%;
+        height: 230px;
+      }
+      .content {
+        position: relative;
+        float: left;
+        padding: 25px 0 0 25px;
+        width: 50%;
+        height: 230px;
+        width: 50%;
+        .sub-tit {
+          font-size: 18px;
+        }
+        .main-tit {
+          font-size: 24px;
+          width: 70%;
+          font-weight: bold;
+          margin-top: 6px;
+          .fa-caret-circle-right {
+            display: inline-block;
+            color: #2F58B8;
+            font-size: 16px;
+            vertical-align: middle;
+            margin-bottom: 4px;
+          }
+        }
+        .days {
+          position: absolute;
+          bottom: 20px;
+          font-size: 14px;
+          color: #676767;
+        }
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .insa_service {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/insa_service_md.png') 50% 50%/contain no-repeat;
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/ad_200416/about/insa_service_lg.png') 50% 50%/contain no-repeat;
+            width: 550px;
+            height: 268px;
+          }
+          .insa_vacation {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/insa_vacation_md.png') 50% 50%/contain no-repeat;
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/ad_200416/about/insa_vacation_lg.png') 50% 50%/contain no-repeat;
+            width: 602px;
+            height: 295.5px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .insa_service {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/insa_service_sm.png') 50% 50%/contain no-repeat;
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/ad_200416/about/insa_service_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+          }
+          .insa_vacation {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/insa_vacation_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    .section-feature {
+      text-align: center;
+      padding: 100px 0;
+      .left {
+        width: 100%;
+      }
+      .right {
+        width: 100%;
+        .box {
+          width: 50%;
+          margin: auto;
+          margin-top: 50px;
+          .tit {
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .library-section {
+      .box {
+        .content {
+          padding: 25px 0 0 15px;
+          .sub-tit {
+            font-size: 16px;
+          }
+          .main-tit {
+            font-size: 16px;
+            width: 90%;
+            font-weight: normal;
+          }
+          .days {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+.list-dot>li{display:table;width:100%;text-align:left;font-family:auto}.list-dot>li:before{display:table-cell;width:15px;content:'\2022'}.list-count{counter-reset:my-counter}.list-count>li{counter-increment:my-counter;display:table;width:100%;text-align:left}.list-count>li:before{content:"0" counter(my-counter);display:table-cell;width:15px}

@@ -1,0 +1,19 @@
+@mixin formStatusStyle() {
+  border: 1px solid #d6d6d6;
+  transition-duration: .2s;
+  
+  &:hover {
+    border-color: #c0c4cc;
+  }
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+  &::placeholder {
+    color: #acacac;
+  }
+  &[disabled] {
+    background: #f8f8f8;
+    border-color: #d6d6d6;
+  }
+}

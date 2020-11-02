@@ -1,0 +1,140 @@
+//! 1280 ~ 1920
+.market-page {
+  .customer {
+    padding: 100px 0;
+    background: #E8F2F8;
+    .title {
+      font-size: 42px;
+      margin-bottom: 5px;
+      font-weight: 600;
+      word-break: keep-all;
+    }
+    .desc {
+      font-size: 18px;
+    }
+    .customer-list {
+      margin-top: 60px;
+      .logo-img-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 41px;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        padding: 50px 30px;
+        background: #fff;
+        border-radius: 8px;
+        margin: 12px;
+        .logo-title-wrap {
+          padding: 20px 0;
+          .company-name {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #676767;
+          }
+          .company-name2 {
+            font-size: 18px;
+          }
+        }
+        .text {
+          color: #676767;
+        }
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .market-page {
+    .customer {
+      .title {
+        font-size: 36px;
+      }
+      .customer-list {
+        margin-top: 50px;
+        .box {
+          .logo-title-wrap {
+            padding: 15px 0;
+            .company-name {
+              font-size: 22px;
+            }
+            .company-name2 {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 768 ~ 1023(아이패드 세로)
+@include respond-below(md) {
+  .market-page {
+    .customer {
+      padding: 50px 0;
+      .title {
+        font-size: 32px;
+      }
+      .desc {
+        font-size: 16px;
+      }
+      .customer-list {
+        margin-top: 30px;
+        .box {
+          .logo-title-wrap {
+            padding: 10px 0;
+            .company-name {
+              font-size: 16px;
+              font-weight: 500;
+            }
+            .company-name2 {
+              font-size: 12px;
+            }
+          }
+          .text {
+            font-size: 14px;
+            word-break: keep-all;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .market-page {
+    .customer {
+      //display: none;
+      .customer-list {
+        border-radius: 8px;
+        background: #fff;
+        .box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 30px;
+          margin: 0;
+          height: auto;
+        }
+        .company-name,
+        .company-name2,
+        .text {
+          display: none;
+        }
+      }
+      .title {
+        font-size: 24px;
+      }
+      .desc {
+        font-size: 14px;
+      }
+    }
+  }
+}

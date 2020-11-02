@@ -1,0 +1,96 @@
+// 자료실
+.datas {
+  .contents {
+    background: #f6f6f6;
+    .content-list-div {
+      max-width: 1100px !important;
+    }
+    .datas_box {
+      width: auto;
+      margin: auto;
+      padding: 0 15px 27px;
+      display: inline-flex;
+      flex-direction: column;
+      @include respond-below(sm) {
+        width: 100%;
+        padding: 0 0 20px 0;
+      }
+      .datas_contents {
+        background: #fff;
+        border: 1px solid rgba(193, 193, 193, 0.7);
+        border-top: 1px solid rgba(193, 193, 193, 0);
+        padding: 20px 20px 40px 20px;
+        max-width: 338px;
+        min-height: 147px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        @include clearfix();
+        .small_txt {
+          color: #676767;
+          font-size: 14px;
+        }
+        .big_txt {
+          color: #333;
+          font-weight: 600;
+          margin-top: 10px;
+          font-size: 18px;
+        }
+        .guide_button {
+          width: 36px;
+          height: 36px;
+          border: 1px solid rgba(193, 193, 193, 0.7);
+          background-color: #fff;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #c1c1c1;
+        }
+        @include respond-below(sm) {
+          max-width: 100%;
+        }
+      }
+      @include clearfix();
+    }
+  }
+  .feature-contents {
+    background: #fff;
+    .rwd-container {
+      max-width: 1480px;
+      margin: 100px auto 0;
+      padding: 0 20px;
+    }
+    .link:hover {
+      text-decoration-line: underline;
+    }
+    .title {
+      font-size: 24px !important;
+      padding: 20px 0 20px !important;
+      font-weight: 600;
+    }
+    .icon {
+      width: auto !important;
+      height: auto !important;
+    }
+    .last_item {
+      border-left: 1px solid rgba(161, 161, 161, 0.7);
+      padding-left: 40px;
+      @include respond-below(md) {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+    @include respond-below(md) {
+      display: none;
+    }
+  }
+
+  // (모바일에서만 나오는)하이웍스 이용방법 
+  .only-mobile {
+    display: none;
+    @include respond-below(md) {
+      display: block;
+    }
+  }
+    
+}

@@ -1,0 +1,48 @@
+.about {
+  .img-contents {
+    .service-slogan {
+      .img-wrap {
+        .reservation_resource {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/reservation_resource_lg.png') 50% 50%/contain no-repeat;
+          width: 1242px;
+          height: 650.7px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .reservation_resource {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/reservation_resource_md.png') 50% 50%/contain no-repeat;
+            width: 621px;
+            height: 345.5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .reservation_resource {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/reservation_resource_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+//! 1280 ~ 1920
+.market-page {
+  .tex-bill {
+    position: relative;
+    .bg {
+      position: relative;
+      height: 445px;
+      background-size: cover;
+      &.tax {
+        background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/market/bg_tax.png) no-repeat;
+      }
+      &.work {
+        background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/market/bg_work.png) no-repeat;
+      }
+      .content-wrap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 50%;
+        .title {
+          //font-size: 42px;
+          margin: 18px 0 12px;
+          color: #fff;
+          word-break: keep-all;
+        }
+        .sub-title {
+          color: #fff;
+          font-size: 18px;
+          margin: 8px 0 30px;
+          word-break: keep-all;
+        }
+        .free {
+          display: inline-block;
+          background: rgba(255, 255, 255, 0.3);
+          padding: 1px 10px 0px;
+          border: 1px solid #fff;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 600;
+          vertical-align: middle;
+          user-select: none;
+        }
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .market-page {
+    .tex-bill {
+      .bg {
+        height: 438px;
+        .content-wrap {
+          width: 80%;
+          margin: auto;
+          // .title {
+          //   font-size: 36px;
+          // }
+          .sub-title {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 768 ~ 1023(아이패드 세로)
+@include respond-below(md) {
+  .market-page {
+    .tex-bill {
+      .bg {
+        height: 325px;
+        .content-wrap {
+          text-align: center;
+          // .title {
+          //   font-size: 32px;
+          // }
+          .sub-title {
+            font-size: 16px;
+            margin: 8px 0 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .market-page {
+    .tex-bill {
+      .bg {
+        height: 310px;
+        .content-wrap {
+          width: 80%;
+          // .title {
+          //   font-size: 24px;
+          // }
+          .sub-title {
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

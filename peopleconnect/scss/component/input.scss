@@ -1,0 +1,30 @@
+/* input */
+.hw-input-wrap {
+  display: block;
+  .hw-input {
+    font-size: 1em;
+    padding: 5px 10px;
+    height: 42px;
+    min-width: 0;
+    border-radius: 40px;
+    @include formStatusStyle();
+  }
+  textarea.hw-input {
+    min-height: 180px;
+    border-radius: 5px;
+    width:100%;
+    min-height:180px;
+    padding: 10px;
+    border: 1px solid #d6d6d6;
+    transition-duration: .2s;
+  }
+}
+
+.hw-textarea {
+  width:100%;
+  min-height: 180px;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #d6d6d6;
+  transition-duration: .2s;
+}

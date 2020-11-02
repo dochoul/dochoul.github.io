@@ -1,0 +1,110 @@
+.el-checkbox {
+  margin-right: 0;
+  
+  .el-checkbox__inner {
+    width: 16px;
+    height: 16px;
+    border-color: #707070;
+    transition: none;
+    &:hover {
+      border-color: #2985db;
+    }
+    &::after {
+      border-width: 2px;
+      width: 4px;
+      height: 9px;
+      left: 4px;
+      top: 0px;
+      transition: none;
+    }
+  }
+  .el-checkbox__label {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 0 2px 6px;
+  }
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+    top: 6px;
+    left: 2px;
+    width: 10px;
+    height: 2px;
+    transform: none;
+  }
+
+  //disabled
+  .el-checkbox__input.is-disabled .el-checkbox__inner,
+  .el-checkbox__input.is-disabled + span.el-checkbox__label,
+  .el-checkbox__input.is-disabled .el-checkbox__inner::after {
+    cursor: default;
+  }
+
+  .is-disabled {
+    .el-checkbox__inner:hover {
+      border-color: #dcdfe6;
+    }
+  }
+
+}
+
+
+.hw-checkbox {
+  &.is-focus {
+    .hw-checkbox-input {
+      border-color: $primary-color;
+    }
+  }
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  .hw-checkbox-input {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #707070;
+    background-color: #fff;
+    &:hover {
+      border-color: $primary-color;
+    }
+  }
+  &.checked {
+    .hw-checkbox-input {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      &:after {
+        position: absolute;
+        content: "";
+        border: 2px solid #fff;
+        border-left: 0;
+        border-top: 0;
+        width: 4px;
+        height: 9px;
+        left: 4px;
+        top: 0px;
+        transform: rotate(45deg) scaleY(1);
+        box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+      }
+    }
+  }
+  //라벨
+  .hw-checkbox-label {
+    display: block;
+    float: left;
+    padding: 0 0 0 6px;
+  }
+  //input[checkbox] 숨기기
+  .checkbox-original {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    margin: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+}

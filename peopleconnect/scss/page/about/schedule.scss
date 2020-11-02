@@ -1,0 +1,65 @@
+.about {
+  .img-contents {
+    .service-slogan {
+      .img-wrap {
+        .schedule_project {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/schedule_project_lg.png') 50% 50%/contain no-repeat;
+          width: 1191px;
+          height: 540px;
+          margin: 0 auto;
+        }
+        .schedule_alarm {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/schedule_alarm_lg.png') 50% 50%/contain no-repeat;
+          width: 1081px;
+          height: 540px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .schedule_project {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/schedule_project_md.png') 50% 50%/contain no-repeat;
+            width: 540.5px;
+            height: 270px;
+          }
+          .schedule_alarm {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/schedule_alarm_md.png') 50% 50%/contain no-repeat;
+            width: 595px;
+            height: 270px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .schedule_project {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/schedule_project_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+          }
+          .schedule_alarm {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/schedule_alarm_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+          }
+        }
+      }
+    }
+  }
+}

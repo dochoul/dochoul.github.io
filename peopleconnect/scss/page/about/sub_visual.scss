@@ -1,0 +1,118 @@
+.about {
+  //! 메인 이미지
+  .sub-visual {
+    position: relative;
+    height: 451px;
+    .img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      //background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/main.png) 50% 50%/cover no-repeat;
+      background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/main_compress.png) 50% 50%/cover no-repeat;
+    }
+    .slogan-wrap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      .slogan {
+        font-size: 42px;
+        margin-bottom: 30px;
+        color: #fff;
+        line-height: 1.4;
+        //font-weight: 600;
+      }
+      .sub-slogan {
+        color: #fff;
+      }
+    }
+  }
+  .feature-icon {
+    .owl-dots{
+      //! 디버깅 요청
+      display: none !important;
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .about {
+    .sub-visual {
+      height: 418px;
+      .slogan-wrap {
+        width: 80%;
+        .slogan {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
+
+//! 768 ~ 1023(아이패드 세로)
+@include respond-below(md) {
+  .about {
+    .sub-visual {
+      height: 356px;
+      .slogan-wrap {
+        .slogan {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .about {
+    .sub-visual {
+      height: 320px;
+      .slogan-wrap {
+        .slogan {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+.subtop_header_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 450px;
+  padding: 0 10px;
+  text-align: center;
+  background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/main_compress.png) 50% 50%/cover no-repeat;
+  @include respond-below(lg) {
+
+  }
+  @include respond-below(md) {
+    height: 420px;
+  }
+  @include respond-below(sm) {
+    height: 320px;
+  }
+
+  &._market_page {
+    height: 330px;
+    background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/market/main_img_compress.png) 50% 50%/cover no-repeat;
+    @include respond-below(lg) {
+
+    }
+    @include respond-below(md) {
+      height: 270px;
+    }
+    @include respond-below(sm) {
+      height: 240px;
+      .text-flex-18 {
+        display: none;
+      }
+    }
+  }
+}

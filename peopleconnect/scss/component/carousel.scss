@@ -1,0 +1,28 @@
+/*
+ *  Owl Carousel - Rewrite(bangsh/200324)
+ */
+.owl-carousel {
+    &.is-nav {
+        & > i[class~="fa-chevron-"] {
+            position: relative;
+            top: -30px;
+        }
+        &.disabled {
+            color: #eee;
+        }
+        .owl-nav button.owl-prev,
+        .owl-nav button.owl-next {
+            width: 46px;
+            height: 46px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.16);
+            font-family: sans-serif;
+            font-weight: lighter;
+            font-size: 20px;
+            color: #abaaaa;
+            text-align: center;
+            overflow: hidden;
+        }
+    }
+}

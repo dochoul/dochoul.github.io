@@ -1,0 +1,36 @@
+.v-context {
+  border: 1px solid #707070 !important;
+  background: #fff !important;
+  width: 165px !important;
+  box-shadow: 2px 5px 4px 0 rgba(0, 0, 0, 0.16) !important;
+  ul li {
+    padding: 0 20px !important;
+    line-height: 36px !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    .icon {
+      float: left;
+      font-size: 14px;
+      margin-right: 10px;
+      line-height: 36px;
+      &.fas.fa-star {
+        color: #fdc036;
+      }
+    }
+    .text {
+      float: left;
+      font-weight: 400;
+    }
+    &:hover {
+      background-color: #eff4fc !important;
+      color: #333 !important;
+    }
+    @include clearfix();
+  }
+  .divider {
+    height: 1px;
+    margin: 6px auto;
+    overflow: hidden;
+    background-color: #d6d6d6;
+  }
+}

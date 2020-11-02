@@ -1,0 +1,26 @@
+@mixin hw-table($direction: vertical) {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  th, td {
+    padding: 0.8em 1em;
+    border: 1px solid #C1C1C1;
+    background: #fff;
+  }
+  th {
+    color: #333;
+  }
+  td {
+    color: #676767;
+  }
+  @if($direction == vertical) {
+    th, td {
+      text-align: center;
+    }
+  }
+  @else if($direction == horizontal) {
+    th, td {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.about {
+  .img-contents {
+    .service-slogan {
+      .img-wrap {
+        .contacts_add {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/contacts_add_lg.png') 50% 50%/contain no-repeat;
+          width: 1171px;
+          height: 643px;
+          margin: 0 auto;
+        }
+        .contacts_connect {
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/contacts_connect_lg.png') 50% 50%/contain no-repeat;
+          width: 925px;
+          height: 540px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .contacts_add {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/contacts_add_md.png') 50% 50%/contain no-repeat;
+            width: 418.5px;
+            height: 275px;
+          }
+          .contacts_connect {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/contacts_connect_md.png') 50% 50%/contain no-repeat;
+            width: 418.5px;
+            height: 275px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .about {
+    .img-contents {
+      .service-slogan {
+        .img-wrap {
+          .contacts_add {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/contacts_add_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+          }
+          .contacts_connect {
+            background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/about/png/contacts_connect_sm.png') 50% 50%/contain no-repeat;
+            width: 300px;
+            height: 237px;
+          }
+        }
+      }
+    }
+  }
+}

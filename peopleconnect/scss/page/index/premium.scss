@@ -1,0 +1,193 @@
+//! 1280 ~ 1920
+.index {
+  .premium-section {
+    .info {
+      width: 30%;
+      float: left;
+      padding: 0px 30px 0px 0;
+      opacity: 0;
+      transition: all .5s ease-in-out, opacity .5s ease-in-out;
+      transform: translateY(-30px);
+      .title {
+        font-size: 42px;
+        line-height: 1.35;
+        margin: 0;
+        word-break: keep-all;
+        font-weight: 800;
+      }
+      .desc {
+        width: 90%;
+        color: #333;
+        font-size: 18px;
+        letter-spacing: -1px;
+        word-break: keep-all;
+      }
+      .service-center {
+        font-size: 24px;
+        font-weight: bolder;
+        margin: 10px 0px 20px;
+      }
+      .pill-button {
+        display: none;
+      }
+    }
+    .feature {
+      width: 70%;
+      float: left;
+      .column {
+        .box {
+          padding: 28px 20px 20px 20px;
+          border-right: 1px solid #E5E5E5;
+          opacity: 0;
+          transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+          transform: translateY(-30px);
+          .tit {
+            font-size: 24px;
+            font-weight: bolder;
+            padding: 22px 0 35px;
+          }
+          .desc {
+            font-size: 18px;
+            letter-spacing: -1px;
+            width: 100%;
+            word-break: keep-all;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        &:last-child {
+          .box {
+            border-right: 0;
+          }
+        }
+      }
+    }
+    .bg {
+      background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/index/index_6.jpg) no-repeat;
+      width: 100%;
+      height: 300px;
+      margin: 100px 0 0;
+      opacity: 0;
+      transition: all .5s ease-in-out, opacity .5s ease-in-out;
+      background-size: cover;
+      transform: translateY(30px);
+    }
+    @include clearfix();
+  }
+
+  //! (animation) 모든 기업을 위한 기업메일과 그룹웨어
+  [data-anchor="premium"] {
+    &.on {
+      .info {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .feature {
+        .column {
+          .box {
+            opacity: 1;
+            transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+            transform: translateY(0);
+          }
+        }
+      }
+      .bg {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .index {
+    .premium-section {
+      padding: 100px 0;
+      .info {
+        width: 100%;
+        text-align: center;
+        padding: 0 0 50px;
+        .title {
+          font-size: 36px;
+          margin: 0 auto;
+        }
+        .desc {
+          width: 100%;
+        }
+      }
+      .feature {
+        width: 100%;
+        .column {
+          .box {
+            padding: 20px;
+            .tit {
+              padding: 0px 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//! 768 ~ 1023(아이패드 세로)
+@include respond-below(md) {
+  .index {
+    .premium-section {
+      padding: 60px 0;
+      .info {
+        .title {
+          width: 100%;
+        }
+        .desc {
+          width: 80%;
+          margin: 10px auto 15px;
+          font-size: 16px;
+        }
+        .service-center {
+          font-size: 22px;
+        }
+        .pill-button {
+          display: block;
+          width: 30%;
+          margin: 20px auto 0;
+        }
+      }
+      .feature {
+        display: none;
+      }
+      .bg {
+        display: none;
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .index {
+    .premium-section {
+      padding: 0;
+      .info {
+        .title {
+          font-size: 24px;
+          width: 100%;
+        }
+        .desc {
+          width: 80%;
+          margin: 10px auto 15px;
+          font-size: 16px;
+        }
+        .service-center {
+          font-size: 22px;
+        }
+      }
+      .feature {
+        display: none;
+      }
+    }
+  }
+}

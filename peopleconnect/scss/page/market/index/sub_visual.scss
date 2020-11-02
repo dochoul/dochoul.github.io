@@ -1,0 +1,87 @@
+//! 1280 ~ 1920
+.market-page {
+  .sub-visual {
+    position: relative;
+    height: 327px;
+    .img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      //background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/market/main_img.png) 50% 50%/cover no-repeat;
+      background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/market/main_img_compress.png) 50% 50%/cover no-repeat;
+    }
+    .slogan-wrap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      .slogan {
+        font-size: 42px;
+        margin-bottom: 10px;
+        color: #fff;
+        line-height: 1.2;
+        font-weight: 800;
+        word-break: keep-all;
+      }
+      .sub-slogan {
+        color: #fff;
+        font-size: 18px;
+        word-break: keep-all;
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .market-page {
+    .sub-visual {
+      height: 320px;
+      .slogan-wrap {
+        .slogan {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
+
+//! 768 ~ 1023(아이패드 세로)
+@include respond-below(md) {
+  .market-page {
+    .sub-visual {
+      height: 270px;
+      .slogan-wrap {
+        .slogan {
+          font-size: 36px;
+          //width: 55%;
+        }
+        .sub-slogan {
+          display: none;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+  .market-page {
+    .sub-visual {
+      height: 240px;
+      .slogan-wrap {
+        width: 80%;
+        .slogan {
+          font-size: 24px;
+        }
+        .sub-slogan {
+          display: none;
+        }
+      }
+    }
+  }
+}

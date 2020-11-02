@@ -1,0 +1,114 @@
+/*
+여기에 변수를 작성하십시오.
+사용 가능한 모든 변수는 element-ui/packages/theme-chalk/src/common/var.scss에 있습니다.
+*/
+
+/* Input
+-------------------------- */
+$--input-height: 30px;
+$--input-placeholder-color: #acacac;
+$--input-border-radius: 0;
+
+/* Color
+-------------------------- */
+$--color-white: #fff;
+$--color-black: #000;
+$--color-primary: #2985db;
+$--color-danger: #e0182d;
+$--color-info: #d6d6d6;
+
+/* Button
+-------------------------- */
+$--button-default-color: $--color-primary;
+$--button-default-fill: transparent;
+$--button-default-border: $--color-primary;
+$--button-info-color: #333;
+$--button-border-radius: 0;
+$--button-medium-border-radius: 0;
+$--button-small-border-radius: 0;
+$--button-mini-border-radius: 0;
+
+/* Select
+-------------------------- */
+$--select-dropdown-border: 1px solid #d6d6d6;
+$--select-border-color-hover: #c0c4cc;
+$--select-option-hover-background: #eee;
+
+/* Popover
+-------------------------- */
+$--popover-border-color: #d6d6d6;
+$--popover-arrow-size: 0;
+
+/* DatePicker
+--------------------------*/
+$--datepicker-color: orangered;
+$--datepicker-off-color: gray;
+$--datepicker-header-color: black;
+$--datepicker-icon-color: green;
+$--datepicker-border-color: brown;
+$--datepicker-inner-border-color: red;
+$--datepicker-inrange-color: khaki;
+$--datepicker-inrange-hover-color: khaki;
+$--datepicker-active-color: black;
+$--datepicker-text-hover-color: violet;
+$--datepicker-cell-hover-color: wheat;
+
+/* Checkbox
+-------------------------- */
+$--checkbox-font-size: 14px;
+$--checkbox-input-height: 14px;
+$--checkbox-input-width: 14px;
+$--checkbox-input-border-radius: 0;
+
+/* Radio
+-------------------------- */
+$--radio-font-size: 14px;
+$--radio-input-height: 14px;
+$--radio-input-width: 14px;
+
+/* Message Box
+-------------------------- */
+$--msgbox-width: 360px;
+$--msgbox-border-radius: 0px;
+$--msgbox-content-font-size: 16px;
+$--msgbox-content-color: #333;
+
+/* Tooltip
+-------------------------- */
+$--tooltip-font-size: 11px;
+//$--tooltip-arrow-size: 0;
+$--tooltip-padding: 5px 10px;
+
+/* Dropdown
+-------------------------- */
+$--dropdown-menu-box-shadow: 2px 5px 4px 0 rgba(0, 0, 0, 0.16);
+$--dropdown-menuItem-hover-fill: #eff4fc;
+$--dropdown-menuItem-hover-color: #333;
+
+/* Tab
+-------------------------- */
+// $--tab-font-size: $--font-size-base !default;
+// $--tab-border-line: 1px solid #e4e4e4 !default;
+// $--tab-header-color-active: $--color-text-secondary !default;
+// $--tab-header-color-hover: $--color-text-regular !default;
+// $--tab-header-color: $--color-text-regular !default;
+// $--tab-header-fill-active: rgba($--color-black, 0.06) !default;
+// $--tab-header-fill-hover: rgba($--color-black, 0.06) !default;
+// $--tab-vertical-header-width: 90px !default;
+// $--tab-vertical-header-count-color: $--color-white !default;
+// $--tab-vertical-header-count-fill: $--color-text-secondary !default;
+
+
+
+/* Tooltip
+-------------------------- */
+$--tooltip-fill: purple;
+$--tooltip-color: white;
+
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index";
+
+
+

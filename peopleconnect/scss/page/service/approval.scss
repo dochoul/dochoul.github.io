@@ -1,0 +1,460 @@
+.service-page {
+  padding-top: $headerHeight;
+   // 기준 폰트 정의
+    // ~ 1023
+    @include respond-below(md) {
+      font-size: 14px;
+    }
+    // 1024 ~
+    @include respond-above(md) {
+      font-size: 16px;
+    }
+
+  // section 여백
+  > section {
+    padding: 60px 0;
+    // 1024 ~
+    @include respond-above(md) {
+      padding: 120px 0;
+    }
+
+	&.pricetable-section {
+		// 768 ~ 1023
+		@include respond-between(sm, md) {
+			padding: 60px 18.2292vw;
+		}
+	}
+  }
+
+  // section 공통 타이틀
+  .section-title {
+    text-align: center;
+	&.white {
+		h2 {
+			color: #fff;
+		}
+	}
+    > * {
+      @include cropLineHeight();
+    }
+    // ~ 767
+    @include respond-below(sm) {
+      font-size: 24px;
+    }
+    // 768 ~ 1199
+    @include respond-between(sm, lg) {
+      font-size: 36px;
+    }
+    // 1200 ~
+    @include respond-above(lg) {
+      font-size: 42px;
+    }
+    h2 {
+      font-size: 1em;
+    }
+    p {
+      margin-top: 0.4em;
+      font-size: 0.6em;
+    }
+  }
+
+  // 텍스트 버튼
+  .btn-text {
+    @include textButtonPadding();
+  }
+
+  // show / hide
+  // ~ 1023
+  @include respond-below(md) {
+    .only-mobile {
+      display: block;
+    }
+    .only-pc {
+      display: none;
+    }
+  }
+  // 1024 ~
+  @include respond-above(md) {
+    .only-mobile {
+      display: none;
+    }
+    .only-pc {
+      display: block;
+    }
+    .br {
+      display: block;
+    }
+  }
+
+
+  //////////////////////////////////////////////////////////////
+  ////////가격테이블 섹션////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
+
+  .pricetable-section {
+    &.bg-none {
+      background: none;
+    }
+
+    // pc해상도에서는 한 컬럼 당 고정너비를 가지는 레이아웃
+    .static-row {
+      @include respond-below(md) {
+        .static-col{
+          margin-top: 1.5em;
+        }
+      }
+      // 1024 ~
+      @include respond-above(md) {
+		  display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 40px;
+        .static-col {
+			flex: 0 1 463px;
+			max-width: 463px;
+          & + .static-col {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .pricetable-item {
+    border:1px solid rgba(#C1C1C1, 0.7);
+    border-radius: 7px;
+    position: relative;
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #E8F2F8;
+      position:relative;
+      padding:11% 7.8%;
+      border-radius: 7px 7px 0 0;
+	  > * {
+		  max-width: 100%;	// ie bug fix
+	  }
+      // 1024 ~
+      @include respond-above(md) {
+        padding: 40px 45px;
+        align-items: flex-start;
+      }
+
+      h2 {
+        font-weight: 600;
+        letter-spacing: -0.08em;
+        font-size: 1.5em;
+      }
+      .price {
+        font-size: 2.625em;
+        font-weight: 800;
+      }
+      .unit {
+        font-size: 1.5em;
+      }
+      .btn--app {
+          margin-top: 20px;
+          @include respond-above(sm) {
+              margin-top: 30px;
+          }
+      }
+    }
+
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 0;
+      border-collapse: collapse;
+      background-color: #fff;
+      text-align: left;
+      border-radius: 0 0 7px 7px;
+
+      td.border-bottom:after {
+        display: block;
+        content: '';
+        border-bottom: 1px solid #c1c1c1;
+      }
+
+      // tbody 사이 border
+      tbody + tbody th:before {
+        display: block;
+        content: '';
+        border-top: 1px solid rgba(#c1c1c1, 0.7);
+        margin-bottom: 1.4em;
+      }
+      th {
+        text-align: left;
+        font-weight: 600;
+        padding: 15px 20px 10px;
+        font-size: 1.125em;
+        // 1024 ~
+        @include respond-above(md) {
+          padding: 30px 30px 20px;
+        }
+      }
+      td {
+        vertical-align: top;
+        padding: 5px 20px;
+        color: #676767;
+        font-size: 1em;
+        // 1024 ~
+        @include respond-above(md) {
+          padding: 10px 30px;
+          &:nth-child(1):not(:only-child) {
+            padding-right: 10px;
+          }
+          &:nth-child(2) {
+            padding-left: 0;
+          }
+        }
+      }
+
+      tbody:last-of-type tr:last-child td {
+        padding-bottom: 15px;
+        // 1024 ~
+        @include respond-above(md) {
+          padding-bottom: 30px;
+        }
+      }
+    }
+  }
+//////////////////////////////////////////////////////////////
+//////////////////이렇게 신청하세요///////////////////////////////
+//////////////////////////////////////////////////////////////
+  .register-section {
+    padding: 60px 0;
+    background-color: #e8f2f8;
+    .register-title h2 {
+      color: #333;
+      font-size: 22px;
+      font-weight: 800;
+      @include respond-below(md) {
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      @include respond-above(sm) {
+        font-size: 26px;
+      }
+      @include respond-above(md) {
+        margin-top: 30px;
+      }
+      @include respond-above(lg) {
+        font-size: 28px;
+      }
+    }
+    .register-description {
+      font-size: 18px;
+      > li {
+        display: flex;
+        align-items: center;
+        > * {
+          max-width: 100%;  // ie flex bug fix
+        }
+
+        @include respond-below(sm) {
+          font-size: 14px;
+          .circle {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        @include respond-between(sm, md) {
+          font-size: 16px;
+          .circle {
+            width: 110px;
+            height: 110px;
+          }
+        }
+        @include respond-above(md) {
+          font-size: 18px;
+          .circle {
+            width: 120px;
+            height: 120px;
+          }
+        }
+        .circle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 50px;
+          color: #333;
+          background: #fff;
+          border-radius: 50%;
+        }
+
+        // arrow
+        & + li {
+          padding-top: 27px;
+          .circle {
+            position: relative;
+            &:before {
+              position: absolute;
+              top: -25px;
+              left: calc(50% - 8px);
+              display: block;
+              font-family: 'Font Awesome 5 Pro';
+              content: '\f078';
+              color: #bed1dc;
+              @include respond-below(sm) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //////////////////////////////////////////////////////////////
+  ////////하이웍스 전자결재 양식을 만드는 3가지 방법//////////////////////
+  //////////////////////////////////////////////////////////////
+  .usage-section {
+	  .usage-row {
+		  display: flex;
+		  justify-content: space-between;
+      align-items: center;
+      @include respond-below(md) {
+        padding-top: 50px;
+      }
+      @include respond-below(md) {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 60px;
+      }
+      @include respond-above(md) {
+        padding-top: 120px;
+        &:nth-of-type(even) {
+          .usage-image {
+            order: 1;
+          }
+          .usage-description {
+            order: 2;
+          }
+        }
+      }
+      @include respond-above(lg) {
+        &:nth-of-type(even) {
+          margin-right: 100px;
+        }
+      }
+	  }
+	  .usage-image {
+		  @include respond-below(md) {
+			  width: 100%;
+		  }
+		  @include respond-between(md, lg) {
+        width: 56.333333333333336vw;
+        max-width: 676px;
+      }
+      @include respond-above(lg) {
+        width: 43.125vw;
+        max-width: 828px;
+      }
+	  }
+
+	  .usage-description {
+      > * {
+        @include cropLineHeight();
+      }
+      color: #676767;
+      margin-bottom: 30px;
+      @include respond-below(md) {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      @include respond-above(md) {
+        width: 30vw;
+        margin-bottom: 0;
+      }
+      @include respond-above(lg) {
+        width: 420px;
+      }
+
+		  .label {
+        color: $primary-color;
+        font-weight: 600;
+        @include respond-below(sm) {
+          font-size: 14px;
+          margin-bottom: 12px;
+        }
+        @include respond-below(md) {
+          font-size: 16px;
+          margin-bottom: 14px;
+        }
+        @include respond-above(md) {
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+      }
+
+      em {
+        display: block;
+        color: #333;
+        font-weight: 600;
+        @include respond-below(sm) {
+          font-size: 22px;
+          margin-bottom: 18px;
+        }
+        @include respond-between(sm, lg) {
+          font-size: 26px;
+          margin-bottom: 20px;
+        }
+        @include respond-above(lg) {
+          font-size: 28px;
+          margin-bottom: 30px;
+        }
+      }
+
+      p {
+        @include respond-below(sm) {
+          font-size: 14px;
+        }
+        @include respond-between(sm, md) {
+          font-size: 16px;
+        }
+        @include respond-above(md) {
+          font-size: 18px;
+        }
+      }
+	  }
+  }
+
+  //////////////////////////////////////////////////////////////
+  ///////전자결재 양식 제작을 전문가에게 맡기고 싶으신가요?/////////////////
+  //////////////////////////////////////////////////////////////
+  .contact-section {
+    background-color: #f6f6f6;
+    text-align: center;
+    .section-title p {
+      @include respond-between(sm, md) {
+          font-size: 16px;
+        }
+      @include respond-above(md) {
+        font-size: 18px;
+      }
+    }
+    ul {
+      @include clearfix();
+      margin-top: 50px;
+      @include respond-above(md) {
+        margin-top: 60px;
+      }
+      > li {
+        display: inline-block;
+        padding: 0 40px;
+        & + li {
+          border-left: 1px solid #d0d0d0;
+        }
+        img {
+          display: block;
+          margin: 0 auto 20px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+
+}

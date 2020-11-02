@@ -1,0 +1,1414 @@
+.highlight-blue {
+  background-color: #d4e7f8;
+}
+.highlight-yellow {
+  background-color: #fdf2be;
+}
+.hw-blind {
+	visibility: hidden;
+	text-indent: -9999px;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	position: absolute;
+	left: -9999px;
+}
+
+.market-product-page {
+  padding-top: $headerHeight;
+  // 기준 폰트 정의
+  // ~ 1023
+  @include respond-below(md) {
+    font-size: 14px;
+  }
+  // 1024 ~
+  @include respond-above(md) {
+    font-size: 16px;
+  }
+    .fa-arrow-right {
+        font-size: 0.75rem;
+    }
+
+  // section 여백
+  > section {
+    padding: 60px 0;
+    // 1024 ~
+    @include respond-above(md) {
+      padding: 120px 0;
+    }
+
+  	&.pricetable-section {
+  		// 768 ~ 1023
+  		@include respond-between(sm, md) {
+  			padding: 60px 18.2292vw;
+  		}
+  	}
+  }
+
+  // section 공통 타이틀
+  .section-title {
+    text-align: center;
+  	&.white {
+  		h2 {
+  			color: #fff;
+  		}
+  	}
+    > * {
+      @include cropLineHeight();
+    }
+    // ~ 767
+    @include respond-below(sm) {
+      font-size: 24px;
+    }
+    // 768 ~ 1199
+    @include respond-between(sm, lg) {
+      font-size: 36px;
+    }
+    // 1200 ~
+    @include respond-above(lg) {
+      font-size: 42px;
+    }
+    h2 {
+      font-size: 1em;
+    }
+    p {
+      margin-top: 0.4em;
+      font-size: 0.6em;
+    }
+  }
+
+  // 텍스트 버튼
+  .btn-text {
+    @include textButtonPadding();
+  }
+
+  // show / hide
+  // ~ 1023
+  @include respond-below(md) {
+    .only-mobile {
+      display: block;
+    }
+    .only-pc {
+      display: none;
+    }
+  }
+  // 1024 ~
+  @include respond-above(md) {
+    .only-mobile {
+      display: none;
+    }
+    .only-pc {
+      display: block;
+    }
+    .br {
+      display: block;
+    }
+  }
+
+
+  //////////////////////////////////////////////////////////////
+  ////////가격테이블 섹션////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
+
+  .pricetable-section {
+    background-color: #F6F6F6;
+    &.bg-none {
+      background: none;
+    }
+
+    // pc해상도에서는 한 컬럼 당 고정너비를 가지는 레이아웃
+    .static-row {
+      @include respond-below(md) {
+        .static-col{
+          margin-top: 1.5em;
+        }
+      }
+      // 1024 ~
+      @include respond-above(md) {
+		  display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+        .static-col {
+          flex: 0 1 463px;
+          max-width: 463px;
+          & + .static-col {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+
+    // 그룹웨어 회색 블럭
+    .product-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #F6F6F6;
+      border-radius: 1.3em;
+      padding: 0.625em 1.25em;
+  	  > div {
+  		  max-width: 100%;
+  		  &:nth-child(1) {
+  			  flex: 1 0 140px;
+  		  }
+  		  &:nth-child(2) {
+  			  flex: 1 1 auto;
+  			  text-align: right;
+  		  }
+  	  }
+    }
+    .product-block-icon {
+      color: #B2B2B2;
+      font-size: 1.125em;
+      text-align: center;
+      margin: 0.5em 0;
+    }
+  	.product-block-blue {
+  		@extend .product-block;
+  		background: #E8F2F8;
+  	}
+
+  	.worktime-price-text {
+  		text-align: center;
+  		padding-top: 60px;
+  	}
+
+
+  }
+
+  .pricetable-m-nav {
+    width: 100%;
+    height: 42px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #676767;
+    letter-spacing: -1px;
+    border: 1px solid #c5c5c5;
+    background-color: #fff;
+    border-radius: 21px;
+    margin-top: 20px;
+  }
+
+  .pricetable-pc-nav {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+    > li {
+      display: inline-block;
+	  margin: 0 5px;
+    }
+  }
+
+  .pricetable-item {
+    border:1px solid rgba(#C1C1C1, 0.7);
+    border-radius: 7px;
+    position: relative;
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #E8F2F8;
+      position:relative;
+      padding:11% 7.8%;
+      border-radius: 7px 7px 0 0;
+	  > * {
+		  max-width: 100%;	// ie bug fix
+	  }
+      // 1024 ~
+      @include respond-above(md) {
+        padding: 40px 45px;
+        align-items: flex-start;
+      }
+
+      .event-flags {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        color: #fff;
+        text-align: right;
+        background: linear-gradient(45deg, transparent 50%, #f58029 50%);
+        border-radius: 0 6px;
+        .text {
+          display: block;
+          color: #fff;
+          position: absolute;
+          top: 12px;
+          right: 5px;
+          line-height: 1.2;
+        }
+      }
+
+      h2 {
+        font-weight: 600;
+        letter-spacing: -0.08em;
+        font-size: 1.5em;
+      }
+      .price {
+        font-size: 2.625em;
+        font-weight: 800;
+      }
+      .unit {
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #676767;
+        font-size: 1em;
+
+		// 1024 ~
+        @include respond-above(md) {
+          text-align: left;
+        }
+        & + .description {
+          margin: 0.5em 0;
+        }
+      }
+      .pricetable-btn-apply {
+        margin-top: 1.875em;
+        // 1024 ~
+        @include respond-above(md) {
+          align-self: flex-end;
+        }
+      }
+      ins {text-decoration: none;}
+    }
+
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 0;
+      border-collapse: collapse;
+      background-color: #fff;
+      text-align: left;
+      border-radius: 0 0 7px 7px;
+
+      td.border-bottom:after {
+        display: block;
+        content: '';
+        border-bottom: 1px solid #c1c1c1;
+      }
+
+      // tbody 사이 border
+      tbody + tbody th:before {
+        display: block;
+        content: '';
+        border-top: 1px solid rgba(#c1c1c1, 0.7);
+        margin-bottom: 1.4em;
+      }
+      th {
+        text-align: left;
+        font-weight: 600;
+        padding: 15px 20px 10px;
+        font-size: 1.125em;
+        // 1024 ~
+        @include respond-above(md) {
+          padding: 30px 30px 20px;
+        }
+      }
+      td {
+        vertical-align: top;
+        padding: 5px 20px;
+        color: #676767;
+        font-size: 1em;
+        // 1024 ~
+        @include respond-above(md) {
+          padding: 10px 30px;
+          &:nth-child(1):not(:only-child) {
+            padding-right: 10px;
+          }
+          &:nth-child(2) {
+            padding-left: 0;
+          }
+        }
+      }
+
+      tbody:last-of-type tr:last-child td {
+        padding-bottom: 15px;
+        // 1024 ~
+        @include respond-above(md) {
+          padding-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  .pricetable-vat {
+    color: #676767;
+    margin-top: 15px;
+    text-align: right;
+    // 1024 ~
+    @include respond-above(md) {
+      text-align: left;
+      margin-top: 30px;
+    }
+  }
+
+  .pricetable-btn-detail {
+    &:after {
+      font-family: 'Font Awesome 5 Pro';
+      margin-left: 10px;
+    }
+    &[data-status='collapsed']:after {
+      content: '\f107';
+    }
+    &[data-status='opened']:after {
+      content: '\f106';
+    }
+
+    margin-top: 30px;
+  }
+
+  // 화상회의 관련
+  .video-conference {
+    background: #e8f2f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    color: #333;
+    margin: 15px 0 0;
+    padding: 14px 15px;
+
+    @include respond-above(sm) {
+      p {
+          display: inline-flex;
+      }
+    }
+
+    .title {
+      color: $primary-color;
+      font-weight: normal;
+
+      @include respond-above(sm) {
+          padding-left: 10px;
+      }
+    }
+
+    .desc {
+        padding-left: 18px;
+
+        @include respond-above(sm) {
+            padding-left: 10px;
+        }
+    }
+
+    .hw-rwd-layer {
+        @include respond-above(md) {
+            top: 37%;
+
+            &.mail {
+                top: 46%;
+            }
+        }
+
+        @include respond-above(lg) {
+            top: 40%;
+
+            &.mail {
+                top: 46%;
+            }
+        }
+    }
+  }
+
+
+  //////////////////////////////////////////////////////////////
+  ////////어떤 서비스를 선택해야 하나요///////////////////////////
+  //////////////////////////////////////////////////////////////
+  .compare-section {
+    .flex-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      // 1200 ~
+      .dotted-box {
+        width: 260px;
+        height: 260px;
+        border: 1px dashed #707070;
+        padding: 50px 0;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: all 0.2s;
+        // 1200 ~
+        @include respond-above(lg) {
+          width: 340px;
+          height: 340px;
+        }
+        > div {
+          &:nth-of-type(1) {
+            font-weight: 600;
+            font-size: 20px;
+          }
+          &:nth-of-type(2) {
+            color: #676767;
+          }
+        }
+	      img {
+	        width: 258px;
+	        height: 65px;
+	        margin: 30px 0;
+	        // 1200 ~
+	        @include respond-above(lg) {
+	          margin: 50px 0;
+			  width: 338px;
+	          height: 85px;
+	        }
+	      }
+      }
+
+      .vs {
+        font-weight: 800;
+        color: #818181;
+		flex: 0 1 125px;
+        font-size: 36px;
+        // 1200 ~
+        @include respond-above(lg) {
+			flex-basis: 175px;
+            font-size: 42px;
+        }
+      }
+    }
+    .compare-description {
+      margin-top: 45px;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+  }
+
+
+  //////////////////////////////////////////////////////////////
+  ////////왜 하이웍스 기업메일|그룹웨어인가요?/////////////////////////////
+  //////////////////////////////////////////////////////////////
+  .feature-section {
+    background-color: #E8F2F8;
+
+    .feature-description {
+      padding-top: 100px;
+      ul {
+        > li {
+          font-size: 18px;
+          & + li {
+            margin-top: 44px;
+          }
+          strong {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 24px;
+			// 1024 ~ 1199
+	        @include respond-between(md, lg) {
+	          font-size: 22px;
+	        }
+          }
+          p {
+            color: #676767;
+          }
+        }
+        // 1024 ~ 1199
+        @include respond-between(md, lg) {
+          padding-left: 10vw;
+        }
+        // 1200 ~
+        @include respond-above(lg) {
+          padding-left: 120px;
+        }
+      }
+      // bg
+      &.mail-bg ul {background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/img_feature_mail.svg') no-repeat 80% center;}
+	  &.groupware-bg ul {background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/img_feature_groupware.svg') no-repeat 80% center;}
+      &.worktime-bg ul {background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/img_feature_worktime.svg') no-repeat 80% center;}
+  	}
+  }
+
+  //! 1280 ~ 1920
+  .premium-section {
+    .title {
+      font-size: 42px;
+      line-height: 1.2;
+      margin: 0;
+      word-break: keep-all;
+      font-weight: 800;
+    }
+    .info {
+      width: 30%;
+      float: left;
+      padding: 30px 30px 30px;
+      .desc {
+        color: #676767;
+        font-size: 18px;
+        letter-spacing: -1px;
+        word-break: keep-all;
+      }
+      .service-center {
+        font-size: 24px;
+        font-weight: bolder;
+        margin: 20px 0px;
+      }
+    }
+    .feature {
+      width: 70%;
+      float: left;
+      .column {
+        .box {
+          padding: 28px 20px 20px 20px;
+          border-right: 1px solid #E5E5E5;
+          .tit {
+            font-size: 24px;
+            font-weight: bolder;
+            padding: 15px 0 22px;
+          }
+          .desc {
+            font-size: 18px;
+            letter-spacing: -1px;
+          }
+        }
+        &:last-child {
+          .box {
+            border-right: 0;
+          }
+        }
+      }
+    }
+    @include clearfix();
+  }
+
+  //////////////////////////////////////////////////////////////
+  ////////하이웍스를 무료로 시작하세요/////////////////////////////
+  //////////////////////////////////////////////////////////////
+  .function-section {
+    background: #F6F6F6;
+    .free-price {
+      text-align: center;
+      padding: 4em 0;
+      .quote {
+        font-size: 20px;
+        color: #C1C1C1;
+        vertical-align: top;
+        margin: 0 5px;
+      }
+      .text {
+        font-size: 1.75em;
+        font-weight: 800;
+        word-break: keep-all;
+      }
+      .description {
+        margin-top: 1.25em;
+        font-size: 1.125em;
+      }
+    }
+
+    .function-wrap {
+      background: #fff;
+      border-radius: 8px;
+      padding: 3.125em 30px;
+      .title {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .icon-carousel-free {
+        .item {
+          display: block;
+          .img-div {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 10px;
+            @each $var in mail, aprove , insa, mobile , messenger ,addr, bbs, bill, schedule , reservation, arcahive {
+              &.#{$var}{
+                background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/#{$var}_hover.svg) no-repeat;
+              }
+            }
+          }
+          .service-name {
+            letter-spacing: -1px;
+            font-size: 1em;
+          }
+        }
+      }
+
+      & + .pill-button {
+        margin-top: 4.375em;
+      }
+    }
+  }
+
+  //! 1024 ~ 1199(아이패드 가로)
+  @include respond-below(lg) {
+    .premium-section {
+      padding: 100px 0;
+      .info {
+        width: 100%;
+        text-align: center;
+        padding: 0 0 50px;
+        .title {
+          font-size: 36px;
+          margin: 0 auto;
+        }
+      }
+      .feature {
+        width: 100%;
+        .column {
+          .box {
+            padding: 20px;
+            .tit {
+              padding: 0px 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //! 768 ~ 1023(아이패드 세로)
+  @include respond-below(md) {
+    .premium-section {
+      .info {
+        .title {
+          font-size: 32px;
+        }
+      }
+      .feature {
+        width: 100%;
+        .column {
+          .box {
+            background: #F9F9F9;
+            margin: 10px;
+            border-radius: 10px;
+            min-height: 155px;
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  //! 0 ~ 767(모바일)
+  @include respond-below(sm) {
+    .premium-section {
+      .info {
+        .title {
+          width: 100%;
+          font-size: 24px;
+        }
+      }
+      .feature {
+        .column {
+          .box {
+            min-height: auto;
+            .tit {
+              font-size: 18px;
+              padding: 5px 0 10px;
+            }
+            .desc {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  //////////////////////////////////////////////////////////////
+  ////////주 52시간 근무제란?////////////////////////////////////
+  //////////////////////////////////////////////////////////////
+  .worktime-section {
+	  background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/bg_worktime.png') no-repeat center/cover;
+	  .worktime-definition {
+		  width: 980px;
+		  margin: 60px auto 0;
+		  .box {
+			  background: #373737;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  height: 80px;
+			  font-weight: 600;
+			  font-size: 18px;
+			  color: #fff;
+			  text-align: center;
+			  margin-bottom: 40px;
+			  .fa-plus {
+				  margin: 0 25px;
+				  color: #b2b2b2;
+			  }
+		  }
+		  img {
+			  display: block;
+			  width: 100%;
+		  }
+	  }
+	  .worktime-description {
+		  color: #fff;
+		  margin-top: 40px;
+	  }
+  }
+
+  //////////////////////////////////////////////////////////////
+  ////////주 52시간 근무제, 하이웍스 근태관리로 대응하세요/////////
+  //////////////////////////////////////////////////////////////
+  .usage-section {
+	  .section-title {
+		  margin-bottom: 100px;
+	  }
+	  .usage-row {
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  padding-bottom: 120px;
+		  & + .usage-row {
+			  border-top: 1px solid #E5E5E5;
+			  padding-top: 120px;
+			  padding-bottom: 0;
+			  .usage-image {
+				  order: 2;
+			  }
+			  .usage-description {
+				  order: 1;
+			  }
+		  }
+	  }
+	  .usage-image {
+		  @include respond-below(lg) {
+			  width: 510px;
+		  }
+		  @include respond-above(lg) {
+			  width: 688px;
+		  }
+	  }
+
+	  .usage-description {
+		  color: #676767;
+		  .icon {
+			  width: 40px;
+			  height: 40px;
+		  }
+		  em {
+			  display: block;
+			  font-size: 18px;
+			  margin: 25px 0;
+			  @include respond-below(lg) {
+				  margin: 20px 0;
+			  }
+		  }
+		  li + li {
+			  margin-top: 60px;
+			  @include respond-below(lg) {
+				  margin-top: 40px;
+			  }
+		  }
+	  }
+  }
+
+  //////////////////////////////////////////////////////////////
+  ////////하이웍스 도입은 전문가와 상담하세요.(모바일만 노출)///////
+  //////////////////////////////////////////////////////////////
+  .customer-section {
+	  text-align: center;
+	  .section-title {
+		  & + p {
+			  color: #676767;
+			  margin-top: 16px;
+		  }
+	  }
+	  .tel {
+		  font-size: 22px;
+		  font-weight: 600;
+		  padding: 20px 0;
+	  }
+  }
+
+  //////////////////////////////////////////////////////////////
+  ////////전자세금계산서 유료화 - 포인트 도입///////////////////////////
+  //////////////////////////////////////////////////////////////
+  &.add-point {
+    .wide-break {
+        @include respond-above(lg) {
+          &:after {
+              content: ' ';
+              display: block;
+          }
+        }
+    }
+    .section-title {
+      > p {
+        @include respond-above(md) {
+          font-size: 1.125rem;
+        }
+      }
+    }
+    .pricetable-section {
+      // 768 ~ 1023
+      @include respond-between(sm, md) {
+        padding: 60px;
+      }
+      @include respond-above(md) {
+        padding: 120px 80px;
+      }
+      @include respond-above(lg) {
+        padding: 120px 0;
+      }
+      .sub-title-wrap {
+        text-align: center;
+        @include respond-above(md) {
+          text-align: left;
+          .sub-title, .sub-title + p {
+            display: inline-block;
+            padding-right: 15px;
+          }
+        }
+        .sub-title {
+          padding-top: 60px;
+          font-size: 1.250rem;
+          font-weight: 600;
+          @include respond-above(md) {
+            font-size: 28px;
+          }
+          & + p {
+            margin-bottom: 30px;
+            color: #676767;
+            @include respond-above(md) {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+
+      .product-block > div:nth-child(1),
+      .product-block-blue > div:nth-child(1) {flex: 1 0 100px;}
+      .pricetable-item {
+        .discount-rate {
+          z-index: 100;
+          position: absolute;
+          top: 0;
+          right: -5px;
+          width: 107px;
+          height: 50px;
+          padding: 10px 12px 0;
+          background: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/bg_bubble.png') no-repeat 0 0;
+          font-weight: 600;
+          color: #e96c18;
+          text-align: center;
+          @include respond-above(md) {
+            top: 45px;
+            left: 163px;
+            right: inherit;
+          }
+        }
+        &.subscription {
+          .head {
+            @include respond-above(sm) {height: 298px;}
+            @include respond-above(md) {height: 359px;}
+            @include respond-above(lg) {height: 330px;}
+          }
+        }
+        .head {
+          padding: 40px 50px;
+          @include respond-above(md) {
+            padding: 50px 40px;
+            align-items: flex-start;
+          }
+          & > h2 {
+            font-size: 1.250rem;//20px
+            @include respond-above(md) {font-size: 24px;}
+          }
+          .price-wrap {margin: 10px 0 3px;}
+          .price {
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            @include respond-above(md) {font-size: 42px;}
+          }
+          .unit {
+            font-size: 1.250rem;
+            font-weight: 600;
+          }
+          .description.primary-color {color: #2F58B8;}
+          .btn-wrap {
+            @include respond-above(md) {
+              width: 100%;
+              text-align: right;
+            }
+          }
+          .pricetable-btn-apply  {
+            height: 48px;
+            line-height: 48px;
+            margin-top: 30px;
+            padding: 0 40px;
+            font-size: .875rem;
+            @include respond-above(sm) {font-size: 1rem;}
+            @include respond-above(md) {
+              height: 52px;
+              line-height: 52px;
+            }
+          }
+        }
+      }
+      .product-block-blue,
+      .product-block {
+        &:not(:first-child) {margin-top: 10px;}
+      }
+      .ghost-btn-wrap {
+        margin-top: 40px;
+        text-align: center;
+      }
+      .display-wide-text {
+        display: none;
+        @include respond-above(lg) {
+          display: block;
+          margin-top: 30px;
+          color: #676767
+        }
+      }
+      .owl-carousel {
+        @include respond-above(lg) {
+          &.off {
+            display: flex;
+            & > div {
+              &:not(:first-child) {
+                margin-left: 22px;
+              }
+            }
+          }
+        }
+        .owl-nav {
+            position: absolute;
+            top: calc(50% - 20px);
+            width: 100%;
+        }
+        .owl-nav button.owl-prev {
+            float: left;
+            margin-left: -60px;
+            @include respond-above(md) {
+              margin-left: -80px;
+            }
+
+        }
+        .owl-nav button.owl-next {
+            float: right;
+            margin-right: -60px;
+            @include respond-above(md) {
+              margin-right: -80px;
+            }
+        }
+        .owl-dots {
+            margin-top: 30px;
+            .owl-dot span {
+              background: #fff;
+              border: 1px solid #b2b2b2;
+            }
+            .owl-dot.active span,
+            .owl-dot:focus span,
+            .owl-dot:hover span {
+              background: #2f58b8;;
+              border-color: #2f58b8;
+            }
+        }
+      }
+    }
+    .compare-section {
+      .flex-group {
+        flex-direction: column;
+        margin-top: 0;
+        @include respond-above(sm) {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+        .dotted-box {
+          display: inherit;
+          height: inherit;
+          margin: 0 auto;
+          padding: 50px 0 40px;
+          & > p {color: #676767;}
+          img {
+            width: 125px;
+            height: 106px;
+            margin: 50px 0 0;
+          }
+        }
+        .flex-item {
+          margin-top: 30px;
+          &.vs {
+            margin-top: 140px;
+            @include respond-below(sm) {display: none;}
+          }
+          .compare-description {
+            margin-top: 20px;
+            font-size: .875rem;
+            @include respond-above(sm) {font-size: 1rem;}
+            @include respond-above(md) {font-size: 18px;}
+          }
+        }
+      }
+      .ghost-btn-wrap {
+        display: none;
+        @include respond-above(md) {
+          display: block;
+          margin-top: 60px;
+        }
+      }
+    }
+    .feature-section {
+      &.bill {
+        .feature-description {
+          padding-top: 10px;
+          text-align: center;
+          word-break: keep-all;
+          @include respond-above(sm) {
+            padding-top: 12px;
+            font-size: 1rem;
+          }
+          @include respond-above(md) {
+            font-size: 18px;
+          }
+          @include respond-above(md) {padding-top: 20px;}
+          .img-wrap {
+            padding-top: 60px;
+            @include respond-below(sm) {display: none;}
+          }
+        }
+      }
+    }
+    .hiworks-api {
+      background-color: #7c8a95;
+      background-image: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/bg_hiworks-api.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      word-break: keep-all;
+      @include respond-above(sm) {
+        font-size: 1rem;
+      }
+      .title {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        @include respond-above(sm) {
+          font-size: 2.250rem;
+        }
+      }
+      .btn-developer-center {
+        display: none;
+        @include respond-above(sm) {
+          display: block;
+          .pill-button {
+            padding: 0 40px;
+            height: 48px;
+            line-height: 48px;
+            margin-top: 30px;
+            font-size: 1rem;
+          }
+        }
+        @include respond-above(md) {
+          height: 52px;
+          line-height: 52px;
+        }
+      }
+    }
+    // .premium-section {
+    //   padding: 60px 0;
+    //   .title {
+    //     @include respond-above(sm) {
+    //       font-size: 2.250rem;
+    //     }
+    //   }
+    //   .info {
+    //     padding-bottom: 0;
+    //     .service-center {font-size: 1.125rem;}
+    //     .desc {
+    //       margin: 15px auto;
+    //       font-size: .875rem;
+    //       @include respond-above(sm) {
+    //         font-size: 1rem;
+    //       }
+    //     }
+    //     & + .feature {
+    //       display: none;
+    //       @include respond-above(md) {
+    //         display: block;
+    //       }
+    //     }
+    //   }
+    //   .btn-apply {
+    //     width: 127px;
+    //     height: 48px;
+    //     line-height: 48px;
+    //     margin-top: 30px;
+    //     font-size: .875rem;
+    //     @include respond-between(sm,md) {
+    //       width: 138px;
+    //       font-size: 1rem;
+    //     }
+    //     @include respond-above(md) {
+    //       display: none;
+    //     }
+    //   }
+    // }
+  }
+}
+.add-point.hw-rwd-layer {
+  @include respond-between(md, lg) {
+    position: fixed;
+    top: calc(50% - 100px);
+  }
+  @include respond-above(lg) {
+    margin-left: -210px !important;
+  }
+}
+
+.point-wrap {
+  .point-section {
+    padding: 60px 0;
+    @include respond-above(sm) {
+      padding: 80px 60px 100px;
+    }
+    @include respond-above(md) {
+      padding: 120px 80px;
+    }
+    @include respond-above(lg) {
+      padding: 120px 0;
+    }
+    .text-vat {
+      padding: 30px 0 5px;
+      font-size: .813rem;
+      color: #676767;
+      text-align: right;
+      @include respond-above(sm) {
+        padding: 25px 0 10px;
+        font-size: .875rem;
+      }
+      @include respond-above(md) {font-size: 1rem;}
+    }
+  }
+  .section-title {
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      @include respond-above(sm) {font-size: 2.250rem;}
+      @include respond-above(md) {font-size: 36px;}
+      @include respond-above(lg) {font-size: 42px;}
+    }
+    .sub-title {
+      font-size: .875rem;
+      @include respond-above(sm) {font-size: 1rem;}
+      @include respond-above(md) {font-size: 18px;}
+    }
+  }
+  .point-carousel {
+    &.off {
+      @include respond-above(sm) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+    .price-table {
+      .price-box {
+        margin-bottom: 20px;
+        padding: 30px 0;
+        border-radius: 8px;
+        border: solid 1px rgba(193, 193, 193, 0.7);
+        background-color: #e8f2f8;
+        .info-point {
+          display: inline-block;
+          width: 100%;
+          font-size: 20px;
+          font-weight: bold;
+          @include respond-above(sm) {font-size: 22px;}
+        }
+        .discount-info {
+          width: 100%;
+          color: #676767;
+        }
+        .price-info {
+          width: 100%;
+          margin: 16px 0 19px;
+          font-size: 24px;
+          font-weight: 800;
+          @include respond-above(sm) {
+            margin: 18px 0 38px;
+            font-size: 32px;
+          }
+        }
+      }
+      @include respond-above(sm) {
+        flex: 1 50%;
+        &:nth-child(even) {
+          .price-box {margin-left: 20px;}
+        }
+        .price-box {
+          padding: 40px 0;
+        }
+      }
+      @include respond-above(lg) {
+        flex-basis: 25%;
+        &:not(:nth-of-type(4n+1)) {
+          .price-box {margin-left: 20px;}
+        }
+      }
+    }
+    .pricetable-btn-apply  {
+      height: 48px;
+      line-height: 48px;
+      padding: 0 40px;
+      font-size: .875rem;
+      @include respond-above(sm) {font-size: 1rem;}
+      @include respond-above(md) {
+        height: 52px;
+        line-height: 52px;
+      }
+    }
+  }
+  .feature-section {
+    &.point {
+      background: #f6f6f6;
+      text-align: center;
+      @include respond-above(sm) {padding: 100px 0;}
+      @include respond-above(md) {
+        padding: 120px 0;
+        text-align: left;
+      }
+      .feature-description {
+        padding-top: 260px;
+        font-size: .875rem;
+        background-image: url('https://static.hiworks.com/www/static/images/www.hiworks.com/market/img_hiworkspoint.svg');
+        background-repeat: no-repeat;
+        background-size: 240px 200px;
+        background-position: center 30px;
+        @include respond-above(sm) {
+          padding-top: 420px;
+          padding-bottom: 60px;
+          background-size: 360px 300px;
+          background-position: center 60px;
+          font-size: 1rem;
+        }
+        @include respond-above(md) {
+          padding: 100px 540px 80px 0;
+          background-size: 408px 340px;
+          background-position: right 100px;
+          font-size: 18px;
+        }
+        .block-space {
+          padding-top: 15px;
+          @include respond-above(sm) {padding-top: 30px;}
+          @include respond-above(md) {padding-top: 40px;}
+        }
+      }
+      .warning {
+        padding-top: 30px;
+        color: #999;
+        @include respond-above(md) {
+          padding-top: 40px;
+          font-size: 1rem;
+        }
+        & > p {
+          margin-bottom: 14px;
+          @include respond-above(sm) {margin-bottom: 9px;}
+        }
+      }
+      .btn-subscription {
+        display: none;
+        @include respond-above(sm) {
+          display: block;
+          text-align: center;
+          .pill-button {
+            padding: 0 40px;
+            height: 48px;
+            line-height: 48px;
+            font-size: 1rem;
+          }
+        }
+        @include respond-above(md) {
+          .pill-button {
+            height: 52px;
+            line-height: 52px;
+          }
+        }
+      }
+    }
+  }
+}
+// Point usage status
+.point-status {
+  margin: 70px 0 40px;
+  @include respond-above(md) {margin-bottom: 65px;}
+  .section-title {
+    padding: 60px 0;
+    @include respond-above(md) {padding: 100px 0 80px;}
+    @include respond-above(lg) {padding: 120px 0 70px;}
+    text-align: center;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      @include respond-above(sm) {font-size: 2.250rem;}
+      @include respond-above(md) {font-size: 36px;}
+      @include respond-above(lg) {font-size: 42px;}
+    }
+    .sub-title {
+      font-size: .875rem;
+      @include respond-above(sm) {font-size: 1rem;}
+      @include respond-above(md) {font-size: 18px;}
+    }
+  }
+  .point-table {
+    border-top: 1px solid #b2b2b2;
+    border-bottom: 1px solid #c1c1c1;
+    &.scroll-col {
+      width: 100%;
+      overflow-x: scroll;
+    }
+    &.line-division {border-bottom: none;}
+    &.line-division th,
+    &.line-division td {
+      padding: 15px 13px 14px;
+      border-bottom: 1px solid #c1c1c1;
+    }
+    &.line-division th:not(:first-child),
+    &.line-division td:not(:first-child) {
+      border-left: 1px solid #c1c1c1;
+      border-bottom: 1px solid #c1c1c1;}
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    th,td {
+      padding: 15px 20px 14px;
+      font-size: 1rem;
+      text-align: center;
+      color: #676767;
+    }
+    th {
+      background: #e8f2f8;
+      font-weight: normal;
+    }
+    td.money-text {text-align: right;}
+  }
+  .pagination {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    .prev img , .next img {display: block;}
+    button{
+      &:nth-child(1) {margin-right: 5px;}
+      &:nth-last-child(1) {margin-left: 5px;}
+    }
+    .page {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      &:hover {
+        color: $primary-color;
+        font-weight: 600;
+      }
+      &.active {
+        background: $primary-color;
+        color: #fff;
+      }
+    }
+  }
+}

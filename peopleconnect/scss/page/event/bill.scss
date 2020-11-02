@@ -1,0 +1,615 @@
+.event-bill {
+
+  // 탑
+  .section-first {
+    background: #f6f7fb;
+    text-align: center;
+    .main-keyword {
+      line-height: 1.25;
+      .advantage {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 35px;
+        background: #eaebef;
+        width: 260px;
+        height: 55px;
+        margin-bottom: 25px;
+      }
+      .discount-percent {
+        font-size: 60px;
+        font-weight: 800;
+        margin: 0 4px 0 24px;
+        @include respond-below(lg) {
+          font-size: 56px;
+          margin: 0 4px 0 16px;
+        }
+        @include respond-below(sm) {
+          font-size: 36px;
+          margin: 0 4px 0 8px;
+        }
+      }
+      .discount-text {
+        font-size: 52px;
+        font-weight: 600;
+        @include respond-below(lg) {
+          font-size: 48px;
+        }
+        @include respond-below(sm) {
+          font-size: 30px;
+        }
+      }
+    }
+    .main-img {
+      width: 760px;
+      height: 400px;
+      margin: 30px auto 50px;
+      @include respond-below(lg) {
+        width: 730px;
+        height: 385px;
+        margin: 40px auto;
+      }
+      @include respond-below(sm) {
+        width: 344px;
+        height: 180px;
+        margin: 30px auto;
+      }
+    }
+    .schedule-list {
+      display: inline-block;
+      margin: 60px 0;
+      .schedule-list-wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+        .term {
+          background: #eaebef;
+          border-radius: 18px;
+          width: 65px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 20px;
+        }
+        .desc {
+          color: #676767;
+          font-weight: 300;
+        }
+      }
+      @include respond-below(sm) {
+        margin: 50px 0;
+        .schedule-list-wrap {
+          display: block;
+          .term {
+            display: inline-flex;
+            width: 53px;
+            height: 28px;
+          }
+          .desc {
+            margin: 5px 0 10px;
+          }
+        }
+      }
+    }
+    .price-table-list {
+      display: flex;
+      .price-item {
+        width: 33.333%;
+        border-right: 1px dotted #c6c6c6;
+        .head {
+          background: #465369;
+          color: #fff;
+          padding: 22px 0;
+          height: 100px;
+        }
+        .body {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          padding: 15px 40px;
+          background: #fff;
+          height: 185px;
+          box-shadow: 0 20px 24px rgba(0, 0, 0, 0.06);
+          .discount-arrow-wrap {
+            position: relative;
+            .discount_arrow {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              width: 120%;
+            }
+          }
+        }
+        &:first-child {
+          .head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .body {
+            border-bottom-left-radius: 20px;
+          }
+        }
+        &:last-child {
+          border-right: 1px dotted transparent;
+          .body {
+            border-bottom-right-radius: 20px;
+          }
+        }
+      }
+      .price-font-size {
+        font-size: 42px;
+        font-weight: 600;
+      }
+      @include respond-below(lg) {
+        display: block;
+        .price-item {
+          width: 100%;
+          margin-bottom: 40px;
+          border: none;
+          .head {
+            height: 84px;
+            padding: 17px;
+          }
+          .body {
+            display: flex;
+            height: 146px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .price-font-size {
+          font-size: 38px;
+        }
+      }
+      @include respond-below(sm) {
+        .price-item {
+          .head {
+            height: 70px;
+            padding: 12px;
+          }
+          .body {
+            height: 135px;
+          }
+        }
+        .price-font-size {
+          font-size: 36px;
+        }
+      }
+    } 
+  }
+
+  // 서비스 신청 방법
+  .section-service-apply {
+    background: #ebf6ff;
+    .step-list {
+      display: flex;
+      text-align: center;
+      margin: 50px -10px;
+      .step-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+        padding: 50px 0 0;
+        width: calc(33.333% - 10px);
+        //height: 480px;
+        background: #fff;
+        border-radius: 40px;
+        border: 1px solid #efefef;
+        margin-right: 10px;
+        .step-img {
+          width: 378px;
+          //height: 312px;
+          margin-top: 40px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+        .step-badge {
+          position: absolute;
+          top: -18px;
+          left: calc(50% - 43px);
+          display: block;
+          border-radius: 18px;
+          background: #465369;
+          width: 86px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+        }
+      }
+
+      //! 1024 ~ 1199(큰거)
+      @include respond-below(lg) {
+      }
+
+      //! 768 ~ 1023(중간)
+      @include respond-below(md) {
+        // flex-wrap: wrap;
+        // justify-content: center;
+        display: block;
+        .step-item {
+          width: 380px;
+          margin: 0 auto 50px;
+          .step-img {
+            height: auto;
+            margin-top: 30px;
+          }
+          &:nth-child(n+3) {
+            //margin-top: 40px;
+          }
+        }
+      }
+
+      //! 0 ~ 767(작은거)
+      @include respond-below(sm) {
+        .step-item {
+          //width: 100%;
+          //min-width: 380px;
+          //margin: 50px auto;
+          // width: 380px;
+          // margin: 0 auto 50px;
+          width: 350px;
+          .step-img {
+            width: 100%;
+            margin-top: 20px;
+          }
+          .step-badge {
+            width: 80px;
+            height: 32px;
+            top: -16px;
+            left: calc(50% - 40px);
+          }
+        }
+      }
+    }
+    .how-to-apply {
+      display: flex;
+      background: #e2effa;
+      text-align: left;
+      border: 1px solid #cfdeeb;
+      border-radius: 8px;
+      padding: 30px 60px;
+      margin-bottom: 50px;
+      .desc {
+        margin-left: 45px;
+        color: #676767;
+      }
+      @include respond-below(lg) {
+
+      }
+      //! 0 ~ 767(모바일)
+      @include respond-below(sm) {
+        display: block;
+        padding: 40px;
+        //min-width: 380px;
+        .desc {
+          margin-top: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  // 하이웍스 전자세금계산서가 특별한 4가지 이유 !
+  .section-so-special {
+    .four-reason {
+      margin-top: 80px;
+      .lst {
+        float: left;
+        width: 50%;
+        .number {
+          margin-right: 5px;
+          font-weight: 800;
+        }
+        .desc {
+          margin-top: 10px;
+          width: 76%;
+          color: #676767;
+        }
+        &:nth-child(n+3) {
+          margin-top: 50px;
+        }
+      }
+
+      @include respond-below(lg) {
+        margin-top: 54px;
+        .lst {
+          .desc {
+            margin-top: 5px;
+          }
+        }
+      }
+
+      //! 0 ~ 767(모바일)
+      @include respond-below(sm) {
+        margin-top: 40px;
+        .lst {
+          float: none;
+          width: 100%; 
+          &:nth-child(n+2) {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  // 꼭 확인해 주세요
+  .section-warning {
+    background: #f6f7fb;
+    .warning-list {
+      margin-top: 30px;
+      li {
+        color: #676767;
+        margin: 4px 0;
+        &:last-child {
+          margin: 0;
+        }
+        &:before {
+          display: inline-block;
+          content: "";
+          width: 5px;
+          height: 5px;
+          vertical-align: middle;
+          background: #b7b7b7;
+          margin-right: 5px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  // API
+  .section-easy-api {
+    text-align: center;
+    .sub-tit {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .box-shinhan {
+      width: 58%;
+      margin: 45px auto 35px;
+      padding: 40px 20px;
+      background: #f6f7fb;
+      border-radius: 6px;
+      border: 1px solid #ededed;
+      .text-flex-22 {
+        &:after {
+          display: block;
+          content: '';
+          width: 40px;
+          height: 4px;
+          background: #d4d7e0;
+          margin: 25px auto;
+        }
+      }
+      .logo-shinhan {
+        display: block;
+        width: 145px;
+        height: 34px;
+        margin: auto;
+      }
+      @include respond-below(lg) {
+        width: 80%;
+      }
+      @include respond-below(sm) {
+        width: 100%;
+      }
+    }
+  }
+
+  // Guide~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  .hw-event-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: #0080dd;
+    color: #fff;
+    height: 85px;
+    padding: 0 40px;
+    border-radius: 8px;
+    box-shadow: 0 30px 24px rgba(0, 0, 0, 0.08);
+    transition-duration: .3s;
+    font-weight: 300;
+    &:hover {
+      background: #0062C4;
+    }
+    .fa-chevron-right,
+    .fa-angle-right {
+      font-size: 22px;
+      margin-left: 15px;
+    }
+    @include respond-below(lg) {
+      font-size: 18px;
+      height: 64px;
+      padding: 0 36px;
+      .fa-chevron-right {
+        font-size: 18px;
+      }
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 16px;
+      height: 58px;
+      padding: 0 30px;
+      .fa-chevron-right {
+        font-size: 14px;
+      }
+    }
+  }
+  .text-flex-42 {
+    font-size: 42px;
+    font-weight: normal;
+    word-break: keep-all;
+
+    @include respond-below(lg) {
+      font-size: 36px;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 28px;
+    }
+  }
+  .text-flex-36 {
+    font-size: 36px;
+    word-break: keep-all;
+
+    @include respond-below(lg) {
+      font-size: 32px;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 28px;
+    }
+  }
+  .text-flex-28 {
+    font-size: 28px;
+    font-weight: normal;
+    word-break: keep-all;
+
+    @include respond-below(lg) {
+      font-size: 24px;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 20px;
+    }
+  }
+  .text-flex-22 {
+    font-size: 22px;
+    word-break: keep-all;
+
+    @include respond-below(lg) {
+      font-size: 20px;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 18px;
+    }
+  }
+  .text-flex-18 {
+    font-size: 18px;
+    word-break: keep-all;
+
+    @include respond-below(lg) {
+      font-size: 16px;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 14px;
+    }
+  }
+  .text-flex-16 {
+    font-size: 16px;
+    word-break: keep-all;
+
+    @include respond-below(lg) {
+      font-size: 14px;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      font-size: 13px;
+    }
+  }
+  .section-padding {
+    padding: 80px 0;
+
+    @include respond-below(lg) {
+      padding: 60px 0;
+    }
+
+    //! 0 ~ 767(모바일)
+    @include respond-below(sm) {
+      padding: 50px 0;
+    }
+  }
+  .evt-color-blue {
+    color: #0080dd;
+  }
+  .evt-color-gray {
+    color: #e6e6e6;
+  }
+  .evt-container {
+    position: relative;
+    max-width: 1168px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .warning-list {
+    li {
+      color: #676767;
+      &:before {
+        display: inline-block;
+        content: "";
+        width: 5px;
+        height: 5px;
+        vertical-align: middle;
+        background: #676767;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+    }
+  }
+  .w-100 {
+    width: 100%;
+  }
+  .font-weight-300 {
+    font-weight: 300;
+  }
+  .font-weight-normal {
+    font-weight: normal;
+  }
+}
+
+
+// flex direction
+.flex-row { flex-direction: row !important }
+.flex-row-reverse { flex-direction: row-reverse !important }
+.flex-column { flex-direction: column !important }
+.flex-column-reverse { flex-direction: column-reverse !important }
+.flex-grow-1 { flex-grow: 1 !important }
+.flex-grow-0 { flex-grow: 0 !important }
+
+// flex main-axis align
+.justify-content-start { justify-content: flex-start !important }
+.justify-content-end { justify-content: flex-end !important }
+.justify-content-center { justify-content: center !important }
+.justify-content-around {justify-content: space-around !important }
+.justify-content-between { justify-content: space-between !important }
+.justify-self-start { justify-self: flex-start !important }
+.justify-self-end { justify-self: flex-end !important }
+.justify-self-center { justify-self: center !important }
+
+// flex cross-axis align
+.align-items-start { align-items: flex-start !important }
+.align-items-end { align-items: flex-end !important }
+.align-items-center { align-items: center !important }
+.align-self-start { align-self: flex-start !important }
+.align-self-end { align-self: flex-end !important }
+.align-self-center { align-self: center !important }
+
+// push item to end
+.margin-auto-top { margin-top: auto !important }
+.margin-auto-right { margin-right: auto !important }
+.margin-auto-bottom { margin-bottom: auto !important }
+.margin-auto-left { margin-left: auto !important }

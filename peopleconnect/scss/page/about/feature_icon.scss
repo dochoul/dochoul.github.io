@@ -1,0 +1,69 @@
+//! 아이콘 11개
+.about {
+  .feature-icon {
+    .icon-carousel,
+    .feature-icon-container {
+      //padding: 44px 0;
+      display: flex;
+      padding: 15px 0;
+      .item {
+        //display: block;
+        width: 12.8%;
+        .img-div {
+          width: 50px;
+          height: 50px;
+          margin: 0 auto;
+          text-align: center;
+          @each $var in mail, aprove, insa, mobile, messenger, videoconference, addr, bbs, bill, schedule, reservation, messaging, arcahive {
+            &.#{$var} {
+              background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/#{$var}.svg) no-repeat;
+              &:hover {
+                background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/#{$var}_hover.svg) no-repeat;
+              }
+            }
+          }
+        }
+        h4 {
+          letter-spacing: -1.5px;
+          font-size: 16px;
+          font-weight: 400;
+          text-align: center;
+        }
+        &:hover,
+        &.active {
+          h4 {
+            color: #2f58b8;
+          }
+          @each $var in mail, aprove, insa, mobile, messenger, videoconference, addr, bbs, bill, schedule, reservation, messaging, arcahive {
+            .#{$var} {
+              background: url(https://static.hiworks.com/www/static/images/www.hiworks.com/about/#{$var}_hover.svg) no-repeat;
+            }
+          }
+        }
+      }
+      .owl-stage-outer,
+      .owl-stage {
+        height: 72px;
+      }
+    }
+  }
+}
+
+//! 1024 ~ 1199(아이패드 가로)
+@include respond-below(lg) {
+  .about {
+    .feature-icon {
+      .icon-carousel {
+        padding: 30px 0;
+      }
+    }
+  }
+}
+
+//! 768 ~ 1023(아이패드 세로)
+@include respond-below(md) {
+}
+
+//! 0 ~ 767(모바일)
+@include respond-below(sm) {
+}

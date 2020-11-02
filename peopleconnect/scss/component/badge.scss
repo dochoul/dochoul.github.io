@@ -1,0 +1,13 @@
+.hw-badge {
+  display: inline-block;
+  color: #fff;
+  background-color: $info-color;
+  padding: 5px 6px 6px 6px;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: .25em;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+}

@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkgnb_footer_gabia_com"]=self["webpackChunkgnb_footer_gabia_com"]||[]).push([[443],{5399:function(n,t,u){u.r(t),u.d(t,{default:function(){return o}});var a=function(){var n=this;n._self._c;return n._m(0)},e=[function(){var n=this,t=n._self._c;return t("div",{staticClass:"about"},[t("h1",[n._v("This is an about page")])])}],s=u(1001),r={},i=(0,s.Z)(r,a,e,!1,null,null,null),o=i.exports}}]);
+//# sourceMappingURL=about.d52eb8e2.js.map

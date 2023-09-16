@@ -1,11 +1,11 @@
-import React, { useEffect, useReducer, useRef } from 'react';
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import New from './pages/New';
-import Edit from './pages/Edit';
-import Detail from './pages/Detail';
-import { reducer } from './reducer';
+import React, { useEffect, useReducer, useRef } from "react";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import New from "./pages/New";
+import Edit from "./pages/Edit";
+import Detail from "./pages/Detail";
+import { reducer } from "./reducer";
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
@@ -14,15 +14,15 @@ function App() {
   const dataId = useRef(1);
 
   useEffect(() => {
-    let localStorageData = localStorage.getItem('diary');
+    let localStorageData = localStorage.getItem("diary");
     if (localStorageData) {
-      localStorageData = JSON.parse(localStorage.getItem('diary'));
+      localStorageData = JSON.parse(localStorage.getItem("diary"));
       dataId.current = parseInt(localStorageData[0].id) + 1;
     }
 
     if (localStorageData) {
       dispatch({
-        type: 'INIT',
+        type: "INIT",
         data: localStorageData,
       });
     }
@@ -30,7 +30,7 @@ function App() {
 
   const onCreate = ({ date, selectedEmotion, content }) => {
     dispatch({
-      type: 'CREATE',
+      type: "CREATE",
       data: {
         id: dataId.current++,
         date,
@@ -46,7 +46,7 @@ function App() {
         <BrowserRouter>
           <div className="App">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path={import.meta.env.BASE_URL} element={<Home />} />
               <Route path="/new" element={<New />} />
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/detail/:id" element={<Detail />} />

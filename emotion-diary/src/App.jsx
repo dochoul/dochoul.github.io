@@ -48,7 +48,7 @@ function App() {
             <Routes>
               <Route path={import.meta.env.BASE_URL} element={<Home />} />
               <Route
-                path={`${import.meta.env.BASE_URL}/new`}
+                path={`${import.meta.env.BASE_URL}new`}
                 element={<New />}
               />
               <Route path="/emotion-diary/edit/:id" element={<Edit />} />

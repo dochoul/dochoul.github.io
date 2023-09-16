@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState, useContext } from 'react';
-import { emotionList } from '../util/emotion';
-import { getStringDate } from '../util/date';
-import MyButton from './MyButton';
-import { useNavigate } from 'react-router-dom';
-import { DiaryDispatchContext } from '../App';
+import { useEffect, useRef, useState, useContext } from "react";
+import { emotionList } from "../util/emotion";
+import { getStringDate } from "../util/date";
+import MyButton from "./MyButton";
+import { useNavigate } from "react-router-dom";
+import { DiaryDispatchContext } from "../App";
 
 const DiaryEditor = ({ isEdit, originDiary }) => {
   const [date, setDate] = useState(getStringDate(new Date()));
@@ -27,14 +27,14 @@ const DiaryEditor = ({ isEdit, originDiary }) => {
       contentRef.current.focus();
       return;
     }
-    if (window.confirm('새로운 일기를 작성하시겠습니까?')) {
+    if (window.confirm("새로운 일기를 작성하시겠습니까?")) {
       onCreate({
         date,
         selectedEmotion,
         content,
       });
     }
-    navigate('/');
+    navigate(import.meta.env.BASE_URL);
   };
 
   return (
@@ -60,11 +60,11 @@ const DiaryEditor = ({ isEdit, originDiary }) => {
               <div
                 key={item.emotion_id}
                 className={[
-                  'EmotionItem',
+                  "EmotionItem",
                   item.emotion_id === selectedEmotion
                     ? `EmotionItem_on_${selectedEmotion}`
-                    : 'EmotionItem_off',
-                ].join(' ')}
+                    : "EmotionItem_off",
+                ].join(" ")}
                 onClick={() => $_clickEmotion(item.emotion_id)}
               >
                 <img src={item.emotion_img} alt="" />
@@ -89,12 +89,16 @@ const DiaryEditor = ({ isEdit, originDiary }) => {
         <section>
           <div className="control_box">
             <MyButton
-              text={'취소하기'}
+              text={"취소하기"}
               onClick={() => {
-                navigate('/');
+                navigate(import.meta.env.BASE_URL);
               }}
             />
-            <MyButton text={'작성완료'} type={'positive'} onClick={$_onSubmit} />
+            <MyButton
+              text={"작성완료"}
+              type={"positive"}
+              onClick={$_onSubmit}
+            />
           </div>
         </section>
       </div>

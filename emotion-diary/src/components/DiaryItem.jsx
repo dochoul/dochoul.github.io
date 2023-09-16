@@ -1,8 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
+import { useEffect } from "react";
 
 function DiaryItem({ id, date, selectedEmotion, content }) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(id, date, selectedEmotion, content);
+  }, [id, date, selectedEmotion, content]);
+
   return (
     <div className="DiaryItem">
       <div
@@ -13,12 +19,17 @@ function DiaryItem({ id, date, selectedEmotion, content }) {
           navigate(`/emotion-diary/detail/${id}`);
         }}
       >
-        <img src={`/assets/emotion${selectedEmotion}.png`} alt="" />
+        <img
+          src={`${
+            import.meta.env.BASE_URL
+          }assets/emotion${selectedEmotion}.png`}
+          alt=""
+        />
       </div>
       <div
         className="info_wrapper"
         onClick={() => {
-          navigate(`/detail/${id}`);
+          navigate(`/emotion-diary/detail/${id}`);
         }}
       >
         <div className="diary_date">{date}</div>
@@ -28,7 +39,7 @@ function DiaryItem({ id, date, selectedEmotion, content }) {
         <MyButton
           text={"수정하기"}
           onClick={() => {
-            navigate(`/edit/${id}`);
+            navigate(`${import.meta.env.BASE_URL}edit/${id}`);
           }}
         />
       </div>

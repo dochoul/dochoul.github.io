@@ -30,7 +30,7 @@ const Home = () => {
             <MyButton
               type={"positive"}
               text={"새 일기"}
-              onClick={() => navigate(`${import.meta.env.BASE_URL}/new`)}
+              onClick={() => navigate(`${import.meta.env.BASE_URL}new`)}
             />
           </div>
         </div>

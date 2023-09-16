@@ -1,14 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import MyButton from './MyButton';
+import { useNavigate } from "react-router-dom";
+import MyButton from "./MyButton";
 
 function DiaryItem({ id, date, selectedEmotion, content }) {
   const navigate = useNavigate();
   return (
     <div className="DiaryItem">
       <div
-        className={[`emotion_img_wrapper emotion_img_wrapper_${selectedEmotion}`]}
+        className={[
+          `emotion_img_wrapper emotion_img_wrapper_${selectedEmotion}`,
+        ]}
         onClick={() => {
-          navigate(`/detail/${id}`);
+          navigate(`/emotion-diary/detail/${id}`);
         }}
       >
         <img src={`/assets/emotion${selectedEmotion}.png`} alt="" />
@@ -24,7 +26,7 @@ function DiaryItem({ id, date, selectedEmotion, content }) {
       </div>
       <div className="btn_wrapper">
         <MyButton
-          text={'수정하기'}
+          text={"수정하기"}
           onClick={() => {
             navigate(`/edit/${id}`);
           }}

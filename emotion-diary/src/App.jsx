@@ -47,9 +47,12 @@ function App() {
           <div className="App">
             <Routes>
               <Route path={import.meta.env.BASE_URL} element={<Home />} />
-              <Route path="/new" element={<New />} />
-              <Route path="/edit/:id" element={<Edit />} />
-              <Route path="/detail/:id" element={<Detail />} />
+              <Route
+                path={`${import.meta.env.BASE_URL}/new`}
+                element={<New />}
+              />
+              <Route path="/emotion-diary/edit/:id" element={<Edit />} />
+              <Route path="/emotion-diary/detail/:id" element={<Detail />} />
             </Routes>
           </div>
         </BrowserRouter>

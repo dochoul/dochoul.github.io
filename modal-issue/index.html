@@ -16,7 +16,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="modal-overlay">
+  <button id="openModalBtn">열기</button>
+  <div class="modal-overlay" id="modalOverlay" style="display: none;">
     <div class="modal-content">
   
       <div class="hw-modal-wrap size-sm hide popup37 hide" id="layerActionOfApproval">
@@ -50,5 +51,19 @@
   
     </div>
   </div>
+
+  <script>
+    // 모달 열기 버튼 클릭 이벤트
+    document.getElementById('openModalBtn').addEventListener('click', function() {
+      document.getElementById('modalOverlay').style.display = 'flex';
+    });
+
+    // 모달 닫기 이벤트 (오버레이 클릭 시)
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

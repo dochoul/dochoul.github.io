@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1></h1>
   <button id="openModalBtn">열기</button>
   <div class="modal-overlay" id="modalOverlay" style="display: none;">
     <div class="modal-content">
@@ -53,6 +54,17 @@
   </div>
 
   <script>
+
+
+    window.visualViewport.addEventListener('resize', () => {
+      console.log(`resize`);
+      const h1 = document.querySelector('h1');
+      const width = window.innerWidth || window.visualViewport.width;
+      const height = window.innerHeight || window.visualViewport.height;
+      h1.textContent = `너비: ${width}px, 높이: ${height}px`;
+      // 하단 메뉴 위치 조정 로직 등등...
+    });
+
     // 모달 열기 버튼 클릭 이벤트
     document.getElementById('openModalBtn').addEventListener('click', function() {
       document.getElementById('modalOverlay').style.display = 'flex';

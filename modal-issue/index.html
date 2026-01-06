@@ -55,6 +55,38 @@
 
   <script>
 
+    // 모달 위치를 중앙에 맞추는 함수
+    function centerModal() {
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalContent = modalOverlay.querySelector('.modal-content');
+      
+      if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
+        return;
+      }
+
+      // visualViewport 정보 가져오기
+      const viewport = window.visualViewport;
+      const viewportWidth = viewport.width;
+      const viewportHeight = viewport.height;
+      const viewportLeft = viewport.pageLeft || viewport.offsetLeft || 0;
+      const viewportTop = viewport.pageTop || viewport.offsetTop || 0;
+      
+      // 모달 콘텐츠의 크기
+      const modalRect = modalContent.getBoundingClientRect();
+      const modalWidth = modalRect.width;
+      const modalHeight = modalRect.height;
+      
+      // visualViewport의 중앙 위치 계산
+      const centerX = viewportLeft + (viewportWidth / 2) - (modalWidth / 2);
+      const centerY = viewportTop + (viewportHeight / 2) - (modalHeight / 2);
+      
+      // 모달 위치 설정
+      modalContent.style.position = 'fixed';
+      modalContent.style.left = `${centerX}px`;
+      modalContent.style.top = `${centerY}px`;
+      modalContent.style.transform = 'none';
+      modalContent.style.margin = '0';
+    }
 
     window.visualViewport.addEventListener('resize', () => {
       console.log(`resize`);
@@ -62,12 +94,21 @@
       const width = window.innerWidth || window.visualViewport.width;
       const height = window.innerHeight || window.visualViewport.height;
       h1.textContent = `너비: ${width}px, 높이: ${height}px`;
-      // 하단 메뉴 위치 조정 로직 등등...
+      
+      // 모달이 열려있으면 위치 재조정
+      centerModal();
+    });
+
+    // 스크롤 시에도 모달 위치 재조정
+    window.visualViewport.addEventListener('scroll', () => {
+      centerModal();
     });
 
     // 모달 열기 버튼 클릭 이벤트
     document.getElementById('openModalBtn').addEventListener('click', function() {
       document.getElementById('modalOverlay').style.display = 'flex';
+      // 모달이 열릴 때 위치 조정 (약간의 지연을 두어 렌더링 후 실행)
+      setTimeout(centerModal, 0);
     });
 
     // 모달 닫기 이벤트 (오버레이 클릭 시)

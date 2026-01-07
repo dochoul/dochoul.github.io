@@ -16,9 +16,10 @@
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/approval-static/css/new_lnb.css?v=44b9c8eb" />
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery/jquery.toastmessage-min.css">
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery-ui-1.11.4/jquery-ui.min.css">
-<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-1.11.2.min.js?v=44b9c8eb" type="text/javascript"></script>
-<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-ui-1.11.4/jquery-ui.min.js?v=44b9c8eb" type="text/javascript"></script>
-<script src="https://approval.gabiaoffice.hiworks.com/approval-static/ui/js/main.js?v=44b9c8eb"></script>
+
+<script src="/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/main.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,6 @@
 	<div id="gnb-app">
 </div>
 
-<script type="text/javascript" src="https://gnb.gabiaoffice.hiworks.com/main.js?v=44b9c8eb"></script>
 	<!-- Top End-->
 	<div id="container" class="content-layout">
 		
@@ -595,12 +595,9 @@
 			</div>
 			</div>
 </div>
-<!--markdown 고려-->
-<script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/lib/marked.umd.min.js"></script>
+
 
 <script>
-	
-
   // 모달 위치를 중앙에 맞추는 함수
   function centerModal() {
       const modalOverlay = document.getElementById('modalOverlay');
@@ -633,17 +630,16 @@
       modalContent.style.transform = 'none';
       modalContent.style.margin = '0';
     }
-
-    window.visualViewport.addEventListener('resize', () => {
-      console.log(`resize`);
-      const h1 = document.querySelector('h1');
-      const width = window.innerWidth || window.visualViewport.width;
-      const height = window.innerHeight || window.visualViewport.height;
-      h1.textContent = `너비: ${width}px, 높이: ${height}px`;
-      
-      // 모달이 열려있으면 위치 재조정
-      //centerModal();
-    });
+  window.visualViewport.addEventListener('resize', () => {
+    console.log(`resize`);
+    const h1 = document.querySelector('h1');
+    const width = window.innerWidth || window.visualViewport.width;
+    const height = window.innerHeight || window.visualViewport.height;
+    h1.textContent = `너비: ${width}px, 높이: ${height}px`;
+    
+    // 모달이 열려있으면 위치 재조정
+    //centerModal();
+  });
 
 
 </script>

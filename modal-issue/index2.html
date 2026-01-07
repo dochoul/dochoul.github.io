@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>하이웍스 전자결재</title>
+<meta name="viewport" content="width=1024, user-scalable=yes,minimum-scale=0.25, maximum-scale=1.0"/>
+<link rel="shortcut icon" type="image/x-icon" href="https://static.hiworks.com/frontend/favicon/favicon.png">
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/ui/css/style.css?v=44b9c8eb">
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/ui/css/renew/style_new.css?v=44b9c8eb">
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/ui/css/style_tutorial.css"><!--add msy@gabia.com 2016-10-28-->
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery-ui-1.11.4/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery/jquery.toastmessage-min.css">
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/approval-static/css/approval/style_approval.css?v=44b9c8eb" />
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/approval-static/css/new_lnb.css?v=44b9c8eb" />
+ 
+	<!-- 조직도 레이어 관련 css, css 파일이 정리되면 파일로 이동해야함. -->
+	<style type="text/css">
+		#alphaDiv {
+			background-color: #4e515e;
+			border: 0 none;
+			display: none;
+			float: left;
+			height: 0;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 0;
+			z-index: 20;
+		}
+		#progressDiv {
+			display: inline;
+			left: 49%;
+			position: absolute;
+			top: 40%;
+			z-index: 999;
+		}
+		#popupBaseA {
+			background-color: #ffffff;
+			border: 7px solid #0e84e4;
+			overflow: visible;
+			position: absolute;
+			width: auto;
+			z-index: 999999;
+		}
+	</style>
+	<script type="text/javascript">var cookie_imagepath = "/static/images/";</script>
+
+	<script language="javascript" type="text/javascript">
+		var PATH_INFO = Array();
+		PATH_INFO['LANGUAGE'] = 'korean';
+		PATH_INFO['URLTYPE'] = 'D';
+		PATH_INFO['DOMAIN'] = 'gabia.com';
+		PATH_INFO['GROUPID'] = '';
+		PATH_INFO['ROOT'] = '/gabia.com/';
+	</script>
+
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/language.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/Sly.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/common_new.js?v=44b9c8eb1" type="text/javascript"></script>
+  <script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-1.11.2.min.js?v=44b9c8eb" type="text/javascript"></script>
+  <script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jcommon.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jvalidateMessage.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jorgtree.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jaddressbook.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jajaxBasic.js?v=44b9c8eb" type="text/javascript"></script>
+		<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery/jquery.toastmessage.js?v=44b9c8eb" type="text/javascript"></script>
+	<!-- Frontend devteam -->
+
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-ui-1.11.4/jquery-ui.min.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/ui/js/main.js?v=44b9c8eb"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/common/api_url_list.js?v=44b9c8eb" type="text/javascript"></script>
+
+
+		<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/approval.js?v=2?v=44b9c8eb" charset="utf-8" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery/jquery.fileupload.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/complete.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/process.js?v=4?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/approval_table.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/autosize/autosize.min.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/resizableTableColumns.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/department.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/org_tree.js?v=44b9c8eb" type="text/javascript"></script>
+	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/ai_process.js?v=44b9c8eb" type="text/javascript"></script>
+	<script type="text/javascript">
+		Api.urlList = {"menu-api":"https:\/\/menu-api-v4.gabiaoffice.hiworks.com","gnb":"https:\/\/gnb.gabiaoffice.hiworks.com","office-api-v5":"https:\/\/office-api.gabiaoffice.hiworks.com\/v5","hr-api":"https:\/\/hr-api.gabiaoffice.hiworks.com","webhook-api":"https:\/\/office-webhook-api.gabiaoffice.hiworks.com","approval":"https:\/\/approval-api.gabiaoffice.hiworks.com","approval-v5":"https:\/\/approval-api.gabiaoffice.hiworks.com\/v5","approval-storage":"https:\/\/approval-storage-api.gabiaoffice.hiworks.com","alarm":"https:\/\/office-alarm-api.gabiaoffice.hiworks.com","cache-api":"https:\/\/cache-api.gabiaoffice.hiworks.com","erp-api":"https:\/\/erp-api.gabiaoffice.hiworks.com","account-api":"https:\/\/account-api.gabiaoffice.hiworks.com","mail-account-api":"https:\/\/mail-account-api.gabiaoffice.hiworks.com","ai-api":"https:\/\/ai-api.gabiaoffice.hiworks.com","hr-work-api":"https:\/\/hr-work-api.gabiaoffice.hiworks.com"};
+		jQuery(document).ready(function () {
+		if( window != window.parent ){
+			jQuery('#user_info_box').hide();
+			jQuery('#topMenuBtnIcon').hide();
+			jQuery('#topMenuBtn').unbind("click");
+			jQuery('#topMenuBtn').css("cursor", "default");
+			jQuery('#logo_anchor').attr("href", "javascript:void(0);");
+			jQuery('#logo_anchor').css("cursor", "default");
+		}
+	});
+		</script>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="gnb-app">
+</div>
+
+<script type="text/javascript" src="https://gnb.gabiaoffice.hiworks.com/main.js?v=44b9c8eb"></script>
+	<!-- Top End-->
+	<div id="container" class="content-layout">
+		
+		<div id="drag_wrap">
+			<div id="drag" class="ui-draggable" style="left:0px;"></div>
+		</div>
+
+		<div id="leftmenu" >
+			<!-- left -->	
+			<div class="new-split-item left">
+    <div class="new-sidebar">
+        <div class="fixed-area">
+            <button type="button" class="hw-button plain" style="display: flex; height: 40px; align-items:  center; justify-content: center;">
+                <i class="gi gi-info gt-mr-8" style="font-size: 16px;"></i>
+                <a href="https://www.hiworks.com/hiworks_beta/" target="_blank">
+                    <span class="gt-pb-2">전자결재 매뉴얼</span>
+                </a>
+            </button>
+        </div>
+        <a href="/gabia.com/approval/document/write">
+            <button type="button" class="main-btn">
+                <i class="gi gi-plus"></i>
+                <span>작성하기</span>
+            </button>
+        </a>
+        <nav class="menu-wrap">
+            <ul>
+                <li class="el-collapse">
+                    <div class="el-collapse-item ">
+                        <div class="el-collapse-item__header menu-item" id="cookie_approval_menu_first" onclick="new_sidebar.toggleParent(this.id)">
+                            <span class="link gt-pl-10">
+                                <span class="collapse-prefix-icon open"><i class="fal fa-chevron-up"></i></span>
+                                <span class="flex-truncate collapse">진행 중인 문서</span>
+                            </span>
+                        </div>
+                        <div class="el-collapse-item__wrap" style="display: block;">
+                            <ul class="el-collapse-item__content">
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/lists/A" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-documents"></i></span>
+                                        <span class="flex-truncate">전체                                            <span class="counting type-text" id="js-approval-lists-all" style="display:none;"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/lists/W" class="link  router-link-exact-active">
+                                        <span class="link-prefix-icon"><i class="gis gi-hourglass"></i></span>
+                                        <span class="flex-truncate">대기                                            <span class="counting" id="js-approval-lists-wait" style="display:none;"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/lists/V" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-check"></i></span>
+                                        <span class="flex-truncate">확인                                            <span class="counting" id="js-approval-lists-view-check" style="display: none;"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/lists/E" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-clock"></i></i></span>
+                                        <span class="flex-truncate">예정                                            <span class="counting type-text" id="js-approval-lists-expect" style="display: none;"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/lists/P" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-spinner"></i></span>
+                                        <span class="flex-truncate">진행                                            <span class="counting type-text" id="js-approval-lists-progress" style="display: none;"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="el-collapse">
+                    <div class="el-collapse-item ">
+                        <div class="el-collapse-item__header menu-item" id="cookie_approval_menu_second" onclick="new_sidebar.toggleParent(this.id)">
+                            <a class="link gt-pl-10">
+                                <span class="collapse-prefix-icon open"><i class="fal fa-chevron-up"></i></span>
+                                <span class="flex-truncate collapse">문서함</span>
+                            </a>
+                        </div>
+                        <div class="el-collapse-item__wrap" style="display: block;">
+                            <ul class="el-collapse-item__content">
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/box/all" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-documents"></i></span>
+                                        <span class="flex-truncate">전체</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/box/writer" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-pencil"></i></span>
+                                        <span class="flex-truncate">기안</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/box/approval" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-signature"></i></span>
+                                        <span class="flex-truncate">결재</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/box/refer" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-user"></i></span>
+                                        <span class="flex-truncate">수신</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/box/read" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-user-plus"></i></span>
+                                        <span class="flex-truncate">회람/참조</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/gabia.com/approval/document/box/return" class="link ">
+                                        <span class="link-prefix-icon"><i class="gis gi-ban"></i></span>
+                                        <span class="flex-truncate">반려</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+				                    <li class="menu-item only">
+                        <a href="/gabia.com/approval/document/department" class="link gt-pl-10 ">
+                            <span class="link-prefix-icon"><i class="gis gi-user-group"></i></span>
+                            <span class="flex-truncate">부서열람</span>
+                        </a>
+                    </li>
+				
+                <li class="menu-item only">
+                    <a href="/gabia.com/approval/document/box/temp" class="link gt-pl-10 ">
+                        <span class="link-prefix-icon"><i class="gis gi-archive"></i></span>
+                        <span class="flex-truncate">임시저장</span>
+                    </a>
+                </li>
+
+                <li class="menu-item only">
+                    <a href="/gabia.com/approval/person/settings" class="link gt-pl-10 ">
+                        <span class="link-prefix-icon"><i class="gis gi-cog"></i></span>
+                        <span class="flex-truncate">설정</span>
+                    </a>
+                </li>
+
+				            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<style>
+    .hw-button.plain {
+        margin: 20px 24px 25px 24px;
+        padding: 0;
+        background: none;
+        line-height: 40px;
+        width: 228px;
+        color: #6d88a4;
+        border: 1px solid #6d88a4;
+        font-size: 15px;
+    }
+    .hw-button.plain:hover, .hw-button.plain:active {
+        background: #f7faff;
+    }
+
+    .fixed-area{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 276px;
+        height: 85px;
+        border-top: 1px solid #d7dde8;
+        background: #eff4fc;
+    }
+
+    .approval-autocomplete {z-index: 1111;}
+    .ui-widget-content {overflow-y: hidden;}
+</style>
+
+<script>
+    var new_sidebar = {
+        toggleParent: function(menuID) {
+            var _this = $j("#" + menuID);
+            _this.closest('.el-collapse-item').toggleClass('is-active');
+            _this.siblings('.el-collapse-item__wrap').slideToggle(50);
+            (getCookie(menuID) === "1" || getCookie(menuID) === "") ? setCookie(menuID, "0", 365) : setCookie(menuID, "1", 365);
+        },
+    }
+
+    $j(document).ready(function(){
+        Approval.getApprovalCount();
+    });
+</script>
+
+        	
+			<!-- left End -->
+		</div>
+
+						<div id="contents" >
+			<div class="content_title">
+	<form>
+		<fieldset>
+																			<span class="detail_select">
+				<a href="javascript:void(0);" onclick="ApprovalProcess.getApprovalLineLayer();">결재선변경</a>
+			</span>
+									
+						<span class="detail_select">
+				<a href="javascript:void(0);" onclick="ApprovalProcess.documentPrint();">인쇄</a>
+			</span>
+					</fieldset>
+	</form>
+	<div class="setting_box">
+    <h1></h1>
+							<button type="button" class="hw-icon outlined list_bt" onclick="javascript:location.href='/gabia.com/approval/document/lists/W/?&amp;list_mode=W'" title="목록보기"><i class="gi gi-list"></i></button>
+									<button type="button" class="hw-icon outlined next_bt" onclick="javascript:location.href='/gabia.com/approval/document/view/195676/condition/Jmxpc3RfbW9kZT1X'" title="다음으로 이동"><i class="gi gi-short-arrow-down"></i></button>
+			</div>
+</div>
+
+
+<div class="content_inbox">
+	<!-- Contents -->
+	<div class="cont_box view">
+		<div class="approval-wrap write view">
+						<h1>휴가 신청서</h1>
+							<table class="tableType02">
+					<caption>전자결재 문서보기</caption>
+					<colgroup>
+						<col style="width:12.09%;">
+						<col style="width:37.62%">
+						<col style="width:22.17%">
+						<col style="width:28.12%">
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="row">기안 부서</th>
+						<td>하이웍스개발팀 &gt; 프론트엔드개발유닛</td>
+						<th scope="row">기안자</th>
+						<td>Chang(하채영)</td>
+					</tr>
+					<tr>
+						<th scope="row">문서 번호</th>
+						<td>GA-휴가-20260107-0007</td>
+						<th scope="row">보존 연한 / 보안 등급</th>
+						<td>
+																								<span class="fl mgt_5 view">3년&nbsp;/&nbsp;</span>
+																									<span class="fl mgt_5 view">B등급</span>
+																<a href="javascript:void(0)" class="icon question tipsIcon" style="position: relative;top:4px;margin-left:10px"><span class="blind">세부 설명</span></a>
+								<div class="tooltip hide" style="left:-290px;top:0">
+									<div class="tooltip-box" style="width:570px;">
+										<p>보존 연한</p>
+										<p>ㆍ1년: 경미한 연결 문서 및 일시적인 사용 또는 처리에 그치는 문서</p>
+										<p>ㆍ3년: 사무의 수행상 1년 이상에 걸쳐 참고 또는 이용해야 할 문서 및 법률상 3년간 보존을 요하는 문서</p>
+										<p>ㆍ5년: 사무의 수행상 3년 이상에 걸쳐 참고 또는 이용해야 할 문서 및 법률상 5년간 보존을 요하는 문서</p>
+										<p>ㆍ10년: 사무의 수행상 장기간 참고 또는 이용해야 할 문서 및 법률상 10년간 보존을 요하는 문서</p>
+										<p>ㆍ영구: 회사의 존속에 필요 불가결한 문서 및 역사적 또는 기타 사유로 중요한 문서</p>
+										<p class="pdt_10">보안 등급</p>
+										<p>ㆍS등급: 기안 상에 설정된 관련자들만 문서를 볼 수 있으며, 결재자와 합의자만 참조자를 추가할 수 있음.</p>
+										<p>ㆍA등급: 기안 상에 설정된 관련자들과 관리자가 설정한 3등급(팀장)등급 이상인 사람이 문서를 볼 수 있음. 결재자와 합의자는 참조자를 추가할 수 있음.</p>
+										<p>ㆍB등급: 기안 상에 설정된 관련자들과 관리자가 설정한 4등급(유닛장)등급 이상인 사람이 문서를 볼 수 있음. 결재자, 합의자, 참조자 모두 참조자를 추가할 수 있음.</p>
+										<p>ㆍC등급: 모든 임직원이 문서를 열람할 수 있지만, 기안 상에 설정된 관련자들만 참조자를 추가할 수 있음.</p>
+									</div>
+								</div>
+													</td>
+					</tr>
+					</tbody>
+				</table>
+			
+			<table class="cal_table1 approve-write js-approval-line">
+	<caption>신청, 처리</caption>
+	<colgroup>
+		<col style="width:12.09%;">
+		<col style="width:37.62%;">
+		<col style="width:12.09%;">
+		<col style="width:38.02%;">
+	</colgroup>
+	<tbody>
+		<tr>
+			<th scope="row" class="agree">
+				<div class="choice">
+					신청										<span class="spr-approval set" title="신청" onclick="ApprovalProcess.getApprovalUserInfoLayer('B', 'approval_first_line');"></span>
+									</div>
+			</th>
+			<td class="confer vt" id="approvalFirstLine">
+				<table><colgroup><col width=""><col width=""><col width=""><col width=""></colgroup>
+<tr>
+<td class="team name">
+<span class="smaller">팀원</span>
+</td>
+<td class="team name">
+<span class="smaller">유닛장</span>
+</td>
+<td class="team name">
+<span class="smaller">팀장</span>
+</td>
+<td class="team name">
+</td>
+</tr>
+<tr>
+<td class="stamp">
+<img src="/gabia.com/approval/sign/approval/B/2/19471" alt="결재"><p class="date" title="2026-01-07 09:01:22">2026-01-07 </p>
+</td>
+<td class="stamp">
+<!-- <span class="bt_left pdt_0 pdb_0"><button type="button" onclick='ApprovalProcess.getApprovalLayer("2817844", "195747", "15743")'>결재</button></span> -->
+<span class="bt_left pdt_0 pdb_0"><button type="button" onclick='$j("#layerActionOfApproval").show();'>결재</button></span>
+</td>
+<td class="stamp">
+
+</td>
+<td class="stamp">
+</td>
+</tr>
+<tr>
+<td class="name">
+<span class="stamp-step-num" style="display:none;">0</span><span class="smaller">Chang(하채영)</span>
+</td>
+<td class="name">
+<span class="stamp-step-num" style="display:none;">0</span><span class="smaller">David(김덕연)</span>
+</td>
+<td class="name">
+<span class="stamp-step-num" style="display:none;">0</span><span class="smallest">Marcus(김정현)</span>
+</td>
+<td class="name">
+</td>
+</tr>
+</table>
+			</td>
+			<th scope="row" class="confer">
+				<div class="choice">
+					처리											<span class="spr-approval set" title="처리" onclick="ApprovalProcess.getApprovalUserInfoLayer('C', 'approval_second_line');"></span>
+									</div>
+			</th>
+			<td class="confer vt" id="approvalSecondLine">
+				<table><colgroup><col width=""><col width=""><col width=""><col width=""></colgroup>
+<tr>
+<td class="team name">
+<span class="smaller">팀원</span>
+</td>
+<td class="team name">
+</td>
+<td class="team name">
+</td>
+<td class="team name">
+</td>
+</tr>
+<tr>
+<td class="stamp">
+
+</td>
+<td class="stamp">
+</td>
+<td class="stamp">
+</td>
+<td class="stamp">
+</td>
+</tr>
+<tr>
+<td class="name">
+<span class="stamp-step-num" style="display:none;">0</span><span class="smaller">Emma(황은혜)</span>
+</td>
+<td class="name">
+</td>
+<td class="name">
+</td>
+<td class="name">
+</td>
+</tr>
+</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table class="cal_table1 approve-write refer">
+	<colgroup>
+		<col style="width:12.09%;">
+		<col style="width:87.91%;">
+	</colgroup>
+	<tbody>
+		<tr>
+			<th scope="row">
+				<div class="choice" style="min-height: 45px;">
+				참조									<span class="spr-approval set" title="참조" onclick="ApprovalProcess.showApprovalInput('approvalThirdLine', 'inputApprovalThirdLine');"></span>
+								</div>
+			</th>
+			<td id="approvalThirdLine">
+				<input type="text" class="refer-add js-complete" placeholder="클릭 후 입력" id="inputApprovalThirdLine" style="display: none;" approval_type="F">
+				<span class="refer-list" user_no="102" node_id="642" type="F">Zoe(양은희)</span><span class="refer-list" user_no="20051" node_id="642" type="F">Sandy(원모래)</span>			</td>
+		</tr>
+	</tbody>
+</table>
+
+			<div class="docu-common-wrap">
+				<h2>
+										<span class="point_color">
+										</span>
+
+					<div class="approval-title-wrap">
+						<span class="approval-title">
+							휴가 신청(Chang(하채영)) - 2026년 1월 7일(2시간)/연차						</span>
+
+													<button class="approval-ai-summary-button">
+								<svg width="16" height="16" fill="#909090" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#summary_svg__a)">
+										<path d="m12.668 8.703-3.43-1.207a1.659 1.659 0 0 1-.735-.735L7.295 3.33a.823.823 0 0 0-1.47 0L4.618 6.76c-.158.315-.42.577-.735.735L.453 8.703a.823.823 0 0 0 0 1.47l3.43 1.208c.315.157.577.42.735.735l1.207 3.43a.823.823 0 0 0 1.47 0l1.208-3.43c.157-.315.42-.578.735-.735l3.43-1.208a.823.823 0 0 0 0-1.47Z" fill="url(#summary_svg__b)"></path>
+										<path d="M12.246 5.501a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z" fill="url(#summary_svg__c)"></path>
+									</g>
+									<defs>
+										<linearGradient id="summary_svg__b" x1="0" y1="8.681" x2="13.121" y2="15.999" gradientUnits="userSpaceOnUse">
+											<stop stop-color="#8332E5"></stop>
+											<stop offset="1" stop-color="#2496F2"></stop>
+										</linearGradient>
+										<linearGradient id="summary_svg__c" x1="10.496" y1="3.549" x2="13.996" y2="5.501" gradientUnits="userSpaceOnUse">
+											<stop stop-color="#8332E5"></stop><stop offset="1" stop-color="#2496F2"></stop>
+										</linearGradient>
+										<clipPath id="summary_svg__a">
+											<path fill="#fff" transform="translate(0 .001)" d="M0 0h14v15.998H0z"></path>
+										</clipPath>
+									</defs>
+								</svg>
+								<span class="summary-comment">요약</span>
+							</button>
+						
+					</div>
+				</h2>
+				<div class="ai-summary-wrap" style="display: none;">
+					<div class="ai-summary-toggle-button">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="#909090" class="ai-summary-toggle-svg" style="display: none;">
+							<path data-name="\uD328\uC2A4 98646" d="M8 1a7 7 0 1 0 7 7 7 7 0 0 0-7-7m0 13.125A6.125 6.125 0 1 1 14.125 8 6.125 6.125 0 0 1 8 14.125" fill="current"></path>
+							<path data-name="\uD328\uC2A4 98647" d="M8.338 5.665a.4.4 0 0 0-.057-.059.43.43 0 0 0-.607.043l-.014.016-2.57 3.149a.422.422 0 0 0-.047.448.427.427 0 0 0 .385.238h5.143a.424.424 0 0 0 .338-.686z" fill="current"></path><path data-name="\uC0AC\uAC01\uD615 144460" transform="translate(1 1)" d="M0 0h14v14H0z" style="fill: none;"></path>
+							<path data-name="\uC0AC\uAC01\uD615 144461" d="M0 0h16v16H0z" style="fill: none;"></path>
+						</svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="#909090" class="ai-summary-toggle-svg">
+							<path data-name="\uD328\uC2A4 98646" d="M8 1a7 7 0 1 0 7 7 7 7 0 0 0-7-7m0 13.125A6.125 6.125 0 1 1 14.125 8 6.125 6.125 0 0 1 8 14.125" fill="current"></path>
+							<path data-name="\uD328\uC2A4 98647" d="M8.338 10.336a.4.4 0 0 1-.057.059.43.43 0 0 1-.606-.043l-.014-.016-2.571-3.15a.422.422 0 0 1-.047-.448.427.427 0 0 1 .385-.238h5.143a.424.424 0 0 1 .338.686z" fill="current"></path>
+							<path data-name="\uC0AC\uAC01\uD615 144460" transform="translate(1 1)" d="M0 0h14v14H0z" style="fill: none;"></path>
+							<path data-name="\uC0AC\uAC01\uD615 144461" d="M0 0h16v16H0z" style="fill: none;"></path>
+						</svg>
+						<span>AI 전자결재 요약</span>
+					</div>
+					<div class="ai-summary-result-wrap" >
+						<div style="display: none" id="ai-summary-result"></div>
+						<div class="ai-summary-header">
+							<span>AI 요약 결과는 정확하지 않은 정보를 포함할 수 있습니다.</span>
+							<div id="ai-summary-header-dropdown">
+								<svg width="14" height="14" viewBox="0 0 14 16" fill="#909090" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8.2 2.009v3.054h1.416v1.215h-1.4v1.287c.237-.148.49-.28.788-.385a5.918 5.918 0 0 1 1.907-.332c1.015 0 1.777.315 2.302.945.525.63.787 1.54.787 2.738v5.277h-1.67l-.124-.84a4.256 4.256 0 0 1-1.26.76c-.455.184-.919.272-1.409.272-.77 0-1.382-.219-1.846-.665-.463-.446-.691-1.05-.691-1.82 0-.726.237-1.32.709-1.793a.346.346 0 0 1 .035-.027H1.4V8.982h1.4v1.497h5.425v.84c.437-.29.998-.534 1.698-.726.288-.088.612-.158.944-.219.333-.061.718-.122 1.155-.175-.026-.569-.157-.98-.393-1.243-.245-.254-.613-.385-1.103-.385-.35 0-.717.07-1.085.21-.376.14-.69.368-1.224.71H6.825V2.008H8.2Zm3.849 9.563c-.28.035-.534.088-.778.14a7.217 7.217 0 0 0-.692.184c-.551.175-.954.385-1.217.622-.262.244-.393.533-.393.84 0 .306.105.551.306.726.202.175.473.263.814.263.315 0 .638-.08.98-.228.332-.149.656-.367.971-.639h.009v-1.908ZM3.063 4.695c.708 0 1.303.166 1.793.498.49.333.736.815.736 1.445 0 .63-.246 1.11-.736 1.443v-.009c-.49.333-1.102.5-1.793.5-.692 0-1.278-.167-1.768-.509C.805 7.731.56 7.267.56 6.638c0-.63.244-1.112.734-1.445.49-.332 1.059-.498 1.768-.498Zm.008 1.207c-.315 0-.586.07-.804.193a.6.6 0 0 0-.333.551v.01c0 .244.114.428.333.541.218.114.48.175.796.175.314 0 .585-.061.804-.184.219-.122.333-.297.333-.542a.6.6 0 0 0-.333-.551c-.218-.131-.48-.193-.796-.193Zm.665-2.756h2.371v1.216H0V3.146h2.345V2h1.391v1.146Z" fill="url(#translation_svg__a)"></path>
+									<defs>
+										<linearGradient id="translation_svg__a" x1="0" y1="8.192" x2="14" y2="16" gradientUnits="userSpaceOnUse">
+											<stop stop-color="#8332E5"></stop>
+											<stop offset="1" stop-color="#2496F2"></stop>
+										</linearGradient>
+									</defs>
+								</svg>
+
+								<div class="relative-ai-class inline-block text-left">
+
+									<div>
+										<button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="ai-translate-menu-button" type="button" aria-haspopup="true" aria-expanded="false">
+											<div class="ai-dropdown-button">
+												<span id="translate-button-text">한국어</span>
+												<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 16 16" fill="#909090" style="flex-shrink: 0;">
+													<path data-name="\uC0AC\uAC01\uD615 14276" d="M0 0h16v16H0z" transform="rotate(-90 8 8)" style="fill: none;"></path>
+													<path data-name="\uD328\uC2A4 113037" d="M8.26 11.885 15 4.776 14.225 4 8 10.561 1.774 4 1 4.776l6.74 7.109a.35.35 0 0 0 .519 0" fill="current"></path>
+												</svg>
+											</div>
+										</button>
+									</div>
+
+									<div id="ai-dropdown-menu-wrapper" class="dropdown-ai-panel hidden-ai-class">
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="korean">한국어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="english">영어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="simplified_chinese">중국어(간체)</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="traditional_chinese">중국어(번체)</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="japanese">일본어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="vietnamese">베트남어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="french">프랑스어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="thai">태국어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="indonesian">인도네시아어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="spanish">스페인어</a>
+										<a href="#" class="dropdown-ai-class-item" data-lang-code="portuguese">포루투갈어</a>
+									</div>
+
+								</div>
+								<button id="ai-summary-copy-button" type="button" title="복사하기">
+									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="#909090"><path data-name="\\\\uC0AC\\\\uAC01\\\\uD615 146970" d="M0 0h16v16H0z" style="fill: none;"></path><path data-name="\\\\uD328\\\\uC2A4 112362" d="M14 1H4a1 1 0 0 0-1 1v1h-.972A1.029 1.029 0 0 0 1 4.03v9.938A1.032 1.032 0 0 0 2.028 15h9.942A1.031 1.031 0 0 0 13 13.969V13h1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1m0 3v8H4V4H3v8a1 1 0 0 0 1 1h8v.963a.03.03 0 0 1-.027.031H2.028A.029.029 0 0 1 2 13.969V4.031A.029.029 0 0 1 2.027 4H4V2h10v2z" fill="current"></path></svg>
+								</button>
+							</div>
+						</div>
+						<div class="ai-summary-body">
+							<div class="ai-summary-divider"></div>
+							<div class="ai-summary-content">
+								<div id="ai-summary-content-html" style=""></div>
+								<div id="ai-summary-error-content"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contents after">
+					<div class="hw-approval-docs"><style>.hw-approval-docs {}.hw-approval-docs > section {margin-bottom: 30px;}.hw-approval-docs .section-title {font-size: 15px; font-weight: bold; margin-bottom: 10px; line-height: 1;}.hw-approval-docs .section-data {font-size: 14px;}.hw-approval-docs .setting-table {width: 100%; border-top: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; border-collapse: collapse;}.hw-approval-docs .setting-table.center {text-align: center;}.hw-approval-docs .setting-table.left > tbody > tr > th, .hw-approval-docs .setting-table.left > tbody > tr > td{text-align: left;}.hw-approval-docs .text-center {text-align: center;}.hw-approval-docs .setting-table.calendar th {background: #fff;}.hw-approval-docs .setting-table.calendar td {height: 80px;}.hw-approval-docs .setting-table.calendar .calc {background: #f8f8f8;}.hw-approval-docs .setting-table.calendar .prev {color: #c4c4c4;}.hw-approval-docs .manage-divide { display: inline-block;  width: 1px; height: 14px; background-color: #d6d6d6;  vertical-align: middle;}.hw-approval-docs .setting-table.horizontal tr:last-child th {border-bottom: none;}.hw-approval-docs .setting-table tr {height: 45px;}.hw-approval-docs .setting-table tr th, .hw-approval-docs .setting-table tr td {font-size: 14px; padding: 0px 14px;  border-top-color: #d6d6d6; border-left: 0;}.hw-approval-docs .setting-table tr th {background: #eff4fc; font-weight: normal; color: #333; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; }.hw-approval-docs .setting-table tr td {background: #fff; border-right: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb; }.hw-approval-docs .setting-table tr th:last-child, .hw-approval-docs .setting-table tr td:last-child {border-right: none;}.hw-approval-docs .setting-table > tbody > tr:last-child > td {border-bottom: none;}.hw-approval-docs .setting-table > tbody > tr > td.setting-table-child {padding: 0}.hw-approval-docs .setting-table > tbody > tr > td.setting-table-child .setting-table {border-top: 0; border-bottom: 0;}.hw-approval-docs .setting-table > tbody > tr > th.team-plan-table-head {border-top: 1px solid #d6d6d6; text-align: left;}.hw-approval-docs .setting-table > tbody > tr > th.team-plan-table-head.column-date:not(:nth-child(8)) {border-right: 1px solid #ebebeb;}.hw-approval-docs .setting-table > tbody > tr > th.week-total-time-head {border-left: 1px solid #d6d6d6;}.hw-approval-docs .setting-table.team-plan-table > tbody > tr > td:nth-child(8) {border-right: 1px solid #d6d6d6;}.hw-approval-docs .setting-table > tbody > tr > td.week-total-time {background: #f8f8f8;}.hw-approval-docs .setting-table > tbody > tr > td.team-name-cell {border-right: 1px solid #d6d6d6;}.hw-approval-docs .setting-table > tbody > tr.last-team-row > td {border-bottom: 1px solid #d6d6d6;}</style><table class="setting-table" style="margin-top:50px;margin-bottom:50px">
+            <colgroup>
+                <col style="width: 160px" />
+                <col />
+            </colgroup>
+            <tbody>
+            <tr><th>사용자</th><td>Chang(하채영)</td></tr><tr><th>부서</th><td>프론트엔드개발유닛</td></tr><tr><th>휴가 신청</th><td><p>1월 7일(수) 2시간 (10:00~12:00) / 연차</p></td></tr><tr><th>신청한 휴가일수</th><td>2시간</td></tr><tr><th>잔여휴가</th><td>15일 4시간 (연차 15일 4시간)</td></tr><tr><th>사유</th><td>병가 사유</td></tr>
+                </tbody>
+                </table></div>				</div>
+
+				<div class="file after">
+					<div class="top">
+						<span class="body-color mgr_20">별첨</span>
+													<a href="javascript:void(0);" class="addfile" onclick="ApprovalProcess.getAttchedFileLayer();">파일 첨부</a>
+							<span class="weakgray">|</span>
+																			<a href="javascript:void(0);" class="addfile" onclick="ApprovalProcess.getRelatedDocumentLayer();">관련문서 첨부</a>
+											</div>
+					<div class="filebox">
+																	</div>
+									</div>
+
+									<div class="approval-group after" id="approvalDepartment">
+						<div class="cont-tit after">
+							<span class="body-color">열람부서</span>
+							<div class="gt-d-inline-block">
+								<a href="javascript:void(0)" class="icon question tipsIcon vm"style="margin-left:10px; margin-top:0px"><span class="blind">세부 설명</span></a>
+								<div class="tooltip hide" style="top:0;color:#676767;">
+									<div class="tooltip-box" style="left:0;">
+										<p>결재완료 후 열람부서의 부서원이 이 문서를 열람할 수 있습니다.</p>
+									</div>
+								</div>
+							</div>
+							<span class="detail_select blue_color" id="filter_org">
+                            								<a href="javascript:void(0)" class="layerShow mgl_10 js-approval-check-after add-group"><span id="filtered_org_name">추가</span></a>
+								<div class="dropdown hide" id="department_tree">
+                                    <div class="dropdown-menu block scroll" style="padding:0; top:-320px; overflow:auto; width:250px;">
+                                        <div id="filter_orgtree" class="filter_orgtree"></div>
+                                    </div>
+                                </div>
+							                        </span>
+						</div>
+						<div class="approval-group-box">
+													</div>
+					</div>
+							</div>
+		</div>
+
+					<div class="approval-comment-tab" id="approvalCommentsTab">
+				<a href="javascript:void(0);" class="gt-nav-item gt-active approval-comments-tab1" data-id="tab1-1" onclick="ApprovalProcess.getApprovalComments();">의견</a>
+				<a href="javascript:void(0);" class="gt-nav-item approval-comments-tab2" data-id="tab1-2" onclick="ApprovalProcess.getApprovalCommentsHistory();">이력</a>
+			</div>
+			<div id="divApprovalComments" class="approval-comment approval">
+				<p class="top number_comments">
+					<span class="point_color bold" id="approvalCommentsCount">0</span>개의 의견				</p>
+				<ul id="approvalComments"></ul>
+									<div class="comment_write">
+						<label for="commentInput" class="blind">댓글 입력란</label>
+						<textarea id="approvalDocumentComment" placeholder="댓글을 남겨주세요." title="댓글을 남겨주세요." class="comment-texarea"></textarea>
+						<button type="button" class="bt_left" onclick="ApprovalProcess.addApprovalComment();">등록</button>
+					</div>
+							</div>
+			<div id="divApprovalCommentsHistory" class="approval-comment approval hide">
+				<ul id="approvalCommentsHistory"></ul>
+			</div>
+			</div>
+</div>
+<!--markdown 고려-->
+<script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/lib/marked.umd.min.js"></script>
+
+<script>
+	ApprovalProcess._documentNo = '195747';
+	ApprovalProcess._firstLine = '19471,15743,678';
+	ApprovalProcess._secondLine = '20705';
+	ApprovalProcess._thirdLine = '102,20051';
+	ApprovalProcess._fourthLine = '';
+	ApprovalProcess._fifthLine = '';
+	ApprovalProcess._approvalMethod = 'BCF';
+	ApprovalProcess._registerNo = '19471';
+	ApprovalProcess._documentType = 'hr_vacation';
+	var userAgent = "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/143.0.0.0 Safari\/537.36";
+
+		ApprovalProcess._nextURL = '/gabia.com/approval/document/view/195676/condition/Jmxpc3RfbW9kZT1X';
+		
+	var approvalRelatedDocumentTable = new approvalTableClass( {table:"tableRelatedDocument", row : [["action2", ""], ["star", ""], ["document_code", "docu-num"], ["none_link_title", "title"], ["register", "docu-register"], ["type", "docu-type"]]} );
+
+	$j(document).ready(function(){
+		autoComplete();
+		Approval.settingDblClickForDeleteApprovalSelectUser();
+				ApprovalProcess.getApprovalComments();
+		autosize(document.querySelector("#approvalDocumentComment"));
+		
+		ApprovalDepartment.getOrgNodeList("view");
+		orgtree.setTopNodeId('639');
+		
+	});
+
+	$j(document).on("click", '.js-approval-line-delete', function(){
+		if($j(this).parent().attr("user_no") === undefined){
+			alert("다시 시도해주시기 바랍니다.");
+			return;
+		}
+
+		if(ApprovalProcess.deleteApprovalLinUser($j(this).parent().attr("user_no"), $j(this).parent().contents().eq(0).text(), $j(this).parent().attr("type"), $j(this).closest('td').attr('id'))){
+			$j(this).parent().remove();
+		}
+	});
+
+	$j(document).on("click", '.department_delete', function(){
+		if($j(this).parent().attr("node_id") === undefined){
+			alert("다시 시도해주시기 바랍니다.");
+			return;
+		}
+		if(ApprovalDepartment.deleteApprovalDepartment($j(this).parent().attr("node_id"), $j(this).parent().children(".approval-group-name").text(), ApprovalProcess._documentNo)){
+			$j(this).parent().remove();
+		}
+	});
+
+	$j(document).on("click", '.js-approval-circulation', function(){
+		$j(this).parent().remove();
+	});
+
+	$j(document).on("mousedown", '.js-approval-li-types', function(event){
+		event.preventDefault();
+		$j('.js-approval-li-forms').removeClass("active");
+		$j(this).addClass("active");
+		$j('#anchorApprovalType').html("보기: " +$j(this).text());
+		$j("#menuApprovalTypeMode").toggleClass("show");
+		ApprovalProcess._searchRelatedDocument['type'] = $j(this).attr("value");
+		ApprovalProcess._searchRelatedDocument['page'] = '1';
+		ApprovalProcess.getRelatedDocumentList();
+	});
+
+	$j(document).on("keydown", '#textSearchRelatedDocument', function(e){
+		if(e.keyCode == 13){ // enter
+			e.preventDefault();
+			e.stopPropagation();
+
+			ApprovalProcess.searchRelatedDocument();
+		}
+	});
+
+	$j(document).on("click", '.js-approval-btn-box-mode', function(){
+		if($j(this).parent().children("ul").hasClass("dropdown-menu")){
+			$j(this).parent().children("ul").toggleClass("show");
+			$j(".js-approval-li-types").removeClass("active");
+		}
+	});
+
+	$j(document).on("click", '#anchorApprovalUserOrder', function(){
+		var options = $j('#orderApprovalDropdown').find('a');
+		var orderKey = getCookie('orderKey');
+
+		if(!orderKey) {
+			orderKey = 'name';
+		}
+
+		for(var i=0; i < options.length; i++) {
+			var option = options[i];
+
+			if(option.onclick.toString().indexOf(orderKey) > -1) {
+				option.style.fontWeight = 'bold';
+			} else {
+				option.style.fontWeight = '';
+			}
+		}
+
+		$j('#orderApprovalDropdown').toggleClass("show");
+	});
+
+	$j('#m_view_more_menu').on('click', function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$j('#m_view_more_menu_detail').show();
+	});
+
+	$j(document).on('click', function(){
+		$j('#m_view_more_menu_detail').hide();
+	});
+
+	$j('.approval-ai-summary-button').on('click', function(e){
+
+		if(userAgent.indexOf('Trident/') > -1 || userAgent.indexOf('MSIE') > -1){
+			alert("Internet Explorer 에서는 해당 기능을 사용할 수 없습니다.")
+			return;
+		}
+
+		$j('.ai-summary-wrap').toggle();
+		if($j('#ai-summary-content-html').html().length < 1){
+			$j('.approval-ai-summary-button').prop('disabled', true);
+			AiApprovalProcess.getAiSummary(ApprovalProcess._documentNo)
+				.then(function() {
+					$j('.approval-ai-summary-button').prop('disabled', false);
+				})
+				.catch(function(error) {
+					console.error(error);
+					$j('.approval-ai-summary-button').prop('disabled', false);
+				})
+		}
+	})
+
+	$j('.ai-summary-toggle-button').on('click', function(e){
+		$j('.ai-summary-toggle-svg').toggle();
+		$j('.ai-summary-result-wrap').toggle();
+	})
+
+	$j('#ai-translate-menu-button').on('click', function(e){
+		$j('#ai-dropdown-menu-wrapper').toggleClass('hidden-ai-class');
+		var isExpended = !$j('#ai-dropdown-menu-wrapper').hasClass('hidden-ai-class')
+		$j('#ai-translate-menu-button').attr('aria-expanded', isExpended);
+	})
+
+	$j('#ai-dropdown-menu-wrapper').on('click', '.dropdown-ai-class-item', function(e){
+		e.preventDefault();
+		$j('#translate-button-text').text($j(this).text());
+		$j('#ai-dropdown-menu-wrapper').addClass('hidden-ai-class');
+		$j('#ai-translate-menu-button').attr('aria-expanded', false)
+		$j('#ai-summary-copy-button').prop('disabled', true)
+		var langCode = $j(this).data('lang-code');
+		AiApprovalProcess.getAiTranslate(langCode)
+			.then(function() {
+				$j('#ai-summary-copy-button').prop('disabled', false)
+			})
+			.catch(function(error) {
+				console.log(error);
+				$j('#ai-summary-copy-button').prop('disabled', false)
+			})
+	})
+
+	$j('#ai-summary-copy-button').on('click', function(e){
+		navigator.clipboard.writeText($j('#ai-summary-content-html').text())
+			.then(function() {
+				alert("클립보드에 복사되었습니다.")
+			})
+	})
+
+	$j(window).on('click', function(e){
+		if($j(e.target).closest($j('#ai-translate-menu-button')).length === 0 && $j(e.target).closest($j('#ai-dropdown-menu-wrapper')).length === 0) {
+			$j('#ai-dropdown-menu-wrapper').addClass('hidden-ai-class');
+			$j('#ai-translate-menu-button').attr('aria-expanded', false)
+		}
+	})
+
+	
+	ApprovalProcess._universalSetting = 'N';
+
+  // 모달 위치를 중앙에 맞추는 함수
+  function centerModal() {
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalContent = modalOverlay.querySelector('.modal-content');
+      
+      if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
+        return;
+      }
+
+      // visualViewport 정보 가져오기
+      const viewport = window.visualViewport;
+      const viewportWidth = viewport.width;
+      const viewportHeight = viewport.height;
+      const viewportLeft = viewport.pageLeft || viewport.offsetLeft || 0;
+      const viewportTop = viewport.pageTop || viewport.offsetTop || 0;
+      
+      // 모달 콘텐츠의 크기
+      const modalRect = modalContent.getBoundingClientRect();
+      const modalWidth = modalRect.width;
+      const modalHeight = modalRect.height;
+      
+      // visualViewport의 중앙 위치 계산
+      const centerX = viewportLeft + (viewportWidth / 2) - (modalWidth / 2);
+      const centerY = viewportTop + (viewportHeight / 2) - (modalHeight / 2);
+      
+      // 모달 위치 설정
+      modalContent.style.position = 'fixed';
+      modalContent.style.left = `${centerX}px`;
+      modalContent.style.top = `${centerY}px`;
+      modalContent.style.transform = 'none';
+      modalContent.style.margin = '0';
+    }
+
+    window.visualViewport.addEventListener('resize', () => {
+      console.log(`resize`);
+      const h1 = document.querySelector('h1');
+      const width = window.innerWidth || window.visualViewport.width;
+      const height = window.innerHeight || window.visualViewport.height;
+      h1.textContent = `너비: ${width}px, 높이: ${height}px`;
+      
+      // 모달이 열려있으면 위치 재조정
+      //centerModal();
+    });
+
+
+</script>
+
+
+
+
+		</div>
+			</div>
+	<div id="dimmed"></div>
+	<div id="dimmed2"></div>
+	<style>
+	#dimmed2 {display: none;position: fixed;width: 100%;height: 100%;z-index: 2000;background-color: #000;opacity: .3;top: 0;left: 0;margin: 0;padding: 0;}
+ 	.layer_box.mid_large.auto-logout {width: 480px;z-index: 2010;}
+	</style>
+</div>
+<div id='main_layer_div'>
+	
+</div>
+
+
+<div class="hw-modal-wrap size-sm  popup37 " id="layerActionOfApproval" style="margin-left: -250px;margin-top: -107px;display: none;">
+  <div class="hw-modal-header">
+      <strong>
+    결재        </strong>
+</div>
+  <div class="hw-modal-body">
+  <input type="hidden" name="approval_no" value="2817844">
+  <input type="hidden" name="document_no" value="195747">
+  <input type="hidden" name="approval_office_user_no" value="15743">
+          <div class="gt-mb-20" id="approvalEnableValue">
+          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="2" onchange="ApprovalProcess.enableApprovalChange();"> 승인</label></div>
+          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="12" onchange="ApprovalProcess.enableApprovalChange();"> 협의</label></div>
+          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="4" onchange="ApprovalProcess.enableApprovalChange();"> 반려</label></div>
+          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="5" onchange="ApprovalProcess.enableApprovalChange();"> 전결</label></div>
+          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="10" onchange="ApprovalProcess.enableApprovalChange();"> 대결</label></div>
+          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="8" onchange="ApprovalProcess.enableApprovalChange();"> 후결</label></div>
+            </div>
+      <p id="approvalMessage" class="hide pdb_10" style="display: block;">승인하시겠습니까?</p>
+  <div class="reason hide" id="approvalReason" style="display: block;">
+          <textarea class="hw-textarea" placeholder="의견을 입력하세요." id="approvalReasonMessage" style="resize: none;"></textarea>
+      </div>
+  </div>
+  
+  <div class="hw-modal-footer gt-d-flex gt-justify-content-between">
+      <button type="button" class="hw-button secondary" onclick="$j('#layerActionOfApproval').css('display', 'none');">취소</button>
+      <div>
+          <button type="button" class="hw-button" onclick="ApprovalProcess.approvalAction(false);">확인</button><button type="button" class="hw-button" id="next-document" onclick="ApprovalProcess.approvalAction(true);">확인 후 다음 문서</button>
+      </div>
+  </div>
+  <a href="javascript:void(0)" class="icon btn_closelayer" onclick="$j('#layerActionOfApproval').css('display', 'none');" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+</div>
+
+
+</body>
+</html>

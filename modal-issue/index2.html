@@ -12,92 +12,16 @@
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/ui/css/style.css?v=44b9c8eb">
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/ui/css/renew/style_new.css?v=44b9c8eb">
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/ui/css/style_tutorial.css"><!--add msy@gabia.com 2016-10-28-->
-<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery-ui-1.11.4/jquery-ui.min.css">
-<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery/jquery.toastmessage-min.css">
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/approval-static/css/approval/style_approval.css?v=44b9c8eb" />
 <link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/approval-static/css/new_lnb.css?v=44b9c8eb" />
- 
-	<!-- 조직도 레이어 관련 css, css 파일이 정리되면 파일로 이동해야함. -->
-	<style type="text/css">
-		#alphaDiv {
-			background-color: #4e515e;
-			border: 0 none;
-			display: none;
-			float: left;
-			height: 0;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 0;
-			z-index: 20;
-		}
-		#progressDiv {
-			display: inline;
-			left: 49%;
-			position: absolute;
-			top: 40%;
-			z-index: 999;
-		}
-		#popupBaseA {
-			background-color: #ffffff;
-			border: 7px solid #0e84e4;
-			overflow: visible;
-			position: absolute;
-			width: auto;
-			z-index: 999999;
-		}
-	</style>
-	<script type="text/javascript">var cookie_imagepath = "/static/images/";</script>
-
-	<script language="javascript" type="text/javascript">
-		var PATH_INFO = Array();
-		PATH_INFO['LANGUAGE'] = 'korean';
-		PATH_INFO['URLTYPE'] = 'D';
-		PATH_INFO['DOMAIN'] = 'gabia.com';
-		PATH_INFO['GROUPID'] = '';
-		PATH_INFO['ROOT'] = '/gabia.com/';
-	</script>
-
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/language.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/Sly.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/common_new.js?v=44b9c8eb1" type="text/javascript"></script>
-  <script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-1.11.2.min.js?v=44b9c8eb" type="text/javascript"></script>
-  <script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jcommon.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jvalidateMessage.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jorgtree.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jaddressbook.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jajaxBasic.js?v=44b9c8eb" type="text/javascript"></script>
-		<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery/jquery.toastmessage.js?v=44b9c8eb" type="text/javascript"></script>
-	<!-- Frontend devteam -->
-
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-ui-1.11.4/jquery-ui.min.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/ui/js/main.js?v=44b9c8eb"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/common/api_url_list.js?v=44b9c8eb" type="text/javascript"></script>
 
 
-		<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/approval.js?v=2?v=44b9c8eb" charset="utf-8" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery/jquery.fileupload.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/complete.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/process.js?v=4?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/approval_table.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/autosize/autosize.min.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/resizableTableColumns.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/department.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/org_tree.js?v=44b9c8eb" type="text/javascript"></script>
-	<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/approval/ai_process.js?v=44b9c8eb" type="text/javascript"></script>
-	<script type="text/javascript">
-		Api.urlList = {"menu-api":"https:\/\/menu-api-v4.gabiaoffice.hiworks.com","gnb":"https:\/\/gnb.gabiaoffice.hiworks.com","office-api-v5":"https:\/\/office-api.gabiaoffice.hiworks.com\/v5","hr-api":"https:\/\/hr-api.gabiaoffice.hiworks.com","webhook-api":"https:\/\/office-webhook-api.gabiaoffice.hiworks.com","approval":"https:\/\/approval-api.gabiaoffice.hiworks.com","approval-v5":"https:\/\/approval-api.gabiaoffice.hiworks.com\/v5","approval-storage":"https:\/\/approval-storage-api.gabiaoffice.hiworks.com","alarm":"https:\/\/office-alarm-api.gabiaoffice.hiworks.com","cache-api":"https:\/\/cache-api.gabiaoffice.hiworks.com","erp-api":"https:\/\/erp-api.gabiaoffice.hiworks.com","account-api":"https:\/\/account-api.gabiaoffice.hiworks.com","mail-account-api":"https:\/\/mail-account-api.gabiaoffice.hiworks.com","ai-api":"https:\/\/ai-api.gabiaoffice.hiworks.com","hr-work-api":"https:\/\/hr-work-api.gabiaoffice.hiworks.com"};
-		jQuery(document).ready(function () {
-		if( window != window.parent ){
-			jQuery('#user_info_box').hide();
-			jQuery('#topMenuBtnIcon').hide();
-			jQuery('#topMenuBtn').unbind("click");
-			jQuery('#topMenuBtn').css("cursor", "default");
-			jQuery('#logo_anchor').attr("href", "javascript:void(0);");
-			jQuery('#logo_anchor').css("cursor", "default");
-		}
-	});
-		</script>
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery/jquery.toastmessage-min.css">
+<link rel="stylesheet" type="text/css" href="https://approval.gabiaoffice.hiworks.com/static/css/jquery-ui-1.11.4/jquery-ui.min.css">
+
+<script src="https://approval.gabiaoffice.hiworks.com/approval-static/scripts/jquery-1.11.2.min.js?v=44b9c8eb" type="text/javascript"></script>
+
+	
 </head>
 
 <body>
@@ -918,33 +842,29 @@
 
 
 <div class="hw-modal-wrap size-sm  popup37 " id="layerActionOfApproval" style="margin-left: -250px;margin-top: -107px;display: none;">
-  <div class="hw-modal-header">
-      <strong>
-    결재        </strong>
-</div>
+  <div class="hw-modal-header"><strong>결재</strong></div>
   <div class="hw-modal-body">
-  <input type="hidden" name="approval_no" value="2817844">
-  <input type="hidden" name="document_no" value="195747">
-  <input type="hidden" name="approval_office_user_no" value="15743">
-          <div class="gt-mb-20" id="approvalEnableValue">
-          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="2" onchange="ApprovalProcess.enableApprovalChange();"> 승인</label></div>
-          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="12" onchange="ApprovalProcess.enableApprovalChange();"> 협의</label></div>
-          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="4" onchange="ApprovalProcess.enableApprovalChange();"> 반려</label></div>
-          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="5" onchange="ApprovalProcess.enableApprovalChange();"> 전결</label></div>
-          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="10" onchange="ApprovalProcess.enableApprovalChange();"> 대결</label></div>
-          <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="8" onchange="ApprovalProcess.enableApprovalChange();"> 후결</label></div>
-            </div>
-      <p id="approvalMessage" class="hide pdb_10" style="display: block;">승인하시겠습니까?</p>
-  <div class="reason hide" id="approvalReason" style="display: block;">
-          <textarea class="hw-textarea" placeholder="의견을 입력하세요." id="approvalReasonMessage" style="resize: none;"></textarea>
-      </div>
+    <input type="hidden" name="approval_no" value="2817844">
+    <input type="hidden" name="document_no" value="195747">
+    <input type="hidden" name="approval_office_user_no" value="15743">
+    <div class="gt-mb-20" id="approvalEnableValue">
+      <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="2" onchange="ApprovalProcess.enableApprovalChange();"> 승인</label></div>
+      <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="12" onchange="ApprovalProcess.enableApprovalChange();"> 협의</label></div>
+      <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="4" onchange="ApprovalProcess.enableApprovalChange();"> 반려</label></div>
+      <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="5" onchange="ApprovalProcess.enableApprovalChange();"> 전결</label></div>
+      <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="10" onchange="ApprovalProcess.enableApprovalChange();"> 대결</label></div>
+      <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="8" onchange="ApprovalProcess.enableApprovalChange();"> 후결</label></div>
+    </div>
+    <p id="approvalMessage" class="hide pdb_10" style="display: block;">승인하시겠습니까?</p>
+    <div class="reason hide" id="approvalReason" style="display: block;">
+      <textarea class="hw-textarea" placeholder="의견을 입력하세요." id="approvalReasonMessage" style="resize: none;"></textarea>
+    </div>
   </div>
-  
   <div class="hw-modal-footer gt-d-flex gt-justify-content-between">
-      <button type="button" class="hw-button secondary" onclick="$j('#layerActionOfApproval').css('display', 'none');">취소</button>
-      <div>
-          <button type="button" class="hw-button" onclick="ApprovalProcess.approvalAction(false);">확인</button><button type="button" class="hw-button" id="next-document" onclick="ApprovalProcess.approvalAction(true);">확인 후 다음 문서</button>
-      </div>
+    <button type="button" class="hw-button secondary" onclick="$j('#layerActionOfApproval').css('display', 'none');">취소</button>
+    <div>
+      <button type="button" class="hw-button" onclick="ApprovalProcess.approvalAction(false);">확인</button><button type="button" class="hw-button" id="next-document" onclick="ApprovalProcess.approvalAction(true);">확인 후 다음 문서</button>
+    </div>
   </div>
   <a href="javascript:void(0)" class="icon btn_closelayer" onclick="$j('#layerActionOfApproval').css('display', 'none');" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
 </div>

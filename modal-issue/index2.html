@@ -238,7 +238,7 @@
 					</fieldset>
 	</form>
 	<div class="setting_box">
-    <h1></h1>
+    <h1>^^</h1>
 							<button type="button" class="hw-icon outlined list_bt" onclick="javascript:location.href='/gabia.com/approval/document/lists/W/?&amp;list_mode=W'" title="목록보기"><i class="gi gi-list"></i></button>
 									<button type="button" class="hw-icon outlined next_bt" onclick="javascript:location.href='/gabia.com/approval/document/view/195676/condition/Jmxpc3RfbW9kZT1X'" title="다음으로 이동"><i class="gi gi-short-arrow-down"></i></button>
 			</div>
@@ -329,7 +329,7 @@
 </td>
 <td class="stamp">
 <!-- <span class="bt_left pdt_0 pdb_0"><button type="button" onclick='ApprovalProcess.getApprovalLayer("2817844", "195747", "15743")'>결재</button></span> -->
-<span class="bt_left pdt_0 pdb_0"><button type="button" onclick='$j("#layerActionOfApproval").show();'>결재</button></span>
+<span class="bt_left pdt_0 pdb_0"><button type="button" onclick='$("#layerActionOfApproval").show();'>결재</button></span>
 </td>
 <td class="stamp">
 
@@ -698,12 +698,12 @@ function hidePopup() {
     </div>
   </div>
   <div class="hw-modal-footer gt-d-flex gt-justify-content-between">
-    <button type="button" class="hw-button secondary" onclick="$j('#layerActionOfApproval').css('display', 'none');">취소</button>
+    <button type="button" class="hw-button secondary" onclick="$('#layerActionOfApproval').css('display', 'none');">취소</button>
     <div>
       <button type="button" class="hw-button" onclick="ApprovalProcess.approvalAction(false);">확인</button><button type="button" class="hw-button" id="next-document" onclick="ApprovalProcess.approvalAction(true);">확인 후 다음 문서</button>
     </div>
   </div>
-  <a href="javascript:void(0)" class="icon btn_closelayer" onclick="$j('#layerActionOfApproval').css('display', 'none');" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+  <a href="javascript:void(0)" class="icon btn_closelayer" onclick="$('#layerActionOfApproval').css('display', 'none');" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
 </div>
 
 

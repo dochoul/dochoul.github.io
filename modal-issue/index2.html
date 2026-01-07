@@ -205,20 +205,7 @@
     .ui-widget-content {overflow-y: hidden;}
 </style>
 
-<script>
-    var new_sidebar = {
-        toggleParent: function(menuID) {
-            var _this = $("#" + menuID);
-            _this.closest('.el-collapse-item').toggleClass('is-active');
-            _this.siblings('.el-collapse-item__wrap').slideToggle(50);
-            (getCookie(menuID) === "1" || getCookie(menuID) === "") ? setCookie(menuID, "0", 365) : setCookie(menuID, "1", 365);
-        },
-    }
 
-    $(document).ready(function(){
-        Approval.getApprovalCount();
-    });
-</script>
 
         	
 			<!-- left End -->
@@ -591,75 +578,7 @@
 </div>
 
 
-<script>
 
-  //popup show-hide
-var popup_window;
-var dimmed = $('#dimmed');
-var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
-var focusedElementBeforeModal;
-function showPopup(obj) {
-    popup_window = obj;
-    dimmed = $('#dimmed');
-    popup_window.css({'marginLeft': popup_window.outerWidth() / 2 * -1});
-    popup_window.css({'marginTop': popup_window.outerHeight() / 2 * -1});
-    dimmed.show();
-    popup_window.show();
-    focusedElementBeforeModal = $(':focus');
-    var o = popup_window.find('*');
-    o.filter('p');
-    o.filter(focusableElementsString).filter(':visible').first().focus();
-}
-function hidePopup() {
-    dimmed.hide();
-    popup_window.hide();
-    focusedElementBeforeModal.focus();
-}
-  // 모달 위치를 중앙에 맞추는 함수
-  function centerModal() {
-      const modalOverlay = document.getElementById('modalOverlay');
-      const modalContent = modalOverlay.querySelector('.modal-content');
-      
-      if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
-        return;
-      }
-
-      // visualViewport 정보 가져오기
-      const viewport = window.visualViewport;
-      const viewportWidth = viewport.width;
-      const viewportHeight = viewport.height;
-      const viewportLeft = viewport.pageLeft || viewport.offsetLeft || 0;
-      const viewportTop = viewport.pageTop || viewport.offsetTop || 0;
-      
-      // 모달 콘텐츠의 크기
-      const modalRect = modalContent.getBoundingClientRect();
-      const modalWidth = modalRect.width;
-      const modalHeight = modalRect.height;
-      
-      // visualViewport의 중앙 위치 계산
-      const centerX = viewportLeft + (viewportWidth / 2) - (modalWidth / 2);
-      const centerY = viewportTop + (viewportHeight / 2) - (modalHeight / 2);
-      
-      // 모달 위치 설정
-      modalContent.style.position = 'fixed';
-      modalContent.style.left = `${centerX}px`;
-      modalContent.style.top = `${centerY}px`;
-      modalContent.style.transform = 'none';
-      modalContent.style.margin = '0';
-    }
-  window.visualViewport.addEventListener('resize', () => {
-    console.log(`resize`);
-    const h1 = document.querySelector('h1');
-    const width = window.innerWidth || window.visualViewport.width;
-    const height = window.innerHeight || window.visualViewport.height;
-    h1.textContent = `너비: ${width}px, 높이: ${height}px`;
-    
-    // 모달이 열려있으면 위치 재조정
-    //centerModal();
-  });
-
-
-</script>
 
 
 
@@ -705,6 +624,82 @@ function hidePopup() {
   </div>
   <a href="javascript:void(0)" class="icon btn_closelayer" onclick="$('#layerActionOfApproval').css('display', 'none');" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
 </div>
+
+
+<script>
+  var popup_window;
+  var dimmed = $('#dimmed');
+  var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+  var focusedElementBeforeModal;
+  function showPopup(obj) {
+      popup_window = obj;
+      dimmed = $('#dimmed');
+      popup_window.css({'marginLeft': popup_window.outerWidth() / 2 * -1});
+      popup_window.css({'marginTop': popup_window.outerHeight() / 2 * -1});
+      dimmed.show();
+      popup_window.show();
+      focusedElementBeforeModal = $(':focus');
+      var o = popup_window.find('*');
+      o.filter('p');
+      o.filter(focusableElementsString).filter(':visible').first().focus();
+  }
+  function hidePopup() {
+      dimmed.hide();
+      popup_window.hide();
+      focusedElementBeforeModal.focus();
+  }
+  function centerModal() {
+        //const modalOverlay = $('modalOverlay');
+        console.log(1111);
+        
+        const modalContent = document.querySelector('.hw-modal-wrap');
+        console.log(modalContent);
+        
+        
+        // if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
+        //   return;
+        // }
+  
+        // visualViewport 정보 가져오기
+        const viewport = window.visualViewport;
+        const viewportWidth = viewport.width;
+        const viewportHeight = viewport.height;
+        const viewportLeft = viewport.pageLeft || viewport.offsetLeft || 0;
+        const viewportTop = viewport.pageTop || viewport.offsetTop || 0;
+        
+        // 모달 콘텐츠의 크기
+        const modalRect = modalContent.getBoundingClientRect();
+        const modalWidth = modalRect.width;
+        const modalHeight = modalRect.height;
+        
+        // visualViewport의 중앙 위치 계산
+        const centerX = viewportLeft + (viewportWidth / 2) - (modalWidth / 2);
+        const centerY = viewportTop + (viewportHeight / 2) - (modalHeight / 2);
+        
+        // 모달 위치 설정
+        modalContent.style.position = 'fixed';
+        modalContent.style.left = `${centerX}px`;
+        modalContent.style.top = `${centerY}px`;
+        modalContent.style.transform = 'none';
+        modalContent.style.margin = '0';
+      }
+  
+      window.visualViewport.addEventListener('resize', () => {
+        console.log(`resize`);
+        const h1 = document.querySelector('h1');
+        const width = window.innerWidth || window.visualViewport.width;
+        const height = window.innerHeight || window.visualViewport.height;
+        h1.textContent = `너비: ${width}px, 높이: ${height}px`;
+        
+        // 모달이 열려있으면 위치 재조정
+        centerModal();
+      });
+  
+      // 스크롤 시에도 모달 위치 재조정
+      window.visualViewport.addEventListener('scroll', () => {
+        centerModal();
+      });
+  </script>
 
 
 </body>

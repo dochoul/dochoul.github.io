@@ -592,6 +592,29 @@
 
 
 <script>
+
+  //popup show-hide
+var popup_window;
+var dimmed = $j('#dimmed');
+var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+var focusedElementBeforeModal;
+function showPopup(obj) {
+    popup_window = obj;
+    dimmed = $j('#dimmed');
+    popup_window.css({'marginLeft': popup_window.outerWidth() / 2 * -1});
+    popup_window.css({'marginTop': popup_window.outerHeight() / 2 * -1});
+    dimmed.show();
+    popup_window.show();
+    focusedElementBeforeModal = $j(':focus');
+    var o = popup_window.find('*');
+    o.filter('p');
+    o.filter(focusableElementsString).filter(':visible').first().focus();
+}
+function hidePopup() {
+    dimmed.hide();
+    popup_window.hide();
+    focusedElementBeforeModal.focus();
+}
   // 모달 위치를 중앙에 맞추는 함수
   function centerModal() {
       const modalOverlay = document.getElementById('modalOverlay');

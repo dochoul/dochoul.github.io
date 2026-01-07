@@ -208,14 +208,14 @@
 <script>
     var new_sidebar = {
         toggleParent: function(menuID) {
-            var _this = $j("#" + menuID);
+            var _this = $("#" + menuID);
             _this.closest('.el-collapse-item').toggleClass('is-active');
             _this.siblings('.el-collapse-item__wrap').slideToggle(50);
             (getCookie(menuID) === "1" || getCookie(menuID) === "") ? setCookie(menuID, "0", 365) : setCookie(menuID, "1", 365);
         },
     }
 
-    $j(document).ready(function(){
+    $(document).ready(function(){
         Approval.getApprovalCount();
     });
 </script>
@@ -595,17 +595,17 @@
 
   //popup show-hide
 var popup_window;
-var dimmed = $j('#dimmed');
+var dimmed = $('#dimmed');
 var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 var focusedElementBeforeModal;
 function showPopup(obj) {
     popup_window = obj;
-    dimmed = $j('#dimmed');
+    dimmed = $('#dimmed');
     popup_window.css({'marginLeft': popup_window.outerWidth() / 2 * -1});
     popup_window.css({'marginTop': popup_window.outerHeight() / 2 * -1});
     dimmed.show();
     popup_window.show();
-    focusedElementBeforeModal = $j(':focus');
+    focusedElementBeforeModal = $(':focus');
     var o = popup_window.find('*');
     o.filter('p');
     o.filter(focusableElementsString).filter(':visible').first().focus();

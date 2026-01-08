@@ -57,12 +57,12 @@
 
     // 모달 위치를 중앙에 맞추는 함수
     function centerModal() {
-      const modalOverlay = document.getElementById('modalOverlay');
-      const modalContent = modalOverlay.querySelector('.modal-content');
+      //const modalOverlay = document.getElementById('modalOverlay');
+      const modalContent = document.querySelector('.modal-content');
       
-      if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
-        return;
-      }
+      // if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
+      //   return;
+      // }
 
       // visualViewport 정보 가져오기
       const viewport = window.visualViewport;
@@ -96,12 +96,12 @@
       h1.textContent = `너비: ${width}px, 높이: ${height}px`;
       
       // 모달이 열려있으면 위치 재조정
-      //centerModal();
+      centerModal();
     });
 
     // 스크롤 시에도 모달 위치 재조정
     window.visualViewport.addEventListener('scroll', () => {
-      //centerModal();
+      centerModal();
     });
 
     // 모달 열기 버튼 클릭 이벤트

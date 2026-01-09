@@ -1,122 +1,188 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>하이웍스 전자결재</title>
-	<meta name="viewport" content="width=1024, user-scalable=yes,minimum-scale=0.25, maximum-scale=1.0"/>
-	<link rel="shortcut icon" type="image/x-icon" href="https://static.hiworks.com/frontend/favicon/favicon.png">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>하이웍스 전자결재</title>
+    <meta
+      name="viewport"
+      content="width=1024, user-scalable=yes,minimum-scale=0.25, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://static.hiworks.com/frontend/favicon/favicon.png"
+    />
 
-
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1></h1>
-  <button id="openModalBtn">열기</button>
-  <div class="modal-overlay" id="modalOverlay" style="display: none;">
-    <div class="modal-content">
-  
-      <div class="hw-modal-wrap size-sm hide popup37 hide" id="layerActionOfApproval">
-        <div class="hw-modal-header">
-          <strong>
-            결재 </strong>
-        </div>
-        <div class="hw-modal-body">
-          <input type="hidden" name="approval_no" value="2816858">
-          <input type="hidden" name="document_no" value="195676">
-          <input type="hidden" name="approval_office_user_no" value="15743">
-          <div class="gt-mb-20" id="approvalEnableValue">
-            <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="2" onchange="ApprovalProcess.enableApprovalChange();"> 승인</label></div>
-            <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="12" onchange="ApprovalProcess.enableApprovalChange();"> 협의</label></div>
-            <div class="hw-radio gt-mr-20"><label><input type="radio" name="approval_value" value="4" onchange="ApprovalProcess.enableApprovalChange();"> 반려</label></div>
-          </div>
-          <p id="approvalMessage" class="hide pdb_10" style="display: block;">승인하시겠습니까?</p>
-          <div class="reason hide" id="approvalReason" style="display: block;">
-            <textarea class="hw-textarea" placeholder="의견을 입력하세요." id="approvalReasonMessage" style="resize: none;"></textarea>
-          </div>
-        </div>
-  
-        <div class="hw-modal-footer gt-d-flex gt-justify-content-between">
-          <button type="button" class="hw-button secondary" onclick="$j('#layerActionOfApproval').hidePopup();">취소</button>
-          <div>
-            <button type="button" class="hw-button" onclick="ApprovalProcess.approvalAction(false);">확인</button><button type="button" class="hw-button" id="next-document" onclick="ApprovalProcess.approvalAction(true);" disabled="">확인 후 다음 문서</button>
-          </div>
-        </div>
-        <a href="javascript:void(0)" class="icon btn_closelayer" onclick="$j('#layerActionOfApproval').hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script>
+      var $j = jQuery.noConflict();
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <button id="openModalBtn">열기</button>
+    <div class="hw-modal-wrap size-sm hide popup37 hide">
+      <div class="hw-modal-header">
+        <strong> 결재 </strong>
       </div>
-  
+      <div class="hw-modal-body">
+        <input type="hidden" name="approval_no" value="2816858" />
+        <input type="hidden" name="document_no" value="195676" />
+        <input type="hidden" name="approval_office_user_no" value="15743" />
+        <div class="gt-mb-20" id="approvalEnableValue">
+          <div class="hw-radio gt-mr-20">
+            <label
+              ><input
+                type="radio"
+                name="approval_value"
+                value="2"
+                onchange="ApprovalProcess.enableApprovalChange();"
+              />
+              승인</label
+            >
+          </div>
+          <div class="hw-radio gt-mr-20">
+            <label
+              ><input
+                type="radio"
+                name="approval_value"
+                value="12"
+                onchange="ApprovalProcess.enableApprovalChange();"
+              />
+              협의</label
+            >
+          </div>
+          <div class="hw-radio gt-mr-20">
+            <label
+              ><input
+                type="radio"
+                name="approval_value"
+                value="4"
+                onchange="ApprovalProcess.enableApprovalChange();"
+              />
+              반려</label
+            >
+          </div>
+        </div>
+        <p id="approvalMessage" class="hide pdb_10" style="display: block">
+          승인하시겠습니까?
+        </p>
+        <div class="reason hide" id="approvalReason" style="display: block">
+          <textarea
+            class="hw-textarea"
+            placeholder="의견을 입력하세요."
+            id="approvalReasonMessage"
+            style="resize: none"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="hw-modal-footer gt-d-flex gt-justify-content-between">
+        <button type="button" class="hw-button secondary" id="cancelModalBtn">
+          취소
+        </button>
+        <div>
+          <button
+            type="button"
+            class="hw-button"
+            onclick="ApprovalProcess.approvalAction(false);"
+          >
+            확인</button
+          ><button
+            type="button"
+            class="hw-button"
+            id="next-document"
+            onclick="ApprovalProcess.approvalAction(true);"
+            disabled=""
+          >
+            확인 후 다음 문서
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script>
+    <script>
+      $j(function () {
+        // 모달 위치를 중앙에 맞추는 함수
+        function centerModal() {
+          var $modalWrap = $j(".hw-modal-wrap").not(".hide").first();
 
-    // 모달 위치를 중앙에 맞추는 함수
-    function centerModal() {
-      //const modalOverlay = document.getElementById('modalOverlay');
-      const modalContent = document.querySelector('.modal-content');
-      
-      // if (modalOverlay.style.display === 'none' || !modalOverlay.style.display) {
-      //   return;
-      // }
+          // visualViewport 정보 가져오기
+          var viewport = window.visualViewport;
+          var viewportWidth = viewport.width;
+          var viewportHeight = viewport.height;
+          var viewportLeft = viewport.pageLeft || viewport.offsetLeft || 0;
+          var viewportTop = viewport.pageTop || viewport.offsetTop || 0;
 
-      // visualViewport 정보 가져오기
-      const viewport = window.visualViewport;
-      const viewportWidth = viewport.width;
-      const viewportHeight = viewport.height;
-      const viewportLeft = viewport.pageLeft || viewport.offsetLeft || 0;
-      const viewportTop = viewport.pageTop || viewport.offsetTop || 0;
-      
-      // 모달 콘텐츠의 크기
-      const modalRect = modalContent.getBoundingClientRect();
-      const modalWidth = modalRect.width;
-      const modalHeight = modalRect.height;
-      
-      // visualViewport의 중앙 위치 계산
-      const centerX = viewportLeft + (viewportWidth / 2) - (modalWidth / 2);
-      const centerY = viewportTop + (viewportHeight / 2) - (modalHeight / 2);
-      
-      // 모달 위치 설정
-      modalContent.style.position = 'fixed';
-      modalContent.style.left = `${centerX}px`;
-      modalContent.style.top = `${centerY}px`;
-      modalContent.style.transform = 'none';
-      modalContent.style.margin = '0';
-    }
+          // 모달 콘텐츠의 크기
+          var modalWidth = $modalWrap.outerWidth();
+          var modalHeight = $modalWrap.outerHeight();
 
-    window.visualViewport.addEventListener('resize', () => {
-      console.log(`resize`);
-      const h1 = document.querySelector('h1');
-      const width = window.innerWidth || window.visualViewport.width;
-      const height = window.innerHeight || window.visualViewport.height;
-      h1.textContent = `너비: ${width}px, 높이: ${height}px`;
-      
-      // 모달이 열려있으면 위치 재조정
-      centerModal();
-    });
+          // visualViewport의 중앙 위치 계산
+          var centerX = viewportLeft + viewportWidth / 2 - modalWidth / 2;
+          var centerY = viewportTop + viewportHeight / 2 - modalHeight / 2;
 
-    // 스크롤 시에도 모달 위치 재조정
-    window.visualViewport.addEventListener('scroll', () => {
-      centerModal();
-    });
+          // 모달 위치 설정
+          $modalWrap.css({
+            position: "fixed",
+            left: centerX + "px",
+            top: centerY + "px",
+            transform: "none",
+            margin: "0",
+          });
+        }
 
-    // 모달 열기 버튼 클릭 이벤트
-    document.getElementById('openModalBtn').addEventListener('click', function() {
-      document.getElementById('modalOverlay').style.display = 'flex';
-      // 모달이 열릴 때 위치 조정 (약간의 지연을 두어 렌더링 후 실행)
-      setTimeout(centerModal, 0);
-    });
+        // visualViewport resize 이벤트
+        if (window.visualViewport) {
+          $j(window.visualViewport).on("resize", function () {
+            console.log("resize");
+            var width = window.innerWidth || window.visualViewport.width;
+            var height = window.innerHeight || window.visualViewport.height;
+            $j("h1").text("너비: " + width + "px, 높이: " + height + "px");
 
-    // 모달 닫기 이벤트 (오버레이 클릭 시)
-    document.getElementById('modalOverlay').addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.style.display = 'none';
-      }
-    });
-  </script>
-</body>
+            // 모달이 열려있으면 위치 재조정
+            centerModal();
+          });
+
+          // 스크롤 시에도 모달 위치 재조정
+          $j(window.visualViewport).on("scroll", function () {
+            centerModal();
+          });
+        }
+
+        // 모달 열기 버튼 클릭 이벤트
+        $j("#openModalBtn").on("click", function () {
+          $j(".hw-modal-wrap").first().removeClass("hide");
+          // 모달이 열릴 때 위치 조정 (약간의 지연을 두어 렌더링 후 실행)
+          setTimeout(centerModal, 0);
+        });
+
+        // 모달 닫기 함수
+        function closeModal() {
+          $j(".hw-modal-wrap").not(".hide").first().addClass("hide");
+        }
+
+        // 닫기 버튼 클릭 이벤트
+        $j("#closeModalBtn").on("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeModal();
+        });
+
+        // 취소 버튼 클릭 이벤트
+        $j("#cancelModalBtn").on("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeModal();
+        });
+      });
+    </script>
+  </body>
 </html>

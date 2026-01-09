@@ -132,10 +132,11 @@
           // 모달 위치 설정
           $modalWrap.css({
             position: "fixed",
-            left: centerX + "px",
+            left: "50%",
             top: centerY + "px",
-            transform: "none",
+            transform: "translateX(-50%)",
             margin: "0",
+            width: "95%",
           });
         }
 
@@ -159,7 +160,8 @@
 
         // 모달 열기 버튼 클릭 이벤트
         $j("#openModalBtn").on("click", function () {
-          $j(".hw-modal-wrap").first().removeClass("hide");
+          var $modal = $j(".hw-modal-wrap").first();
+          $modal.removeClass("hide").css("width", "100%");
           // 모달이 열릴 때 위치 조정 (약간의 지연을 두어 렌더링 후 실행)
           setTimeout(centerModal, 0);
         });

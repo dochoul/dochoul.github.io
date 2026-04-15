@@ -63,7 +63,7 @@ def filter_ai_news(article):
 
               <div className="agentic-card__footer">
                 <Button 
-                  href="https://github.com/dochoul/geeknews-ai-bot" 
+                  href="https://github.com/dochoul/geeknews-feed" 
                   external 
                   variant="primary"
                 >

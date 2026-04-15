@@ -19,6 +19,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "geeknews-ai-bot",
+    title: "GeekNews AI 뉴스 봇",
+    subtitle: "Agentic Coding Project",
+    summary:
+      "RSS 피드에서 AI 관련 뉴스만 골라 Telegram으로 전송하는 자동화 봇. Claude API(Haiku)를 에이전트로 활용해 기사를 분류합니다.",
+    concept: [
+      "RSS 수집: GeekNews 피드에서 최신 기사 수집",
+      "AI 필터링: Claude API (Haiku)로 AI/ML/LLM 관련 기사만 분류",
+      "Telegram 전송: 필터링된 기사를 그룹에 자동 전송",
+      "GitHub Actions cron으로 하루 2회(KST 09:00, 18:00) 자동 실행",
+      "Claude API 비용 효율화: 기사 1건 분류당 약 $0.0003 (10원 미만)",
+    ],
+    tags: ["Agentic Coding", "Claude API", "Python", "GitHub Actions", "Telegram Bot"],
+    company: "Gabia",
+    role: "Full-stack Development (AI Agentic)",
+    period: "2026.03 — 현재",
+    url: "https://github.com/dochoul/geeknews-ai-bot",
+    urlLabel: "GitHub 저장소 보기",
+    featured: true,
+  },
+  {
     slug: "hiworks-design-system",
     title: "하이웍스 디자인 시스템",
     subtitle: "Hiworks Design System",

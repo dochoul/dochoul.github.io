@@ -27,11 +27,6 @@
     <script>
       (() => {
         const storageKey = 'theme';
-        const systemTheme = window.matchMedia(
-          '(prefers-color-scheme: light)',
-        ).matches
-          ? 'light'
-          : 'dark';
         let storedTheme = null;
         try {
           storedTheme = window.localStorage.getItem(storageKey);
@@ -41,7 +36,7 @@
         const theme =
           storedTheme === 'light' || storedTheme === 'dark'
             ? storedTheme
-            : systemTheme;
+            : 'dark';
 
         const root = document.documentElement;
         root.dataset.theme = theme;

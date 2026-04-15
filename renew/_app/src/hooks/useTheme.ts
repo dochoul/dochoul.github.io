@@ -6,13 +6,6 @@ const STORAGE_KEY = 'theme';
 const LIGHT_THEME_COLOR = '#f6f2ea';
 const DARK_THEME_COLOR = '#0a0a0a';
 
-function getSystemTheme(): ThemeMode {
-  if (typeof window === 'undefined') return 'dark';
-  return window.matchMedia('(prefers-color-scheme: light)').matches
-    ? 'light'
-    : 'dark';
-}
-
 function getStoredTheme(): ThemeMode | null {
   if (typeof window === 'undefined') return null;
   let stored: string | null = null;
@@ -42,7 +35,7 @@ function applyTheme(theme: ThemeMode) {
 
 export function useTheme() {
   const [theme, setTheme] = useState<ThemeMode>(() => {
-    return getStoredTheme() ?? getSystemTheme();
+    return getStoredTheme() ?? 'dark';
   });
 
   useEffect(() => {

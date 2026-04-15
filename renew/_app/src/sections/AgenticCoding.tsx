@@ -123,10 +123,11 @@ const intentPatterns = [
 
                 <div className="agentic-card__footer">
                   <Button 
-                    variant="outline"
-                    className="btn--static"
+                    href="https://github.com/dochoul/HR-Telegram" 
+                    external 
+                    variant="primary"
                   >
-                    내부 프로젝트
+                    GitHub 저장소 보기
                   </Button>
                   <div className="agentic-card__tags">
                     <span>#TypeScript</span>

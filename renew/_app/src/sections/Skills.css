@@ -1,0 +1,109 @@
+.skills {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    transparent 100%
+  );
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.skills__category {
+  padding: var(--space-8);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.skills__category:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.skills__category-head {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__category-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-wide);
+  padding-top: 4px;
+}
+
+.skills__category-title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--space-1);
+  letter-spacing: var(--tracking-tight);
+}
+
+.skills__category-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skills__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.45rem 0.85rem;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+  cursor: default;
+}
+
+.skills__badge:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+}
+
+.skills__badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.skills__badge--core {
+  border-color: var(--color-accent-dim);
+  color: var(--color-text-primary);
+}
+
+.skills__badge--core .skills__badge-dot {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+.skills__badge--proficient .skills__badge-dot {
+  background-color: #94c11e;
+}

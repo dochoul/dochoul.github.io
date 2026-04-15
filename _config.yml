@@ -17,6 +17,12 @@ sass:
 # Build settings
 markdown:       kramdown
 
+# Exclude from Jekyll processing
+# (renew/ is a separately-built React/Vite app; _app is the source dir)
+exclude:
+  - renew/_app
+  - renew/_app/node_modules
+
 # Gems
 gems:
   - jekyll-paginate

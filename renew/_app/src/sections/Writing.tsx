@@ -29,7 +29,7 @@ export function Writing() {
             index="05"
             eyebrow="Writing"
             title="배우고 정리한 글."
-            description="짧게나마 고민을 남기는 편입니다. 곧 더 채워질 예정입니다."
+            description="짧은 메모와 글을 조금씩 쌓고 있습니다."
           />
         </RevealOnScroll>
 

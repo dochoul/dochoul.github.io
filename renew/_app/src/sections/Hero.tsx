@@ -32,7 +32,7 @@ export function Hero() {
         <div className="hero__meta">
           <span className="hero__status">
             <span className="hero__status-dot" />
-            <span>Front-End Web Developer · 14 years &amp; counting</span>
+            <span>Front-End Web Developer</span>
           </span>
         </div>
 

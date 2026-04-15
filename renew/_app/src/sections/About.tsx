@@ -63,7 +63,7 @@ export function About() {
                 <div>
                   <div className="about__signature-label">경력</div>
                   <div className="about__signature-value">
-                    14년차 (UBER 2011–2013 → Gabia 2014–현재)
+                    UBER 2011–2013 → Gabia 2014–현재
                   </div>
                 </div>
               </div>

@@ -156,7 +156,7 @@
   background: linear-gradient(
     115deg,
     var(--color-accent) 0%,
-    #d9f99d 50%,
+    var(--color-name-gradient-mid) 50%,
     var(--color-accent-hover) 100%
   );
   background-clip: text;

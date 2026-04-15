@@ -24,7 +24,7 @@ export function AgenticCoding() {
                   <h3 className="agentic-card__title">GeekNews AI 뉴스 봇</h3>
                   <p className="agentic-card__subtitle">AI Agentic Automation Project</p>
                 </div>
-                <div className="agentic-card__badge">Claude 3.5 Haiku</div>
+                <div className="agentic-card__badge">Claude API</div>
               </div>
 
               <div className="agentic-card__body">
@@ -55,7 +55,7 @@ def filter_ai_news(article):
     prompt = f"분류할 기사: {article.title}
 {article.desc}"
     # Claude가 기사 맥락을 분석해 AI 관련성 판단
-    response = client.messages.create(model="claude-3-haiku", ...)`}
+    response = client.messages.create(model="claude-3-5-sonnet", ...)`}
                     </code>
                   </pre>
                 </div>
@@ -99,7 +99,7 @@ def filter_ai_news(article):
                 <span className="icon">💰</span>
                 <div>
                   <h5>초저비용 고효율</h5>
-                  <p>Haiku 모델 등 경량 LLM을 최적화하여 운영 비용을 극단적으로 낮춥니다.</p>
+                  <p>최적화된 프롬프트와 경량 LLM을 결합하여 운영 비용을 극단적으로 낮춥니다.</p>
                 </div>
               </div>
             </div>

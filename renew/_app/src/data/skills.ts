@@ -39,7 +39,7 @@ export const skillCategories: SkillCategory[] = [
     label: 'AI & Agentic Coding',
     description: 'AI 에이전트와 협업하며 가속화된 개발 워크플로우',
     skills: [
-      { name: 'Claude 3.5 / Haiku', level: 'core' },
+      { name: 'Claude', level: 'core' },
       { name: 'Prompt Engineering', level: 'core' },
       { name: 'Agentic Workflow Design', level: 'proficient' },
       { name: 'LLM Cost Optimization', level: 'proficient' },

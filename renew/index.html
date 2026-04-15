@@ -24,8 +24,32 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
     <title>김덕연 | Frontend Engineer</title>
-    <script type="module" crossorigin src="/renew/assets/index-C7wpukNj.js"></script>
-    <link rel="stylesheet" crossorigin href="/renew/assets/index-DoMBxZRA.css">
+    <script>
+      (() => {
+        const storageKey = 'theme';
+        const systemTheme = window.matchMedia(
+          '(prefers-color-scheme: light)',
+        ).matches
+          ? 'light'
+          : 'dark';
+        let storedTheme = null;
+        try {
+          storedTheme = window.localStorage.getItem(storageKey);
+        } catch {
+          storedTheme = null;
+        }
+        const theme =
+          storedTheme === 'light' || storedTheme === 'dark'
+            ? storedTheme
+            : systemTheme;
+
+        const root = document.documentElement;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      })();
+    </script>
+    <script type="module" crossorigin src="/renew/assets/index-iE7EuQmS.js"></script>
+    <link rel="stylesheet" crossorigin href="/renew/assets/index-Wa_ZwedH.css">
   </head>
   <body>
     <div id="root"></div>

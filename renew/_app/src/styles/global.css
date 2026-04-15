@@ -42,12 +42,12 @@ body {
   background-image:
     radial-gradient(
       circle at 10% -10%,
-      rgba(190, 242, 100, 0.06) 0%,
+      var(--color-body-glow-primary) 0%,
       transparent 45%
     ),
     radial-gradient(
       circle at 90% 10%,
-      rgba(99, 102, 241, 0.04) 0%,
+      var(--color-body-glow-secondary) 0%,
       transparent 40%
     );
   background-attachment: fixed;

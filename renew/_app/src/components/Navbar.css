@@ -14,7 +14,7 @@
 }
 
 .nav--scrolled {
-  background-color: rgba(10, 10, 10, 0.72);
+  background-color: var(--color-nav-bg);
   border-bottom-color: var(--color-border);
   backdrop-filter: var(--blur-nav);
   -webkit-backdrop-filter: var(--blur-nav);
@@ -26,6 +26,13 @@
   justify-content: space-between;
   width: 100%;
   gap: var(--space-6);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
 }
 
 .nav__brand {
@@ -104,7 +111,54 @@
   padding: 8px;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  background-color: rgba(10, 10, 10, 0.6);
+  background-color: var(--color-nav-button-bg);
+}
+
+.nav__theme-fab {
+  position: fixed;
+  right: max(var(--space-6), env(safe-area-inset-right));
+  bottom: max(var(--space-6), env(safe-area-inset-bottom));
+  z-index: var(--z-modal);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-nav-button-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  box-shadow: var(--shadow-lg);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.nav__theme-fab:hover {
+  background-color: var(--color-bg-elevated);
+  border-color: var(--color-border-strong);
+  color: var(--color-accent);
+}
+
+.nav__theme-fab:active {
+  transform: translateY(1px);
+}
+
+.nav__theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.nav__theme-label {
+  line-height: 1;
 }
 
 .nav__toggle span {
@@ -138,7 +192,7 @@
   .nav__menu {
     position: fixed;
     inset: var(--nav-height) 0 0 0;
-    background-color: rgba(10, 10, 10, 0.96);
+    background-color: var(--color-nav-bg-solid);
     backdrop-filter: var(--blur-nav);
     -webkit-backdrop-filter: var(--blur-nav);
     padding: var(--space-12) var(--space-6) var(--space-8);
@@ -174,5 +228,19 @@
 
   .nav__link-index {
     font-size: 0.5em;
+  }
+
+  .nav__theme-label {
+    display: none;
+  }
+
+  .nav__theme-fab {
+    right: max(var(--space-4), env(safe-area-inset-right));
+    bottom: max(var(--space-4), env(safe-area-inset-bottom));
+    min-height: 44px;
+    width: 44px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
   }
 }

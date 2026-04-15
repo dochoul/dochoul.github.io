@@ -56,13 +56,13 @@
 /* Variants */
 .btn--primary {
   background-color: var(--color-accent);
-  color: #0a0a0a;
+  color: var(--color-button-primary-text);
   box-shadow: 0 8px 24px -8px var(--color-accent-glow);
 }
 
 .btn--primary:hover {
   background-color: var(--color-accent-hover);
-  color: #0a0a0a;
+  color: var(--color-button-primary-text);
   box-shadow: 0 12px 32px -10px var(--color-accent-glow);
 }
 

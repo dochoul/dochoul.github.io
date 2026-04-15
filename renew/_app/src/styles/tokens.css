@@ -11,13 +11,13 @@
   --color-text-secondary: #a3a3a3;
   --color-text-muted: #737373;
 
-  --color-accent: #bef264;
-  --color-accent-hover: #a3e635;
-  --color-accent-dim: rgba(190, 242, 100, 0.12);
-  --color-accent-glow: rgba(190, 242, 100, 0.25);
+  --color-accent: #facc15;
+  --color-accent-hover: #eab308;
+  --color-accent-dim: rgba(250, 204, 21, 0.12);
+  --color-accent-glow: rgba(250, 204, 21, 0.25);
 
-  --color-selection-bg: rgba(190, 242, 100, 0.3);
-  --color-focus-ring: #bef264;
+  --color-selection-bg: rgba(250, 204, 21, 0.3);
+  --color-focus-ring: #facc15;
 
   /* ===== Typography ===== */
   --font-sans:
@@ -89,7 +89,7 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
   --shadow-accent: 0 0 0 1px var(--color-accent-dim),
-    0 8px 32px rgba(190, 242, 100, 0.08);
+    0 8px 32px rgba(250, 204, 21, 0.08);
 
   --blur-nav: blur(14px);
 

@@ -144,11 +144,11 @@
 }
 
 .hero__headline-line + .hero__headline-line {
-  margin-top: 0.35em;
+  margin-top: 0;
 }
 
 .hero__headline-line:last-child {
-  margin-top: 0.55em;
+  margin-top: 0.2em;
 }
 
 .hero__name {
@@ -256,11 +256,7 @@
 .hero__scroll-line {
   width: 1px;
   height: 32px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-text-muted),
-    transparent
-  );
+  background: linear-gradient(to bottom, var(--color-text-muted), transparent);
   animation: scrollHint 2s ease-in-out infinite;
   transform-origin: top;
 }

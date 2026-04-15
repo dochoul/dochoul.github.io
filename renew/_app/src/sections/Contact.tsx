@@ -107,7 +107,7 @@ export function Contact() {
             <span aria-hidden="true">●</span> {profile.nameEn}
           </span>
           <span className="contact__footer-copy">
-            © {new Date().getFullYear()} {profile.name}. Built with React & Vite.
+            © {new Date().getFullYear()} {profile.name}.
           </span>
         </footer>
       </div>

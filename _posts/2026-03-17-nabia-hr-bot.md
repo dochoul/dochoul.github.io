@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Nabia HR Telegram Bot — Claude AI 기반 HR 챗봇"
+author: "kimdy"
+categories: "project"
+tags: "ai, telegram, claude, typescript"
+---
+
 # 📱 Nabia HR Telegram Bot
 
 ## 1. 프로젝트 개요

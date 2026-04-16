@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Gabia Birthday — 임직원 생일 기프티콘 데스크톱 앱"
+author: "kimdy"
+categories: "project"
+tags: "electron, react, typescript"
+---
+
 # Gabia Birthday 개발 보고서
 
 ---

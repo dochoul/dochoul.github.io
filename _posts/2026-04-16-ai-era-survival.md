@@ -1,4 +1,10 @@
-# 🌊 어느 웹개발자의 생존 보고서: Flash에서 AI까지
+---
+layout: post
+title: "AI 시대, 개발자의 생존기록"
+author: "kimdy"
+categories: "essay"
+tags: "ai, frontend, essay"
+---
 
 "이게 바로 예술이지!"라며 ActionScript 3.0으로 화려한 모션 트위닝을 깎던 시절이 있었다.
 

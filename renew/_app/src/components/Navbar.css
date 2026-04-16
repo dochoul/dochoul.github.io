@@ -52,8 +52,8 @@
 
 .nav__brand-logo {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   transition: opacity var(--transition-fast);
 }

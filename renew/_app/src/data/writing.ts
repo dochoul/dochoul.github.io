@@ -1,13 +1,26 @@
+import aiEraSurvivalContent from './writings/ai-era-survival.md?raw';
+import doneItContent from './writings/done-it.md?raw';
+import nabiaHrBotContent from './writings/nabia-hr-bot.md?raw';
+import gabiaBirthdayContent from './writings/gabia-birthday.md?raw';
+
 export interface WritingItem {
   title: string;
   excerpt?: string;
-  url: string;
+  url?: string;
   date?: string;
   source?: string;
   external?: boolean;
+  content?: string;
 }
 
 export const writings: WritingItem[] = [
+  {
+    title: 'AI 시대, 개발자의 생존기록',
+    excerpt:
+      'ActionScript 3.0부터 jQuery, React, 그리고 AI까지. 침몰하는 배를 갈아타며 살아남은 프론트엔드 개발자의 회고.',
+    date: '2026.04',
+    content: aiEraSurvivalContent,
+  },
   {
     title: '차이가 차별이 되지 않는 웹을 위하여',
     excerpt:
@@ -18,25 +31,24 @@ export const writings: WritingItem[] = [
     external: true,
   },
   {
-    title: 'CSS Utilities — 유틸리티 클래스 메모',
+    title: 'AI와 함께 만든 Todo 앱 — Done IT',
     excerpt:
-      '반복되는 스타일을 유틸리티 클래스로 정리하며 배운 것들을 기록한 메모.',
-    url: '/2018-10-02/css-utilities',
-    date: '2018.10.02',
-    source: 'dochoul.github.io',
+      'AI 주도 개발로 Supabase + Telegram Bot 연동 서비스를 처음부터 끝까지 만든 기록. 기획, 코드, UI/UX까지 전 과정을 AI와 함께.',
+    date: '2025.06',
+    content: doneItContent,
   },
   {
-    title: '(준비 중) gtris — 사내 UI 프레임워크를 설계하며',
+    title: 'Nabia HR Telegram Bot — Claude AI 기반 HR 챗봇',
     excerpt:
-      '가비아의 전 서비스를 아우르는 UI 프레임워크를 어떻게 설계하고 운영했는지, 그 과정에서 얻은 교훈을 정리할 예정입니다.',
-    url: '#writing',
-    date: 'soon',
+      'grammY + Claude Tool Use로 만든 경영진 전용 HR 조회 봇. 자연어로 직원 정보, 연봉, 출퇴근, 평가 데이터를 조회하는 전 과정을 기록했습니다.',
+    date: '2026.03',
+    content: nabiaHrBotContent,
   },
   {
-    title: '(준비 중) 웹 표준으로 다시 짓는 대기업 사이트',
+    title: 'Gabia Birthday — 임직원 생일 기프티콘 데스크톱 앱',
     excerpt:
-      '쉐보레·대우건설 사이트에서 플래시를 걷어내고 웹 표준으로 옮겨오며 배운 것들.',
-    url: '#writing',
-    date: 'soon',
+      'Electron + React + Express로 만든 사내 전용 앱. 주민등록번호를 즉시 파기하고 생일만 추출하는 개인정보 보호 설계와 macOS/Windows 배포 과정을 기록했습니다.',
+    date: '2026.04',
+    content: gabiaBirthdayContent,
   },
 ];

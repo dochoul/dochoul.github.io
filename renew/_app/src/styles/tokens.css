@@ -11,13 +11,13 @@
   --color-text-secondary: #a3a3a3;
   --color-text-muted: #737373;
 
-  --color-accent: #facc15;
-  --color-accent-hover: #eab308;
-  --color-accent-dim: rgba(250, 204, 21, 0.12);
-  --color-accent-glow: rgba(250, 204, 21, 0.25);
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-dim: rgba(245, 158, 11, 0.12);
+  --color-accent-glow: rgba(245, 158, 11, 0.25);
 
-  --color-selection-bg: rgba(250, 204, 21, 0.3);
-  --color-focus-ring: #facc15;
+  --color-selection-bg: rgba(245, 158, 11, 0.3);
+  --color-focus-ring: #f59e0b;
   --color-button-primary-text: #0a0a0a;
   --color-nav-bg: rgba(10, 10, 10, 0.72);
   --color-nav-bg-solid: rgba(10, 10, 10, 0.96);
@@ -26,7 +26,7 @@
   --color-body-glow-secondary: rgba(99, 102, 241, 0.04);
   --color-hero-glow-cool: rgba(99, 102, 241, 0.28);
   --color-hero-glow-accent: rgba(190, 242, 100, 0.35);
-  --color-name-gradient-mid: #fef08a;
+  --color-name-gradient-mid: #fcd34d;
   --color-surface-subtle: rgba(255, 255, 255, 0.02);
   --color-grid-line: rgba(255, 255, 255, 0.025);
   --color-project-featured-border: rgba(190, 242, 100, 0.18);
@@ -104,7 +104,7 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
   --shadow-accent: 0 0 0 1px var(--color-accent-dim),
-    0 8px 32px rgba(250, 204, 21, 0.08);
+    0 8px 32px rgba(245, 158, 11, 0.08);
 
   --blur-nav: blur(14px);
 
@@ -133,25 +133,25 @@ html[data-theme='light'] {
   --color-text-secondary: #554f47;
   --color-text-muted: #7c7367;
 
-  --color-accent: #ffcc00;
-  --color-accent-hover: #e6b800;
-  --color-accent-dim: rgba(255, 204, 0, 0.18);
-  --color-accent-glow: rgba(255, 204, 0, 0.24);
-  --color-selection-bg: rgba(255, 204, 0, 0.2);
-  --color-focus-ring: #d4a800;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-dim: rgba(245, 158, 11, 0.18);
+  --color-accent-glow: rgba(245, 158, 11, 0.24);
+  --color-selection-bg: rgba(245, 158, 11, 0.2);
+  --color-focus-ring: #d97706;
   --color-button-primary-text: #171312;
   --color-nav-bg: rgba(255, 255, 255, 0.72);
   --color-nav-bg-solid: rgba(255, 255, 255, 0.92);
   --color-nav-button-bg: rgba(255, 255, 255, 0.8);
-  --color-body-glow-primary: rgba(255, 204, 0, 0.02);
+  --color-body-glow-primary: rgba(245, 158, 11, 0.02);
   --color-body-glow-secondary: rgba(99, 102, 241, 0.045);
   --color-hero-glow-cool: rgba(99, 102, 241, 0.08);
-  --color-hero-glow-accent: rgba(255, 204, 0, 0.12);
-  --color-name-gradient-mid: #ffe84d;
+  --color-hero-glow-accent: rgba(245, 158, 11, 0.12);
+  --color-name-gradient-mid: #fcd34d;
   --color-surface-subtle: rgba(23, 19, 18, 0.04);
   --color-grid-line: rgba(23, 19, 18, 0.05);
-  --color-project-featured-border: rgba(255, 204, 0, 0.2);
-  --color-project-awards-start: rgba(255, 204, 0, 0.1);
+  --color-project-featured-border: rgba(245, 158, 11, 0.2);
+  --color-project-awards-start: rgba(245, 158, 11, 0.1);
 
   color-scheme: light;
 }

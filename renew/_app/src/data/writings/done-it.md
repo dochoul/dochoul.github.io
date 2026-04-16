@@ -1,0 +1,354 @@
+# 프로젝트 배경 및 동기
+
+## 1\. AI 주도 개발의 실증
+
+* **개발 워크플로우 한계 시험**: 단순 할 일 관리 앱 제작을 넘어, 최신 AI 기술을 실제 개발 공정에 어느 수준까지 적용할 수 있는지 가능성 확인을 위해 시작
+* **전방위적 AI 활용**: 기획 단계부터 코드 작성, UI/UX 설계, 복잡한 백엔드 연동(Supabase, Telegram API)에 이르기까지 AI를 전방위적으로 활용하여 **개발 효율성 극대화** 추구
+
+## 2\. 프론트엔드 개발 프로세스 변화
+
+* **공정 혁신 사전 연구**: 가비아 프론트엔드 개발 공정을 AI로 혁신하기 위한 연구의 일환으로, 반복적인 CRUD 작업 및 외부 API 연동 시 AI가 제공하는 **생산성 향상 폭 측정**
+* **지능형 서비스 구현**: 실시간 동기화와 외부 메신저 알림이 결합된 '살아있는 서비스'를 AI와의 협업만으로 완결성 있게 구축하는 과정 기록 및 검증
+
+## 3\. 텔레그램 봇을 활용한 양방향 연동
+
+* **업무 생태계 유기적 결합**: 단일 앱의 한계를 넘어 기존 업무 환경과의 결합 가능성 검증
+* **심리스(Seamless)한 환경**: 별도 앱 접속 없이 메신저에서 데이터를 제어하고 알림을 받는 **기술적 테스트 실험**
+* **즉시성 확보**: 메신저를 입력 도구로 활용하여 서비스 진입 장벽을 낮추고 **데이터 입력의 즉시성** 확보
+
+\[향후 과제\] 기업용 협업 툴 생태계 확장
+
+* **전사적 업무 통합**: 텔레그램 연동 기술을 바탕으로 **슬랙(Slack), 메타모스트(Mattermost)** 등 범용 협업 툴과의 연동 추진
+* **차세대 메신저 결합**: 특히 **하이웍스 차세대 메신저**와의 유기적인 결합을 통해 "어디서나 접근 가능하고, 어디로든 연결되는" 지능형 서비스 구조 완성
+
+## 결과물
+- URL: https://todo-claude-cyan.vercel.app
+- 저장소: https://github.com/dochoul/todo-claude
+
+## 기능
+
+## 📋 요약
+
+| # | 기능 | 설명 |
+|---|------|------|
+| 1 | 로그인 | 이메일/비밀번호 또는 Google 계정 |
+| 2 | 회원가입 | 이메일 기반 계정 생성 |
+| 3 | 할 일 추가 | 텍스트 + 카테고리 + 우선순위 + 마감일 |
+| 4 | 완료 처리 | 체크박스 클릭으로 완료/미완료 토글 |
+| 5 | 수정 | 인라인 편집 모드 (✏ 버튼) |
+| 6 | 삭제 | × 버튼으로 즉시 삭제 |
+| 7 | 카테고리 필터 | 전체/개인/업무/쇼핑/회의/기타/오늘마감 |
+| 8 | 텔레그램 알림 | Chat ID 등록으로 알림 수신 |
+| 9 | 다크 모드 | 🌙/☀️ 버튼으로 테마 전환 |
+| 10 | 로그아웃 | 우측 상단 로그아웃 버튼 |
+
+### 인증 (Supabase의 이메일 인증 활용)
+- **이메일/비밀번호** 로그인 및 회원가입
+- **Google OAuth** 로그인 (리디렉션 방식)
+- 세션 자동 유지 (새로고침해도 로그인 상태 보존)
+- 오류 메시지 한국어 번역
+
+### 할일 관리 (CRUD)
+- **추가**: 내용, 카테고리, 중요도, 마감일 설정 후 Enter 또는 버튼 클릭
+- **완료 토글**: 체크박스 클릭으로 완료/미완료 전환
+- **인라인 수정**: 내용, 카테고리, 중요도, 마감일 수정
+- **삭제**: × 버튼으로 항목 삭제
+- 낙관적 업데이트(Optimistic Update)로 빠른 UI 반응
+
+### 카테고리
+개인 / 업무 / 쇼핑 / 회의 / 기타로 분류하고 색상 배지로 구분합니다.
+
+### 중요도
+높음 / 보통 / 낮음 3단계로 설정합니다.
+- 카드 왼쪽 테두리 색상으로 한눈에 구분
+- 색상 배지(🔴 🟡 🟢)로 추가 표시
+
+### 마감일 (D-Day)
+- 할일 추가 시 마감일 선택 가능 (선택사항)
+- D-Day 배지로 남은 일수 표시
+  - `D-3` 이상: 회색
+  - `D-1` ~ `D-2`: 주황색 (임박)
+  - `D-Day`: 빨간색
+  - 기한 초과: 진한 빨강 배경 (`D+N`)
+
+### 필터 & 통계
+| 버튼 | 설명 |
+|------|------|
+| 전체 | 모든 할일 표시 |
+| 오늘 마감 | 오늘이 마감인 항목만 표시 |
+| 개인 / 업무 / 쇼핑 / 회의 / 기타 | 카테고리별 필터 |
+
+- 각 필터 버튼에 항목 수 배지 표시
+- 완료 개수 + 진행률 프로그레스 바
+
+### 테마 (다크/라이트 모드)
+- 라이트 ↔ 다크 모드 토글 버튼
+- 로그인 전/후 모두 사용 가능 (우측 상단 고정 버튼)
+- 로그인 상태: 선택한 테마를 DB에 저장 (기기 간 동기화)
+- 비로그인 상태: localStorage에 저장 + OS 다크모드 자동 감지
+
+### 텔레그램 봇 연동 (양방향)
+
+#### 웹 → 텔레그램 (푸시 알림)
+- 할일 **추가** 시 텔레그램 알림 발송
+- 할일 **완료** 처리 시 텔레그램 알림 발송
+- 할일 **삭제** 시 텔레그램 알림 발송
+- 유저별 Chat ID 설정으로 개인 알림 수신
+
+#### 텔레그램 → 웹 (봇 명령)
+| 명령 | 설명 |
+|------|------|
+| 일반 텍스트 입력 | 자동으로 할일 추가 |
+| `/목록` 또는 `/list` | 미완료 할일 목록 조회 |
+| `/완료 [번호]` 또는 `/done [번호]` | 번호로 할일 완료 처리 |
+| `/내아이디` 또는 `/myid` | 내 Chat ID 확인 |
+
+#### 알림 설정 방법
+1. 텔레그램에서 봇을 열고 `/내아이디` 입력
+2. 앱의 **텔레그램 알림 설정** 패널에서 Chat ID 저장
+
+#### 실시간 동기화 (Supabase Realtime)
+- 텔레그램 봇으로 추가/수정/삭제된 항목이 웹에 즉시 반영
+- 중복 방지 처리 (낙관적 업데이트와 Realtime 이벤트 충돌 방지)
+
+#### 웹 ←→ 텔레그램 (사용 예)
+![로그인 화면](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/telegram-bot.png)
+
+
+
+### 기술 스택
+
+| 항목 | 내용 |
+|------|------|
+| 프레임워크 | React 18 |
+| 언어 | TypeScript 5 |
+| 빌드 도구 | Vite 5 |
+| 스타일 | 순수 CSS (CSS 변수로 테마 구현) |
+| 백엔드/DB | Supabase (Auth + PostgreSQL + Realtime) |
+| 알림 | Telegram Bot API |
+
+### 환경변수 설정
+
+`.env` 파일을 프로젝트 루트에 생성하고 아래 값을 입력
+
+```bash
+# Supabase
+VITE_SUPABASE_URL=https://xxxx.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGci...
+
+# 텔레그램 봇 (서버 사이드 전용)
+TELEGRAM_BOT_TOKEN=봇_토큰
+SUPABASE_SERVICE_ROLE_KEY=서비스_롤_키
+```
+
+### 실행 방법
+
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+```
+
+### 프로젝트 구조
+
+```
+src/
+├── types/
+│   └── todo.ts                    # 타입 정의 + D-Day 헬퍼 함수
+├── lib/
+│   └── supabase.ts                # Supabase 클라이언트
+├── hooks/
+│   ├── useAuth.ts                 # 인증 상태 관리
+│   ├── useTodos.ts                # 할일 CRUD + Realtime 구독
+│   ├── useTheme.ts                # 테마 관리 (DB/localStorage)
+│   └── useTelegramSettings.ts    # 텔레그램 Chat ID 설정
+└── components/
+    ├── Auth/                      # 로그인/회원가입 폼
+    ├── AddTodo/                   # 할일 입력 폼
+    ├── TodoList/                  # 할일 목록
+    ├── TodoItem/                  # 할일 카드 (D-Day 배지 포함)
+    ├── CategoryFilter/            # 필터 버튼 목록
+    └── TelegramSettings/          # 텔레그램 알림 설정 패널
+
+api/
+├── telegram.ts                    # 텔레그램 Webhook 핸들러 (봇 명령 처리)
+├── telegram-notify.ts             # 웹→텔레그램 알림 발송
+└── mattermost.ts                  # Mattermost 연동 (선택사항)
+```
+
+### DB 스키마 (Supabase)
+
+```sql
+-- 할일 테이블
+todos (
+  id          uuid PRIMARY KEY,
+  user_id     uuid REFERENCES auth.users,
+  text        text,
+  completed   boolean,
+  category    text,     -- '개인' | '업무' | '쇼핑' | '회의' | '기타'
+  priority    text,     -- '높음' | '보통' | '낮음'
+  due_date    bigint,   -- 마감일 타임스탬프 (밀리초, nullable)
+  created_at  bigint    -- 생성 시각 타임스탬프 (밀리초)
+)
+
+-- 유저 프로필 테이블
+user_profiles (
+  user_id          uuid PRIMARY KEY REFERENCES auth.users,
+  theme            text,   -- 'light' | 'dark'
+  telegram_chat_id text    -- 텔레그램 Chat ID (nullable)
+)
+```
+
+# ✅ Done IT — 사용자 플로우 가이드(Playwright 브라우저 테스트)
+
+> **Done IT** : 할일을 어디서든 관리할 수 있는 Todo 앱
+> URL: https://todo-claude-cyan.vercel.app
+
+---
+
+## Step 1. 로그인 화면
+
+이메일/비밀번호로 로그인하거나, Google 계정으로 빠르게 시작할 수 있습니다.
+
+![로그인 화면](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/01_01_login.png)
+
+---
+
+## Step 2. 회원가입 탭
+
+상단의 **회원가입** 탭을 클릭하면 신규 계정을 만들 수 있습니다.
+
+![회원가입 탭](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/02_02_signup.png)
+
+---
+
+## Step 3. 이메일/비밀번호 입력
+
+이메일과 비밀번호를 입력하면 **로그인** 버튼이 활성화됩니다.
+
+![로그인 입력 완료](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/03_03_login_filled.png)
+
+---
+
+## Step 4. 메인 화면 (로그인 후)
+
+로그인 후 메인 화면으로 이동합니다.
+상단에 사용자 이메일, 로그아웃 버튼, 텔레그램 알림 설정이 표시됩니다.
+
+![메인 화면](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/04_04_main.png)
+
+---
+
+## Step 5. 텔레그램 알림 설정
+
+**✈️ 텔레그램 알림 설정** 버튼을 클릭하면 패널이 펼쳐집니다.
+Chat ID를 입력하면 텔레그램으로 할 일 알림을 받을 수 있습니다.
+
+![텔레그램 알림 설정](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/05_05_telegram.png)
+
+---
+
+## Step 6. 할 일 입력창 활성화
+
+입력 필드를 클릭하면 활성화됩니다.
+카테고리(개인/업무/쇼핑 등), 우선순위(낮음/보통/높음), 마감일을 함께 설정할 수 있습니다.
+
+![입력창 활성화](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/06_06_input_focus.png)
+
+---
+
+## Step 7. 할 일 텍스트 입력 중
+
+텍스트를 입력하면 **추가** 버튼이 파란색으로 활성화됩니다.
+
+![텍스트 입력 중](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/07_07_input_typing.png)
+
+---
+
+## Step 8. 할 일 3개 추가 완료
+
+Enter 또는 추가 버튼을 누르면 목록에 추가됩니다.
+상단 카운터와 필터 탭 숫자가 실시간으로 업데이트됩니다.
+
+![할 일 추가 완료](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/08_08_added.png)
+
+---
+
+## Step 9. 할 일 완료 처리
+
+항목 왼쪽 체크박스를 클릭하면 완료 처리됩니다.
+완료된 항목은 취소선이 그어지고 흐리게 표시되며, 상단 진행 바가 업데이트됩니다.
+
+![완료 처리](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/09_09_completed.png)
+
+---
+
+## Step 10. 할 일 수정 모드
+
+항목 오른쪽의 **✏ 버튼**을 클릭하면 인라인 편집 모드로 전환됩니다.
+텍스트, 카테고리, 우선순위, 마감일을 수정할 수 있습니다.
+
+![수정 모드](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/10_10_edit_mode.png)
+
+---
+
+## Step 11. 수정 저장 완료
+
+**✓ 버튼**을 누르면 변경 내용이 저장되고 일반 목록 뷰로 돌아옵니다.
+
+![수정 저장 완료](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/11_11_edit_saved.png)
+
+---
+
+## Step 12. 할 일 삭제
+
+항목 오른쪽의 **× 버튼**을 클릭하면 즉시 삭제됩니다.
+
+![삭제 완료](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/12_12_deleted.png)
+
+---
+
+## Step 13. 카테고리 필터 — 개인
+
+상단 필터 탭(전체 / 오늘 마감 / 개인 / 업무 / 쇼핑 / 회의 / 기타)을 클릭하면
+해당 카테고리의 할 일만 필터링해서 볼 수 있습니다.
+
+![개인 필터](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/13_13_filter_personal.png)
+
+---
+
+## Step 14. 전체 필터
+
+**전체** 탭을 클릭하면 모든 할 일 목록이 다시 표시됩니다.
+
+![전체 필터](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/14_14_filter_all.png)
+
+---
+
+## Step 15. 다크 모드
+
+오른쪽 상단의 **🌙 버튼**을 클릭하면 다크 모드로 전환됩니다.
+
+![다크 모드](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/15_15_dark_mode.png)
+
+---
+
+## Step 16. 라이트 모드 복귀
+
+**☀️ 버튼**을 다시 클릭하면 라이트 모드로 돌아옵니다.
+
+![라이트 모드](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/16_16_light_mode.png)
+
+---
+
+## Step 17. 로그아웃 후 화면
+
+**로그아웃** 버튼을 클릭하면 로그인 화면으로 돌아옵니다.
+다크 모드 설정은 로그아웃 후에도 유지됩니다.
+
+![로그아웃 후 화면](https://raw.githubusercontent.com/dochoul/todo-claude/main/screenshots/17_17_logout.png)

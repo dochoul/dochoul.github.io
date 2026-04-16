@@ -50,10 +50,16 @@
   color: var(--color-text-primary);
 }
 
-.nav__brand-mark {
-  color: var(--color-accent);
-  font-size: 0.6em;
-  filter: drop-shadow(0 0 8px var(--color-accent-glow));
+.nav__brand-logo {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: opacity var(--transition-fast);
+}
+
+.nav__brand:hover .nav__brand-logo {
+  opacity: 0.8;
 }
 
 .nav__menu {

@@ -3,6 +3,7 @@ import { navItems } from '@/data/navigation';
 import { useScrollY } from '@/hooks/useScrollY';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useTheme } from '@/hooks/useTheme';
+import logoUrl from '@/assets/logo.svg';
 import './Navbar.css';
 
 const SECTION_IDS = navItems.map((item) => item.id);
@@ -33,10 +34,7 @@ export function Navbar() {
       <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
         <div className="nav__inner container">
           <a href="#hero" className="nav__brand" onClick={handleNavClick}>
-            <span className="nav__brand-mark" aria-hidden="true">
-              ●
-            </span>
-            <span className="nav__brand-text">DeokYeon Kim</span>
+            <img src={logoUrl} alt="DeokYeon Kim" className="nav__brand-logo" width="32" height="32" />
           </a>
 
           <div className="nav__actions">

@@ -137,9 +137,121 @@ const intentPatterns = [
                 </div>
               </div>
             </RevealOnScroll>
+            <RevealOnScroll className="agentic-coding__item" delay={300}>
+              <div className="agentic-card">
+                <div className="agentic-card__header">
+                  <div className="agentic-card__title-group">
+                    <h3 className="agentic-card__title">Done IT — AI 주도 Todo 앱</h3>
+                    <p className="agentic-card__subtitle">Full-Stack AI Development Project</p>
+                  </div>
+                  <div className="agentic-card__badge">React / Supabase</div>
+                </div>
+
+                <div className="agentic-card__body">
+                  <p className="agentic-card__desc">
+                    기획부터 배포까지 AI와 단둘이 완성한 풀스택 Todo 서비스입니다.
+                    Supabase 실시간 동기화와 Telegram 양방향 연동을 AI와의 협업만으로 구현했습니다.
+                  </p>
+
+                  <div className="agentic-card__features">
+                    <h4>주요 기능</h4>
+                    <ul>
+                      <li><strong>Supabase Realtime:</strong> 텔레그램 봇 조작이 웹에 즉시 반영</li>
+                      <li><strong>양방향 텔레그램:</strong> 메신저에서 할일 추가·완료·조회</li>
+                      <li><strong>Google OAuth:</strong> Supabase Auth 기반 소셜 로그인</li>
+                      <li><strong>낙관적 업데이트:</strong> 빠른 UI 반응을 위한 충돌 방지 설계</li>
+                    </ul>
+                  </div>
+
+                  <div className="agentic-card__code-preview">
+                    <div className="code-header">
+                      <span>telegram.ts</span>
+                      <span className="code-lang">TypeScript</span>
+                    </div>
+                    <pre>
+                      <code>{`// 텔레그램 → 웹 실시간 동기화 예시
+bot.on('message:text', async (ctx) => {
+  const text = ctx.message.text;
+  // Supabase에 할일 추가 → Realtime으로 웹에 즉시 반영
+  await supabase.from('todos').insert({ text, user_id });
+})`}
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="agentic-card__footer">
+                  <Button
+                    href="https://todo-claude-cyan.vercel.app"
+                    external
+                    variant="primary"
+                  >
+                    서비스 바로가기
+                  </Button>
+                  <div className="agentic-card__tags">
+                    <span>#React</span>
+                    <span>#Supabase</span>
+                    <span>#TelegramBot</span>
+                  </div>
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll className="agentic-coding__item" delay={400}>
+              <div className="agentic-card agentic-card--alt">
+                <div className="agentic-card__header">
+                  <div className="agentic-card__title-group">
+                    <h3 className="agentic-card__title">Gabia Birthday — 생일 관리 앱</h3>
+                    <p className="agentic-card__subtitle">Internal Desktop Tool with AI</p>
+                  </div>
+                  <div className="agentic-card__badge">Electron / React</div>
+                </div>
+
+                <div className="agentic-card__body">
+                  <p className="agentic-card__desc">
+                    임직원 생일 기프티콘 업무를 자동화한 사내 전용 데스크톱 앱입니다.
+                    개인정보 보호 설계(주민등록번호 즉시 파기)와 macOS·Windows 배포까지 AI와 함께 완성했습니다.
+                  </p>
+
+                  <div className="agentic-card__features">
+                    <h4>주요 기능</h4>
+                    <ul>
+                      <li><strong>개인정보 보호:</strong> 주민등록번호 업로드 즉시 삭제, 생일만 추출</li>
+                      <li><strong>자동 필터링:</strong> 고용형태·휴직 여부 기반 지급 대상 자동 분류</li>
+                      <li><strong>크로스 플랫폼:</strong> macOS Apple Silicon / Windows x64 배포</li>
+                      <li><strong>엑셀 내보내기:</strong> 월별 생일자 목록을 .xlsx로 즉시 다운로드</li>
+                    </ul>
+                  </div>
+
+                  <div className="agentic-card__code-preview">
+                    <div className="code-header">
+                      <span>upload.ts</span>
+                      <span className="code-lang">TypeScript</span>
+                    </div>
+                    <pre>
+                      <code>{`// 주민등록번호 즉시 파기 처리 예시
+function sanitize(row: ExcelRow) {
+  const birth = extractBirthFromRRN(row['주민등록번호']);
+  delete row['주민등록번호']; // 메모리에서 즉시 삭제
+  return { ...row, birth };
+}`}
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="agentic-card__footer">
+                  <div className="agentic-card__tags">
+                    <span>#Electron</span>
+                    <span>#React</span>
+                    <span>#TypeScript</span>
+                  </div>
+                </div>
+              </div>
+            </RevealOnScroll>
           </div>
 
-          <RevealOnScroll className="agentic-coding__side" delay={300}>
+          <RevealOnScroll className="agentic-coding__side" delay={500}>
             <div className="agentic-info-card">
               <h4>에이전틱 코딩의 강점</h4>
               <div className="agentic-info-item">

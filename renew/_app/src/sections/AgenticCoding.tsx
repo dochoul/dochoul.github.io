@@ -241,6 +241,13 @@ function sanitize(row: ExcelRow) {
                 </div>
 
                 <div className="agentic-card__footer">
+                  <Button
+                    href="https://github.com/dochoul/g-birthday"
+                    external
+                    variant="primary"
+                  >
+                    GitHub 저장소 보기
+                  </Button>
                   <div className="agentic-card__tags">
                     <span>#Electron</span>
                     <span>#React</span>

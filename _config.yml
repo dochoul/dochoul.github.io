@@ -5,9 +5,20 @@ permalink:      /:year-:month-:day/:title
 
 # Setup
 title:          DeokYeon.kim
+description:    "가비아 프론트엔드 개발자 김덕연의 블로그 — 프로젝트 회고, 개발 기록, 그리고 생존기."
+author:
+  name:         DeokYeon Kim
+  email:        kimdy@gabia.com
+lang:           ko
 paginate:       5
 baseurl:        ""
 url:            "https://dochoul.github.io"
+
+# Social (used by jekyll-seo-tag for Twitter cards, author links, etc.)
+social:
+  name:         DeokYeon Kim
+  links:
+    - https://github.com/dochoul
 
 # Assets
 sass:
@@ -29,3 +40,6 @@ exclude:
 # Plugins
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed

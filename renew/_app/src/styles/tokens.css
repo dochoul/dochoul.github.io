@@ -130,11 +130,11 @@ html[data-theme='light'] {
   --color-border-strong: #c4b8a4;
 
   --color-text-primary: #171312;
-  --color-text-secondary: #554f47;
+  --color-text-secondary: #9e6c00;
   --color-text-muted: #7c7367;
 
-  --color-accent: #f9e62a;
-  --color-accent-hover: #e5d21a;
+  --color-accent: #9e6c00;
+  --color-accent-hover: #825900;
   --color-accent-dim: rgba(249, 230, 42, 0.18);
   --color-accent-glow: rgba(249, 230, 42, 0.24);
   --color-selection-bg: rgba(249, 230, 42, 0.2);

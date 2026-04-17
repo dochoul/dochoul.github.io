@@ -1,4 +1,9 @@
-# 생일 축하해요, AI가 — g-birthday 프로젝트 회고
+---
+layout: post
+title: "gabia birthday 프로젝트 회고"
+---
+
+## 생일 축하해요, AI가 — gabia-birthday 프로젝트 회고
 
 > "이번 달 생일자 기프티콘 발송 준비해 주세요."
 

@@ -8,9 +8,10 @@ $white: #fff;
 $blue: #4a9ae1;
 $shadow-color: rgba(0, 0, 0, .2);
 
-$baskerville: Arial, 'Libre Baskerville', 'Times New Roman', Times, serif;
-$palatino: Palatino, 'Palatino LT STD', 'Palatino Linotype', 'Book Antiqua', 'Georgia', serif;
-$sans-font: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+$pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+$baskerville: $pretendard;
+$palatino: $pretendard;
+$sans-font: $pretendard;
 
 $monospaced-font: Menlo, Monaco, monospace;
 $code-color: #bf616a;

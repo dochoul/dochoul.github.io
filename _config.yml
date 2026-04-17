@@ -23,6 +23,6 @@ exclude:
   - renew/_app
   - renew/_app/node_modules
 
-# Gems
-gems:
+# Plugins
+plugins:
   - jekyll-paginate

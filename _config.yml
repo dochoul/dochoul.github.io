@@ -16,10 +16,14 @@ baseurl:        ""
 url:            "https://dochoul.github.io"
 
 # Social (used by jekyll-seo-tag for Twitter cards, author links, etc.)
+twitter:
+  username: dochoul
+
 social:
   name:         DeokYeon Kim
   links:
     - https://github.com/dochoul
+    - https://x.com/dochoul
 
 # Assets
 sass:

@@ -4,6 +4,7 @@ title: "AI로 정리한 ISA 투자 기록"
 date: 2026-04-20 11:30:00 +0900
 categories: [Investment, AI]
 tags: [ISA, 배당주, 재테크, AI, KODEX나스닥100데일리커버드콜OTM, 커버드콜, 복리]
+image: /assets/isa/open_account.png
 ---
 
 엑셀 시트를 펼쳐놓고 멍하니 앉아 있던 날이 있었다.

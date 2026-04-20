@@ -20,6 +20,13 @@
     text-align: center;
   }
 
+  &-date {
+    color: $default-tint;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: -0.5rem 0 1rem;
+  }
+
   &-line {
     border-top: .4rem solid #fe0; //$default-shade
     display: block;

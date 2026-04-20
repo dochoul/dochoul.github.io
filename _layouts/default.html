@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en' }}">
 {% include head.html %}
 
   <body>
     <nav class="nav">
       <div class="nav-container">
-        <a href="{{ site.url }}/">
-          <h2 class="nav-title">{{ site.title }}</h2>
+        <a href="{{ site.url }}/" class="nav-title">
+          <img src="{{ '/assets/logo.svg' | prepend: site.baseurl }}" alt="{{ site.title }}" class="nav-logo" />
         </a>
         <ul>
           <!-- <li><a href="{{ '/about' | prepend: site.url }}">About</a></li> -->

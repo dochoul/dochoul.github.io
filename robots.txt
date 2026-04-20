@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /posts.json
+
+Sitemap: https://dochoul.github.io/sitemap.xml

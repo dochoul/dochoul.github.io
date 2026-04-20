@@ -35,6 +35,13 @@ footer,
     }
   }
 
+  &-logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+  }
+
   ul {
     list-style-type: none;
     margin: 1rem 0 0;

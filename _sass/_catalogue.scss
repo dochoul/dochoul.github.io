@@ -25,6 +25,11 @@
         font-size: 1.5em;
         font-weight: 400;
         margin: .5rem 0;
+        @include transition(transform .2s ease, color .2s ease);
+    }
+    &-item:hover &-title {
+        transform: translateX(6px);
+        color: #000;
     }
     &-line {
         display: block;

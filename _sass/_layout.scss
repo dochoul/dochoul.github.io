@@ -13,7 +13,7 @@ footer,
 }
 
 .nav {
-  box-shadow: 0 2px 2px -2px $shadow-color;
+  border-bottom: 2px solid #000;
   overflow: auto;
 
   &-container {

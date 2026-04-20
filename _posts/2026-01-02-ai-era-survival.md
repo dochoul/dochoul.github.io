@@ -6,6 +6,8 @@ categories: "essay"
 tags: "ai, frontend, essay"
 ---
 
+![ISA 계좌 개설 알림](/assets/survival/revenant.jpg)
+
 "이게 바로 예술이지!"라며 ActionScript 3.0으로 화려한 모션 트위닝을 깎던 시절이 있었다. 0.1픽셀의 움직임에 영혼을 갈아 넣고, 타임라인 레이어가 수십 개씩 쌓이는 걸 보며 흐뭇해하던 시절. 그때는 '플래시'라는 이름처럼 내 앞날도 번쩍번쩍 빛날 줄만 알았다.
 
 **하지만 인생은 예측 불허였다.**

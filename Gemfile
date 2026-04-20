@@ -1,0 +1,9 @@
+source "https://rubygems.org"
+
+gem "jekyll", "~> 3.10"
+gem "jekyll-paginate"
+gem "base64"
+gem "kramdown-parser-gfm"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+gem "jekyll-feed"

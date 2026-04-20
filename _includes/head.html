@@ -2,7 +2,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
-{% seo %}
+{% if page.title %}
+<title>{{ page.title }} · {{ site.title }}</title>
+{% else %}
+<title>{{ site.title }}</title>
+{% endif %}
+{% seo title=false %}
 {% feed_meta %}
 <!-- CSS -->
 <link rel="stylesheet" href="{{ site.url }}/styles.css">

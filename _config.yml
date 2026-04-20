@@ -4,8 +4,9 @@
 permalink:      /:year-:month-:day/:title
 
 # Setup
-title:          DeokYeon.kim
-description:    "가비아 프론트엔드 개발자 김덕연의 블로그 — 프로젝트 회고, 개발 기록, 그리고 생존기."
+title:          DY Blog
+description:    "AI, 주식 투자, 프로젝트 회고, 개발 기록"
+title_separator: " · "
 author:
   name:         DeokYeon Kim
   email:        kimdy@gabia.com

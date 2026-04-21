@@ -11,6 +11,8 @@ tags: [가비아, 사회공헌, 기부, KBS희망풍차]
   <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/TZ4Y4HiFT10?start=6" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<br>
+
 연말이 되면 회사마다 크고 작은 사회공헌 행사를 한다.
 
 대부분은 비슷한 방식이다. 모금함을 놓고, 공지를 보내고, 참여를 독려한다. 선한 의도지만 어딘가 의무처럼 느껴지는 것도 사실이다. 나도 그런 행사에 몇 번쯤 참여하면서 "좋은 일 했다"는 감각보다는 "했다"는 감각만 남은 적이 있었다.

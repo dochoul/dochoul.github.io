@@ -3,7 +3,7 @@ layout: post
 title: "AI 시대, 개발자의 생존기록"
 author: "kimdy"
 categories: "essay"
-tags: "ai, frontend, essay"
+tags: [ai, frontend, essay]
 ---
 
 ![ISA 계좌 개설 알림](/assets/survival/revenant.jpg)

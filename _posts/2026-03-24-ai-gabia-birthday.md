@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "gabia birthday 프로젝트 회고"
+tags: [ai, project, claude, "claude skill", electron, codex]
 ---
 
 ## 생일 축하해요, AI가 — gabia-birthday 프로젝트 회고

@@ -11,7 +11,7 @@ author:
   name:         DeokYeon Kim
   email:        kimdy@gabia.com
 lang:           ko
-paginate:       5
+paginate:       10
 baseurl:        ""
 url:            "https://dochoul.github.io"
 

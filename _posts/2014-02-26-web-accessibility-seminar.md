@@ -2,8 +2,8 @@
 layout: post
 title: "차이가 차별이 되지 않는 웹을 위하여"
 author: "kimdy"
+date: 2014-04-25
 categories: "essay"
-tags: [웹접근성, WCAG, 장애인차별금지법]
 ---
 
 ![ISA 계좌 개설 알림](/assets/web-accessibility-seminar/promotion.png)

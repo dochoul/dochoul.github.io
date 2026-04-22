@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "AI로 정리한 ISA 투자 기록"
-date: 2026-04-20 11:30:00 +0900
+date: 2026-04-20
 categories: [Investment, AI]
-tags: [ISA, 배당주, 재테크, AI, KODEX나스닥100데일리커버드콜OTM, 커버드콜, 복리]
 image: /assets/isa/isa_og.png
 ---
 

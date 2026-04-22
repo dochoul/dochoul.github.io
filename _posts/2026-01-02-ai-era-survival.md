@@ -2,6 +2,7 @@
 layout: post
 title: "AI 시대, 개발자의 생존기록"
 author: "kimdy"
+date: 2026-01-02
 categories: "essay"
 tags: [ai, frontend, essay]
 ---

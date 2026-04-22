@@ -10,6 +10,8 @@
 {% endif %}
 {% seo title=false %}
 {% feed_meta %}
+{% assign page_description = page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 %}
+{% assign page_keywords = page.tags | join: ", " %}
 <!-- CSS -->
 <link rel="stylesheet" href="{{ site.url }}/styles.css">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
@@ -25,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "{{ page.title | escape }}",
-  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}",
+  "description": "{{ page_description | escape }}",
   "author": {
     "@type": "Person",
     "name": "{{ site.author.name }}",
@@ -39,6 +41,9 @@
   },
   {% if page.image %}
   "image": "{{ page.image | prepend: site.url }}",
+  {% endif %}
+  {% if page_keywords != blank %}
+  "keywords": "{{ page_keywords | escape }}",
   {% endif %}
   "publisher": {
     "@type": "Organization",

@@ -2,6 +2,7 @@
 layout: post
 title: "gabia birthday 프로젝트 회고"
 date: 2026-03-24
+description: "반복적인 생일자 명단 업무를 Electron, Claude 스킬, Claude for Excel로 자동화한 AI 업무 재편 사례."
 ---
 
 ## 생일 축하해요, AI가 — gabia-birthday 프로젝트 회고

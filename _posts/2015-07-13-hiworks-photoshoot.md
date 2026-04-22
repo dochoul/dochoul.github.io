@@ -4,8 +4,10 @@ date: 2015-07-15
 layout: post
 author: "kimdy"
 categories: "essay"
+description: "하이웍스 브랜드 사이트 촬영에 대체 출연하며 자연스럽게 포즈를 취하는 일이 얼마나 어려운지 겪은 사진 촬영 기록."
+image: /assets/hiworks-photoshoot/awkward.jpg
 ---
-![](/assets/hiworks-photoshoot/awkward2.jpg)
+![하이웍스사진촬영](/assets/hiworks-photoshoot/awkward2.jpg)
 
 2015년 여름, 갑자기 연락이 왔다.  
 "하이웍스 사이트 촬영인데요, 한 명이 빠지게 됐어요. 혹시 대신 와줄 수 있어요?" 원래 내 일이 아니었다.  
@@ -18,7 +20,7 @@ categories: "essay"
 렌즈를 의식하지 않으려고 할수록 더 의식하게 되는 게 함정이다.  
 머그컵 드는 각도가 맞는지, 표정이 너무 굳었는지, 시선이 어색한지. 평소엔 아무 생각 없이 하는 것들이 갑자기 다 어색해진다.
 
-![](/assets/hiworks-photoshoot/awkward.jpg)
+![하이웍스사진촬영](/assets/hiworks-photoshoot/awkward.jpg)
 그렇게 찍은 사진이 하이웍스 브랜드 사이트에 올라갔다.  
 처음 봤을 때 느낌은 뭐라 설명하기 어렵다.  
 내가 매일 만지는 서비스의 소개 페이지에 내 얼굴이 있다는 게. 코드로는 진작에 그 안에 들어가 있었는데, 이번엔 진짜로 얼굴까지 들어간 거다.  

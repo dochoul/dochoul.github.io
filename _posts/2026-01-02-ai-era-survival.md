@@ -5,9 +5,11 @@ author: "kimdy"
 date: 2026-01-02
 categories: "essay"
 tags: [ai, frontend, essay]
+description: "플래시부터 프론트엔드, 그리고 AI 도구까지 넘어오며 개발자가 어떻게 생존 전략을 바꿔야 했는지 적은 기록."
+image: /assets/survival/revenant.jpg
 ---
 
-![ISA 계좌 개설 알림](/assets/survival/revenant.jpg)
+![플래시와 AI 시대를 비유한 생존 기록 이미지](/assets/survival/revenant.jpg)
 
 "이게 바로 예술이지!"라며 ActionScript 3.0으로 화려한 모션 트위닝을 깎던 시절이 있었다. 0.1픽셀의 움직임에 영혼을 갈아 넣고, 타임라인 레이어가 수십 개씩 쌓이는 걸 보며 흐뭇해하던 시절. 그때는 '플래시'라는 이름처럼 내 앞날도 번쩍번쩍 빛날 줄만 알았다.
 

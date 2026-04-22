@@ -4,6 +4,7 @@ title: "자판기에 기부 버튼을 달았던 날"
 author: "kimdy"
 date: 2014-12-23
 categories: "essay"
+description: "자판기에 기부 버튼을 달아 작은 재미로 선의를 움직였던 사내 기부 캠페인과 그 현장을 기록한 글."
 ---
 
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">

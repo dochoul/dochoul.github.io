@@ -4,9 +4,11 @@ title: "차이가 차별이 되지 않는 웹을 위하여"
 author: "kimdy"
 date: 2014-04-25
 categories: "essay"
+description: "웹 접근성 발표를 준비하며 차이를 차별로 만들지 않는 웹, WCAG 4원칙, 그리고 실무에서 확인할 도구들을 정리한 기록."
+image: /assets/web-accessibility-seminar/promotion.png
 ---
 
-![ISA 계좌 개설 알림](/assets/web-accessibility-seminar/promotion.png)
+![웹 접근성 세미나 홍보 이미지](/assets/web-accessibility-seminar/promotion.png)
 
 ## Gabia Web Accessibility Seminar
 

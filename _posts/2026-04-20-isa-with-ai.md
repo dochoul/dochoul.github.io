@@ -4,6 +4,7 @@ title: "AI로 정리한 ISA 투자 기록"
 date: 2026-04-20
 categories: [Investment, AI]
 image: /assets/isa/isa_og.png
+description: "AI와 함께 ISA 투자 기록을 숫자로 풀어가며 월 배당 목표와 복리 전략을 정리한 투자 기록."
 ---
 
 엑셀 시트를 펼쳐놓고 멍하니 앉아 있던 날이 있었다.

@@ -4,7 +4,6 @@ title: "AI 시대, 개발자의 생존기록"
 author: "kimdy"
 date: 2026-01-02
 categories: "essay"
-tags: [ai, frontend, essay]
 description: "플래시부터 프론트엔드, 그리고 AI 도구까지 넘어오며 개발자가 어떻게 생존 전략을 바꿔야 했는지 적은 기록."
 image: /assets/survival/revenant.jpg
 ---

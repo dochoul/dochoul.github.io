@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "트랙 마돈 SL7 8세대"
+title: "트랙 마돈 SL7, 의지 없는 자의 반강제 운동법"
 author: "kimdy"
 date: 2025-04-24
 categories: "essay"

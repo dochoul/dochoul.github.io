@@ -4,7 +4,7 @@
   &-info {
     color: $default-tint;
     font-family: $palatino;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     text-align: center;
 
     span {
@@ -24,7 +24,7 @@
 
   &-title {
     color: $default-shade;
-    font-size: 2.6em;
+    font-size: 2.5em;
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 1.25rem;
@@ -33,7 +33,7 @@
   &-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
   &-tag {
@@ -41,8 +41,8 @@
     color: $default-shade;
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: .05em;
-    padding: .25rem .6rem;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
     text-transform: uppercase;
   }
 

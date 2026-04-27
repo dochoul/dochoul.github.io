@@ -14,6 +14,7 @@
 
   &-header {
     margin-bottom: 3rem;
+    text-align: center;
   }
 
   &-date {
@@ -34,6 +35,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: center;
   }
 
   &-tag {

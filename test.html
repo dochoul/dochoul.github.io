@@ -1841,11 +1841,14 @@
   function showPopup(obj) {
     popup_window = obj;
     dimmed = $j('#dimmed');
+    $j('#alphaDiv').hide();
+    popupWindow.push(obj);          // hidePopup()이 스택에서 꺼낼 수 있도록
     dimmed.show();
-    popup_window.show();
-    positionModal(popup_window[0]);
+    obj.insertAfter($j('#wrap'));   // DOM 최상단으로 이동
+    obj.show();
+    positionModal(obj[0]);
     focusedElementBeforeModal = $j(':focus');
-    var o = popup_window.find('*');
+    var o = obj.find('*');
     o.filter('p');
     o.filter(focusableElementsString).filter(':visible').first().focus();
   }

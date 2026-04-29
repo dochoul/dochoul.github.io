@@ -1807,5 +1807,27 @@
 	})
   </script>
 </div>
+
+<style>
+  /* 모바일 줌 상태에서도 모달이 뷰포트 중앙에 오도록 transform 방식으로 센터링 */
+  .layer_box, .hw-modal-wrap {
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+</style>
+<script>
+  /* showPopup의 negative margin 방식을 transform 방식으로 교체 */
+  function showPopup(obj) {
+    popup_window = obj;
+    dimmed = $j('#dimmed');
+    popup_window.css({ marginLeft: '', marginTop: '' });
+    dimmed.show();
+    popup_window.show();
+    focusedElementBeforeModal = $j(':focus');
+    var o = popup_window.find('*');
+    o.filter('p');
+    o.filter(focusableElementsString).filter(':visible').first().focus();
+  }
+</script>
 </body>
 </html>

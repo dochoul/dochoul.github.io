@@ -1,0 +1,1811 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<title>가비아 비즈솔루션 - 10.4.96.80</title>
+		<meta name="viewport" content="width=1024">
+	<link rel="shortcut icon" type="image/x-icon" href="https://devoffice.hiworks.com/static/images/favicon/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/ui/css/style.css">
+		<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/ui/css/renew/style_new.css">
+		<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/jquery/jquery.toastmessage-min.css">
+		<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/ui/css/renew/h_admin.css">
+		<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/office_main/sns.css">
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/office_main/fancybox/jquery.fancybox-1.3.4.css">
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/office_main/style_news.css">
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/office_main/lightbox.css">
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/office_main/jquery.mentions.css">
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/css/../scripts/fullcalendar-2.3.0/lib/cupertino/jquery-ui.min.css">
+
+	<link rel="stylesheet" type="text/css" href="https://devoffice.hiworks.com/static/ui/css/renew/approval.css">
+	
+	<!-- 조직도 레이어 관련 css, css 파일이 정리되면 파일로 이동해야함. -->
+	<style type="text/css">
+		#alphaDiv {
+			background-color: #4e515e;
+			border: 0 none;
+			display: none;
+			float: left;
+			height: 0;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 0;
+			z-index: 20;
+		}
+		#progressDiv {
+			display: inline;
+			left: 49%;
+			position: absolute;
+			top: 40%;
+			z-index: 999;
+		}
+		#popupBaseA {
+			background-color: #ffffff;
+			border: 7px solid #0e84e4;
+			overflow: visible;
+			position: absolute;
+			width: auto;
+			z-index: 999999;
+		}
+	</style>
+	<script type="text/javascript">var cookie_imagepath = "/static/images/";</script>
+
+	<script language="javascript" type="text/javascript">
+		
+		var PATH_INFO = Array();
+		PATH_INFO['LANGUAGE'] = 'korean';
+		PATH_INFO['URLTYPE'] = 'D';
+		PATH_INFO['DOMAIN'] = 'gabia.com';
+		PATH_INFO['GROUPID'] = '';
+		PATH_INFO['ROOT'] = '/';
+		PATH_INFO['SERVICEROOT'] = eval({});
+		
+		var OFFICE_SERVICE_TYPE = 'asp';
+	
+	</script>
+
+	<script src="https://devoffice.hiworks.com/static/scripts/language.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/Sly.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common_new.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/jquery-1.7.1.min.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/jcommon.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/jvalidateMessage.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/jorgtree.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/jaddressbook.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/jajaxBasic.js?v=29936" type="text/javascript"></script>
+		<script src="https://devoffice.hiworks.com/static/scripts/jquery/jquery.toastmessage.js?v=29936" type="text/javascript"></script>
+	<script type="text/javascript" src="https://static.gabia.com/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+	<!-- Frontend devteam -->
+
+	<!-- <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js?v=29936"></script> -->
+	<script src="https://devoffice.hiworks.com/static/scripts/jquery-ui-1.11.4/jquery-ui.min.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/ui/js/main.js?v=29936"></script>
+		
+
+		<script src="https://devoffice.hiworks.com/static/scripts/common/office_main_common.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common/jquery.fileupload.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common/jquery.iframe-transport.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/momentjs/moment-with-locales.min.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common/textarea-helper.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common/main_ui.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common/jquery.tmpl.min.js?v=29936" type="text/javascript"></script>
+	<script src="https://devoffice.hiworks.com/static/scripts/common/office_main_new.js?v=29936" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+		if( window != window.parent ){
+			jQuery('#user_info_box').hide();
+			jQuery('#topMenuBtnIcon').hide();
+			jQuery('#topMenuBtn').unbind("click");
+			jQuery('#topMenuBtn').css("cursor", "default");
+			jQuery('#logo_anchor').attr("href", "javascript:void(0);");
+			jQuery('#logo_anchor').css("cursor", "default");
+		}
+	});
+		</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- Top -->
+    <div class="skip_menu">
+        <a href="#contents" onclick="return false;">본문 영역으로 바로가기</a>
+    </div>
+    <div id="header">
+        <h1 class="logo"><a href="#"><img src="https://devoffice.hiworks.com/static/ui/images/logo-sample.gif" alt="임시로고"> <span class="blind">메일</span></a></h1>
+        <div id="gnb">
+            <a href="javascript:void(0);" class="gnb"><span class="sp_menu"></span><span class="blind">GNB</span></a>
+            <div class="gnb_con hide">
+                <div class="icon in_sq"></div>
+                <ul class="menu_cir">
+                    <li class="menu01">
+                        <a href="#" title="메일"><span class="m_icon"></span><span class="txt">메일</span></a>
+                        <span class="count">2</span><span class="blind">개의 새 편지</span>
+                    </li>
+                    <li class="menu02">
+                        <a href="#" title="게시판"><span class="m_icon"></span><span class="txt">게시판</span></a>
+                    </li>
+                    <li class="menu03">
+                        <a href="#" title="전자결재"><span class="m_icon"></span><span class="txt">전자결재</span></a>
+                    </li>
+                    <li class="menu04">
+                        <a href="#" title="조직도"><span class="m_icon"></span><span class="txt">조직도</span></a>
+                    </li>
+                    <li class="menu05">
+                        <a href="#" title="문자"><span class="m_icon"></span><span class="txt">문자</span></a>
+                    </li>
+                    <li class="menu06">
+                        <a href="#" title="웹하드"><span class="m_icon"></span><span class="txt">웹하드</span></a>
+                    </li>
+                    <li class="menu07">
+                        <a href="#" title="주소록"><span class="m_icon"></span><span class="txt">주소록</span></a>
+                    </li>
+                    <li class="menu08">
+                        <a href="#" title="공용메일"><span class="m_icon"></span><span class="txt">공용메일</span></a>
+                    </li>
+                    <li class="menu09">
+                        <a href="#" title="전자세금 계산서"><span class="m_icon" id="focusOut"></span><span class="txt">전자세금<br>계산서</span></a>
+                    </li>
+                    <li class="menu10">
+                        <a href="#" title="채팅"><span class="m_icon" id="focusOut"></span><span class="txt">오늘의<br>이야기</span></a>
+                    </li>
+                    <li class="menu11">
+                        <a href="#" title="일정관리"><span class="m_icon" id="focusOut"></span><span class="txt">일정관리</span></a>
+                    </li>
+                    <li class="menu12">
+                        <a href="#" title="관리자"><span class="m_icon" id="focusOut"></span><span class="txt">관리자</span></a>
+                    </li>
+                </ul>
+                <div class="notice">
+                    <!-- <div class="info">
+                        <span class="notice_icon new"><em class="blind">NEW</em></span> <a href="#">영업관리 오픈</a>
+                    </div> -->
+                    <a href="javascript:alert('준비 중입니다.')" class="notice_icon set"><span class="blind">설정</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="userBox">
+            <a href="#" class="search_bt"><span class="sp_menu searchCancel"></span>검색 취소</a>
+            <div class="mail_search">
+                <div class="search">
+                    <form>
+                        <fieldset>
+                            <legend>메일 검색 </legend>
+                            <label for="mailSearch" class="blind">메일 검색하기</label>
+                            <input type="text" id="mailSearch" value="" placeholder="메일검색">
+                            <a href="#" class="btn_search"><span class="icon src"><em class="blind">검색</em></span></a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="user_info">
+                <a href="javascript:void(0)" class="userbtn">
+                    <div class="round_wrap">
+                        <div class="white icon"></div>
+                        <img class="myphoto" src="https://devoffice.hiworks.com/static/ui/images/user_photo.jpg" alt=""> 
+                    </div>
+                    <span class="name">홍길동</span>
+                    <div class="round_photo"><span class="icon user"><em class="blind">사용자 정보 열기</em></span></div>
+                </a>
+                <div class="user_detail hide">
+                    <div class="pic">
+                        <div class="white_b icon"></div>
+                        <img class="myphoto" src="https://devoffice.hiworks.com/static/ui/images/user_photo.jpg" alt=""> 
+                    </div>
+                    <div class="txt">
+                        <p>이호준</p>
+                        <p class="usermail">lhj@gabia.com</p>
+                        <a href="#" class="setting">계정설정</a>
+                        <a href="#" class="logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Top end -->
+	<div id="container">
+		<div id="leftmenu">
+			<!-- left -->
+        <div class="mainbtn">
+			<a href="#" class="mail_btn">편지쓰기</a>
+		</div>
+        <div class="menufield">
+            <ul class="mail_list">
+                <li><a href="#" title="받은 편지함" class="bold point_color">받은 편지함</a></li>
+                <li>
+                    <div class="depth1">
+                        <a href="javascript:void(0)" class="foldtop" title="개인 편지함">
+                            <span class="icon fold"><em class="blind">개인 메일함 접고/펴기 토글</em></span>             
+                            <span class="listname">개인 편지함</span>
+                        </a>
+                    </div>
+                    <ul class="depth2 hide">
+                        <li><a href="#" title="depth2">depth2</a></li>
+                        <li><a href="#" class="point_color" title="depth2">depth2</a></li>
+                        <li>
+                            <a href="javascript:Mail.List('42');" id="mbox_name_42" title="비밀편지함비밀편지함비밀편지함비밀편지함">비밀편지함비밀편지함비밀편지함비밀편지함
+                                <span style=""><span class="count">4</span></span>
+                                <span class="lockmail"><img src="https://devoffice.hiworks.com/assets/images/icon_01.gif" title="편지함 잠김"></span>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#" title="보낸 편지함">보낸 편지함</a></li>
+                <li><a href="#" title="임시 보관함">임시 보관함</a></li>
+                <li><a href="#" title="보낼 보관함">보낼 보관함</a></li>
+                <li id="spamMail"><a href="#" title="스팸 편지함">스팸 편지함</a><span class="trash hide" title="스팸 편지함 비우기" onclick="javascript:confirm('스팸 메일함을 비우면 지워진 메일들은 영구 삭제됩니다. 스팸 메일함을 비우시겠습니까?');"><span class="hide">버리기</span></span></li>
+                <li id="trashMail">
+                    <a href="#" title="휴지통">휴지통</a>
+                    <span class="count">4</span>
+                    <span class="trash hide" title="휴지통 비우기" onclick="javascript:confirm('휴지통을 비우면 지워진 메일들은 영구 삭제됩니다. 휴지통을 비우시겠습니까?');"><span class="hide">버리기</span></span>
+                </li>
+                <li>
+                    <div class="depth1">
+                        <a href="javascript:void(0)" class="foldtop" title="환경설정">
+                            <span class="icon fold"><em class="blind">환경설정 접고/펴기 토글</em></span>            
+                            <span class="listname">환경설정</span>
+                        </a>
+                    </div>
+                    <ul class="depth2 hide">
+                        <li><a href="#" title="기본 설정">기본 설정</a></li>
+                        <li><a href="#" title="편지함 관리">편지함 관리</a></li>
+                        <li><a href="#" title="부재 중 설정">부재 중 설정</a></li>
+                        <li><a href="#" title="서명 설정">서명 설정</a></li>
+                        <li><a href="#" title="수신 메일 분류">수신 메일 분류</a></li>
+                        <li><a href="#" title="스팸 설정">스팸 설정</a></li> 
+                        <li><a href="#" title="알림 설정">알림 설정</a></li>
+                        <li><a href="#" title="외부 메일 가져오기">외부 메일 가져오기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+<!-- left End -->
+		</div>
+		<div id="drag_wrap">
+			<div id="drag"></div>
+		</div>
+		<div id="contents">
+			<div class="content_title">
+				<!-- Title -->
+				<!-- Title End -->
+			</div>
+			<div class="content_inbox">
+				<!-- Contents -->
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup23'));">popup23(상세검색)</a><br />
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup24'));">popup24(파일박스 수정)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup25'));">popup25(편지함 이동 안내)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup26'));">popup26(스팸처리)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup27'));">popup27(휴가 이월 일수 오류에 대한 안내)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup28'));">popup28(휴가종류 신인사관리로 보내기)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup29'));">popup29(출퇴근 장소 설정 신인사관리로 보내기)</a><br>		
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup30'));">popup30(IP목록 신 인사관리로 보내기)</a><br>	
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup31'));">popup31(근무상태 설정 신인사관리로 보내기)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup32'));">popup32(지정결재선 신인사관리로 보내기)</a><br>			
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup33'));">popup33 (온보딩)</a><br>	
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup34'));">popup34 (마이그레이션)</a><br>			
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup35'));">popup35 (프로필 사진 일괄등록)</a><br>	
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup36'));">popup36 (임직원 정보 업데이트용 파일 다운로드)</a><br>	
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup37'));">popup37 (전자결재 결재 , 참조 팝업)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup38'));">popup38 (전자결재 후열처리)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup39'));">popup39 (마이그레이션 제한일)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup40'));">popup40 (정식 전환 신청 완료)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup41'));">popup41 (계정 연동 수정)</a><br>
+
+				<!-- sso관련 모달 -->
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup42'));">popup42 (SSO 연동 추가하기)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup43'));">popup43 (SSO 연동 수정하기)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup44'));">popup44 (SSO 연동 삭제하기)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup45'));">popup45 (SSO 연동 신청하기)</a><br>
+
+				<!-- 전자 결재 연동 모달 -->
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup46'));">popup46 (전자결재 연동 추가)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup48'));">popup48 (토큰 삭제 결과 모달)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup49'));">popup49 (토큰 삭제 재확인)</a><br>
+
+				<!-- 인트라넷 관련 모달 -->
+
+				<hr style="margin: 100px 0;border:0;height:1px;background:lightgray;">
+				<h1 class="gt-mb-30">2019 New Modal</h1>
+				<!-- 2019 오피스홈 개편 new modal -->
+				<h2 class="gt-mb-10">sample</h2>
+						<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-example-1'));">Large(700)</a><br>
+						<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-example-2'));">Midium(600)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-example-3'));">Small(500)</a><br>
+				
+				<h2 class="gt-mt-30 gt-mb-10">오피스홈</h2>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-shortcut'));">바로가기 설정</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-create-schedule'));">일정 추가</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-detail-schedule'));">일정 상세 보기</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-create-group'));">그룹 만들기</a><br>
+				<h2 class="gt-mt-30 gt-mb-10">인트라넷 메뉴</h2>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-intranet-add-menu'));">인트라넷 메뉴 추가</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.modal-intranet-add-label'));">라벨 만들기</a><br>
+        
+				<!-- Contents End-->
+				                <div id="footer">
+                	<div class="center">
+						<ul class="link">
+							<li><a href="#">가비아넷</a><span class="icon divided"></span></li>
+							<li><a href="#">복지몰</a><span class="icon divided"></span></li>
+							<li><a href="#">급여인트라넷</a><span class="icon divided"></span></li>
+							<li><a href="#">네이버</a><span class="icon divided"></span></li>
+							<li><a href="#">전자결재</a></li>
+						</ul>
+	                	<span class="copy">© 2014 gabia</span>
+                	</div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+		<!-- 상세분류 -->
+		<div class="layer_box mid_large hide popup23">
+			<div class="title_layer text_variables">상세검색</div>
+			<div class="to-add detail-search">
+				<dl class="after">
+					<dt><label for="">보낸 사람</label></dt>
+					<dd><input id="" class="text-box" style="width:200px" type="text"/></dd>
+				</dl>
+				<dl class="after">
+					<dt><label for="">받는 사람</label></dt>
+					<dd><input id="" class="text-box" style="width:200px" type="text"/></dd>
+				</dl>
+				<dl class="after">
+					<dt><label for="">제목</label></dt>
+					<dd><input id="" class="text-box" style="width:355px" type="text"/></dd>
+				</dl>
+				<dl class="after">
+					<dt><label for="">메모</label></dt>
+					<dd><input id="" class="text-box" style="width:355px" type="text"/></dd>
+				</dl>
+				<dl class="after">
+					<dt><label for="">기간</label></dt>
+					<dd class="after">
+						<select class="fl" name="" id="">
+							<option>전체</option>
+							<option>10일</option>
+							<option>1개월</option>
+							<option>6개월</option>
+							<option>1년</option>
+							<option>직접입력</option>
+						</select>
+						<div class="fl mgl_5">
+							<input type="text" style="width:100px">
+							<button type="button" class="icon month"><span class="blind">최초일 선택</span></button> ~
+							<input type="text" style="width:100px">
+							<button type="button" class="icon month"><span class="blind">마지막일 선택</span></button>
+						</div>
+					</dd>
+				</dl>
+				<dl class="after">
+					<dt><label for="">편지함 종류</label></dt>
+					<dd><select id="" class="select-box" style="width:180px">
+							<option>전체 편지함</option>
+							<option>받은 편지함</option>
+							<option>보낸 편지함</option>
+							<option>임시 보관함</option>
+							<option>보낼 편지함</option>
+							<option>스팸 보관함</option>
+							<option>휴지통</option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="after">
+					<dd><label><input type="checkbox"> 첨부 파일 있음</label></dd>
+				</dl>
+			</div>
+			<div class="layer_button">
+				<button type="button" class="btn_variables">검색</button> <button type="button" onclick="hidePopup();">취소</button>
+			</div>
+			<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+		</div>
+
+		<!-- 파일박스  수정 -->
+		<div class="layer_box large file hide popup24">
+			<div class="title_layer text_variables">파일 선택</div>
+			<ul class="tab_box after">
+				<li><a href="#" class="on">파일박스</a></li>
+				<!-- <li><a href="#">웹하드</a></li> -->
+			</ul>
+
+			<div class="table_scrollbox">
+				<table cellspacing="0" cellpadding="0" class="layer_table">
+					<caption>종류,이름,크기,날짜,다운로드기한(남은횟수) 정보입니다.</caption>
+					<colgroup>
+						<col width="5%"/><col width="5%"/><col width="42%"/><col width="16%"/><col width="16%"/><col width="16%"/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col"><input type="checkbox" title="선택하기"/></th>
+							<th scope="col">종류</th>
+							<th scope="col" class="name">이름</th>
+							<th scope="col">크기</th>
+							<th scope="col">다운로드 기한</th>
+							<th scope="col" style="position:relative">남은 횟수<!-- <span class="icon tooltip">도움말 보기</span> --></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" title="선택하기"/></td>
+							<td><span class="icon file-kind"></span><span class="blind">파일종류</span></td>
+							<td class="name">123123123123123123123123123123.jpg</td>
+							<td>44.1KB</td>
+							<td>2014-11-22</td>
+							<td>220</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" title="선택하기"/></td>
+							<td><span class="icon file-kind"></span><span class="blind">파일종류</span></td>
+							<td class="name">123123123123123123123123123123.jpg</td>
+							<td>44.1KB</td>
+							<td>2014-11-22</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" title="선택하기"/></td>
+							<td><span class="icon file-kind"></span><span class="blind">파일종류</span></td>
+							<td class="name">123123123123123123123123123123.jpg</td>
+							<td>44.1KB</td>
+							<td>2014-11-22</td>
+							<td>200</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="filebox-text">* 파일박스에서 원본 파일을 삭제하면 발송된 메일에서 다운로드할 수 없습니다.</p>
+			<div class="layer_button">
+				<button type="button" class="btn_variables">첨부</button> <button type="button">삭제</button> <button type="button" onclick="hidePopup();">취소</button>
+			</div>
+			<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+		</div>
+
+		<!-- 이동 안내 -->
+		<div class="layer_box small warning hide popup25">
+			<p class="text"><span class="text_variables">%메일주소%</span>에서 발송되는<br>메일은 <span class="text_variables">%편지함명%</span>으로 이동합니다. </p>
+			<p class="pdt_10"><label><input type="checkbox"> 이미 받은 메일 함께 이동</label></p>
+			<div class="layer_button">
+				<button type="button" class="btn_variables">확인</button> <button type="button" onclick="hidePopup();">취소</button>
+			</div>
+			<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+		</div>
+
+		<!-- 스팸처리 -->
+		<div class="layer_box middle hide popup26">
+			<div class="title_layer text_variables">스팸처리</div>
+			<div class="nnsubscribe">
+				<p class="text">선택한 <strong><span class="text_variables">%체크한 메일 수%</span></strong>개의 메일을</p>
+				<ul class="nnsubscribe-list pdb_10">
+					<li><label><input type="radio" name="select_spam" /> 스팸 편지함으로 이동합니다.</label> <label class="mgl_5"><input type="checkbox"> 계속 이동</label></li>
+					<li><label><input type="radio" name="select_spam" /> 완전 삭제 후, 영구 수신 거부합니다.</label></li>
+				</ul>
+			</div>
+			<p class="font12 weakgray">* [계속 이동]을 체크하시면, 이후 해당 주소에서 발송하는 메일은 스팸 편지함에서 확인할 수 있습니다.</p>
+			<p class="pdt_10">
+				<label><input type="checkbox"> 이미 받은 메일도 함께 처리합니다.</label>
+			</p>
+			<div class="layer_button">
+				<button type="button" class="btn_variables">확인</button> <button type="button" onclick="hidePopup();">닫기</button>
+			</div>
+			<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+		</div>
+
+		<!-- 입사일별 휴가 미리 계산 -->
+		<div class="layer_box large hide">
+			<div class="title_layer text_variables">입사일별 휴가 미리 계산</div>
+			<p>휴가 생성 조건에서 입력한 연차별 휴가 일수와 생성 일자, 1년 차 휴가 자동생성 선택 여부에 따라 입사일 기준으로 생성될 연차를 미리 계산합니다. 확인할 입사일(년/월) 선택한 후, 계산하기 버튼을 클릭하세요.</p>
+			<div class="gt-mt-20">
+				<span class="gt-mr-15 gt-font-bold">입사일</span>
+				<select class="select-box" style="width:80px">
+					<option value="">2013</option>
+				</select>
+				<span class="gt-mr-10">년</span>
+				<select class="select-box" style="width:50px">
+					<option value="">1</option>
+				</select>
+				<span>월</span>
+			</div>
+			<div class="layer_button">
+				<button type="button" class="btn_variables">계산하기</button>
+			</div>
+		</div>
+
+		<!-- 입사일별 휴가 미리 계산 -->
+		<div class="layer_box large hide" style="top:0">
+			<div class="title_layer text_variables">입사일별 휴가 미리 계산</div>
+			<div class="gt-mb-10">
+				<span class="gt-mr-15 gt-font-bold">입사일</span>
+				<span class="gt-mr-10">2010년 10월</span>
+				<a href="#" class="search_bt weakblue"><i class="far fa-redo-alt gt-mr-5"></i>다시 계산</a>
+			</div>
+			<div class="table_rowspan">
+				<table cellspacing="0" cellpadding="0" class="layer_table">
+					<caption>받는사람,보낸시간,전송상태,수신확인,발송취소 내용입니다.</caption>
+					<colgroup>
+						<col/><col/><col/><col/><col/>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>생성일</th>
+							<td>2019-<br>03-01</td>
+							<td>2019-<br>04-01</td>
+							<td>2019-<br>05-01</td>
+							<td>2019-<br>06-01</td>
+							<td>2019-<br>07-01</td>
+							<td>2019-<br>08-01</td>
+							<td>2019-<br>09-01</td>
+							<td>2019-<br>10-01</td>
+							<td>2019-<br>11-01</td>
+							<td>2019-<br>12-01</td>
+						</tr>
+						<tr>
+							<th class="gt-border-0">휴가일수</th>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+							<td class="gt-padding-0">1</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table_rowspan gt-mt-10">
+				<table cellspacing="0" cellpadding="0" class="layer_table">
+				<caption>받는사람,보낸시간,전송상태,수신확인,발송취소 내용입니다.</caption>
+				<colgroup>
+					<col/><col/><col/><col/><col/>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>생성일</th>
+						<td>2019-<br>03-01</td>
+						<td>2019-<br>04-01</td>
+						<td>2019-<br>05-01</td>
+						<td>2019-<br>06-01</td>
+						<td>2019-<br>07-01</td>
+						<td>2019-<br>08-01</td>
+						<td>2019-<br>09-01</td>
+						<td>2019-<br>10-01</td>
+						<td>2019-<br>11-01</td>
+						<td>2019-<br>12-01</td>
+					</tr>
+					<tr>
+						<th class="gt-border-0">휴가일수</th>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+						<td class="gt-padding-0">1</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<div class="layer_button">
+				<button type="button" class="" type="button">닫기</button>
+			</div>
+			<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>
+
+	<!-- 근태관리: 휴가 이월 일수 오류에 대한 안내 -->
+	<div class="hw-modal-wrap size-xl hide popup27">
+		<div class="hw-modal-header"><strong>2021년 휴가 이월 일수 오류에 대한 안내</strong></div>
+		<div class="hw-modal-body" style="line-height:1.5">
+		<p>2021년 휴가 이월일수에 일부 오류가 발생하여 해당 원인과 대상자를 안내합니다.<br>
+			아래 내용을 확인하시고, 알맞은 조치를 진행해주시기를 부탁드립니다. 이용에 불편을 끼쳐 대단히 죄송합니다.
+		</p>
+		<div class="gt-mt-30">
+			<strong>[ 휴가 이월 일수의 차이가 발생한 원인 ]</strong>
+			<ul class="gt-mt-15">
+			<li>1 - 2020년도 휴가 신청 건이 2021년 회계일(휴가생성일) 이후 결재가 완료되었거나 아직 진행 중인 경우<br>
+				<span class="hw-text-gray gt-ml-20">결재가 완료되지 않은 전년도 휴가 신청일수를 포함하여 이월되도록 되어있었음 (1/6 결재에 따른 이월정책을 변경하고 수정 완료)</span>
+			</li>
+			<li class="gt-mt-20">2 - 2019년 입사자의 1년 차 휴가 이월 일수 오류 발생<br>
+				<span class="hw-text-gray gt-ml-20">2019년 입사자에 대한 1년 차 휴가가 하나씩 적게 이월됨 (1/6 수정 완료)</span>
+			</li>
+			<li class="gt-mt-20">3 - 2020년에 2019년 휴가를 신청한 경우<br>
+				<span class="hw-text-gray gt-ml-20">2020년에 2019년 휴가를 신청한 경우, 2019년 휴가가 제대로 차감되지 않고 잘못 이월됨 (1/12 수정 완료)</span>
+			</li>
+			</ul>
+		</div>
+		<div class="gt-mt-40">
+			<strong>[ 이월된 휴가 일수에 차이가 발생한 대상자 ]</strong>
+			<table class="setting-table center gt-mt-15">
+				<colgroup>
+				<col style="width:15%">
+				<col style="width:20%">
+				<col style="width:10%">
+				<col style="width:15%">
+				<col style="width:40%">
+				</colgroup>
+				<thead>
+				<tr>
+					<th>이름(ID)</th>
+					<th>휴가 구분</th>
+					<th>이월된<br>일수</th>
+					<th>이월됐어야할<br>일수</th>
+					<th>발생 원인</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>김가가(kgg)</td>
+					<td>1년차휴가</td>
+					<td>4</td>
+					<td>5</td>
+					<td>2019년 입사자 오류</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<p class="gt-bg-title gt-mt-40">이월일수 수정 조치 방법</p>
+			<ol>
+			<li class="gt-mt-20">
+				<img class="gt-mr-8 gt-align-middle" src="https://static.hiworks.com/office/static/images/insa/step1.png" alt="1"><strong class="gt-align-middle">전체 휴가 재생성</strong>
+				<div class="hw-text-gray gt-ml-30">각 경우에 대한 모든 소스 수정이 완료되어, 현재 휴가를 재설정하시면 올바른 이월일수로 휴가가 생성됩니다.<br>
+				[휴가관리>기본설정]에서 휴가생성조건 확인 후 [적용]을 클릭하여 올해 휴가를 재생성할 수 있습니다.</div>
+			</li>
+			<li class="gt-mt-20">
+				<img class="gt-mr-8 gt-align-middle" src="https://static.hiworks.com/office/static/images/insa/step2.png" alt="2"><strong class="gt-align-middle">대상자별 수정</strong>
+				<div class="hw-text-gray gt-ml-30">위 대상자와 일수 차이를  확인하시어 직접 적용하실 수 있습니다.<br>[휴가관리>직원 휴가 관리> 휴가 현황 조회]에서 이월 일수를 감안하여 직원별 휴가 일수를 조정할 수 있습니다.</div>
+			</li>
+			</ol>
+			<p class="gt-bg-title gt-mt-40">유의사항</p>
+			<ul class="gt-list-dash hw-text-gray gt-mt-20">
+			<li>휴가가 더 생성된 사용자를 찾아 이미 수정을 완료하셨거나 새로 휴가를 재설정한 경우 별도로 조치할 필요가 없습니다.</li>
+			<li>이 안내는 인사관리자 및 전체관리자에게만 출력됩니다. 관리자가 여러 명인 경우 휴가가 여러 번 재설정되지 않도록 협의 후 진행해 주시기 바랍니다.</li>
+			<li>휴가 재설정 시 관리자가 수동으로 설정한 휴가도 모두 초기화됩니다.<br>수동관리가 필요한 직원은 재설정 후 [직원 휴가 관리> 휴가 현황 조회]에서 개별적으로 다시 수정해 주시기 바랍니다.</li>
+			</ul>
+		</div>
+		</div>
+		<div class="hw-modal-footer">
+		<button type="button" class="hw-button secondary" onclick="hidePopup();">닫기</button><button type="button" class="hw-button">위 내용을 확인하고 조치했습니다.</button>
+		</div>
+		<a href="javascript:void(0)" class="btn-close-top-right" onclick="hidePopup();" title="레이어 닫기"><img src="https://static.hiworks.com/office/static/images/insa/btn_close.png" alt=""></a>
+	</div>
+
+  	    <!--  근태관리:  휴가종류 신인사관리로 보내기 -->
+    <div class="layer_box large hr-migration size-800 hide popup28"  >
+		<div class="title_layer text_variables">휴가종류 신인사관리로 보내기</div>
+        
+        <div class="layer-content">        
+            <div class="layer-content__disc gt-mb-30">
+                <p>설정한 휴가종류를 신인사관리 설정으로 마이그레이션합니다.</p>
+                <p><a href="#" class="point-color">[신 인사관리> 휴가/근무관리>기본설정>휴가]</a>에서 휴가종류를 확인하고 설정할 수 있습니다.</p>
+                <p>현재 구 인사관리에 설정된 휴가 종류를 아래와 같이 신인사관리에 마이그레이션하려면 아래 [설정보내기] 버튼을 클릭하세요. 이후 신 인사관리> 휴가/근무관리>기본설정>휴가에서 설정을 수정할 수 있습니다.</p>
+            </div>    
+        
+            <p class="table_title">휴가 종류</p>
+            <div class="layer-content__table_scrollbox">
+                <table cellspacing="0" cellpadding="0" class="layer_table">
+                    <thead>
+                        <tr>                            
+                            <th scope="col" width="148px">휴가명</th>
+                            <th scope="col" width="148px">사용여부</th>
+                            <th scope="col" class="double-line-th" width="148px" >연차에서<br>차감여부</th>
+                            <th scope="col" width="148px">생성여부</th>
+                            <th scope="col" class="double-line-th" width="148px">시간제 휴가<br>최소단위</th>
+                        </tr>
+                    </thead>
+                    <tbody class="layer-content__tbody">
+                        <tr>                            
+                          <td class="gt-text-left gt-pl-10">연차</td>
+                          <td>사용</td>
+                          <td>차감</td>
+                          <td>생성 필요</td>
+                          <td>30분</td>
+                        </tr> 
+                        <tr>                            
+                          <td class="gt-text-left gt-pl-10">연차</td>
+                          <td>사용</td>
+                          <td>차감</td>
+                          <td>생성 필요</td>
+                          <td>30분</td>
+                        </tr>                                                  
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="layer-content__list-squre gt-mt-20">
+              <li class="layer-content__list-squre--li">생성여부: 휴가가 자동 또는 관리자에 의해 생성된 경우에만 사용가능한 경우(예: 연차, 포상 등) 생성 필요로, 생성되지 않았지만 신청할 수 있는 경우(예: 경조사, 교육 등)에는 생성없이 사용으로 설정하여 사용하세요.</li>
+              <li class="layer-content__list-squre--li" >시간제 휴가 최소단위: 휴가 종류 별로 시간제 휴가의 최소단위를 설정할 수 있습니다. 기존의 반차 (4시간), 반반차 (2시간) 뿐 아니라, 최소 30분 단위로 휴가를 사용할 수 있도록 설정할 수 있습니다.</li>
+            </ul>
+
+
+        </div>
+		
+
+		<div class="layer_button">
+			<button type="button" class="btn_variables blank gt-mr-15" type="button">설정보내기</button>
+      <button type="button" type="button">취소</button>
+		</div>
+		<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>
+
+    <!--  근태관리:  출퇴근 장소 설정 신 인사관리로 보내기 -->
+    <div class="layer_box large hr-migration size-800 hide popup29">
+		<div class="title_layer text_variables">출퇴근 장소 설정 신 인사관리로 보내기</div>
+        
+        <div class="layer-content">        
+            <div class="layer-content__disc gt-mb-30">
+                <p>설정한 출퇴근 장소를 신인사관리 설정으로 마이그레이션합니다.</p>
+                <p><a href="#" class="point-color">[신 인사관리> 휴가/근무관리>기본설정>근무체크]</a>의 근무 장소에서 확인 및 설정할 수 있습니다.</p>
+                <p>현재 구 인사관리에 설정된 GPS출퇴근 장소를 아래와 같이 신인사관리에 마이그레이션하려면 아래 [설정보내기] 버튼을 클릭하세요. 이후 신 인사관리> 휴가/근무관리>기본설정>근무체크에서 설정을 수정할 수 있습니다.</p>
+            </div>    
+
+            <div class="layer-content__disc gt-mb-30">
+                <p>신인사관리에서는 근무장소별 다수의 GPS장소 및 IP를 설정할 수 있습니다.</p>
+                <p>근무장소를 동일하게 설정하면 같은 근무장소 내에 출퇴근 IP로 신인사관리에 마이그레이션됩니다.</p>
+                <p>근무 장소 설정 후, [신인사>인사설정>휴가/근무설정>근무체크] 탭의 [근무장소]에서 외부 근태기기 연동 여부를 체크하면 구인사관리 설정값이 자동으로 적용됩니다.</p>
+            </div>    
+
+            <div class="layer-content__table_scrollbox">
+                <table cellspacing="0" cellpadding="0" class="layer_table">
+                    <thead>
+                        <tr>                            
+                            <th scope="col" width="160px">GPS장소</th>
+                            <th scope="col">주소</th>
+                            <th scope="col" width="300px">근무장소</th>
+                        </tr>
+                    </thead>
+                    <tbody class="layer-content__tbody">
+                        <tr class="layer-content__tr">                            
+                          <td class="gt-text-left gt-pl-10"><span class="remove-btn-txt">연차</span><button type="button" class="icon file_delete hover-show"></button></td>
+                          <td class="gt-text-left">경기도 성남시 분당구 삼평동 670-1</td>
+                          <td><input type="text" class="text-box gt-w-90" /></td>
+                        </tr>  
+                        <tr class="layer-content__tr">                            
+                          <td class="gt-text-left gt-pl-10"><span class="remove-btn-txt">포상 휴가</span><button type="button" class="icon file_delete hover-show"></button></td>
+                          <td class="gt-text-left">경기도 성남시 분당구 삼평동 670-1</td>
+                          <td><input type="text" class="text-box gt-w-90" /></td>
+                        </tr>          
+                        <tr  class="layer-content__tr">                            
+                          <td class="gt-text-left gt-pl-10"><span class="remove-btn-txt">경조사</span><button type="button" class="icon file_delete hover-show"></button></td>
+                          <td class="gt-text-left">경기도 성남시 분당구 삼평동 670-1</td>
+                          <td><input type="text" class="text-box gt-w-90" /></td>
+                        </tr>                                                                                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+
+		<div class="layer_button">
+			<button type="button" class="btn_variables blank gt-mr-15" type="button">설정보내기</button>
+      <button type="button" type="button">취소</button>
+		</div>
+		<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>
+
+    <!--  근태관리:  IP목록 신 인사관리로 보내기 -->
+    <div class="layer_box large hr-migration size-800 hide popup30">
+		<div class="title_layer text_variables">IP목록 신 인사관리로 보내기</div>
+        
+        <div class="layer-content">        
+            <div class="layer-content__disc gt-mb-30">
+                <p>설정한 출퇴근 장소를 신인사관리 설정으로 마이그레이션합니다.</p>
+                <p><a href="#" class="point-color">[신 인사관리> 휴가/근무관리>기본설정>근무체크]</a>의 근무 장소에서 확인 및 설정할 수 있습니다.</p>
+                <p>현재 구 인사관리에 설정된 출퇴근허용 IP를 아래와 같이 신인사관리에 마이그레이션하려면 아래 [설정보내기] 버튼을 클릭하세요. 이후 [신 인사관리> 휴가/근무관리>기본설정>근무체크]에서 설정을 수정할 수 있습니다.</p>
+            </div>    
+
+            <div class="layer-content__disc gt-mb-30">
+                <p>신인사관리에서는 근무장소별 다수의 GPS장소 및 IP를 설정할 수 있습니다. 근무장소를 동일하게 설정하면 같은 근무장소 내에 출퇴근 IP로 신인사관리에 마이그레이션됩니다.</p>
+            </div>    
+
+            <div class="layer-content__table_scrollbox">
+                <table cellspacing="0" cellpadding="0" class="layer_table">
+                    <thead>
+                        <tr>                            
+                            <th scope="col" width="50%">IP 또는 IP 대역</th>
+                            <th scope="col" width="50%">근무장소</th>
+                        </tr>
+                    </thead>
+                    <tbody class="layer-content__tbody">
+                        <tr class="layer-content__tr">                            
+                          <td class="gt-text-left gt-pl-10"><span class="remove-btn-txt">123.123.123.123</span><button type="button" class="icon file_delete hover-show"></button></td>
+                          <td><input type="text" class="text-box gt-w-90" /></td>
+                        </tr>        
+                        <tr class="layer-content__tr">                            
+                          <td class="gt-text-left gt-pl-10"><span class="remove-btn-txt">123.123.123.123</span><button type="button" class="icon file_delete hover-show"></button></td>
+                          <td><input type="text" class="text-box gt-w-90" /></td>
+                        </tr>  
+                        <tr class="layer-content__tr">                            
+                          <td class="gt-text-left gt-pl-10"><span class="remove-btn-txt">123.123.123.123</span><button type="button" class="icon file_delete hover-show"></button></td>
+                          <td><input type="text" class="text-box gt-w-90" /></td>
+                        </tr>                                                                                                                                                          
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+
+		<div class="layer_button">
+			<button type="button" class="btn_variables blank gt-mr-15" type="button">설정보내기</button>
+      <button type="button" type="button">취소</button>
+		</div>
+		<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>    
+
+    <!--  근태관리:  근무상태 설정 신인사관리로 보내기 -->
+    <div class="layer_box large hr-migration size-800 hide popup31"  >
+		<div class="title_layer text_variables">근무상태 설정 신인사관리로 보내기</div>
+        
+        <div class="layer-content">        
+            <div class="layer-content__disc gt-mb-30">
+                <p>설정한 근무상태를 신인사관리 설정으로 마이그레이션합니다.</p>
+                <p><a href="#" class="point-color">[신 인사관리> 휴가/근무관리>기본설정>근무탭]</a>의 근무상태관리에서 확인/설정할 수 있습니다.</p>
+                <p>현재 구 인사관리에 설정된 근무상태를 아래와 같이 신인사관리에 마이그레이션하려면 아래 [설정보내기] 버튼을 클릭하세요. 이후 신 인사관리> 휴가/근무관리>기본설정>근무탭에서 설정을 수정할 수 있습니다.</p>
+            </div>    
+        
+            <div class="layer-content__table_scrollbox">
+                <table cellspacing="0" cellpadding="0" class="layer_table">
+                    <thead>
+                        <tr>                            
+                            <th scope="col" width="33%">근무상태</th>
+                            <th scope="col" width="33%">근무시간 포함 여부</th>
+                            <th scope="col" width="33%">사용여부</th>
+                        </tr>
+                    </thead>
+                    <tbody class="layer-content__tbody">
+                        <tr>
+                          <td>업무</td>
+                          <td>포함</td>
+                          <td>사용</td>
+                        </tr>                                                
+                    </tbody>
+                </table>
+            </div>
+        </div>		
+
+		<div class="layer_button">
+			<button type="button" class="btn_variables blank gt-mr-15" type="button">설정보내기</button>
+      <button type="button" type="button">취소</button>
+		</div>
+		<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>
+
+    <!--  근태관리:  지정결재선 신인사관리로 보내기 -->
+    <div class="layer_box large hr-migration size-600 hide popup32"  >
+		<div class="title_layer text_variables">지정결재선 신인사관리로 보내기</div>
+        
+        <div class="layer-content">        
+            <div class="layer-content__disc gt-mb-30">
+                <p>설정한 지정결재선을 신인사관리 설정으로 마이그레이션합니다.</p>
+                <p><a href="#" class="point-color">[신 인사관리>인사관리>결재설정]</a>에서 각 양식별 설정 및 지정결재선 설정을 할 수 있습니다. 현재 구 인사관리에 설정된 휴가/근태 지정결재선을 적용할 신인사관리 결재양식을 선택한 후 [설정보내기] 버튼을 클릭하세요.</p>
+            </div>    
+        
+            <p class="table_title">지정결재선 적용할 결재양식 선택</p>
+            <ul class="layer-content__line-form-ul">
+                <li class="line-form-li"><input type="checkbox" id="line-1" title="주소록 추가"/> <label class="gt-ml-5" for="line-1">휴가 신청서</label></li>
+                <li class="line-form-li"><input type="checkbox" id="line-2" title="주소록 추가"/> <label class="gt-ml-5"  for="line-2">휴가 신청서1</label></li>
+                <li class="line-form-li"><input type="checkbox" id="line-3" title="주소록 추가"/> <label class="gt-ml-5"  for="line-3">휴가 신청서2</label></li>
+                <li class="line-form-li"><input type="checkbox" id="line-4" title="주소록 추가"/> <label class="gt-ml-5"  for="line-4">휴가 신청서3</label></li>
+                <li class="line-form-li"><input type="checkbox" id="line-5" title="주소록 추가"/> <label class="gt-ml-5"  for="line-5">휴가 신청서4</label></li>                
+            </ul>
+        </div>		
+
+		<div class="layer_button">
+			<button type="button" class="btn_variables blank gt-mr-15" type="button">설정보내기</button>
+      <button type="button" type="button">취소</button>
+		</div>
+		<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>    
+
+  <!-- 근태관리: 휴가 이월 일수 오류에 대한 안내 -->
+  <div class="hw-modal-wrap hr-migration size-xs hide popup33">
+    <div class="hw-modal-header"><strong>샘플 조직도와 사용자가 생성되었습니다.</strong></div>
+    <div class="hw-modal-body">
+        <div class="gt-mb-20"  style="line-height:1.8">
+            <p>오피스에 조직도와 사용자 데이터 샘플이 세팅되어 있습니다.</p>
+            <p>샘플 데이터는 추후에도 변경하거나 삭제할 수 있습니다. </p>
+            <p>샘플 사용자와 함께 인사관리 기능을 둘러보시겠습니까?</p>
+        </div>
+        <div class="intro-img-div">
+            <img src="https://static.hiworks.com/office/static/images/insa/insa_org_sample_2x.png" alt="">
+        </div>
+    </div>
+    <div class="hw-modal-footer">
+      <button type="button" class="hw-button info" onclick="hidePopup();" >지우고 시작하기</button>
+      <button type="button" class="hw-button">시작하기</button>
+    </div>    
+  </div>
+
+    <!-- 근태관리: 휴가 이월 일수 오류에 대한 안내 -->
+    <div class="hw-modal-wrap hr-migration size-xm hide popup34">
+        <div class="hw-modal-header"><strong>구 인사관리 마이그레이션 안내</strong></div>
+        <div class="hw-modal-body" style="max-height:none;">
+            <div class="gt-mb-50"  style="line-height:1.8">
+                <p>하이웍스 인사관리 마이그레이션 기능이 오픈되었습니다. </p>
+                <p>구 인사관리에서 사용한 휴가, 근태, 근무시간 데이터를 신 인사로 마이그레이션하고, 신 인사를 정식 사용해보세요. </p>            
+            </div>
+            <div class="hw-mig-div">
+                <p class="hw-mig-div--title">[인사관리 마이그레이션 신청 방법]</p>
+                <ul class="hw-mig-div__number-ol">
+                    <li>
+                        <div class='hw-mig-div__number-ol--number'>①</div>
+                        <div>구 인사관리 메뉴 하단 [NEW 인사관리 바로가기] 버튼을 클릭하여 신 인사로 이동합니다.</div>
+                    </li>
+                    <li >
+                        <div class='hw-mig-div__number-ol--number'>②</div>
+                        <div><a href="#" class="point-color">[신 인사&gt; 인사설정&gt;휴가/근무&gt;근무탭]</a> 상단 [신인사 정식사용 신청] 버튼을 클릭합니다</div>
+                    </li>
+                    <li >
+                        <div class='hw-mig-div__number-ol--number'>③</div>
+                        <div class="hw-mig-div__number-ol--content">[구인사관리 휴가/근태 마이그레이션 및 신인사 정식사용일 지정] 레이어에서 관련 안내를 숙지하신 후, 마이그레이션 신청 여부 선택 및 신 인사 정식사용일을 지정해주시기 바랍니다. 신 인사 정식사용일부터 구인사관리는 사용 불가하며, 조회용으로만 제공됩니다.</div>
+                    </li>                                
+                </ul>
+                
+                <div class="attendance-alert">
+                    <div class="attendance-alert__left">
+                        <i class="gis gi-exclam-circle"></i>
+                    </div>
+                    <div class="attendance-alert__right">
+                    <div name="attendance-alert-content">
+                        <p class="attendance-alert__right__text-description">마이그레이션 신청 시, 신 인사에서의 사용데이터는 모두 삭제됩니다. (설정값 제외)</p>
+                        <p class="attendance-alert__right__text-description">마이그레이션 신청을 원하지 않는 경우, 마이그레이션 신청 안 함을 선택하고 신 인사를 정식사용 신청해주세요.</p>
+                    </div>
+                    </div>
+                </div> 
+                <p class="hw-mig-div--title">신 인사 사용 데이터 유지와 마이그레이션을 모두 원하시는 경우, 고객센터(1661-4370)로 문의해주세요</p>    
+                <p class="gt-mb-10">자세한 마이그레이션 방법은 아래 링크에서 확인해주세요. </p>   
+                <a href="https://customer.gabia.com/manual/hiworks/136/13080" target="_blank" >
+                    <button type="button" class="hw-button"> 인사관리 마이그레이션 방법 알아보기</button>  
+                </a>
+
+            </div>
+            <div class="hw-mig-div gt-mt-50">
+                <p class="hw-mig-div--title">[인사관리 마이그레이션 신청 및 관련 일정 안내]</p>
+                <p class="hw-mig-div--text"><strong>마이그레이션(신 인사 정식전환) 신청 기한은 2021년 12월 31일</strong> 까지이며, <strong> 2022년 1월 1일부터 구 인사관리 사용이 종료</strong>됩니다.</p>
+                <p class="hw-mig-div--text">2021년 12월 31일까지 마이그레이션 및 정식정환을 신청하지 않는 오피스는 자동으로 2022년 1월 1일 1시 기준으로 </p>
+                <p class="hw-mig-div--text">마이그레이션없이 신 인사 정식사용으로 전환되며, 이후 구 인사관리는 조회용으로만 확인하실 수 있습니다.</p>
+                <p class="hw-mig-div--text">마이그레이션 및 정식사용 관련 문의가 있으시면 <a href="https://www.hiworks.com/cs/mail" target="_blank" class="point-color">[고객지원&gt;메일문의]</a>를 이용해주세요. </p>
+                <p class="hw-mig-div--text gt-mt-20">더 나은 하이웍스 서비스를 위해 제공하기 위해 노력하겠습니다.</p>    
+            </div>        
+        </div>
+        <div class="hw-modal-footer">
+            <div style="position: absolute;left: 25px;">
+                <input type="checkbox" id="line-1" /> <label class="gt-ml-5" for="line-1">다시보지 않기</label>
+            </div>
+            
+            <button type="button" class="hw-button secondary" onclick="hidePopup();" >닫기</button>
+        
+        </div>       
+    </div>
+
+<!-- 근태관리: 휴가 이월 일수 오류에 대한 안내 -->
+<div class="hw-modal-wrap hr-migration size-xs hide popup35">
+    <div class="hw-modal-header"><strong>프로필 사진 일괄 등록</strong></div>
+    <div class="hw-modal-body" >
+        <div class="gt-mb-30 usage-explain" >  
+            <p>임직원의 프로필 사진을 일괄등록할 수 있습니다.</p>
+            <p>등록 기준 ID또는 사번으로 선택하여, 등록할 이미지의 파일이름을 기준에 따라 저장한 후, zip파일로 만들어 등록하세요.</p>
+            <p>등록 가능한 이미지 종류는 jpeg, jpg, gif, png, bmp이며, 최대 권장 사이즈는 330x330px(10MB미만)입니다.</p>
+        </div>
+
+        <div class="hw-modal-div-table">
+            <div class="gt-d-table">
+                <div class="gt-d-table-cell">등록 기준</div>
+                <div class="gt-d-table-cell">
+                    <label class="gt-mr-30"><input class="hw-radio gt-mr-10" type="radio" name="profile_35" />ID를 기준으로 등록</label>
+                    <label><input  class="hw-radio gt-mr-10" type="radio" name="profile_35" />사번을 기준으로 등록</label>
+                </div>
+            </div>
+            <div class="gt-d-table">
+                <div class="gt-d-table-cell">이미지zip 파일 등록</div>
+                <div class="gt-d-table-cell">
+                    <p class="file-upload-success-explain">선택되었습니다. 등록 버튼을 클릭하세요.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="hw-modal-footer">        
+        <button type="button" class="hw-button secondary" onclick="hidePopup();" >닫기</button>
+        <button type="button" class="hw-button" >등록</button>    
+    </div>       
+</div>
+
+
+<!-- 근태관리: 휴가 이월 일수 오류에 대한 안내 -->
+<div class="hw-modal-wrap hr-migration size-lg  hide popup36">
+    <div class="hw-modal-header"><strong>임직원 정보 업데이트용 파일 다운로드</strong></div>
+    <div class="hw-modal-body" >
+        <div class="gt-mb-30 usage-explain" >  
+            <p>업데이트할 임직원의 정보를 엑셀파일(.xls)로 다운로드받아 원하는 정보를 일괄 수정할 수 있습니다.</p>
+            <p>수정할 항목 및 대상 부서를 선택하여 파일을 다운로드 받으세요.</p>
+            <p>선택한 수정항목만 업데이트할 수 있도록 업데이트용 파일이 생성됩니다.</p>
+        </div>
+        <div class="gt-mb-50">
+            <p class="hw-mig-div--title">수정할 항목 선택</p>
+            <ul class="checkbox-float-ul clearfix">
+                <li><label><input type="checkbox">전체</label></li>
+                <li><label><input type="checkbox">이름</label></li>
+                <li><label><input type="checkbox">근로형태</label></li>
+                <li><label><input type="checkbox">사번</label></li>
+                <li><label><input type="checkbox">입사일</label></li>
+                <li><label><input type="checkbox">소속조직</label></li>
+                <li><label><input type="checkbox">직위</label></li>
+            </ul>
+            <ul class="checkbox-float-ul clearfix gt-mt-10">
+                <li><label><input type="checkbox">직무</label></li>
+                <li><label><input type="checkbox">생년월일</label></li>
+                <li><label><input type="checkbox">이메일</label></li>
+                <li><label><input type="checkbox">사내전화</label></li>
+                <li><label><input type="checkbox">휴대전화</label></li>
+                <li><label><input type="checkbox">자택주소</label></li>
+            </ul>                    
+        </div>
+        <div class="gt-mb-30">
+            <p class="hw-mig-div--title">대상부서 선택</p>
+        </div>        
+    </div>
+    <div class="hw-modal-footer">               
+        <button type="button" class="hw-button" >다운로드</button>  
+        <button type="button" class="hw-button secondary" onclick="hidePopup();" >취소</button>  
+    </div>       
+</div>
+
+  
+
+<div class="hw-modal-wrap size-sm hide popup37">
+  <div class="hw-modal-header"><strong>결재</strong></div>
+  <div class="hw-modal-body">
+
+    <div class="gt-mb-20">
+      <div class="hw-radio gt-mr-20">
+        <label>
+          <input type="radio" name="approval_set" class="radio-original" value="S" checked >
+          <span class="hw-radio-input"></span><span class="hw-radio-text">승인</span>
+        </label>
+      </div>
+      <div class="hw-radio gt-mr-20">
+        <label>
+          <input type="radio" name="approval_set" class="radio-original"  value="E">
+          <span class="hw-radio-input"></span><span class="hw-radio-text">합의</span>
+        </label>
+      </div>
+      <div class="hw-radio gt-mr-20">
+        <label>
+          <input type="radio" name="approval_set" class="radio-original"  value="D">
+          <span class="hw-radio-input"></span><span class="hw-radio-text">반려</span>
+        </label>
+      </div>
+      <div class="hw-radio gt-mr-20">
+        <label>
+          <input type="radio" name="approval_set" class="radio-original"  value="F">
+          <span class="hw-radio-input"></span><span class="hw-radio-text">전결</span>
+        </label>
+      </div>
+      <div class="hw-radio gt-mr-20">
+        <label>
+          <input type="radio" name="approval_set" class="radio-original"  value="C">
+          <span class="hw-radio-input"></span><span class="hw-radio-text">대결</span>
+        </label>
+      </div>    
+      <div class="hw-radio">
+        <label>
+          <input type="radio" name="approval_set" class="radio-original"  value="W">
+          <span class="hw-radio-input"></span><span class="hw-radio-text">후결</span>
+        </label>
+      </div>               
+    </div>
+
+    <textarea class="hw-textarea" rows="3" placeholder="의견을 입력하세요."></textarea>
+    <p class="gt-mt-20">승인하시겠습니까?</p>
+  </div>
+  <div class="hw-modal-footer gt-d-flex gt-justify-content-between">
+    <button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button>
+    <div>
+        <button type="button" class="hw-button" disabled >확인 후 다음문서</button> 
+        <button type="button" class="hw-button">확인</button>
+    </div>    
+  </div>
+</div>
+
+
+<div class="hw-modal-wrap size-sm hide popup38">
+  <div class="hw-modal-header"><strong>후열처리</strong></div>
+  <div class="hw-modal-body">
+    <div class="hw-checkbox gt-mr-20">
+      <label>
+        <input type="checkbox" name="approval_b_type" class="checkbox-original" value="test1">
+        <span class="hw-checkbox-input"></span><span class="hw-checkbox-text">홍길동</span>
+      </label>
+    </div>
+    <div class="hw-checkbox gt-mr-20">
+      <label>
+        <input type="checkbox" name="approval_b_type" class="checkbox-original" value="test2">
+        <span class="hw-checkbox-input"></span><span class="hw-checkbox-text">테스트1</span>
+      </label>
+    </div>    
+
+  </div>
+  <div class="hw-modal-footer ">
+    <button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button>
+    <button type="button" class="hw-button">확인</button>        
+  </div>
+</div>
+	<!-- 2022년도 작업 -->
+	<div class="hw-modal-wrap size-lg popup41 h_admin_modal hide">
+		<div class="hw-modal-header gt-font-bold">계정 연동 수정</div>
+		<div class="hw-modal-body">
+			<table class="setting-table">
+				<colgroup>
+					<col style="width:200px" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th class="gt-text-left">오피스 이름</th>
+						<td>hig9.com</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">오피스 고유 번호 </th>
+						<td>12314</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">계정 연동 Key</th>
+						<td>a238749283df23423fb32864879263cb</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">메뉴 표시</th>
+						<td>
+							<div class="hw-checkbox gt-mr-30">
+                                <label>
+									<input type="checkbox" class="checkbox-original">
+									<span class="hw-checkbox-input"></span><span class="hw-checkbox-text">메뉴 영역을 표시합니다.</span>
+								</label>
+							</div>    		
+							<div class="hw-checkbox">
+                                <label>
+									<input type="checkbox" class="checkbox-original">
+									<span class="hw-checkbox-input"></span><span class="hw-checkbox-text">메뉴 영역을 표시합니다.</span>
+								</label>
+							</div>    												
+						</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">연동 서버 IP</th>
+						<td class="gt-pv-10">
+							<div class="insert-div">
+								<input type="text" class="hw-input" placeholder="계정 연동을 호출하는 서버 IP를 추가하세요." style="width:350px;">
+								<a href="#" class="hw-button text">추가</a>
+							</div>
+							<div class="list-div gt-mt-10">
+								<div class="ip-list">
+									<span>123.222.222.111</span>	
+									<a href="#" class="hw-button text">삭제</a>
+								</div>
+								<div class="ip-list">
+									<span>123.222.222.111</span>	
+									<a href="#" class="hw-button text">삭제</a>
+								</div>
+								<div class="ip-list">
+									<span>123.222.222.111</span>	
+									<a href="#" class="hw-button text">삭제</a>
+								</div>																
+							</div>							
+						</td>
+					</tr>																				
+				</tbody>
+			</table>
+			<p class="desc-text gt-mt-20">- 이용 횟수나 데이터 전송량 등으로 인해 다른 회원에 대한 ‘하이웍스’ 서비스 제공에 지장을 초해할 경우 서비스 이용을 제한할 수 있습니다.</p>
+		</div>
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button>
+			<button type="button" class="hw-button">저장</button>
+		</div>
+	</div>
+
+	<!-- SSO 연동 추가하기 모달 -->
+	<div class="hw-modal-wrap size-sm h_admin_modal popup42 hide">
+		<div class="hw-modal-header gt-font-bold">SSO 연동 추가하기</div>
+
+		<div class="hw-modal-body">
+		<section class="h_admin_modal__sub-description gt-mb-20">
+		<p>
+			SSO 연동을 통해 하이웍스에서 외부 사이트로 이동 시 로그인 없이 이동 할 수 있습니다. 
+			<a href="https://developers.hiworks.com/docs" target="_blank"><em>하이웍스 개발자센터 가이드</em></a>를 참고해 SSO 연동을 진행 해 주시기 바랍니다.
+		</p>
+		</section>
+
+		<section class="h_admin_modal__content">
+		<div class="h_admin_modal__item">
+			<div class="h_admin_modal__title required">솔루션(사이트)명</div>
+			<div class="h_admin_modal__input">
+			<input type="text" class="hw-input" id="sso_solution_name" placeholder="솔루션(사이트)명을 입력하세요.">
+			</div>
+		</div>
+
+		<div class="h_admin_modal__item">
+			<div class="h_admin_modal__title required">연동 URL</div>
+			<div class="h_admin_modal__input">
+			<input type="text" class="hw-input" id="sso_url" placeholder="연동 URL을 입력하세요.">
+			</div>
+		</div>
+
+		</section>
+		</div>
+
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup()">취소</button>
+			<button type="button" class="hw-button" onclick="javascript:void(0);">확인</button>
+		</div>
+	</div>
+
+	<!-- SSO 연동 수정하기 모달 -->
+	<div class="hw-modal-wrap size-sm h_admin_modal popup43 hide">
+		<div class="hw-modal-header gt-font-bold">SSO 연동 수정하기</div>
+
+		<div class="hw-modal-body">
+		<section class="h_admin_modal__content">
+		<div class="h_admin_modal__item">
+			<div class="h_admin_modal__title required">솔루션(사이트)명</div>
+			<div class="h_admin_modal__input">
+			<input type="text" class="hw-input" id="sso_solution_name" placeholder="솔루션(사이트)명을 입력하세요.">
+			</div>
+		</div>
+
+		<div class="h_admin_modal__item">
+			<div class="h_admin_modal__title required">연동 URL</div>
+			<div class="h_admin_modal__input">
+			<input type="text" class="hw-input" id="sso_url" placeholder="연동 URL을 입력하세요.">
+			</div>
+		</div>
+
+		</section>
+		</div>
+
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup()">취소</button>
+			<button type="button" class="hw-button" onclick="javascript:void(0);">확인</button>
+		</div>
+	</div>
+
+	<!-- SSO 연동 삭제확인 모달 -->
+	<div class="hw-modal-wrap size-sm h_admin_modal popup44 hide">
+		<div class="hw-modal-header gt-font-bold">SSO 연동을 삭제하시겠습니까?</div>
+
+		<div class="hw-modal-body">
+		<section class="h_admin_modal__sub-description">
+		<p>
+			SSO 연동 삭제 시 연동 URL을 사용하는 모든 사이트의 연동에 해제됩니다. 계속하시겠습니까?
+		</p>
+		</section>
+		</div>
+
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup()">취소</button>
+			<button type="button" class="hw-button" onclick="javascript:void(0);">확인</button>
+		</div>
+	</div>
+
+	<!-- SSO 계정 연동 신청 -->
+	<div class="hw-modal-wrap size-lg popup45 hide">
+		<div class="hw-modal-header gt-font-bold">계정 연동 신청</div>
+		<div class="hw-modal-body">
+			<table class="setting-table">
+				<colgroup>
+					<col style="width:200px" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th class="gt-text-left">오피스 이름</th>
+						<td>%</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">오피스 고유 번호</th>
+						<td>%</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">계정 연동 Key</th>
+						<td id="org_token_key">%</td>
+					</tr>
+					<tr>
+						<th class="gt-text-left">연동 서버 IP</th>
+						<td class="gt-pv-10">
+							<div class="insert-div">
+								<input type="text" class="hw-input" id="add_ip" placeholder="계정 연동을 호출하는 서버 IP를 추가하세요." style="width:350px;">
+								<a href="#" class="hw-button text" id="btn_add_ip">추가</a>
+							</div>
+							<div class="list-div gt-mt-10" id="add_org_ip_target">
+					<div class="ip-list">
+						<span>333</span>	
+					<a href="#" class="hw-button text">삭제</a>
+					</div>
+							</div>					
+						</td>
+					</tr>																				
+				</tbody>
+			</table>
+			<p class="desc-text gt-mt-20">- 이용 횟수나 데이터 전송량 등으로 인해 다른 회원에 대한 ‘하이웍스’ 서비스 제공에 지장을 초래할 경우 서비스 이용을 제한할 수 있습니다.</p>
+		</div>
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup()">취소</button>
+			<button type="button" class="hw-button">저장</button>
+		</div>
+	</div>
+
+	<!-- 전자결재 연동 추가 -->
+	<div class="hw-modal-wrap size-sm popup46 hide">
+		<div class="hw-modal-header gt-font-bold">전자결재 연동 추가</div>
+		<div class="hw-modal-body">
+			<div class="gt-mb-30">
+				<p class="text-333 gt-mb-5">서비스 연동을 위해 오피스 토큰(Office Token)을 생성해주세요.  
+				<p class="text-333 gt-mb-5">오피스 토큰은 전자결재 연동 관리를 위한 API 인증 키입니다.</p>
+				<p class="text-333 gt-mb-5">(전자결재 외의 서비스는 [오피스 관리>연동 관리>오피스 연동]에서 연동 설정할 수 있습니다.)</p></p>
+				<p class="text-333">
+					<a href="#" class="hw-button text gt-no-padding">설정방법 알아보기</a>
+				</p>
+			</div>
+
+			<div class="gt-mb-30">
+				<div class="gt-mb-10 font-size-14">
+					오피스 토큰
+				</div>
+				<div class="gt-mb-10 gt-d-flex">
+					<input type="text" class="hw-input gt-flex-1" placeholder="오피스 토큰">
+					<button type="button" class="hw-button outline-gray2 rounded gt-ml-5">복사</button>
+				</div>
+				<div>
+					<button class="hw-button text gt-no-padding">재발급</button>
+				</div>
+			</div>
+
+			<div class="gt-mb-30">
+				<div class="gt-mb-10 font-size-14">
+					오피스 토큰 이름 <span style="color: #D50000;">*</span>
+				</div>
+				<div class="gt-mb-10 font-size-13">
+					오피스 토큰을 구분하는 명칭입니다.
+				</div>
+				<div>
+					<input type="text" class="hw-input" placeholder="오피스 토큰">
+				</div>
+			</div>
+
+			<div>
+				<div class="gt-mb-10 font-size-14">
+					허용 IP
+				</div>
+				<div class="gt-mb-10 font-size-13">
+					허용된 IP에서만 API를 호출할 수 있습니다.
+				</div>
+				<div class="gt-mb-10 gt-d-flex">
+					<input type="text" class="hw-input gt-flex-1">
+					<button type="button" class="hw-icon gt-ml-5"><i class="fal fa-plus-circle"></i></button>
+				</div>
+				<div>
+					<ul class="ip-list">
+						<li class="ip-list-item gt-mt-5 gt-mr-5">
+							<span>
+								114.200.216.10
+							</span>
+							<button>
+								<i class="fal fa-times"></i>
+							</button>
+						</li>
+						<li class="ip-list-item gt-mt-5 gt-mr-5">
+							<span>
+								114.200.216.10
+							</span>
+							<button>
+								<i class="fal fa-times"></i>
+							</button>
+						</li>
+						<li class="ip-list-item gt-mt-5 gt-mr-5">
+							<span>
+								114.200.216.10
+							</span>
+							<button>
+								<i class="fal fa-times"></i>
+							</button>
+						</li>
+						<li class="ip-list-item gt-mt-5 gt-mr-5">
+							<span>
+								114.200.216.10
+							</span>
+							<button>
+								<i class="fal fa-times"></i>
+							</button>
+						</li>
+						<li class="ip-list-item gt-mt-5 gt-mr-5">
+							<span>
+								114.200.216.10
+							</span>
+							<button>
+								<i class="fal fa-times"></i>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup()">취소</button>
+			<button type="button" class="hw-button">저장</button>
+		</div>
+	</div>
+
+	<div class="hw-modal-wrap size-esm popup48 hide">
+		<div class="hw-modal-body gt-text-center">
+			토큰이 삭제되었습니다.		
+		</div>
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button" onclick="hidePopup()">저장</button>
+		</div>
+	</div>
+
+	<div class="hw-modal-wrap size-esm popup49 hide">
+		<div class="hw-modal-body gt-text-center">
+			토큰을 삭제하고 결재 연동을 해제하시겠습니까?		
+		</div>
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup()">취소</button>
+			<button type="button" class="hw-button">저장</button>
+		</div>
+	</div>
+
+
+	<!-- 2019 오피스홈 개편 new layer -->
+	<div class="hw-modal-wrap size-lg modal-example-1 hide">
+		<div class="hw-modal-header">size-lg</div>
+		<div class="hw-modal-body">
+			hw-modal-body
+		</div>
+		<div class="hw-modal-footer">
+			<button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button>
+			<button type="button" class="hw-button">저장</button>
+		</div>
+	</div>
+
+	<div class="hw-modal-wrap size-md modal-example-2 hide">
+	<div class="hw-modal-header">size-md</div>
+	<div class="hw-modal-body">
+	hw-modal-body
+	</div>
+	<div class="hw-modal-footer">
+		<button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button><button type="button" class="hw-button">저장</button>
+	</div>
+	</div>
+	<div class="hw-modal-wrap size-sm modal-example-3 hide">
+	<div class="hw-modal-header">size-sm</div>
+	<div class="hw-modal-body">
+	hw-modal-body
+	</div>
+	<div class="hw-modal-footer">
+		<button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button><button type="button" class="hw-button">저장</button>
+	</div>
+	</div>
+
+	<!-- 오피스홈: 바로가기 설정 -->
+	<div class="hw-modal-wrap size-lg modal-shortcut hide">
+	<div class="hw-modal-header">바로가기 설정</div>
+	<div class="hw-modal-body">
+		<ul class="gt-list-dot gt-mb-20">
+		<li>‘바로가기’는 사용자가 자주가는 링크(URL)를 등록할 수 있는 기능입니다.</li>
+		<li>'+' 버튼으로 추가할 수 있으며, '드래그 앤 드롭'으로 순서를 변경할 수 있습니다.</li>
+		</ul>
+		<div class="hw-box-gray">
+		<button type="button" class="hw-button text"><i class="far fa-plus gt-mr-5"></i> 바로가기 추가</button>
+		</div>
+		<div class="hw-box-gray">
+		<div class="hw-modal-div-table">
+			<div class="gt-d-table">
+			<div class="gt-d-table-cell gt-w-10">이름</div>
+			<div class="gt-d-table-cell">
+			<input type="text" class="hw-input" style="height:38px" placeholder="즐겨찾기 이름을 입력하세요.">
+			</div>
+			</div>
+			<div class="gt-d-table">
+			<div class="gt-d-table-cell gt-w-10">URL</div>
+			<div class="gt-d-table-cell">
+			<input type="text" class="hw-input" style="height:38px" placeholder="http://">
+			</div>
+			</div>
+			<div class="gt-pt-20 gt-text-center">
+			<button type="button" class="hw-button secondary">취소</button><button type="button" class="hw-button" disabled>추가</button><button type="button" class="hw-button">저장</button>
+			</div>
+		</div>
+		</div>
+		<div id="draggable_rows" class="hw-sortable-rows gt-mt-15">
+		<!-- 수정 중인 행인 경우 class="active" -->
+		<div class="hw-sortable-row active">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷업무인트라넷업무인트라넷업무인트라넷업무인트라넷업무인트라넷업무인트라넷업무인트라넷업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com/links/gabia-intranet-loginhttps://link-inmail.gabia.com/links/gabia-intranet-loginhttps://link-inmail.gabia.com/links/gabia-intranet-login</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		<div class="hw-sortable-row">
+			<div class="hw-sortable-col"><div class="btn-handle row-btn-handle gt-pr-20"><i class="fas fa-grip-vertical"></i></div></div>
+			<div class="hw-sortable-col">
+			<div class="title">업무인트라넷</div>
+			<div class="url">https://link-inmail.gabia.com</div>
+			</div>
+			<div class="hw-sortable-col">
+			<button type="button" class="hw-icon"><i class="fal fa-pen"></i></button>
+			<button type="button" class="hw-icon"><i class="fal fa-trash-alt"></i></button>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="hw-modal-footer">
+		<button type="button" class="hw-button" onclick="hidePopup();">확인</button>
+	</div>
+	</div>
+	<!-- 오피스홈: 일정 추가 -->
+	<div class="hw-modal-wrap size-md modal-create-schedule hide">
+	<div class="hw-modal-header">일정 추가</div>
+	<div class="hw-modal-body">
+		<div class="hw-modal-div-table">
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">캘린더</div>
+			<div class="gt-d-table-cell">
+			<div class="hw-select-wrapper">
+				<select>
+				<option value="">option</option>
+				</select>
+			</div>
+			</div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">일정 제목</div>
+			<div class="gt-d-table-cell">
+			<input type="text" class="hw-input" placeholder="일정 제목을 입력하세요.">
+			</div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">시작</div>
+			<div class="gt-d-table-cell">
+			<div class="hw-datepicker" style="width:130px">
+				<input type="text" class="hw-input" readonly value="YYYY-MM-DD">
+				<i class="fal fa-calendar / icon-suffix"></i>
+			</div>
+			<div class="hw-select-wrapper gt-d-inline-block gt-ml-6" style="width:130px">
+				<select>
+				<option value="">오후 02:00</option>
+				</select>
+			</div>
+			</div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">종료</div>
+			<div class="gt-d-table-cell">
+			<div class="hw-datepicker" style="width:130px">
+				<input type="text" class="hw-input" readonly value="YYYY-MM-DD">
+				<i class="fal fa-calendar / icon-suffix"></i>
+			</div>
+			<div class="hw-select-wrapper gt-d-inline-block gt-ml-6" style="width:130px">
+				<select disabled>
+				<option value="">오후 02:00</option>
+				</select>
+			</div>
+			</div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">종일</div>
+			<div class="gt-d-table-cell">
+			<div class="hw-switch">
+				<input type="checkbox" id="chbx">
+				<label for="chbx"></label>
+			</div>
+			</div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell gt-align-top">메모</div>
+			<div class="gt-d-table-cell">
+			<textarea class="hw-textarea" rows="3" placeholder="메모 (최대 1,000자)"></textarea>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="hw-modal-footer">
+		<button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button><button type="button" class="hw-button">확인</button>
+	</div>
+	</div>
+	<!-- 오피스홈: 일정 상세 -->
+	<div class="hw-modal-wrap size-sm modal-detail-schedule hide">
+	<div class="hw-modal-header">{상세 일정 이름}</div>
+	<div class="hw-modal-body">
+		<div class="hw-modal-div-table">
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">캘린더</div>
+			<div class="gt-d-table-cell"><button type="button" class="label gt-m-0" disabled=""><span id="__color_code" class="c1 share"></span></button><span class="gt-ml-5">이벤트 오픈 일정</span></div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">일정 시간</div>
+			<div class="gt-d-table-cell">2019.11.04 오후 4:00 ~ 2019.11.04 오후 5:30</div>
+		</div>
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell">내용</div>
+			<div class="gt-d-table-cell">내용 없음</div>
+		</div>
+		</div>
+	</div>
+	<div class="hw-modal-footer">
+		<button type="button" class="hw-button secondary" onclick="hidePopup();">닫기</button><button type="button" class="hw-button">수정</button>
+	</div>
+	</div>
+	<!-- 오피스홈: 그룹 만들기 -->
+	<div class="hw-modal-wrap size-md modal-create-group hide">
+	<div class="hw-modal-header">그룹 만들기</div>
+	<div class="hw-modal-body">
+		<p>오피스에 새로운 그룹을 생성합니다.</p>
+		<div class="hw-modal-div-table gt-mt-25">
+		<div class="gt-d-table">
+			<div class="gt-d-table-cell gt-align-top">대표 이미지</div>
+			<div class="gt-d-table-cell">
+			<div class="group-images">
+				<div class="after">
+				<div class="fl large-img">
+					<img src="https://devoffice.hiworks.com/static/images/group/group_rep_photo.png" alt="">
+					<span onclick="officeMainClassOBJ.upload_group_img_click()"></span>
+				</div>
+				<ul class="fl after gt-p-0">
+					<li class="select-button"><a href="#" class="weakblue">사진<br>선택</a></li>
+					<li><img src="https://devoffice.hiworks.com/static/images/group/group-default-m-001.jpg" onclick="officeMainClassOBJ.main_img_defalut('001')" class='_cursor'></li>
+					<li><img src="https://devoffice.hiworks.com/static/images/group/group-default-m-002.jpg" onclick="officeMainClassOBJ.main_img_defalut('002')" class='_cursor'></li>
+					<li><img src="https://devoffice.hiworks.com/static/images/group/group-default-m-003.jpg" onclick="officeMainClassOBJ.main_img_defalut('003')" class='_cursor'></li>
+					<li><img src="https://devoffice.hiworks.com/static/images/group/group-default-m-004.jpg" onclick="officeMainClassOBJ.main_img_defalut('004')" class='_cursor'></li>
+					<li><img src="https://devoffice.hiworks.com/static/images/group/group-default-m-005.jpg" onclick="officeMainClassOBJ.main_img_defalut('005')" class='_cursor'></li>
+				</ul>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="gt-d-table gt-m-0">
+			<div class="gt-d-table-cell">그룹 이름</div>
+			<div class="gt-d-table-cell">
+			<input type="text" class="hw-input" placeholder="그룹 이름(20자 내외)">
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="hw-modal-footer">
+		<button type="button" class="hw-button secondary" onclick="hidePopup();">취소</button><button type="button" class="hw-button">만들기</button>
+	</div>
+	</div>
+
+	<!-- 인트라넷메뉴: 인트라넷 메뉴 추가/수정 -->
+	<div class="layer_box mid_large hide modal-intranet-add-menu">
+	<div class="title_layer text_variables">인트라넷 메뉴 추가</div>
+	<div class="to-add detail-search">
+		<dl class="after">
+		<dt><label for="">메뉴명*</label></dt>
+		<dd><input id="" class="text-box gt-block gt-w-100" type="text" placeholder="메뉴명을 입력해주세요"/></dd>
+		</dl>
+		<dl class="after">
+		<dt><label for="">URL*</label></dt>
+		<dd><input id="" class="text-box gt-block gt-w-100" type="text" placeholder="URL을 입력해주세요"/></dd>
+		</dl>
+		<dl class="after">
+		<dt><label for="">라벨</label></dt>
+		<dd>
+			<select id="" class="select-box gt-inline-block" style="width:calc(100% - 125px)">
+			<option>선택</option>
+			</select>
+			<button type="button" class="hw-button text">새 라벨 만들기</button>
+		</dd>
+		</dl>
+	</div>
+	<div class="layer_button">
+		<button type="button" class="btn_variables">추가</button> <button type="button" onclick="hidePopup();">취소</button>
+	</div>
+	<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>
+	<!-- 인트라넷메뉴: 라벨 만들기 -->
+	<div class="layer_box mid_large hide modal-intranet-add-label">
+	<div class="title_layer text_variables">라벨 만들기</div>
+	<input id="" class="text-box gt-block gt-w-100" type="text" placeholder="새로 생성할 라벨명을 입력하세요."/>
+	<div class="layer_button">
+		<button type="button" class="btn_variables">추가</button> <button type="button" onclick="hidePopup();">취소</button>
+	</div>
+	<a href="javascript:void(0)" class="icon btn_closelayer" onclick="hidePopup();" title="레이어 닫기"><span class="blind">레이어 닫기</span></a>
+	</div>
+	<!-- 인트라넷메뉴: 라벨 삭제 -->
+
+
+
+	<div id="dimmed"></div>
+  <script>
+    $j("#draggable_rows").sortable({
+      update: function( event, ui ) {
+      },
+      handle: '.row-btn-handle'
+    });
+
+	$j(document).ready(function(){	
+		setTimeout(() => {
+			$j('#work').trigger("click")
+		}, 500);	
+		
+	})
+  </script>
+</div>
+</body>
+</html>

@@ -1806,6 +1806,94 @@
 		
 	})
   </script>
+
+<style>
+  .layer_box, .hw-modal-wrap {
+    margin: 0 !important;
+  }
+</style>
+<script>
+  function positionModal(el) {
+    var vv = window.visualViewport;
+    el.style.position = 'fixed';
+    el.style.margin = '0';
+    if (vv) {
+      el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
+      el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';
+    } else {
+      el.style.left = '50%';
+      el.style.top  = '50%';
+    }
+    el.style.transform = 'translate(-50%, -50%)';
+  }
+
+  function repositionActiveModal() {
+    if (popup_window && popup_window.is(':visible')) {
+      positionModal(popup_window[0]);
+    }
+  }
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', repositionActiveModal);
+    window.visualViewport.addEventListener('scroll', repositionActiveModal);
+  }
+
+  function showPopup(obj) {
+    popup_window = obj;
+    dimmed = $j('#dimmed');
+    dimmed.show();
+    popup_window.show();
+    positionModal(popup_window[0]);
+    focusedElementBeforeModal = $j(':focus');
+    var o = popup_window.find('*');
+    o.filter('p');
+    o.filter(focusableElementsString).filter(':visible').first().focus();
+  }
+</script>
+
+<style>
+  .layer_box, .hw-modal-wrap {
+    margin: 0 !important;
+  }
+</style>
+<script>
+  function positionModal(el) {
+    var vv = window.visualViewport;
+    el.style.position = 'fixed';
+    el.style.margin = '0';
+    if (vv) {
+      el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
+      el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';
+    } else {
+      el.style.left = '50%';
+      el.style.top  = '50%';
+    }
+    el.style.transform = 'translate(-50%, -50%)';
+  }
+
+  function repositionActiveModal() {
+    if (popup_window && popup_window.is(':visible')) {
+      positionModal(popup_window[0]);
+    }
+  }
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', repositionActiveModal);
+    window.visualViewport.addEventListener('scroll', repositionActiveModal);
+  }
+
+  function showPopup(obj) {
+    popup_window = obj;
+    dimmed = $j('#dimmed');
+    dimmed.show();
+    popup_window.show();
+    positionModal(popup_window[0]);
+    focusedElementBeforeModal = $j(':focus');
+    var o = popup_window.find('*');
+    o.filter('p');
+    o.filter(focusableElementsString).filter(':visible').first().focus();
+  }
+</script>
 </div>
 </body>
 </html>

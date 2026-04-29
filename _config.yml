@@ -3,13 +3,16 @@
 # Permalinks
 permalink:      /:year-:month-:day/:title
 
+# Default OG image (used when a post has no image: in front matter)
+image: /assets/og-default.png
+
 # Setup
 title:          DY Blog
 description:    "AI, Investment, Engineering, Life"
 title_separator: " · "
 author:
   name:         DeokYeon Kim
-  email:        kimdy@gabia.com
+  email:        dochoul@naver.com
 lang:           ko
 paginate:       10
 baseurl:        ""

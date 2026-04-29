@@ -1809,20 +1809,43 @@
 </div>
 
 <style>
-  /* 모바일 줌 상태에서도 모달이 뷰포트 중앙에 오도록 transform 방식으로 센터링 */
   .layer_box, .hw-modal-wrap {
     margin: 0 !important;
-    transform: translate(-50%, -50%) !important;
   }
 </style>
 <script>
-  /* showPopup의 negative margin 방식을 transform 방식으로 교체 */
+  /* visualViewport API로 줌 상태에서도 실제 보이는 화면 중앙에 모달 배치 */
+  function positionModal(el) {
+    var vv = window.visualViewport;
+    el.style.position = 'fixed';
+    el.style.margin = '0';
+    if (vv) {
+      el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
+      el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';
+    } else {
+      el.style.left = '50%';
+      el.style.top  = '50%';
+    }
+    el.style.transform = 'translate(-50%, -50%)';
+  }
+
+  function repositionActiveModal() {
+    if (popup_window && popup_window.is(':visible')) {
+      positionModal(popup_window[0]);
+    }
+  }
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', repositionActiveModal);
+    window.visualViewport.addEventListener('scroll', repositionActiveModal);
+  }
+
   function showPopup(obj) {
     popup_window = obj;
     dimmed = $j('#dimmed');
-    popup_window.css({ marginLeft: '', marginTop: '' });
     dimmed.show();
     popup_window.show();
+    positionModal(popup_window[0]);
     focusedElementBeforeModal = $j(':focus');
     var o = popup_window.find('*');
     o.filter('p');

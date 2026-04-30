@@ -1813,44 +1813,50 @@
   }
 </style>
 <script>
-  function positionModal(el) {
-    var vv = window.visualViewport;
-    el.style.position = 'fixed';
-    el.style.margin = '0';
-    if (vv) {
-      el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
-      el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';
-    } else {
-      el.style.left = '50%';
-      el.style.top  = '50%';
+  var _useEnhancedModal =
+    //window.location.hostname.indexOf('gabiaoffice.hiworks.com') !== -1 &&
+    window.innerWidth <= 1024;
+
+  if (_useEnhancedModal) {
+    function positionModal(el) {
+      var vv = window.visualViewport;
+      el.style.position = 'fixed';
+      el.style.margin = '0';
+      if (vv) {
+        el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
+        el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';
+      } else {
+        el.style.left = '50%';
+        el.style.top  = '50%';
+      }
+      el.style.transform = 'translate(-50%, -50%)';
     }
-    el.style.transform = 'translate(-50%, -50%)';
-  }
 
-  function repositionActiveModal() {
-    if (popup_window && popup_window.is(':visible')) {
-      positionModal(popup_window[0]);
+    function repositionActiveModal() {
+      if (popup_window && popup_window.is(':visible')) {
+        positionModal(popup_window[0]);
+      }
     }
-  }
 
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', repositionActiveModal);
-    window.visualViewport.addEventListener('scroll', repositionActiveModal);
-  }
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', repositionActiveModal);
+      window.visualViewport.addEventListener('scroll', repositionActiveModal);
+    }
 
-  function showPopup(obj) {
-    popup_window = obj;
-    dimmed = $j('#dimmed');
-    $j('#alphaDiv').hide();
-    popupWindow.push(obj);          // hidePopup()이 스택에서 꺼낼 수 있도록
-    dimmed.show();
-    obj.insertAfter($j('#wrap'));   // DOM 최상단으로 이동
-    obj.show();
-    positionModal(obj[0]);
-    focusedElementBeforeModal = $j(':focus');
-    var o = obj.find('*');
-    o.filter('p');
-    o.filter(focusableElementsString).filter(':visible').first().focus();
+    showPopup = function(obj) {
+      popup_window = obj;
+      dimmed = $j('#dimmed');
+      $j('#alphaDiv').hide();
+      popupWindow.push(obj);          // hidePopup()이 스택에서 꺼낼 수 있도록
+      dimmed.show();
+      obj.insertAfter($j('#wrap'));   // DOM 최상단으로 이동
+      obj.show();
+      positionModal(obj[0]);
+      focusedElementBeforeModal = $j(':focus');
+      var o = obj.find('*');
+      o.filter('p');
+      o.filter(focusableElementsString).filter(':visible').first().focus();
+    };
   }
 </script>
 

@@ -1814,11 +1814,10 @@
 </style>
 <script>
   var _useEnhancedModal =
-    //window.location.hostname.indexOf('gabiaoffice.hiworks.com') !== -1 &&
+    window.location.hostname.indexOf('gabiaoffice.hiworks.com') !== -1 &&
     window.innerWidth <= 1024;
 
   if (_useEnhancedModal) {
-		alert('모달창이 개선된 버전으로 동작합니다.');
     function positionModal(el) {
       var vv = window.visualViewport;
       el.style.position = 'fixed';

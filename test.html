@@ -1807,17 +1807,17 @@
 	})
   </script>
 
-<style>
-  .layer_box, .hw-modal-wrap {
-    margin: 0 !important;
-  }
-</style>
 <script>
+	alert('test');
   var _useEnhancedModal =
     //window.location.hostname.indexOf('gabiaoffice.hiworks.com') !== -1 &&
     window.innerWidth <= 1024;
 
   if (_useEnhancedModal) {
+    var style = document.createElement('style');
+    style.textContent = '.layer_box, .hw-modal-wrap { margin: 0 !important; }';
+    document.head.appendChild(style);
+
     function positionModal(el) {
       var vv = window.visualViewport;
       el.style.position = 'fixed';

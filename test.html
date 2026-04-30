@@ -1808,12 +1808,13 @@
   </script>
 
 <script>
-	alert('test');
+	alert('init');
   var _useEnhancedModal =
     //window.location.hostname.indexOf('gabiaoffice.hiworks.com') !== -1 &&
     window.innerWidth <= 1024;
 
   if (_useEnhancedModal) {
+		alert('특수한 환경일때만');
     var style = document.createElement('style');
     style.textContent = '.layer_box, .hw-modal-wrap { margin: 0 !important; }';
     document.head.appendChild(style);

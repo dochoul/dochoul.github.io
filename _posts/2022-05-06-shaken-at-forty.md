@@ -1,6 +1,6 @@
 ---
 title: "흔들리는 마흔, 불혹(不惑)이라는 거짓말"
-date: 2024-05-06
+date: 2022-05-06
 layout: post
 author: "kimdy"
 categories: "essay"

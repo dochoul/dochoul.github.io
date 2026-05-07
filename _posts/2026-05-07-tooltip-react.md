@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "필요해서 직접 만든 툴팁 컴포넌트"
+title: "내 입맛대로 만든 툴팁 컴포넌트"
 author: "kimdy"
-date: 2026-05-07
+date: 2024-05-07
 categories: "dev"
 description: "딱 맞는 툴팁 라이브러리가 없어서 React와 TypeScript로 직접 만들었다."
 ---
@@ -40,7 +40,15 @@ import Tooltip from "./components/ui/Tooltip";
 </Tooltip>
 ```
 
-HTML도 된다. label에 `<br/>`, `<strong>` 같은 태그를 그냥 넣으면 렌더링된다. 필요한 것만 있고 없어도 되는 건 없는, 딱 내가 원하는 형태로 나왔다.
+label에 HTML 문자열을 그대로 넣으면 렌더링도 된다. 줄바꿈이나 굵은 글씨가 필요할 때 따로 컴포넌트를 만들 필요 없이 이렇게 쓰면 된다.
+
+```jsx
+<Tooltip label="첫 번째 줄<br/><strong>두 번째 줄</strong>">
+  <button>HTML 툴팁</button>
+</Tooltip>
+```
+
+필요한 것만 있고 없어도 되는 건 없는, 딱 내가 원하는 형태로 나왔다.
 
 뭔가 만들고 싶은 게 생기면 라이브러리 탓을 하게 된다. 그리고 그게 나쁘지 않다.
 

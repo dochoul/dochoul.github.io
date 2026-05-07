@@ -50,6 +50,4 @@ label에 HTML 문자열을 그대로 넣으면 렌더링도 된다. 줄바꿈이
 
 필요한 것만 있고 없어도 되는 건 없는, 딱 내가 원하는 형태로 나왔다.
 
-뭔가 만들고 싶은 게 생기면 라이브러리 탓을 하게 된다. 그리고 그게 나쁘지 않다.
-
 데모는 [여기](https://tooltip-react-eight.vercel.app/), 코드는 [GitHub](https://github.com/dochoul/tooltip-react).

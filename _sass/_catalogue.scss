@@ -29,7 +29,7 @@
     }
     &-item:hover &-title {
         transform: translateX(6px);
-        color: #000;
+        color: var(--color-strong-text);
     }
     &-line {
         display: block;

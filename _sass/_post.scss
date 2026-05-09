@@ -79,7 +79,7 @@
     border-top: 2px solid $default-shade;
     color: $default-shade;
     font-weight: 700;
-    background: rgba(0, 0, 0, 0.02);
+    background: var(--color-th-bg);
   }
 
   tr:last-child td {
@@ -115,7 +115,7 @@
   @include transition(background-color 0.2s);
 
   &:hover {
-    background-color: #000;
+    background-color: var(--color-strong-text);
     text-decoration: none;
   }
 }

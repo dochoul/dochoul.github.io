@@ -1,12 +1,72 @@
-$default-color: #333;
-$default-shade: #353535;
-$default-tint: #aaa;
-$grey-1: #979797;
-$grey-2: #e5e5e5;
-$grey-3: #f9f9f9;
-$white: #fff;
-$blue: #4a9ae1;
-$shadow-color: rgba(0, 0, 0, .2);
+// Color tokens — light theme defaults
+:root {
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-shade: #353535;
+  --color-tint: #aaaaaa;
+  --color-muted: #979797;
+  --color-border: #e5e5e5;
+  --color-surface: #f9f9f9;
+  --color-link: #4a9ae1;
+  --color-code: #bf616a;
+  --color-th-bg: rgba(0, 0, 0, 0.02);
+  --color-strong-border: #000000;
+  --color-strong-text: #000000;
+  --color-on-shade: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  color-scheme: light;
+}
+
+// Dark theme — applied via OS preference unless user has chosen light
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #1a1a1a;
+    --color-text: #d0d0d0;
+    --color-shade: #ededed;
+    --color-tint: #888888;
+    --color-muted: #888888;
+    --color-border: #2a2a2a;
+    --color-surface: #1f1f1f;
+    --color-link: #6cb0ee;
+    --color-code: #e07b86;
+    --color-th-bg: rgba(255, 255, 255, 0.04);
+    --color-strong-border: #ededed;
+    --color-strong-text: #ffffff;
+    --color-on-shade: #1a1a1a;
+    --color-shadow: rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
+
+// Manual override — applied when user toggles to dark
+[data-theme="dark"] {
+  --color-bg: #1a1a1a;
+  --color-text: #d0d0d0;
+  --color-shade: #ededed;
+  --color-tint: #888888;
+  --color-muted: #888888;
+  --color-border: #2a2a2a;
+  --color-surface: #1f1f1f;
+  --color-link: #6cb0ee;
+  --color-code: #e07b86;
+  --color-th-bg: rgba(255, 255, 255, 0.04);
+  --color-strong-border: #ededed;
+  --color-strong-text: #ffffff;
+  --color-on-shade: #1a1a1a;
+  --color-shadow: rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+$default-color: var(--color-text);
+$default-shade: var(--color-shade);
+$default-tint: var(--color-tint);
+$grey-1: var(--color-muted);
+$grey-2: var(--color-border);
+$grey-3: var(--color-surface);
+$white: var(--color-on-shade);
+$blue: var(--color-link);
+$shadow-color: var(--color-shadow);
+$code-color: var(--color-code);
 
 $pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 $baskerville: $pretendard;
@@ -14,7 +74,6 @@ $palatino: $pretendard;
 $sans-font: $pretendard;
 
 $monospaced-font: Menlo, Monaco, monospace;
-$code-color: #bf616a;
 
 @mixin box-sizing($type: border-box) {
   -webkit-box-sizing: $type;

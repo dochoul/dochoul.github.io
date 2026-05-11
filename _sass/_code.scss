@@ -22,12 +22,42 @@ pre code {
   padding: 0;
 }
 
+.copy-code-btn {
+  position: absolute;
+  top: 50%;
+  right: .75rem;
+  transform: translateY(-50%);
+  background: $grey-3;
+  border: 1px solid $grey-2;
+  border-radius: 4px;
+  color: $default-tint;
+  cursor: pointer;
+  padding: .3rem;
+  line-height: 0;
+  opacity: 0;
+  @include transition(opacity .2s ease, background .2s ease, color .2s ease);
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background: $grey-2;
+    color: $default-color;
+  }
+}
+
 .highlight {
   background-color: $grey-3;
   border-radius: 3px;
   line-height: 1.4;
   margin: 0 0 1rem;
   padding: 1rem;
+
+  &:hover .copy-code-btn {
+    opacity: 1;
+  }
 
   pre {
     margin-bottom: 0;

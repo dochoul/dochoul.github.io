@@ -13,7 +13,8 @@
         }
     }
     &-time {
-        display: none;
+        display: block;
+        font-size: .85em;
         color: $default-tint;
         //font-family: $palatino;
         letter-spacing: .5px;

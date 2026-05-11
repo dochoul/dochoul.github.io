@@ -2,7 +2,7 @@
 layout: post
 title: "내 입맛대로 만든 툴팁 컴포넌트"
 author: "kimdy"
-date: 2026-05-07
+date: 2024-05-07
 categories: "dev"
 description: "딱 맞는 툴팁 라이브러리가 없어서 React와 TypeScript로 직접 만들었다."
 ---

@@ -151,6 +151,20 @@ footer,
   .theme-toggle-item--light { display: none; }
 }
 
+// 다크모드 전환 Circle Reveal 애니메이션 (View Transition API)
+@keyframes theme-circle-reveal {
+  from { clip-path: circle(0% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%)); }
+  to   { clip-path: circle(150% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%)); }
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: theme-circle-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     .nav-logo--default { display: none; }

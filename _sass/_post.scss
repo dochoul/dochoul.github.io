@@ -116,6 +116,6 @@
 
   &:hover {
     background-color: var(--color-strong-text);
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }

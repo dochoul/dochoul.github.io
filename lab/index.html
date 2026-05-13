@@ -1,0 +1,302 @@
+---
+layout: null
+permalink: /lab/
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Lab — Hatch Text</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #c8c8c8;
+      --muted: #555;
+      --accent: #c05540;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── header ── */
+    .lab-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .lab-badge {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .lab-title {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #e8e8e8;
+      margin-bottom: 0.8rem;
+    }
+
+    .lab-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── section ── */
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── demo stage ── */
+    .stage {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── hatch text variants ── */
+    .hatch {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    /* 1. 기본 — 흰 사선 */
+    .hatch-1 {
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background-image:
+        repeating-linear-gradient(
+          -45deg,
+          transparent 0px, transparent 5px,
+          rgba(255,255,255,0.35) 5px, rgba(255,255,255,0.35) 8px
+        );
+      background-color: #c05540;
+      animation: hatch-slide 1.2s linear infinite;
+    }
+
+    /* 2. 느린 — 굵은 사선 */
+    .hatch-2 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background-image:
+        repeating-linear-gradient(
+          -60deg,
+          transparent 0px, transparent 8px,
+          rgba(255,255,255,0.2) 8px, rgba(255,255,255,0.2) 14px
+        );
+      background-color: #3a6ea8;
+      animation: hatch-slide 2.5s linear infinite;
+    }
+
+    /* 3. 반대 방향 — 교차 격자 */
+    .hatch-3 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent 0px, transparent 4px,
+          rgba(255,255,255,0.25) 4px, rgba(255,255,255,0.25) 6px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent 0px, transparent 4px,
+          rgba(255,255,255,0.15) 4px, rgba(255,255,255,0.15) 6px
+        );
+      background-color: #3d7a5a;
+      animation: hatch-crossslide 1.8s linear infinite;
+    }
+
+    /* 4. 세로줄 — 수직 스캔 */
+    .hatch-4 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px, transparent 3px,
+          rgba(255,255,255,0.3) 3px, rgba(255,255,255,0.3) 5px
+        );
+      background-color: #7a4a9e;
+      animation: hatch-vscan 1s linear infinite;
+    }
+
+    @keyframes hatch-slide {
+      from { background-position: 0 0; }
+      to   { background-position: 40px 0; }
+    }
+
+    @keyframes hatch-crossslide {
+      from { background-position: 0 0, 0 0; }
+      to   { background-position: 30px 0, -30px 0; }
+    }
+
+    @keyframes hatch-vscan {
+      from { background-position: 0 0; }
+      to   { background-position: 0 30px; }
+    }
+
+    .variant-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-top: -1rem;
+    }
+
+    /* ── code block ── */
+    .code-block {
+      background: #0a0a0a;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      color: #9a9a9a;
+      white-space: pre;
+    }
+
+    .code-block .c  { color: #555; }      /* comment */
+    .code-block .p  { color: #7cb8ff; }   /* property */
+    .code-block .v  { color: #c05540; }   /* value / accent */
+    .code-block .s  { color: #8bc08a; }   /* string / keyword */
+    .code-block .n  { color: #e8e8e8; }   /* selector */
+
+    /* ── back link ── */
+    .back {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .back a {
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+
+    .back a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="lab-header">
+      <p class="lab-badge">CSS LAB · DEMO</p>
+      <h1 class="lab-title">Hatch Text<br>Animation</h1>
+      <p class="lab-desc">
+        background-clip: text + repeating-linear-gradient + animation<br>
+        세 가지 CSS 속성만으로 만드는 텍스트 해칭 효과
+      </p>
+    </header>
+
+    <section class="section">
+      <p class="section-label">variants</p>
+
+      <div class="stage">
+        <span class="hatch hatch-1">Hatching</span>
+        <span class="variant-label">01 — 흰 사선 / -45deg / 빠름</span>
+
+        <span class="hatch hatch-2">Striped</span>
+        <span class="variant-label">02 — 굵은 사선 / -60deg / 느림</span>
+
+        <span class="hatch hatch-3">Crossed</span>
+        <span class="variant-label">03 — 교차 격자 / ±45deg / 반대 방향</span>
+
+        <span class="hatch hatch-4">Scanned</span>
+        <span class="variant-label">04 — 수직 스캔 / 90deg / 아래로</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-label">how it works</p>
+
+      <div class="code-block"><pre><span class="c">/* 1. 사선 패턴을 배경으로 만든다 */</span>
+<span class="n">.hatch-text</span> {
+  <span class="p">background-image</span>: <span class="s">repeating-linear-gradient</span>(
+    <span class="v">-45deg</span>,
+    <span class="v">transparent</span>          <span class="c">/* 투명 */</span>   0px,
+    <span class="v">transparent</span>                          5px,
+    <span class="v">rgba(255,255,255,0.35)</span> <span class="c">/* 흰 선 */</span> 5px,
+    <span class="v">rgba(255,255,255,0.35)</span>               8px
+  );
+  <span class="p">background-color</span>: <span class="v">#c05540</span>; <span class="c">/* 베이스 색 */</span>
+
+  <span class="c">/* 2. 배경을 텍스트 모양으로 클리핑한다 */</span>
+  <span class="p">-webkit-background-clip</span>: <span class="v">text</span>;
+  <span class="p">background-clip</span>: <span class="v">text</span>;
+  <span class="p">color</span>: <span class="v">transparent</span>; <span class="c">/* 텍스트를 투명하게 → 배경이 보임 */</span>
+
+  <span class="c">/* 3. 배경 위치를 움직여 사선이 흐르는 효과 */</span>
+  <span class="p">animation</span>: <span class="v">hatch-slide 1.2s linear infinite</span>;
+}
+
+<span class="s">@keyframes</span> <span class="n">hatch-slide</span> {
+  <span class="s">from</span> { <span class="p">background-position</span>: <span class="v">0 0</span>; }
+  <span class="s">to</span>   { <span class="p">background-position</span>: <span class="v">40px 0</span>; }
+}</pre></div>
+    </section>
+
+    <footer class="back">
+      <a href="/">← dochoul.github.io</a>
+    </footer>
+
+  </div>
+</body>
+</html>

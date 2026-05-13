@@ -17,7 +17,6 @@ permalink: /lab/
       --border: #2a2a2a;
       --text: #c8c8c8;
       --muted: #555;
-      --accent: #c05540;
     }
 
     body {
@@ -98,76 +97,70 @@ permalink: /lab/
       margin-bottom: 1.5rem;
     }
 
-    /* ── hatch text variants ── */
+    /* ── hatch text: 두 레이어 구조 ── */
     .hatch {
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      position: relative;
+      display: inline-block;
       line-height: 1;
-    }
-
-    /* 1. 기본 — 흰 사선 */
-    .hatch-1 {
-      font-size: clamp(3rem, 10vw, 5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
-      background-image:
-        repeating-linear-gradient(
-          -45deg,
-          transparent 0px, transparent 5px,
-          rgba(255,255,255,0.35) 5px, rgba(255,255,255,0.35) 8px
-        );
-      background-color: #c05540;
+    }
+
+    /* 레이어 1: 솔리드 색상 텍스트 */
+    .hatch-1 { color: #c05540; font-size: clamp(3rem, 10vw, 5rem); }
+    .hatch-2 { color: #3a6ea8; font-size: clamp(2.5rem, 8vw, 4rem); }
+    .hatch-3 { color: #3d7a5a; font-size: clamp(2.5rem, 8vw, 4rem); }
+    .hatch-4 { color: #7a4a9e; font-size: clamp(2.5rem, 8vw, 4rem); }
+
+    /* 레이어 2: 사선 애니메이션 (::after) */
+    .hatch::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hatch-1::after {
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0px, transparent 5px,
+        rgba(255,255,255,0.45) 5px, rgba(255,255,255,0.45) 8px
+      );
       animation: hatch-slide 1.2s linear infinite;
     }
 
-    /* 2. 느린 — 굵은 사선 */
-    .hatch-2 {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      background-image:
-        repeating-linear-gradient(
-          -60deg,
-          transparent 0px, transparent 8px,
-          rgba(255,255,255,0.2) 8px, rgba(255,255,255,0.2) 14px
-        );
-      background-color: #3a6ea8;
+    .hatch-2::after {
+      background-image: repeating-linear-gradient(
+        -60deg,
+        transparent 0px, transparent 8px,
+        rgba(255,255,255,0.3) 8px, rgba(255,255,255,0.3) 14px
+      );
       animation: hatch-slide 2.5s linear infinite;
     }
 
-    /* 3. 반대 방향 — 교차 격자 */
-    .hatch-3 {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
+    .hatch-3::after {
       background-image:
         repeating-linear-gradient(
           45deg,
           transparent 0px, transparent 4px,
-          rgba(255,255,255,0.25) 4px, rgba(255,255,255,0.25) 6px
+          rgba(255,255,255,0.3) 4px, rgba(255,255,255,0.3) 6px
         ),
         repeating-linear-gradient(
           -45deg,
           transparent 0px, transparent 4px,
-          rgba(255,255,255,0.15) 4px, rgba(255,255,255,0.15) 6px
+          rgba(255,255,255,0.2) 4px, rgba(255,255,255,0.2) 6px
         );
-      background-color: #3d7a5a;
       animation: hatch-crossslide 1.8s linear infinite;
     }
 
-    /* 4. 세로줄 — 수직 스캔 */
-    .hatch-4 {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      background-image:
-        repeating-linear-gradient(
-          90deg,
-          transparent 0px, transparent 3px,
-          rgba(255,255,255,0.3) 3px, rgba(255,255,255,0.3) 5px
-        );
-      background-color: #7a4a9e;
+    .hatch-4::after {
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0px, transparent 3px,
+        rgba(255,255,255,0.35) 3px, rgba(255,255,255,0.35) 5px
+      );
       animation: hatch-vscan 1s linear infinite;
     }
 
@@ -210,11 +203,11 @@ permalink: /lab/
       white-space: pre;
     }
 
-    .code-block .c  { color: #555; }      /* comment */
-    .code-block .p  { color: #7cb8ff; }   /* property */
-    .code-block .v  { color: #c05540; }   /* value / accent */
-    .code-block .s  { color: #8bc08a; }   /* string / keyword */
-    .code-block .n  { color: #e8e8e8; }   /* selector */
+    .code-block .c  { color: #555; }
+    .code-block .p  { color: #7cb8ff; }
+    .code-block .v  { color: #c05540; }
+    .code-block .s  { color: #8bc08a; }
+    .code-block .n  { color: #e8e8e8; }
 
     /* ── back link ── */
     .back {
@@ -241,8 +234,8 @@ permalink: /lab/
       <p class="lab-badge">CSS LAB · DEMO</p>
       <h1 class="lab-title">Hatch Text<br>Animation</h1>
       <p class="lab-desc">
-        background-clip: text + repeating-linear-gradient + animation<br>
-        세 가지 CSS 속성만으로 만드는 텍스트 해칭 효과
+        솔리드 텍스트 위에 ::after로 사선 레이어를 덮는 두 레이어 구조.<br>
+        solid color + background-clip: text (hatch overlay)
       </p>
     </header>
 
@@ -250,16 +243,16 @@ permalink: /lab/
       <p class="section-label">variants</p>
 
       <div class="stage">
-        <span class="hatch hatch-1">Hatching</span>
+        <span class="hatch hatch-1" data-text="Hatching">Hatching</span>
         <span class="variant-label">01 — 흰 사선 / -45deg / 빠름</span>
 
-        <span class="hatch hatch-2">Striped</span>
+        <span class="hatch hatch-2" data-text="Striped">Striped</span>
         <span class="variant-label">02 — 굵은 사선 / -60deg / 느림</span>
 
-        <span class="hatch hatch-3">Crossed</span>
+        <span class="hatch hatch-3" data-text="Crossed">Crossed</span>
         <span class="variant-label">03 — 교차 격자 / ±45deg / 반대 방향</span>
 
-        <span class="hatch hatch-4">Scanned</span>
+        <span class="hatch hatch-4" data-text="Scanned">Scanned</span>
         <span class="variant-label">04 — 수직 스캔 / 90deg / 아래로</span>
       </div>
     </section>
@@ -267,23 +260,31 @@ permalink: /lab/
     <section class="section">
       <p class="section-label">how it works</p>
 
-      <div class="code-block"><pre><span class="c">/* 1. 사선 패턴을 배경으로 만든다 */</span>
-<span class="n">.hatch-text</span> {
+      <div class="code-block"><pre><span class="c">/* HTML: data-text에 같은 텍스트를 넣어준다 */</span>
+<span class="n">&lt;span</span> <span class="p">class</span>=<span class="v">"hatch"</span> <span class="p">data-text</span>=<span class="v">"Skills"</span><span class="n">&gt;</span>Skills<span class="n">&lt;/span&gt;</span>
+
+<span class="c">/* 레이어 1: 솔리드 텍스트 */</span>
+<span class="n">.hatch</span> {
+  <span class="p">position</span>: <span class="v">relative</span>;
+  <span class="p">display</span>: <span class="v">inline-block</span>;
+  <span class="p">color</span>: <span class="v">#c05540</span>; <span class="c">/* 솔리드 색상 그대로 보임 */</span>
+}
+
+<span class="c">/* 레이어 2: 사선 패턴을 같은 텍스트 모양으로 덮음 */</span>
+<span class="n">.hatch</span><span class="s">::after</span> {
+  <span class="p">content</span>: <span class="s">attr</span>(<span class="v">data-text</span>); <span class="c">/* 같은 텍스트 */</span>
+  <span class="p">position</span>: <span class="v">absolute</span>;
+  <span class="p">inset</span>: <span class="v">0</span>;
   <span class="p">background-image</span>: <span class="s">repeating-linear-gradient</span>(
     <span class="v">-45deg</span>,
-    <span class="v">transparent</span>          <span class="c">/* 투명 */</span>   0px,
-    <span class="v">transparent</span>                          5px,
-    <span class="v">rgba(255,255,255,0.35)</span> <span class="c">/* 흰 선 */</span> 5px,
-    <span class="v">rgba(255,255,255,0.35)</span>               8px
+    <span class="v">transparent</span>           0px,
+    <span class="v">transparent</span>           5px,
+    <span class="v">rgba(255,255,255,0.45)</span> 5px,
+    <span class="v">rgba(255,255,255,0.45)</span> 8px
   );
-  <span class="p">background-color</span>: <span class="v">#c05540</span>; <span class="c">/* 베이스 색 */</span>
-
-  <span class="c">/* 2. 배경을 텍스트 모양으로 클리핑한다 */</span>
   <span class="p">-webkit-background-clip</span>: <span class="v">text</span>;
   <span class="p">background-clip</span>: <span class="v">text</span>;
-  <span class="p">color</span>: <span class="v">transparent</span>; <span class="c">/* 텍스트를 투명하게 → 배경이 보임 */</span>
-
-  <span class="c">/* 3. 배경 위치를 움직여 사선이 흐르는 효과 */</span>
+  <span class="p">color</span>: <span class="v">transparent</span>; <span class="c">/* 사선만 보이게 */</span>
   <span class="p">animation</span>: <span class="v">hatch-slide 1.2s linear infinite</span>;
 }
 

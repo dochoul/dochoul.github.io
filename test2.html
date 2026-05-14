@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Viewport Center Layer Test</title>
+    <style>
+        /* PC 스타일의 넓은 페이지 */
+        body {
+            width: 2000px;
+            height: 2000px;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 50px;
+            font-family: sans-serif;
+        }
+
+        #openBtn {
+            padding: 20px 40px;
+            font-size: 24px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* 중앙 컨펌 레이어 스타일 */
+        #modal {
+            display: none;
+            position: absolute; /* Viewport 좌표에 맞춰 수동 배치 */
+            background: white;
+            color: #333;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        #modal h2 { margin-top: 0; font-size: 1.2rem; }
+        #modal p { font-size: 0.9rem; color: #666; }
+
+        .close-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* 배경 어둡게 처리 (선택 사항) */
+        #overlay {
+            display: none;
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>중앙 정렬 레이어 테스트</h1>
+    <p>1. 화면을 아주 크게 확대해 보세요.</p>
+    <p>2. 확대된 상태에서 아래 버튼을 클릭합니다.</p>
+    
+    <button id="openBtn">컨펌 레이어 열기</button>
+
+    <div id="overlay"></div>
+    <div id="modal">
+        <h2>알림</h2>
+        <p>확대된 화면에서도 항상<br>중앙에 위치하는 레이어입니다.</p>
+        <p>(최대 너비 500px)</p>
+        <button class="close-btn" onclick="closeModal()">닫기</button>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const overlay = document.getElementById('overlay');
+        const btn = document.getElementById('openBtn');
+
+        function adjustLayer() {
+            if (modal.style.display === 'block' && window.visualViewport) {
+                const vvp = window.visualViewport;
+
+                // 1. 레이어 너비 결정 (최대 500px, 시야보다 넓으면 시야에 맞춤)
+                let targetWidth = 500;
+                if (vvp.width < targetWidth) {
+                    targetWidth = vvp.width * 0.9; // 화면 너비의 90%
+                }
+                modal.style.width = targetWidth + "px";
+
+                // 2. 배경 오버레이를 현재 시야에 꽉 채우기
+                overlay.style.width = vvp.width + "px";
+                overlay.style.height = vvp.height + "px";
+                overlay.style.left = vvp.offsetLeft + "px";
+                overlay.style.top = vvp.offsetTop + "px";
+
+                // 3. 레이어를 시야(Visual Viewport)의 정중앙에 배치
+                // 시작좌표(offset) + (시야너비/2) - (레이어너비/2)
+                const leftPos = vvp.offsetLeft + (vvp.width - targetWidth) / 2;
+                const topPos = vvp.offsetTop + (vvp.height - modal.offsetHeight) / 2;
+
+                modal.style.left = leftPos + "px";
+                modal.style.top = topPos + "px";
+            }
+        }
+
+        btn.onclick = () => {
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+            adjustLayer();
+        };
+
+        function closeModal() {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        // 확대/축소 및 스크롤 시 실시간으로 중앙 유지
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', adjustLayer);
+            window.visualViewport.addEventListener('scroll', adjustLayer);
+        }
+    </script>
+</body>
+</html>

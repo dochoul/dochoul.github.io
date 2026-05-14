@@ -16,6 +16,8 @@ layout: default
 
   {{ content }}
 
+  <script type="module" src="{{ '/js/lightbox.js' | prepend: site.baseurl }}"></script>
+
   <div class="post-x-reply">
     <p>이 글이 유익하셨나요? X에서 생각을 나눠주세요.</p>
     <a href="https://x.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | prepend: site.url | url_encode }}" target="_blank" rel="noopener" class="x-reply-btn">

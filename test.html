@@ -51,12 +51,6 @@
 			width: auto;
 			z-index: 999999;
 		}
-	@media (max-width: 500px) {
-		.hw-modal-wrap {
-			width: 95% !important;
-			background: #0e84e4 !important;
-		}
-	}
 	</style>
 	<script type="text/javascript">var cookie_imagepath = "/static/images/";</script>
 
@@ -279,7 +273,7 @@
 			</div>
 			<div class="content_inbox">
 				<!-- Contents -->
-				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup26'));">popup26(스팸처리)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup26'));">popup26(스팸처리111)</a><br>
 				<!-- <a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup23'));">popup23(상세검색)</a><br />
 				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup24'));">popup24(파일박스 수정)</a><br>
 				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup25'));">popup25(편지함 이동 안내)</a><br>
@@ -1824,14 +1818,14 @@
 
     function positionModal(el) {
       var vv = window.visualViewport;
-      el.style.position = 'fixed';
+      el.style.position = 'absolute';
       el.style.margin = '0';
       if (vv) {
         el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
         el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';
       } else {
-        el.style.left = '50%';
-        el.style.top  = '50%';
+        el.style.left = (window.pageXOffset + window.innerWidth / 2) + 'px';
+        el.style.top  = (window.pageYOffset + window.innerHeight / 2) + 'px';
       }
       el.style.transform = 'translate(-50%, -50%)';
     }

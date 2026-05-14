@@ -273,7 +273,7 @@
 			</div>
 			<div class="content_inbox">
 				<!-- Contents -->
-				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup26'));">popup26(스팸처리)</a><br>
+				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup26'));">popup26(스팸팸팸처리)</a><br>
 				<!-- <a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup23'));">popup23(상세검색)</a><br />
 				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup24'));">popup24(파일박스 수정)</a><br>
 				<a href="javascript:void(0)" class="popupOpenBtn1" onclick="showPopup($j('.popup25'));">popup25(편지함 이동 안내)</a><br>
@@ -473,7 +473,7 @@
 		</div>
 
 		<!-- 스팸처리 -->
-		<div class="layer_box middle hide popup26" style="width: 90% !important;">
+		<div class="layer_box middle hide popup26">
 			<div class="title_layer text_variables">스팸처리</div>
 			<div class="nnsubscribe">
 				<p class="text">선택한 <strong><span class="text_variables">%체크한 메일 수%</span></strong>개의 메일을</p>
@@ -1820,6 +1820,11 @@
       var vv = window.visualViewport;
       el.style.position = 'fixed';
       el.style.margin = '0';
+      if (vv && vv.width < 500) {
+        el.style.width = (vv.width * 0.9) + 'px';
+      } else {
+        el.style.width = '';
+      }
       if (vv) {
         el.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
         el.style.top  = (vv.offsetTop  + vv.height / 2) + 'px';

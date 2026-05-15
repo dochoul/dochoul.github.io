@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { writings } from '@/data/writing';
 import { SectionHeading } from '@/components/SectionHeading';
 import { RevealOnScroll } from '@/components/RevealOnScroll';
-import { MarkdownModal } from '@/components/MarkdownModal/MarkdownModal';
 import './Writing.css';
 
 const ArrowIcon = () => (
@@ -29,11 +27,6 @@ export function Writing() {
     return b.date.localeCompare(a.date);
   });
 
-  const [activeContent, setActiveContent] = useState<{
-    title: string;
-    content: string;
-  } | null>(null);
-
   return (
     <section id="writing" className="section writing" aria-label="Writing">
       <div className="container">
@@ -54,73 +47,36 @@ export function Writing() {
               className="writing__item-wrap"
               delay={idx * 60}
             >
-              {item.content ? (
-                <button
-                  className="writing__item writing__item--button"
-                  onClick={() =>
-                    setActiveContent({ title: item.title, content: item.content! })
-                  }
-                >
-                  <div className="writing__meta">
-                    <span className="writing__index">
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
-                    {item.date ? (
-                      <span className="writing__date">{item.date}</span>
-                    ) : null}
-                  </div>
-
-                  <div className="writing__body">
-                    <h3 className="writing__title">{item.title}</h3>
-                    {item.excerpt ? (
-                      <p className="writing__excerpt">{item.excerpt}</p>
-                    ) : null}
-                  </div>
-
-                  <span className="writing__arrow" aria-hidden="true">
-                    <ArrowIcon />
+              <a
+                href={item.url}
+                className="writing__item"
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+              >
+                <div className="writing__meta">
+                  <span className="writing__index">
+                    {String(idx + 1).padStart(2, '0')}
                   </span>
-                </button>
-              ) : (
-                <a
-                  href={item.url}
-                  className="writing__item"
-                  target={item.external ? '_blank' : undefined}
-                  rel={item.external ? 'noopener noreferrer' : undefined}
-                >
-                  <div className="writing__meta">
-                    <span className="writing__index">
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
-                    {item.date ? (
-                      <span className="writing__date">{item.date}</span>
-                    ) : null}
-                  </div>
+                  {item.date ? (
+                    <span className="writing__date">{item.date}</span>
+                  ) : null}
+                </div>
 
-                  <div className="writing__body">
-                    <h3 className="writing__title">{item.title}</h3>
-                    {item.excerpt ? (
-                      <p className="writing__excerpt">{item.excerpt}</p>
-                    ) : null}
-                  </div>
+                <div className="writing__body">
+                  <h3 className="writing__title">{item.title}</h3>
+                  {item.excerpt ? (
+                    <p className="writing__excerpt">{item.excerpt}</p>
+                  ) : null}
+                </div>
 
-                  <span className="writing__arrow" aria-hidden="true">
-                    <ArrowIcon />
-                  </span>
-                </a>
-              )}
+                <span className="writing__arrow" aria-hidden="true">
+                  <ArrowIcon />
+                </span>
+              </a>
             </RevealOnScroll>
           ))}
         </ul>
       </div>
-
-      {activeContent && (
-        <MarkdownModal
-          title={activeContent.title}
-          content={activeContent.content}
-          onClose={() => setActiveContent(null)}
-        />
-      )}
     </section>
   );
 }

@@ -11,6 +11,13 @@ export interface WritingItem {
 
 export const writings: WritingItem[] = [
   {
+    title: '힙하다는 말 한마디로 시작된 회사의 AI 대모험',
+    excerpt:
+      '회사마다 다른 척하지만, 뜯어보면 거의 동일한 공정을 밟는다. 어디서 본 것 같다면 당신도 이미 이 라인 위에 올라가 있는 것이다.',
+    url: `${BLOG}/2026-06-01/recent-ai-development`,
+    date: '2026.06.01',
+  },
+  {
     title: 'AI 시대, 개발자의 생존기록',
     excerpt:
       'ActionScript 3.0부터 jQuery, React, 그리고 AI까지. 침몰하는 배를 갈아타며 살아남은 프론트엔드 개발자의 회고.',

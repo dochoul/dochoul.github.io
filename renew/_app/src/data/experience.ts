@@ -28,7 +28,7 @@ export const experiences: ExperienceItem[] = [
   {
     company: '위버 (UBER)',
     role: '프론트엔드 개발자',
-    period: '2011 — 2013',
+    period: '2009 — 2013',
     description:
       '디지털 에이전시에서 대기업 클라이언트의 웹사이트와 인터랙티브 프로젝트를 담당했습니다. 쉐보레·대우건설·파라다이스 등 대형 브랜드 사이트의 웹 표준 전환과 접근성 개선을 주도했습니다.',
     responsibilities: [

@@ -81,7 +81,7 @@ export function Navbar() {
         className="nav__theme-fab"
         aria-pressed={isDark}
         aria-label={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
-        onClick={toggleTheme}
+        onClick={(e) => toggleTheme(e)}
       >
         <span className="nav__theme-icon" aria-hidden="true">
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}

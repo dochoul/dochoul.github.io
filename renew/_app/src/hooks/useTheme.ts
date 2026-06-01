@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import type React from 'react';
 
 export type ThemeMode = 'dark' | 'light';
 
@@ -47,10 +48,29 @@ export function useTheme() {
     }
   }, [theme]);
 
+  function toggleTheme(e?: React.MouseEvent) {
+    const root = document.documentElement;
+    if (e) {
+      const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+      root.style.setProperty('--theme-toggle-x', Math.round(rect.left + rect.width / 2) + 'px');
+      root.style.setProperty('--theme-toggle-y', Math.round(rect.top + rect.height / 2) + 'px');
+    }
+
+    const next = theme === 'dark' ? 'light' : 'dark';
+
+    if (!document.startViewTransition) {
+      setTheme(next);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      setTheme(next);
+    });
+  }
+
   return {
     theme,
     isDark: theme === 'dark',
-    toggleTheme: () =>
-      setTheme((current) => (current === 'dark' ? 'light' : 'dark')),
+    toggleTheme,
   };
 }

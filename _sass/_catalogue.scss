@@ -32,6 +32,17 @@
         transform: translateX(6px);
         color: var(--color-strong-text);
     }
+    &-new {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ff6633;
+        margin-left: 0.3em;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+    }
     &-line {
         display: block;
         display: none;

@@ -7,7 +7,13 @@ layout: default
     <a href="{{ post.url | prepend: site.url }}" class="catalogue-item">
       <div>
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%Y-%m-%d" }}</time>
-        <h1 class="catalogue-title">{{ post.title }}</h1>
+        <h1 class="catalogue-title">
+          {{ post.title }}
+          {% assign now = site.time | date: "%s" | plus: 0 %}
+          {% assign post_date = post.date | date: "%s" | plus: 0 %}
+          {% assign diff_days = now | minus: post_date | divided_by: 86400 %}
+          {% if diff_days <= 5 %}<span class="catalogue-new"></span>{% endif %}
+        </h1>
         <div class="catalogue-line"></div>
 
         <!-- <p>

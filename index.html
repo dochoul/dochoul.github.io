@@ -9,10 +9,7 @@ layout: default
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%Y-%m-%d" }}</time>
         <h1 class="catalogue-title">
           {{ post.title }}
-          {% assign now = site.time | date: "%s" | plus: 0 %}
-          {% assign post_date = post.date | date: "%s" | plus: 0 %}
-          {% assign diff_days = now | minus: post_date | divided_by: 86400 %}
-          {% if diff_days <= 5 %}<span class="catalogue-new"></span>{% endif %}
+          <span class="catalogue-new" data-post-date="{{ post.date | date: '%Y-%m-%d' }}" style="display:none"></span>
         </h1>
         <div class="catalogue-line"></div>
 
@@ -24,3 +21,11 @@ layout: default
     </a>
   {% endfor %}
 </div>
+
+<script>
+  document.querySelectorAll('.catalogue-new').forEach(function(el) {
+    var postDate = new Date(el.dataset.postDate);
+    var diffDays = (Date.now() - postDate.getTime()) / (1000 * 60 * 60 * 24);
+    if (diffDays <= 5) el.style.display = '';
+  });
+</script>

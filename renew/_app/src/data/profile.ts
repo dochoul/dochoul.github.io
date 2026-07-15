@@ -31,7 +31,7 @@ export const profile: ProfileData = {
     "대우건설 푸르지오 — 아파트 브랜드 최초 웹 접근성 인증 획득",
     "2013 웹어워드 코리아 최우수상 · 2015 iECO AWARD 기술혁신대상 · 2011 앤어워드 Winner",
   ],
-  email: "kimdy@gabia.com",
+  email: "dochoul@gmail.com",
   github: "dochoul",
   githubUrl: "https://github.com/dochoul",
   closingMessage:

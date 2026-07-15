@@ -11,6 +11,13 @@ export interface WritingItem {
 
 export const writings: WritingItem[] = [
   {
+    title: '오픈소스 디자인 툴을 가비아 전용으로 바꾼 GOD(Gabia Open Design) 이야기',
+    excerpt:
+      '오픈소스 Open Design을 가져와 Gabia AI Hub 연동, OneStack 배포, 플러그인 확장을 더해 사내 전용 AI 디자인 툴 GOD로 만든 프로젝트 기록.',
+    url: `${BLOG}/2026-07-15/god-guide`,
+    date: '2026.07.15',
+  },
+  {
     title: '4개월 연속 증가, 누적 145만 원 넘긴 배당 🍯',
     excerpt:
       '7월 배당 39만 3천 원, 2026년 누적 145만 원 돌파. 4월부터 4개월 연속 늘어나는 배당금 흐름이 이어지고 있다.',

@@ -20,17 +20,28 @@
         letter-spacing: .5px;
     }
     &-title {
-        color: $default-shade;
         display: block;
         //font-family: $sans-font;
-        font-size: 1.5em;
+        font-size: 1.8em;
         font-weight: 400;
         margin: .5rem 0;
-        @include transition(transform .2s ease, color .2s ease);
+        color: $default-shade;
+        -webkit-text-fill-color: var(--color-title-dim);
+        background-image: linear-gradient($default-shade, $default-shade);
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-size: 100% 100%;
+        @include transition(background-size .3s ease);
+    }
+    &:hover &-title {
+        background-size: 0% 100%;
+        @include transition(background-size .15s ease);
     }
     &-item:hover &-title {
-        transform: translateX(6px);
-        color: var(--color-strong-text);
+        background-image: linear-gradient(var(--color-strong-text), var(--color-strong-text));
+        background-size: 100% 100%;
+        @include transition(background-size .3s ease);
     }
     &-new {
         display: inline-block;

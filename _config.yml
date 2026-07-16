@@ -38,6 +38,9 @@ markdown:       kramdown
 # Analytics
 google_analytics: G-3WTW6QDTD4
 
+# Ads
+google_adsense: ca-pub-4370584041342576
+
 # Exclude from Jekyll processing
 # (renew/ is a separately-built React/Vite app; _app is the source dir)
 exclude:

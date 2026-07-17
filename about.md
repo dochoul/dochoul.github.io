@@ -4,11 +4,16 @@ title: "About"
 permalink: /about/
 ---
 
-가비아라는 회사에서 프론트엔드개발팀으로 일하고 있습니다.A friend of mine writes short stories. One sunny day, I asked if he wanted a website to showcase his works and he agreed. I decided to use GitHub Pages to host his site. That way he wouldn't have to buy a domain and a server.
+남들은 그냥 지나치는 마찰을 유난히 오래 붙잡고 있는 편이다. 어딘가 불편한 게 있으면 그 불편이 눈에 밟혀서, 결국 손을 대야 마음이 놓인다. 그 불편이 화면 안의 접근성이든, 매달 누군가의 30분을 갉아먹는 반복 업무든 크게 다르지 않다. 대신 그걸 알리고 다니거나 인정받으려 하지는 않는다. 조용히 고쳐두고, 조용히 다음 걸 찾는 쪽이다.
 
-While doing some research up on GitHub Pages, I accidentally chanced upon this _simple, blog-aware, static site generator_ called [Jekyll](https://jekyllrb.com/) which works really well with GitHub Pages. I figured it would do just fine for my friend and I set about searching for a pretty theme. I wanted a theme with a _book-ish_ vibe. Unfortunately, most of the themes were too modern. Eventually, I caved and begun working on my own theme. With the help of [Poole](https://github.com/poole/poole), the Jekyll Butler, I was able to build **Tale**.
+의지라는 걸 잘 믿지 않는다. 나 자신을 포함해서, 사람은 결심만으로 잘 안 바뀐다는 걸 이미 겪어봤기 때문이다. 그래서 의지와 싸우는 대신 구조를 바꾸는 쪽을 택한다. 못 하게 만들거나, 안 할 수 없게 만들거나. 숫자를 매달 적어두는 것도, 환경을 미리 세팅해두는 것도 결국 같은 습성이다. 스스로에게 큰 신뢰가 없는 대신, 시스템에는 신뢰를 건다.
 
-## Contribute
-Feel free to create an issue or make a pull request on [GitHub](https://github.com/chesterhow/tale).
+변화 앞에서는 비교적 담담한 편이다. 한 번 믿었던 기술이 통째로 사라지는 걸 겪어본 사람이라, 새로운 것이 와도 붙잡고 버티기보다는 일단 올라타 본다. 다만 그 도구가 나를 대신하게 두지는 않으려 한다. 무언가에게 일을 맡길 때도, 결국 내 판단과 사고가 서 있을 자리는 남겨두려는 편이다. 편해지고 싶은 마음과, 편해지는 것 자체를 경계하는 마음이 늘 같이 있다.
 
-Thanks for reading!
+내 안의 흔들림을 굳이 다 정리하려 들지 않는다. 확신이 없는 채로, 감정이 오락가락하는 채로 그냥 두는 걸 더 편하게 여긴다. 결론을 내려야 한다는 압박보다, 지금 이 상태를 있는 그대로 적어두는 게 더 솔직하다고 믿는다. 그래서 뭔가를 이해하려 할 때도 답을 서두르기보다 자꾸 기록하고, 다시 들여다보는 쪽으로 향한다.
+
+화려한 한 방보다 매일 조금씩 쌓이는 쪽을 믿는다. 돈이든, 코드든, 사람과의 시간이든. 큰 사건 하나로 뒤집히는 것보다, 눈에 잘 안 띄는 반복이 쌓여 어느 순간 달라져 있는 쪽에 더 마음이 간다. 그래서 서두르지 않는다. 대신 오늘 것을 오늘 기록해두고, 그 흐름이 끊기지 않게 하는 데 더 신경을 쓴다.
+
+결국 이런 것들이 나라는 사람을 만든다. 남의 불편에 예민하고, 스스로의 의지는 못 미더워하고, 변화 앞에서 담담하되 나를 지키려 하고, 흔들림을 굳이 봉합하지 않고, 조용한 축적을 믿는 사람.
+
+궁금한 게 있거나 나눌 이야기가 있다면 [GitHub](https://github.com/dochoul)로 편하게 연락 주면 좋겠다.

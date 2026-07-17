@@ -29,6 +29,7 @@
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 1.25rem;
+    word-break: keep-all;
   }
 
   &-tags {
@@ -58,6 +59,8 @@
   img {
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    height: auto;
   }
 
   img.photo-frame {

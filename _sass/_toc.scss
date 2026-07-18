@@ -1,0 +1,46 @@
+.post-toc {
+  display: none;
+  position: fixed;
+  top: 140px;
+  left: calc(50% + 400px + 40px);
+  width: 200px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+
+  &:empty {
+    display: none !important;
+  }
+
+  @media (min-width: 1360px) {
+    display: block;
+  }
+}
+
+.post-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid $grey-2;
+}
+
+.post-toc-link {
+  display: block;
+  border-left: 2px solid transparent;
+  color: $default-tint;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-left: -1px;
+  padding: 0.4rem 0 0.4rem 0.9rem;
+  word-break: keep-all;
+  @include transition(color 0.15s ease, border-color 0.15s ease);
+
+  &:hover {
+    color: $default-color;
+  }
+
+  &.is-active {
+    border-left-color: $blue;
+    color: $default-shade;
+    font-weight: 700;
+  }
+}

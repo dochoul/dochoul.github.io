@@ -11,6 +11,10 @@ code {
   padding: .25em .5em;
 }
 
+.language-plaintext.highlighter-rouge {
+  border: 1px dashed $grey-1;
+}
+
 pre {
   margin: 0 0 1rem;
 }

@@ -13,6 +13,7 @@ body {
 
 html {
   @include transition(background-color .2s ease, color .2s ease);
+  scroll-behavior: smooth;
 }
 
 html {

@@ -14,9 +14,12 @@ layout: default
     {% endif %}
   </div>
 
+  <aside id="post-toc" class="post-toc" aria-label="목차"></aside>
+
   {{ content }}
 
   <script type="module" src="{{ '/js/lightbox.js' | prepend: site.baseurl }}"></script>
+  <script src="{{ '/js/toc.js' | prepend: site.baseurl }}"></script>
 
   {% unless page.url == '/about/' %}
   <div class="post-x-reply">

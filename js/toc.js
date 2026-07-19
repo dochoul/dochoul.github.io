@@ -22,23 +22,38 @@
 
   toc.appendChild(list);
 
-  var observer = new IntersectionObserver(function (intersections) {
-    intersections.forEach(function (intersection) {
-      if (!intersection.isIntersecting) return;
-      var active = entries.find(function (entry) { return entry.heading === intersection.target; });
-      if (!active) return;
-      entries.forEach(function (entry) { entry.link.classList.remove('is-active'); });
-      active.link.classList.add('is-active');
-    });
-  }, { rootMargin: '0px 0px -70% 0px', threshold: 0 });
+  // 매 스크롤마다 각 헤딩의 실제 위치를 다시 계산해서 활성 항목을 정한다.
+  // (IntersectionObserver 누적 상태 방식은 TOC 클릭으로 점프할 때 이벤트가 씹히면
+  //  예전 활성 항목이 그대로 남는 문제가 있어 제거했다.)
+  var ticking = false;
 
-  headings.forEach(function (heading) { observer.observe(heading); });
+  function updateActive() {
+    ticking = false;
 
-  // 마지막 섹션이 짧으면 스크롤이 끝까지 가도 관찰 영역에 안 걸릴 수 있어 보정
-  window.addEventListener('scroll', function () {
+    var threshold = 80;
     var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    if (!atBottom) return;
+
+    var current = null;
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].heading.getBoundingClientRect().top <= threshold) {
+        current = entries[i];
+      } else {
+        break;
+      }
+    }
+    if (atBottom) current = entries[entries.length - 1];
+
     entries.forEach(function (entry) { entry.link.classList.remove('is-active'); });
-    entries[entries.length - 1].link.classList.add('is-active');
-  }, { passive: true });
+    if (current) current.link.classList.add('is-active');
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateActive);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  updateActive();
 })();

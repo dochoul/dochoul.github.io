@@ -7,7 +7,6 @@ categories: "essay"
 description: "성과 지표는 측정 가능한 결과만 박제한다. 조직을 실제로 굴러가게 하는 관계의 기여는 데이터에 남지 않는다. 정답을 내놓는 것과 그 정답이 채택되는 것은 전혀 다른 문제다."
 image: /assets/office-relationship-strategy/golf.jpg
 ---
-![골프와 조직 관계](/assets/office-relationship-strategy/golf.jpg)
 
 우리는 흔히 회사가 객관적 지표와 정량적 성과로 움직이는 차가운 기계라고 믿고 싶어 한다.
 하지만 조직의 실제 내부는 숫자가 아니라 관계의 질서와 감정의 비용이라는 에너지로 돌아간다. 사실 회사에서의 일은 결코 객관적이고 정량적인 지표만으로는 온전히 설명될 수 없다.

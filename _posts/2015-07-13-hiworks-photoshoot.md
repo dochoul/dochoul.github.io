@@ -1,5 +1,5 @@
 ---
-title: "자연스럽게, 라는 말이 제일 어려웠던 날"
+title: "자연스럽게, 라는 말이 제일 어려웠다"
 date: 2015-07-15
 layout: post
 author: "kimdy"

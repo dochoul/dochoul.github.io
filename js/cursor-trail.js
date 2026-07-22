@@ -3,16 +3,11 @@
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   if (isTouchDevice) return;
 
-  // Inject CSS style to hide default browser cursor when hovering over links
+  // Inject CSS style to hide the default browser cursor everywhere;
+  // the canvas-drawn dot below replaces it at all times, not just on hover.
   const style = document.createElement('style');
   style.innerHTML = `
-    .custom-cursor-active, 
-    .custom-cursor-active a, 
-    .custom-cursor-active button, 
-    .custom-cursor-active [role="button"],
-    .custom-cursor-active input,
-    .custom-cursor-active select,
-    .custom-cursor-active .pagination a {
+    html, body, a, button, [role="button"], input, select {
       cursor: none !important;
     }
   `;
@@ -34,7 +29,9 @@
   // Points will store recorded coordinates and their timestamps
   let points = [];
   const maxAge = 350; // trail duration in ms (how long the line stays on screen)
+  const dotRadius = 5; // resting cursor dot size
   let mouse = { x: 0, y: 0 };
+  let hasMoved = false;
   let isSleeping = true;
   let isHovering = false;
   let hoverProgress = 0; // 0 = trail mode, 1 = circle cursor mode
@@ -105,10 +102,20 @@
       ctx.fill();
     }
 
-    // Put loop to sleep when no points remain, hover transition completes, and user is not hovering
+    // 3. Draw the resting cursor dot at the current mouse position.
+    // It fades out as the hover circle takes over.
+    if (hasMoved) {
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, dotRadius, 0, Math.PI * 2);
+      ctx.fillStyle = keyColor;
+      ctx.globalAlpha = 1 - hoverProgress;
+      ctx.fill();
+    }
+
+    // Put loop to sleep when no points remain, hover transition completes, and user is not hovering.
+    // Leave this frame's canvas as-is (it already shows just the resting dot) instead of clearing it.
     if (points.length === 0 && hoverProgress < 0.01 && !isHovering) {
       isSleeping = true;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
       return;
     }
 
@@ -125,12 +132,18 @@
   window.addEventListener('mousemove', function (e) {
     const x = e.clientX;
     const y = e.clientY;
+    hasMoved = true;
 
     // Prevent duplicate entries if the mouse hasn't moved much
     if (points.length > 0) {
       const lastPoint = points[points.length - 1];
       const dist = Math.hypot(x - lastPoint.x, y - lastPoint.y);
-      if (dist < 2) return;
+      if (dist < 2) {
+        mouse.x = x;
+        mouse.y = y;
+        wakeUp();
+        return;
+      }
     }
 
     mouse.x = x;
@@ -145,7 +158,6 @@
     const target = e.target.closest('a, button, [role="button"], .theme-toggle, .x-reply-btn');
     if (target) {
       isHovering = true;
-      document.body.classList.add('custom-cursor-active');
       wakeUp();
     }
   });
@@ -154,7 +166,6 @@
     const target = e.target.closest('a, button, [role="button"], .theme-toggle, .x-reply-btn');
     if (target) {
       isHovering = false;
-      document.body.classList.remove('custom-cursor-active');
       wakeUp();
     }
   });

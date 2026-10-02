@@ -31,17 +31,32 @@
     ticking = false;
 
     var threshold = 80;
-    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    var scrollY = window.scrollY;
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
     var current = null;
+    var firstBelow = null;
+
     for (var i = 0; i < entries.length; i++) {
-      if (entries[i].heading.getBoundingClientRect().top <= threshold) {
+      var top = entries[i].heading.getBoundingClientRect().top;
+      if (top <= threshold) {
         current = entries[i];
       } else {
+        firstBelow = entries[i];
         break;
       }
     }
-    if (atBottom) current = entries[entries.length - 1];
+
+    // threshold 안으로 스크롤할 여유가 없는 헤딩은 활성화 처리
+    // (마지막 섹션뿐 아니라 짧은 섹션 전체에 적용)
+    if (firstBelow) {
+      var headingTop = firstBelow.heading.getBoundingClientRect().top;
+      var scrollNeeded = headingTop - threshold;
+      var scrollRemaining = maxScroll - scrollY;
+      if (scrollNeeded > 0 && scrollNeeded > scrollRemaining) {
+        current = firstBelow;
+      }
+    }
 
     entries.forEach(function (entry) { entry.link.classList.remove('is-active'); });
     if (current) current.link.classList.add('is-active');

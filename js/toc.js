@@ -7,6 +7,8 @@
   list.className = 'post-toc-list';
 
   var entries = [];
+  var blockScrollUntil = 0;
+
   headings.forEach(function (heading) {
     var link = document.createElement('a');
     link.href = '#' + heading.id;
@@ -20,15 +22,23 @@
     entries.push({ link: link, heading: heading });
   });
 
+  // 클릭 시 즉시 활성화, 스크롤 핸들러 600ms 차단
+  entries.forEach(function (entry) {
+    entry.link.addEventListener('click', function () {
+      entries.forEach(function (e) { e.link.classList.remove('is-active'); });
+      entry.link.classList.add('is-active');
+      blockScrollUntil = Date.now() + 600;
+    });
+  });
+
   toc.appendChild(list);
 
-  // 매 스크롤마다 각 헤딩의 실제 위치를 다시 계산해서 활성 항목을 정한다.
-  // (IntersectionObserver 누적 상태 방식은 TOC 클릭으로 점프할 때 이벤트가 씹히면
-  //  예전 활성 항목이 그대로 남는 문제가 있어 제거했다.)
   var ticking = false;
 
   function updateActive() {
     ticking = false;
+
+    if (Date.now() < blockScrollUntil) return;
 
     var threshold = 80;
     var scrollY = window.scrollY;
@@ -48,10 +58,8 @@
     }
 
     // threshold 안으로 스크롤할 여유가 없는 헤딩은 활성화 처리
-    // (마지막 섹션뿐 아니라 짧은 섹션 전체에 적용)
     if (firstBelow) {
-      var headingTop = firstBelow.heading.getBoundingClientRect().top;
-      var scrollNeeded = headingTop - threshold;
+      var scrollNeeded = firstBelow.heading.getBoundingClientRect().top - threshold;
       var scrollRemaining = maxScroll - scrollY;
       if (scrollNeeded > 0 && scrollNeeded > scrollRemaining) {
         current = firstBelow;

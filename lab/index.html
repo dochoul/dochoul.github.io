@@ -112,71 +112,61 @@ permalink: /lab/
     .hatch-3 { color: #3d7a5a; font-size: clamp(2.5rem, 8vw, 4rem); }
     .hatch-4 { color: #7a4a9e; font-size: clamp(2.5rem, 8vw, 4rem); }
 
-    /* 레이어 2: 사선 애니메이션 (::after) */
+    /* 레이어 2: 사선 애니메이션 (::after) — agentskills.so 방식 */
+    /* 핵심: top/left 0.04em 오프셋 → 그림자+사선 복합 효과 */
     .hatch::after {
       content: attr(data-text);
       position: absolute;
-      inset: 0;
+      top: 0.04em;    /* 살짝 아래로 오프셋 */
+      left: 0.04em;   /* 살짝 오른쪽으로 오프셋 */
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      background-size: 0.06em 0.06em; /* em 단위 → 폰트 크기 비례 */
     }
 
+    /* 45~55% 밴드 방식: 선이 날카롭고 균일함 */
     .hatch-1::after {
-      background-image: repeating-linear-gradient(
-        -45deg,
-        transparent 0px, transparent 5px,
-        rgba(255,255,255,0.45) 5px, rgba(255,255,255,0.45) 8px
+      background-image: linear-gradient(
+        45deg,
+        transparent 45%, #c05540 45%, #c05540 55%, transparent 55%
       );
-      animation: hatch-slide 1.2s linear infinite;
+      animation: line-shadow 0.6s linear infinite;
     }
 
     .hatch-2::after {
-      background-image: repeating-linear-gradient(
-        -60deg,
-        transparent 0px, transparent 8px,
-        rgba(255,255,255,0.3) 8px, rgba(255,255,255,0.3) 14px
+      background-image: linear-gradient(
+        45deg,
+        transparent 45%, #3a6ea8 45%, #3a6ea8 55%, transparent 55%
       );
-      animation: hatch-slide 2.5s linear infinite;
+      animation: line-shadow 1.2s linear infinite;
     }
 
     .hatch-3::after {
-      background-image:
-        repeating-linear-gradient(
-          45deg,
-          transparent 0px, transparent 4px,
-          rgba(255,255,255,0.3) 4px, rgba(255,255,255,0.3) 6px
-        ),
-        repeating-linear-gradient(
-          -45deg,
-          transparent 0px, transparent 4px,
-          rgba(255,255,255,0.2) 4px, rgba(255,255,255,0.2) 6px
-        );
-      animation: hatch-crossslide 1.8s linear infinite;
+      background-image: linear-gradient(
+        45deg,
+        transparent 45%, #3d7a5a 45%, #3d7a5a 55%, transparent 55%
+      );
+      animation: line-shadow 2s linear infinite;
     }
 
     .hatch-4::after {
-      background-image: repeating-linear-gradient(
-        90deg,
-        transparent 0px, transparent 3px,
-        rgba(255,255,255,0.35) 3px, rgba(255,255,255,0.35) 5px
+      background-image: linear-gradient(
+        135deg,  /* 반대 방향 */
+        transparent 45%, #7a4a9e 45%, #7a4a9e 55%, transparent 55%
       );
-      animation: hatch-vscan 1s linear infinite;
+      animation: line-shadow-reverse 1s linear infinite;
     }
 
-    @keyframes hatch-slide {
+    /* 타일 한 칸(0.06em)씩 이동 → 끊김 없이 루프 */
+    @keyframes line-shadow {
       from { background-position: 0 0; }
-      to   { background-position: 40px 0; }
+      to   { background-position: 0.06em 0.06em; }
     }
 
-    @keyframes hatch-crossslide {
-      from { background-position: 0 0, 0 0; }
-      to   { background-position: 30px 0, -30px 0; }
-    }
-
-    @keyframes hatch-vscan {
+    @keyframes line-shadow-reverse {
       from { background-position: 0 0; }
-      to   { background-position: 0 30px; }
+      to   { background-position: -0.06em 0.06em; }
     }
 
     .variant-label {
@@ -260,37 +250,40 @@ permalink: /lab/
     <section class="section">
       <p class="section-label">how it works</p>
 
-      <div class="code-block"><pre><span class="c">/* HTML: data-text에 같은 텍스트를 넣어준다 */</span>
+      <div class="code-block"><pre><span class="c">/* HTML */</span>
 <span class="n">&lt;span</span> <span class="p">class</span>=<span class="v">"hatch"</span> <span class="p">data-text</span>=<span class="v">"Skills"</span><span class="n">&gt;</span>Skills<span class="n">&lt;/span&gt;</span>
 
 <span class="c">/* 레이어 1: 솔리드 텍스트 */</span>
 <span class="n">.hatch</span> {
   <span class="p">position</span>: <span class="v">relative</span>;
   <span class="p">display</span>: <span class="v">inline-block</span>;
-  <span class="p">color</span>: <span class="v">#c05540</span>; <span class="c">/* 솔리드 색상 그대로 보임 */</span>
+  <span class="p">color</span>: <span class="v">#c05540</span>;
 }
 
-<span class="c">/* 레이어 2: 사선 패턴을 같은 텍스트 모양으로 덮음 */</span>
+<span class="c">/* 레이어 2: 사선 오버레이 */</span>
 <span class="n">.hatch</span><span class="s">::after</span> {
-  <span class="p">content</span>: <span class="s">attr</span>(<span class="v">data-text</span>); <span class="c">/* 같은 텍스트 */</span>
+  <span class="p">content</span>: <span class="s">attr</span>(<span class="v">data-text</span>);
   <span class="p">position</span>: <span class="v">absolute</span>;
-  <span class="p">inset</span>: <span class="v">0</span>;
-  <span class="p">background-image</span>: <span class="s">repeating-linear-gradient</span>(
-    <span class="v">-45deg</span>,
-    <span class="v">transparent</span>           0px,
-    <span class="v">transparent</span>           5px,
-    <span class="v">rgba(255,255,255,0.45)</span> 5px,
-    <span class="v">rgba(255,255,255,0.45)</span> 8px
+  <span class="p">top</span>: <span class="v">0.04em</span>;  <span class="c">/* 오프셋 → 그림자+사선 복합 효과 */</span>
+  <span class="p">left</span>: <span class="v">0.04em</span>;
+  <span class="p">background-image</span>: <span class="s">linear-gradient</span>(
+    <span class="v">45deg</span>,
+    <span class="v">transparent</span> 45%,
+    <span class="v">#c05540</span>     45%,  <span class="c">/* 45~55% 구간만 색상 → 날카로운 선 */</span>
+    <span class="v">#c05540</span>     55%,
+    <span class="v">transparent</span> 55%
   );
+  <span class="p">background-size</span>: <span class="v">0.06em 0.06em</span>; <span class="c">/* em 단위 → 폰트 크기 비례 */</span>
   <span class="p">-webkit-background-clip</span>: <span class="v">text</span>;
   <span class="p">background-clip</span>: <span class="v">text</span>;
-  <span class="p">color</span>: <span class="v">transparent</span>; <span class="c">/* 사선만 보이게 */</span>
-  <span class="p">animation</span>: <span class="v">hatch-slide 1.2s linear infinite</span>;
+  <span class="p">color</span>: <span class="v">transparent</span>;
+  <span class="p">animation</span>: <span class="v">line-shadow 0.6s linear infinite</span>;
 }
 
-<span class="s">@keyframes</span> <span class="n">hatch-slide</span> {
+<span class="c">/* 타일 한 칸(0.06em)씩 이동 → 끊김 없이 루프 */</span>
+<span class="s">@keyframes</span> <span class="n">line-shadow</span> {
   <span class="s">from</span> { <span class="p">background-position</span>: <span class="v">0 0</span>; }
-  <span class="s">to</span>   { <span class="p">background-position</span>: <span class="v">40px 0</span>; }
+  <span class="s">to</span>   { <span class="p">background-position</span>: <span class="v">0.06em 0.06em</span>; }
 }</pre></div>
     </section>
 

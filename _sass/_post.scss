@@ -55,6 +55,11 @@
     text-align: justify;
   }
 
+  > p + ul,
+  > p + ol {
+    margin-top: -0.75rem;
+  }
+
   img {
     margin-left: auto;
     margin-right: auto;

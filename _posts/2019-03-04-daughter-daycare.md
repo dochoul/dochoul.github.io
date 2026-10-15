@@ -1,5 +1,5 @@
 ---
-title: "너의 첫 출근, 그리고 아빠의 고백"
+title: "너의 첫 세상으로"
 date: 2019-03-04
 layout: post
 author: "kimdy"

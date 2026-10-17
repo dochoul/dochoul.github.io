@@ -5,17 +5,9 @@ layout: post
 author: "kimdy"
 categories: "essay"
 description: "2019년 3월 4일, 딸이 처음으로 어린이집에 갔다."
-image: /assets/daughter-daycare-2019/01.jpg
+image: /assets/daughter-daycare-2019/doorway.png
 ---
 
-![어린이집 향해 걷는 딸](/assets/daughter-daycare-2019/01.jpg){:.photo-frame}
+![어린이집 향해 걷는 딸](/assets/daughter-daycare-2019/doorway.png){:.photo-frame}
 
-2019년 3월 4일, 딸이 처음 어린이집에 갔다.
-
-분홍 토끼가 그려진 입구로 아이는 망설이지 않고 걸어 들어갔다. 그 작은 등을 보다가 알았다. 긴장했던 건 아이가 아니라 나였다.
-
-이제 아이는 내가 없는 곳에서 친구를 사귀고, 다투고, 억울한 일도 겪으며 조금씩 단단해질 것이다. 대신 아파줄 수 없다는 게 마음에 걸렸지만, 나는 그날부터 뒤에서 지켜보는 법을 배우기 시작했다.
-
-딸아, 이제 아빠가 따라갈 수 없는 곳이 하나씩 늘어나겠지. 그래도 네가 돌아볼 때마다 아빠는 그 자리에 있을게.
-
-잘 다녀와.
+어린이집 문 앞, 아이는 뒤도 안 돌아보고 들어갔다. 서운한 건 내 몫이었다.

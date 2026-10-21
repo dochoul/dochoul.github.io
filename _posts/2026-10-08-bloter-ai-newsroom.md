@@ -7,7 +7,7 @@ categories: "dev"
 description: "AI로 기자를 위한 AI 뉴스룸을 만들었다."
 ---
 
-# AI로 기자를 위한 AI 뉴스룸을 만들었다
+## AI로 기자를 위한 AI 뉴스룸을 만들었다
 
 ![bloter](/assets/bloter-ai-newsroom/bloter.png)
 

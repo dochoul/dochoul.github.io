@@ -5,6 +5,7 @@ layout: post
 author: "kimdy"
 categories: "life"
 description: "44년 동안 그 자리를 지켜온 잠실야구장이 이날 완전히 작별을 고했다."
+image: /assets/bloter-ai-newsroom/goodbye-jamsil.jpg
 ---
 
 ![굿바이 잠실](/assets/bloter-ai-newsroom/goodbye-jamsil.jpg)

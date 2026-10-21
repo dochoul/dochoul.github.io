@@ -20,6 +20,7 @@ url:            "https://dochoul.github.io"
 # Social (used by jekyll-seo-tag for Twitter cards, author links, etc.)
 twitter:
   username: dochoul
+  card: summary_large_image
 
 social:
   name:         DeokYeon Kim

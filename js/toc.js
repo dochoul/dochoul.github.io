@@ -44,25 +44,35 @@
     var scrollY = window.scrollY;
     var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
-    var current = null;
-    var firstBelow = null;
+    // 각 헤딩이 활성화되는 스크롤 위치
+    var positions = entries.map(function (entry) {
+      return entry.heading.getBoundingClientRect().top + scrollY - threshold;
+    });
 
-    for (var i = 0; i < entries.length; i++) {
-      var top = entries[i].heading.getBoundingClientRect().top;
-      if (top <= threshold) {
-        current = entries[i];
-      } else {
-        firstBelow = entries[i];
+    // threshold까지 스크롤할 수 없는 끝부분 헤딩들은
+    // 남은 스크롤 구간을 나눠 차례로 활성화되도록 위치 재배치
+    var firstUnreachable = -1;
+    for (var i = 0; i < positions.length; i++) {
+      if (positions[i] > maxScroll) {
+        firstUnreachable = i;
         break;
       }
     }
+    if (firstUnreachable !== -1) {
+      var start = firstUnreachable > 0 ? Math.max(positions[firstUnreachable - 1], 0) : 0;
+      var count = positions.length - firstUnreachable;
+      var span = maxScroll - start;
+      for (var j = firstUnreachable; j < positions.length; j++) {
+        positions[j] = start + span * (j - firstUnreachable + 1) / count;
+      }
+    }
 
-    // threshold 안으로 스크롤할 여유가 없는 헤딩은 활성화 처리
-    if (firstBelow) {
-      var scrollNeeded = firstBelow.heading.getBoundingClientRect().top - threshold;
-      var scrollRemaining = maxScroll - scrollY;
-      if (scrollNeeded > 0 && scrollNeeded > scrollRemaining) {
-        current = firstBelow;
+    var current = null;
+    for (var k = 0; k < positions.length; k++) {
+      if (positions[k] <= scrollY + 1) {
+        current = entries[k];
+      } else {
+        break;
       }
     }
 

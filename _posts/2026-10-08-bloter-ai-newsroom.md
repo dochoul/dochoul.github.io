@@ -78,3 +78,6 @@ AI가 기사 초안을 쓰는 시대가 되면서 기자의 일은 쓰는 것에
 - [넘버스](https://www.numbers.co.kr/news/articleView.html?idxno=21513)
 - [가비아 홍보](https://company.gabia.com/promotion/pr_view/45266)
 - [블로터](https://www.bloter.net/news/articleView.html?idxno=667671)
+- [가비아 AWS 고객사례](https://aws.gabiacloud.com/gabia_aws/customer/12)
+- [가비아 라이브러리 고객사례](https://library.gabia.com/contents/15963/)
+- [가비아 네이버 블로그 고객사례](https://blog.naver.com/gabianow/224457926518)
